@@ -5,7 +5,7 @@ import { Style, Text, Fill, Stroke } from "ol/style";
 import { transformExtent } from "ol/proj";
 import { createEmpty, extend, intersects } from "ol/extent";
 
-const cityList = [
+const cityNames = [
   "安徽",
   "福建",
   "广西",
@@ -39,15 +39,15 @@ const textStyle = function (feature) {
   });
 };
 
-const layerList = cityList.map(
-  (city) =>
-    new Vector({
-      source: new SourceVector({
-        url: `./geojson/${city}.json`,
-        format: new GeoJSON(),
-      }),
-    })
-);
+const cityLayer = {};
+cityNames.forEach((name) => {
+  cityLayer[name] = new Vector({
+    source: new SourceVector({
+      url: `./geojson/${name}.json`,
+      format: new GeoJSON(),
+    }),
+  });
+});
 
 const defaultStyle = new Style({
   stroke: new Stroke({
@@ -56,44 +56,25 @@ const defaultStyle = new Style({
   }),
 });
 
-// transformedExtent
-// 0 表示边界框的左下角的经度（Longitude）。
-// 1 表示边界框的左下角的纬度（Latitude）。
-// 2 表示边界框的右上角的经度（Longitude）。
-// 3 表示边界框的右上角的纬度（Latitude）。
+export function AddLayer(map, city) {
+  const layer = cityLayer[city];
+  if (!layer) return;
 
-export function AddLayer(map, transformed) {
-  // layerList.forEach((layer) => {
-  //   var layerExtent = GetLayerExtent(layer);
-  //   // const layerTransformed = transformExtent(
-  //   //   layerExtent,
-  //   //   map.getView().getProjection(),
-  //   //   "EPSG:4326"
-  //   // );
-  //   console.log("layerExtent: ", layerExtent);
-  //   if (!map.getLayers().getArray().includes(layer)) {
-  //     // map.addLayer(layer);
-  //   }
-  // });
-  // layerList.forEach((layer) => {
-  //   layer.setStyle(function (feature, resolution) {
-  //     return [textStyle(feature), defaultStyle];
-  //   });
-  // });
+  if (!map.getLayers().getArray().includes(layer)) {
+    map.addLayer(layer);
+    layer.setStyle(function (feature) {
+      return [textStyle(feature), defaultStyle];
+    });
+  } else {
+    layer.setVisible(true);
+  }
 }
 
-export function GetLayerExtent(layer) {
-  const layerSource = layer.getSource();
+export function RemoveLayer(map, city) {
+  const layer = cityLayer[city];
+  if (!layer) return;
 
-  // 获取图层的全部要素
-  const features = layerSource.getFeatures();
-
-  // 计算图层的显示范围
-  const layerExtent = createEmpty(); // 创建一个空的范围
-  features.forEach((feature) => {
-    extend(layerExtent, feature.getGeometry().getExtent());
-  });
-
-  // 转换范围为 EPSG:4326 坐标系（WGS84）
-  return layerExtent;
+  if (map.getLayers().getArray().includes(layer)) {
+    layer.setVisible(false);
+  }
 }

@@ -5,7 +5,7 @@ import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
 import { Style, Text, Fill, Stroke } from "ol/style";
-import { AddLayer } from "./core/cityLayer";
+import { AddLayer, RemoveLayer } from "./core/cityLayer";
 import { createEmpty, extend, intersects } from "ol/extent";
 import { ProvinceScope } from "./data/province";
 
@@ -53,27 +53,31 @@ vectorLayer.setStyle(function (feature, resolution) {
   return [textStyle(feature), defaultStyle];
 });
 
-
 map.getView().on("change", function (event) {
   const mapView = event.target;
   const zoom = event.target.getZoom(); // 获取新的缩放级别
-  if (zoom < 7) return;
 
-  const currentExtent = mapView.calculateExtent(map.getSize()); // 正确的方法
+  if (zoom > 7) {
+    const currentExtent = mapView.calculateExtent(map.getSize()); // 正确的方法
 
-  const transformedExtent = transformExtent(
-    currentExtent,
-    mapView.getProjection(),
-    "EPSG:4326"
-  );
+    const transformedExtent = transformExtent(
+      currentExtent,
+      mapView.getProjection(),
+      "EPSG:4326"
+    );
 
-  const cityList = [];
-  for (const key in ProvinceScope) {
-    const city = ProvinceScope[key];
-    const isCityInView = intersects(city, transformedExtent);
-    if (isCityInView) {
-      console.log(key);
-      cityList.push(key);
+    for (const key in ProvinceScope) {
+      const city = ProvinceScope[key];
+      const isCityInView = intersects(city, transformedExtent);
+      if (isCityInView) {
+        AddLayer(map, key);
+      } else {
+        RemoveLayer(map, key);
+      }
+    }
+  } else {
+    for (const key in ProvinceScope) {
+      RemoveLayer(map, key);
     }
   }
 });
