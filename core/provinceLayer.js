@@ -2,31 +2,7 @@ import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
 import { Style, Text, Fill, Stroke } from "ol/style";
-import { transformExtent } from "ol/proj";
-import { createEmpty, extend, intersects } from "ol/extent";
-
-const cityNames = [
-  "安徽",
-  "福建",
-  "广西",
-  "贵州",
-  "河北",
-  "黑龙江",
-  "河南",
-  "湖北",
-  "江苏",
-  "江西",
-  "吉林",
-  "辽宁",
-  "青海",
-  "山东",
-  "山西",
-  "四川",
-  "新疆",
-  "西藏",
-  "云南",
-  "浙江",
-];
+import { ProvinceScope } from "../data/province";
 
 const textStyle = function (feature) {
   return new Style({
@@ -40,7 +16,7 @@ const textStyle = function (feature) {
 };
 
 const cityLayer = {};
-cityNames.forEach((name) => {
+Object.keys(ProvinceScope).forEach((name) => {
   cityLayer[name] = new Vector({
     source: new SourceVector({
       url: `./geojson/${name}.json`,
@@ -61,10 +37,11 @@ export function AddLayer(map, city) {
   if (!layer) return;
 
   if (!map.getLayers().getArray().includes(layer)) {
-    map.addLayer(layer);
     layer.setStyle(function (feature) {
       return [textStyle(feature), defaultStyle];
     });
+
+    map.addLayer(layer);
   } else {
     layer.setVisible(true);
   }
