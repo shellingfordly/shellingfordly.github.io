@@ -2,7 +2,7 @@ import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
 import { Style, Text, Fill, Stroke } from "ol/style";
-import { ProvinceScope } from "../data/province";
+import { ProvinceScope } from "/data/province";
 
 const textStyle = function (feature) {
   return new Style({

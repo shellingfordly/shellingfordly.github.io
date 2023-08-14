@@ -1,7 +1,8 @@
 import "./style.css";
 import { Map, View } from "ol";
 import { fromLonLat } from "ol/proj";
-import { CreateBaseLayer, addEventListener, MarkPoint } from "./core";
+import { CreateBaseLayer, addEventListener, SetupMarker } from "./core";
+import "./core/windows";
 
 const DefaultOptions = {
   center: [120.1552, 30.2741],
@@ -23,6 +24,6 @@ const map = new Map({
 
 CreateBaseLayer(map);
 
-MarkPoint(map);
+SetupMarker(map);
 
 addEventListener(map, "change:resolution");
