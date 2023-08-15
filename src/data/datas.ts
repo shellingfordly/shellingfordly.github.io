@@ -1,4 +1,4 @@
-export const MARKER_MAP = {
+export const MARKER_MAP: MarkerMapType = {
   安徽: {},
   澳门: {},
   北京: {},
@@ -28,11 +28,13 @@ export const MARKER_MAP = {
   湖南: {
     children: {
       长沙: {
-        橘子洲头: {
-          coords: [112.96, 28.17],
-        },
-        五一广场: {
-          coords: [112.976352, 28.194306],
+        children: {
+          橘子洲头: {
+            coords: [112.96, 28.17],
+          },
+          五一广场: {
+            coords: [112.976352, 28.194306],
+          },
         },
       },
       张家界: {

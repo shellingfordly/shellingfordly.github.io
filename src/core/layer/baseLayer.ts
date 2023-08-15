@@ -2,18 +2,19 @@ import { GeoJSON } from "ol/format";
 import { Style, Text, Fill, Stroke } from "ol/style";
 import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
+import ol from "ol";
 
-export function CreateBaseLayer(map) {
+export function CreateBaseLayer(map: ol.Map) {
   const vectorLayer = new Vector({
     source: new SourceVector({
-      url: "./geojson/all.json",
+      url: "/src/geojson/all.json",
       format: new GeoJSON(),
     }),
   });
   map.addLayer(vectorLayer);
 
   // * 样式
-  const textStyle = function (feature) {
+  const textStyle = function (feature: ol.Feature) {
     return new Style({
       text: new Text({
         text: feature.get("name"), // 假设GeoJSON属性中有名为 'name' 的属性来表示城市名称
@@ -29,7 +30,5 @@ export function CreateBaseLayer(map) {
       width: 1,
     }),
   });
-  vectorLayer.setStyle(function (feature, resolution) {
-    return [textStyle(feature), defaultStyle];
-  });
+  vectorLayer.setStyle((feature: any) => [textStyle(feature), defaultStyle]);
 }

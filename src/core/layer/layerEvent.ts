@@ -1,10 +1,11 @@
 import { transformExtent } from "ol/proj";
 import { AddLayer, RemoveLayer } from "./provinceLayer";
 import { intersects } from "ol/extent";
-import { ProvinceScope } from "/data/province";
+import { ProvinceScope } from "~/data/province";
+import ol from "ol";
 
-export function addEventListener(map, event) {
-  map.getView().on(event, function (event) {
+export function AddEventListener(map: ol.Map, eventStr: any) {
+  map.getView().on(eventStr, function (event) {
     const mapView = event.target;
     const zoom = event.target.getZoom(); // 获取新的缩放级别
 

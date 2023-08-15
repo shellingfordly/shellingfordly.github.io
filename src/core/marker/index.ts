@@ -1,3 +1,4 @@
+import { Map } from "ol";
 export * from "./handleEvent";
 export * from "./point";
 import { MarkPoint } from "./point";
@@ -5,7 +6,7 @@ import { OnHoverMarker } from "./handleEvent";
 import { Select } from "ol/interaction";
 import { pointerMove } from "ol/events/condition";
 
-export function SetupMarker(map) {
+export function SetupMarker(map: Map) {
   const container = MarkPoint(map);
 
   // 创建鼠标悬停交互

@@ -1,15 +1,15 @@
-import { Feature } from "ol";
+import ol, { Feature } from "ol";
 import { Point } from "ol/geom";
 import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
 import { fromLonLat } from "ol/proj";
 import { Style, Icon } from "ol/style";
-import { MARKER_MAP } from "/data/datas";
+import { MARKER_MAP } from "~/data/datas";
 
 /**
  * @abstract 标记点
  */
-export function MarkPoint(map) {
+export function MarkPoint(map: ol.Map) {
   const container = new Vector({
     source: new SourceVector(),
   });
@@ -28,7 +28,10 @@ export function MarkPoint(map) {
 /**
  * @abstract 添加点
  */
-export function AddPoints(container, markerMap) {
+export function AddPoints(
+  container: Vector<any>,
+  markerMap: MarkerMapType
+) {
   for (const name in markerMap) {
     const item = markerMap[name];
     if (item.coords) {
@@ -44,7 +47,7 @@ export function AddPoints(container, markerMap) {
 /**
  * @abstract 创建点
  */
-export function CreatePointFeature(name, coords) {
+export function CreatePointFeature(name: string, coords: number[]) {
   // 创建一个点要素
   const pointFeature = new Feature({
     geometry: new Point(fromLonLat(coords)), // 设置点的坐标

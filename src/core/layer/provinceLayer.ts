@@ -2,9 +2,10 @@ import Vector from "ol/layer/Vector";
 import SourceVector from "ol/source/Vector";
 import { GeoJSON } from "ol/format";
 import { Style, Text, Fill, Stroke } from "ol/style";
-import { ProvinceScope } from "/data/province";
+import { ProvinceScope } from "~/data/province";
+import ol from "ol";
 
-const textStyle = function (feature) {
+const textStyle = function (feature: ol.Feature) {
   return new Style({
     text: new Text({
       text: feature.get("name"), // 假设GeoJSON属性中有名为 'name' 的属性来表示城市名称
@@ -15,15 +16,16 @@ const textStyle = function (feature) {
   });
 };
 
-const cityLayer = {};
-Object.keys(ProvinceScope).forEach((name) => {
-  cityLayer[name] = new Vector({
+const cityLayer: Record<string, Vector<any>> = {};
+
+for (const key in ProvinceScope) {
+  cityLayer[key] = new Vector({
     source: new SourceVector({
-      url: `./geojson/${name}.json`,
+      url: `/src/geojson/${key}.json`,
       format: new GeoJSON(),
     }),
   });
-});
+}
 
 const defaultStyle = new Style({
   stroke: new Stroke({
@@ -32,14 +34,12 @@ const defaultStyle = new Style({
   }),
 });
 
-export function AddLayer(map, city) {
+export function AddLayer(map: ol.Map, city: string) {
   const layer = cityLayer[city];
   if (!layer) return;
 
   if (!map.getLayers().getArray().includes(layer)) {
-    layer.setStyle(function (feature) {
-      return [textStyle(feature), defaultStyle];
-    });
+    layer.setStyle((f: any) => [textStyle(f), defaultStyle]);
 
     map.addLayer(layer);
   } else {
@@ -47,7 +47,7 @@ export function AddLayer(map, city) {
   }
 }
 
-export function RemoveLayer(map, city) {
+export function RemoveLayer(map: ol.Map, city: string) {
   const layer = cityLayer[city];
   if (!layer) return;
 

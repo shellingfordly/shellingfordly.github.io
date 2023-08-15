@@ -1,10 +1,11 @@
-import Vector from "ol/layer/Vector";
-import SourceVector from "ol/source/Vector";
-import { Style, Icon, Text, Fill } from "ol/style";
-import { Overlay } from "ol";
+import ol, { Overlay } from "ol";
+import { Select } from "ol/interaction";
+import { Point } from "ol/geom";
 
-export function OnHoverMarker(map, hoverInteraction) {
+export function OnHoverMarker(map: ol.Map, hoverInteraction: Select) {
   const previewContainer = document.getElementById("preview-container");
+
+  if (previewContainer == null) return;
 
   // 创建预览 Overlay
   const previewOverlay = new Overlay({
@@ -25,10 +26,11 @@ export function OnHoverMarker(map, hoverInteraction) {
       // 设置预览容器中的内容（这里使用文本作为示例）
       previewContainer.textContent = selectedFeature.get("name");
 
-      const originalCoordinates = selectedFeature
-        .getGeometry()
-        .getCoordinates();
-      previewOverlay.setPosition(originalCoordinates);
+      const geometry = selectedFeature.getGeometry();
+      if (geometry instanceof Point) {
+        const coordinates = geometry.getCoordinates();
+        previewOverlay.setPosition(coordinates);
+      }
 
       // 鼠标指针
       map.getTargetElement().style.cursor = "pointer";
@@ -40,6 +42,3 @@ export function OnHoverMarker(map, hoverInteraction) {
     }
   });
 }
-
-
-
