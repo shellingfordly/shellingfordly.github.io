@@ -1,4 +1,4 @@
-export const MARKER_MAP: MarkerMapType = {
+export const MARKER_MAP = {
   安徽: {},
   澳门: {},
   北京: {},
@@ -8,9 +8,11 @@ export const MARKER_MAP: MarkerMapType = {
         children: {
           鼓浪屿: {
             coords: [118.07, 24.45],
+            route: "/2020/xiamen",
           },
           黄厝海滩: {
             coords: [118.16, 24.44],
+            route: "/2020/xiamen",
           },
         },
       },

@@ -1,7 +1,11 @@
 type Any = any;
 
-type MarkerMapItem = {
-  coords?: number[];
-  children?: Record<string, MarkerMapItem>;
-};
-type MarkerMapType = Record<string, MarkerMapItem>;
+type RouteMetaFrontmatter = MarkerItem;
+
+interface MarkerItem {
+  name: string;
+  city: string;
+  route: string;
+  coords: number[];
+  date: string;
+}

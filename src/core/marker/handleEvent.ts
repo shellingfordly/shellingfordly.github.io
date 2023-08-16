@@ -1,8 +1,6 @@
-import ol, { Overlay } from "ol";
-import { Select } from "ol/interaction";
-import { Point } from "ol/geom";
+import { Overlay, Map, Select, Point } from "~/ol-imports";
 
-export function OnHoverMarker(map: ol.Map, hoverInteraction: Select) {
+export function OnHoverMarker(map: Map, hoverInteraction: Select) {
   const previewContainer = document.getElementById("preview-container");
 
   if (previewContainer == null) return;
@@ -39,6 +37,17 @@ export function OnHoverMarker(map: ol.Map, hoverInteraction: Select) {
 
       // 鼠标指针
       map.getTargetElement().style.cursor = "default";
+    }
+  });
+}
+
+export function OnClickMarker(map: Map, hoverInteraction: Select) {
+  hoverInteraction.on("select", function (event) {
+    if (event.selected.length > 0) {
+      const selectedFeature = event.selected[0];
+      // 打开文章
+      const route = selectedFeature.get("route");
+      if (route) window.location.href = route;
     }
   });
 }

@@ -1,4 +1,4 @@
-export const ProvinceScope: Record<string, number[]> = {
+export const PROVINCE_SCOPE: Record<string, [number, number, number, number]> = {
   安徽: [114.878463, 29.395191, 119.645188, 34.65234],
   澳门: [113.528164, 22.109142, 113.598861, 22.217034],
   北京: [115.416827, 39.442078, 117.508251, 41.058964],

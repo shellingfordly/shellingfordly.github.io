@@ -1,68 +1,52 @@
-import ol, { Feature } from "ol";
-import { Point } from "ol/geom";
-import Vector from "ol/layer/Vector";
-import SourceVector from "ol/source/Vector";
-import { fromLonLat } from "ol/proj";
-import { Style, Icon } from "ol/style";
-import { MARKER_MAP } from "~/data/datas";
+import {
+  Feature,
+  Vector,
+  SourceVector,
+  fromLonLat,
+  Style,
+  Icon,
+  Point,
+} from "~/ol-imports";
+import { CreateMarkerData } from "../utils/route";
 
 /**
- * @abstract 标记点
+ * @abstract 创建标点图层
  */
-export function MarkPoint(map: ol.Map) {
+export function CreateMarkerLayer() {
   const container = new Vector({
     source: new SourceVector(),
   });
 
-  map.addLayer(container);
-
-  //添加点
-  AddPoints(container, MARKER_MAP);
-
-  // 地图缩放时，刷新
-  map.getView().on("change:resolution", container.changed);
+  const markerList = CreateMarkerData();
+  markerList.forEach((item) => {
+    const pointFeature = CreatePointFeature(item);
+    if (pointFeature) container.getSource()?.addFeature(pointFeature);
+  });
 
   return container;
 }
 
 /**
- * @abstract 添加点
+ * @abstract 创建点要素
  */
-export function AddPoints(
-  container: Vector<any>,
-  markerMap: MarkerMapType
-) {
-  for (const name in markerMap) {
-    const item = markerMap[name];
-    if (item.coords) {
-      const pointFeature = CreatePointFeature(name, item.coords);
-      container.getSource().addFeature(pointFeature);
-    }
-    if (item.children) {
-      AddPoints(container, item.children);
-    }
-  }
-}
+export function CreatePointFeature(item: MarkerItem) {
+  if (!item?.coords) return;
 
-/**
- * @abstract 创建点
- */
-export function CreatePointFeature(name: string, coords: number[]) {
   // 创建一个点要素
   const pointFeature = new Feature({
-    geometry: new Point(fromLonLat(coords)), // 设置点的坐标
-    name, // 设置点的属性，可以根据需求设置其他属性
+    geometry: new Point(fromLonLat(item.coords)), // 设置点的坐标
+    ...item,
   });
 
   // 创建一个图标样式
   const iconStyle = new Style({
     image: new Icon({
-      src: "/marker.svg", // 图标的路径
+      src: "/marker.svg",
       scale: 1,
       anchor: [0.5, 1], // 图标的锚点位置，[0.5, 1] 表示图标底部中心
     }),
   });
-  pointFeature.setStyle(iconStyle); // 设置点要素的样式
+  pointFeature.setStyle(iconStyle);
 
   return pointFeature;
 }

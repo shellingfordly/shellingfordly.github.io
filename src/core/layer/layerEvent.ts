@@ -1,11 +1,14 @@
-import { transformExtent } from "ol/proj";
-import { AddLayer, RemoveLayer } from "./provinceLayer";
-import { intersects } from "ol/extent";
-import { ProvinceScope } from "~/data/province";
-import ol from "ol";
+import { ProvinceLayerMap } from "./provinceLayer";
+import { transformExtent, intersects, Map } from "~/ol-imports";
+import { PROVINCE_SCOPE } from "~/data/province";
+import { EPSG } from "~/constants";
 
-export function AddEventListener(map: ol.Map, eventStr: any) {
-  map.getView().on(eventStr, function (event) {
+export function SetupEventListener(map: Map) {
+  ChangeResolutionListener(map);
+}
+
+export function ChangeResolutionListener(map: Map) {
+  map.getView().on("change:resolution", function (event) {
     const mapView = event.target;
     const zoom = event.target.getZoom(); // 获取新的缩放级别
 
@@ -15,21 +18,25 @@ export function AddEventListener(map: ol.Map, eventStr: any) {
       const transformedExtent = transformExtent(
         currentExtent,
         mapView.getProjection(),
-        "EPSG:4326"
+        EPSG
       );
 
-      for (const key in ProvinceScope) {
-        const city = ProvinceScope[key];
-        const isCityInView = intersects(city, transformedExtent);
+      for (const key in PROVINCE_SCOPE) {
+        const extent = PROVINCE_SCOPE[key];
+        const isCityInView = intersects(extent, transformedExtent);
+        const layer = ProvinceLayerMap[key];
+        if (!layer) continue;
+
         if (isCityInView) {
-          AddLayer(map, key);
+          if (!layer.getVisible()) layer.setVisible(true);
         } else {
-          RemoveLayer(map, key);
+          layer.setVisible(false);
         }
       }
     } else {
-      for (const key in ProvinceScope) {
-        RemoveLayer(map, key);
+      for (const key in PROVINCE_SCOPE) {
+        const layer = ProvinceLayerMap[key];
+        if (layer) layer.setVisible(false);
       }
     }
   });
