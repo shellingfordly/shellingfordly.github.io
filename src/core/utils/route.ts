@@ -5,7 +5,10 @@ export function CreateMarkerData(): MarkerItem[] {
 
   routes.forEach((route) => {
     const frontmatter = route.meta?.frontmatter as Any;
-    markerList.push(frontmatter);
+    markerList.push({
+      ...frontmatter,
+      route: route.path,
+    });
   });
 
   return markerList;

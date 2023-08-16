@@ -1,19 +1,10 @@
 import { Overlay, Map, Select, Point } from "~/ol-imports";
+import { CreateMarkerPreview } from "./preview";
 
 export function OnHoverMarker(map: Map, hoverInteraction: Select) {
-  const previewContainer = document.getElementById("preview-container");
-
-  if (previewContainer == null) return;
-
-  // 创建预览 Overlay
-  const previewOverlay = new Overlay({
-    element: previewContainer,
-    positioning: "center-center", // 设置 DOM 元素在预览图层中的定位方式
-    offset: [0, -10], // 偏移量，根据需要调整
-    stopEvent: false, // 允许事件传递给地图
-  });
-
-  // 将预览 Overlay 添加到地图中
+  const { previewOverlay, SetStyle } = CreateMarkerPreview();
+  if (!previewOverlay) return;
+  // 添加预览 Overlay
   map.addOverlay(previewOverlay);
 
   // 监听选中要素的事件
@@ -21,9 +12,10 @@ export function OnHoverMarker(map: Map, hoverInteraction: Select) {
     if (event.selected.length > 0) {
       const selectedFeature = event.selected[0];
 
-      // 设置预览容器中的内容（这里使用文本作为示例）
-      previewContainer.textContent = selectedFeature.get("name");
+      // 设置样式
+      SetStyle(selectedFeature.get("info"));
 
+      // 设置位置
       const geometry = selectedFeature.getGeometry();
       if (geometry instanceof Point) {
         const coordinates = geometry.getCoordinates();
@@ -34,7 +26,7 @@ export function OnHoverMarker(map: Map, hoverInteraction: Select) {
       map.getTargetElement().style.cursor = "pointer";
     } else {
       previewOverlay.setPosition(undefined);
-
+      
       // 鼠标指针
       map.getTargetElement().style.cursor = "default";
     }
@@ -46,8 +38,8 @@ export function OnClickMarker(map: Map, hoverInteraction: Select) {
     if (event.selected.length > 0) {
       const selectedFeature = event.selected[0];
       // 打开文章
-      const route = selectedFeature.get("route");
-      if (route) window.location.href = route;
+      const info = selectedFeature.get("info");
+      if (info?.route) window.location.href = info?.route;
     }
   });
 }

@@ -35,7 +35,7 @@ export function CreatePointFeature(item: MarkerItem) {
   // 创建一个点要素
   const pointFeature = new Feature({
     geometry: new Point(fromLonLat(item.coords)), // 设置点的坐标
-    ...item,
+    info: item,
   });
 
   // 创建一个图标样式

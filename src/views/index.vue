@@ -8,5 +8,11 @@ onMounted(InitMap);
 
 <template>
   <div id="map"></div>
-  <div id="preview-container" class="preview-container"></div>
+  <div id="map_marker_preview">
+    <img />
+    <div>
+      <span class="title" />
+      <span class="desc" />
+    </div>
+  </div>
 </template>

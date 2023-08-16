@@ -1,11 +1,14 @@
 type Any = any;
 
-type RouteMetaFrontmatter = MarkerItem;
-
-interface MarkerItem {
-  name: string;
+interface RouteMetaFrontmatter {
+  title: string;
   city: string;
-  route: string;
   coords: number[];
-  date: string;
+  date?: string;
+  desc?: string;
+  preview?: string;
+}
+
+interface MarkerItem extends RouteMetaFrontmatter {
+  route: string;
 }
