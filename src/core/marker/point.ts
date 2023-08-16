@@ -7,7 +7,7 @@ import {
   Icon,
   Point,
 } from "~/ol-imports";
-import { CreateMarkerData } from "../utils/route";
+import { CreateMarkerData } from "../utils";
 
 /**
  * @abstract 创建标点图层

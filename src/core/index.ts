@@ -1,4 +1,4 @@
-import "./windows";
+import { CheckBrowserEnvironment } from "./utils";
 import { Map, View, fromLonLat } from "~/ol-imports";
 import {
   SetupBaseLayer,
@@ -6,29 +6,27 @@ import {
   SetupEventListener,
 } from "./layer";
 import { SetupMarkerLayer } from "./marker";
-
-const DefaultOptions = {
-  center: [120.1552, 30.2741],
-  zoom: 4,
-  minZoom: 3,
-  maxZoom: 15,
-};
+import { MAP_DEFAULT_OPTIONS } from "./config";
 
 function CreateMap() {
+  const { center, zoom, minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
+
   return new Map({
     target: "map",
     layers: [],
     view: new View({
-      center: fromLonLat(DefaultOptions.center),
-      zoom: DefaultOptions.zoom,
-      minZoom: DefaultOptions.minZoom,
-      maxZoom: DefaultOptions.maxZoom,
+      center: fromLonLat(center),
+      zoom,
+      minZoom,
+      maxZoom,
     }),
   });
 }
 
 export function SetupMap() {
   const map = ref<Map>();
+
+  CheckBrowserEnvironment();
 
   function InitMap() {
     map.value = CreateMap();
