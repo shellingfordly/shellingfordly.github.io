@@ -2,11 +2,18 @@ import { resolve } from "node:path";
 import fs from "fs";
 import matter from "gray-matter";
 import { defineConfig } from "vite";
-import Markdown from "vite-plugin-md";
 import Pages from "vite-plugin-pages";
+import Components from "unplugin-vue-components/vite";
 import Vue from "@vitejs/plugin-vue";
 import VueRouter from "unplugin-vue-router/vite";
 import AutoImport from "unplugin-auto-import/vite";
+import { bundledLanguages, getHighlighter } from "shikiji";
+import LinkAttributes from "markdown-it-link-attributes";
+import Markdown from "unplugin-vue-markdown/vite";
+import UnoCSS from "unocss/vite";
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import { presetIcons } from "unocss";
 
 export default defineConfig({
   server: {
@@ -20,6 +27,20 @@ export default defineConfig({
   },
   plugins: [
     VueRouter(),
+
+    UnoCSS({
+      presets: [
+        presetIcons({
+          extraProperties: {
+            display: "inline-block",
+            height: "1.2em",
+            width: "1.2em",
+            "vertical-align": "text-bottom",
+          },
+        }),
+      ],
+    }),
+
     Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
@@ -27,7 +48,39 @@ export default defineConfig({
         defineModel: true,
       },
     }),
-    Markdown(),
+
+    Markdown({
+      wrapperClasses: "prose m-auto slide-enter-content",
+      async markdownItSetup(md) {
+        const shiki = await getHighlighter({
+          themes: ["vitesse-dark", "vitesse-light"],
+          langs: Object.keys(bundledLanguages) as any,
+        });
+
+        md.use((markdown) => {
+          markdown.options.highlight = (code, lang) => {
+            const themed = shiki.codeToHtmlThemes(code, {
+              lang,
+              themes: {
+                light: "vitesse-light",
+                dark: "vitesse-dark",
+              },
+              cssVariablePrefix: "--s-",
+            });
+            return `${themed}`;
+          };
+        });
+
+        md.use(LinkAttributes, {
+          matcher: (link: string) => /^https?:\/\//.test(link),
+          attrs: {
+            target: "_blank",
+            rel: "noopener",
+          },
+        });
+      },
+    }),
+
     Pages({
       extensions: ["vue", "md"],
       dirs: "src/views",
@@ -43,8 +96,26 @@ export default defineConfig({
         return route;
       },
     }),
+
     AutoImport({
-      imports: ["vue", "vue-router"],
+      imports: ["vue", "vue-router", "@vueuse/core"],
+    }),
+
+    Components({
+      extensions: ["vue", "md"],
+      dts: true,
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      resolvers: [
+        IconsResolver({
+          componentPrefix: "",
+        }),
+      ],
+    }),
+
+    Icons({
+      autoInstall: true,
+      defaultClass: "inline",
+      defaultStyle: "vertical-align: sub;",
     }),
   ],
 });

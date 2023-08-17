@@ -7,6 +7,7 @@ onMounted(InitMap);
 </script>
 
 <template>
+  <nav-bar />
   <div id="map"></div>
   <div id="map_marker_preview">
     <img />

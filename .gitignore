@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .vite-ssg-temp
+auto-imports.d.ts
+components.d.ts
 
 # Editor directories and files
 .vscode/*
