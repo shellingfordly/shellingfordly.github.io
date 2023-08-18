@@ -5,7 +5,6 @@ import { defineConfig } from "vite";
 import Pages from "vite-plugin-pages";
 import Components from "unplugin-vue-components/vite";
 import Vue from "@vitejs/plugin-vue";
-import VueRouter from "unplugin-vue-router/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import { bundledLanguages, getHighlighter } from "shikiji";
 import LinkAttributes from "markdown-it-link-attributes";
@@ -13,7 +12,7 @@ import Markdown from "unplugin-vue-markdown/vite";
 import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
-import { presetIcons } from "unocss";
+import { presetIcons, presetUno } from "unocss";
 
 export default defineConfig({
   server: {
@@ -26,9 +25,13 @@ export default defineConfig({
     alias: [{ find: "~/", replacement: `${resolve(__dirname, "src")}/` }],
   },
   plugins: [
-    VueRouter(),
-
     UnoCSS({
+      shortcuts: [
+        {
+          "bg-base": "bg-white dark:bg-black",
+          "border-base": "border-[#8884]",
+        },
+      ],
       presets: [
         presetIcons({
           extraProperties: {
@@ -38,6 +41,7 @@ export default defineConfig({
             "vertical-align": "text-bottom",
           },
         }),
+        presetUno(),
       ],
     }),
 

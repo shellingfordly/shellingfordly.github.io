@@ -1,20 +1,51 @@
+<script setup lang="ts">
+import { toggleDark } from "~/logics";
+
+function toTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+const { y: scroll } = useWindowScroll();
+</script>
+
 <template>
-  <nav class="nav">
-    <toggle-theme />
-  </nav>
+  <header class="header z-40 sm:absolute w-full top=0 left-0">
+    <button
+      title="Scroll to top"
+      class="fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition duration-300 z-100 print:hidden"
+      :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
+      @click="toTop()"
+    >
+      <div class="i-ri-arrow-up-line" />
+    </button>
+
+    <nav class="nav">
+      <div class="spacer" />
+      <div class="right" print:op0>
+        <a
+          href="https://github.com/shellingfordly"
+          target="_blank"
+          title="GitHub"
+        >
+          <div class="i-uil-github-alt" />
+        </a>
+        <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
+          <div class="i-carbon-sun dark:i-carbon-moon" />
+        </a>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style scoped>
 .nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 100;
   padding: 0.5rem;
   width: 100%;
   display: grid;
-  grid-gap: 1.2rem;
-  grid-auto-flow: column;
+  grid-template-columns: auto max-content;
+  box-sizing: border-box;
 }
 
 .nav > * {
@@ -37,5 +68,15 @@
 .nav a:hover {
   opacity: 1;
   text-decoration-color: inherit;
+}
+
+.nav .right {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-auto-flow: column;
+}
+
+.nav .right > * {
+  margin: auto;
 }
 </style>

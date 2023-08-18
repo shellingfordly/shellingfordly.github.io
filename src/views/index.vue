@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SetupMap } from "~/core";
+import { SetupMap } from "~/hooks/map";
 
 const { InitMap } = SetupMap();
 
@@ -7,8 +7,7 @@ onMounted(InitMap);
 </script>
 
 <template>
-  <nav-bar />
-  <div id="map"></div>
+  <div id="map" class="w-full h-full"></div>
   <div id="map_marker_preview">
     <img />
     <div>
