@@ -1,4 +1,4 @@
-import { CheckBrowserEnvironment } from "./utils";
+import { CheckBrowserEnvironment } from "~/utils";
 import { Map, View, fromLonLat } from "~/ol-imports";
 import {
   SetupBaseLayer,
@@ -19,6 +19,7 @@ function CreateMap() {
       zoom,
       minZoom,
       maxZoom,
+      constrainResolution: true,
     }),
   });
 }

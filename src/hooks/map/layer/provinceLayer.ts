@@ -38,6 +38,7 @@ export function SetupProvinceLayer(map: Map) {
         url: `/src/geojson/${key}.json`,
         format: new GeoJSON(),
       }),
+      renderBuffer: 100,
     });
     // 缓存
     ProvinceLayerMap[key] = layer;
