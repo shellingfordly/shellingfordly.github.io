@@ -23,7 +23,7 @@
     "unplugin-auto-import": "^0.16.6",
     "unplugin-icons": "^0.16.5",
     "unplugin-vue-components": "^0.25.1",
-    "unplugin-vue-markdown": "^0.24.1",
+    "unplugin-vue-markdown": "^0.24.2",
     "unplugin-vue-router": "^0.6.4",
     "vite": "^4.0.4",
     "vite-plugin-md": "^0.22.5",
