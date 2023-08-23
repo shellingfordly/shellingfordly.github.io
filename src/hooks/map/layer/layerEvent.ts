@@ -1,14 +1,14 @@
-import { ProvinceLayerMap } from "./provinceLayer";
 import { transformExtent, intersects, Map } from "~/ol-imports";
 import { PROVINCE_SCOPE } from "~/data/province";
-import { EPSG } from "~/constants";
+import { EPSG4326 } from "../config";
+import { LayerCacheMap } from ".";
 
 export function SetupEventListener(map: Map) {
   ChangeResolutionListener(map);
 }
 
 export function ChangeResolutionListener(map: Map) {
-  map.getView().on("change:resolution", function (event) {
+  map.getView().on("change", function (event) {
     const mapView = event.target;
     const zoom = event.target.getZoom(); // 获取新的缩放级别
 
@@ -18,15 +18,16 @@ export function ChangeResolutionListener(map: Map) {
       const transformedExtent = transformExtent(
         currentExtent,
         mapView.getProjection(),
-        EPSG
+        EPSG4326
       );
 
       for (const key in PROVINCE_SCOPE) {
         const extent = PROVINCE_SCOPE[key];
         const isCityInView = intersects(extent, transformedExtent);
-        const layer = ProvinceLayerMap[key];
-        if (!layer) continue;
+        const layerCache = LayerCacheMap.second[key];
+        if (!layerCache || layerCache.layer) continue;
 
+        const layer = layerCache.layer;
         if (isCityInView) {
           if (!layer.getVisible()) layer.setVisible(true);
         } else {
@@ -35,8 +36,8 @@ export function ChangeResolutionListener(map: Map) {
       }
     } else {
       for (const key in PROVINCE_SCOPE) {
-        const layer = ProvinceLayerMap[key];
-        if (layer) layer.setVisible(false);
+        const layerCache = LayerCacheMap.second[key];
+        if (layerCache && layerCache.layer) layerCache.layer.setVisible(false);
       }
     }
   });

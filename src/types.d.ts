@@ -12,3 +12,8 @@ interface RouteMetaFrontmatter {
 interface MarkerItem extends RouteMetaFrontmatter {
   route: string;
 }
+
+interface LayerMapItem {
+  name: string
+  layer: Vector<any>;
+}

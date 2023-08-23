@@ -112,7 +112,7 @@ import {
   addProjection,
   addProjections,
 } from "ol/proj";
-import { intersects } from "ol/extent";
+import { intersects, boundingExtent } from "ol/extent";
 import {
   DoubleClickZoom,
   DblClickDragZoom,
@@ -256,6 +256,7 @@ export {
   addProjection,
   addProjections,
   intersects,
+  boundingExtent,
   DoubleClickZoom,
   DblClickDragZoom,
   DragAndDrop,

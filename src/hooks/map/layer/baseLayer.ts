@@ -1,43 +1,30 @@
-import {
-  Map,
-  Feature,
-  GeoJSON,
-  Style,
-  Text,
-  Fill,
-  Stroke,
-  Vector,
-  SourceVector,
-} from "~/ol-imports";
+import { Map, GeoJSON, Vector, SourceVector, Group } from "~/ol-imports";
+import { CreateLayerStyle } from "../style";
+import { CreateAddLayerCache } from ".";
 
 export function SetupBaseLayer(map: Map) {
-  const baseLayer = new Vector({
+  const worldLayer = CreateLayer("/src/geojson/world.json");
+  const chinaLayer = CreateLayer("/src/geojson/china.json");
+  const japanLayer = CreateLayer("/src/geojson/japan.json");
+
+  CreateAddLayerCache("first", "china", chinaLayer);
+  CreateAddLayerCache("second", "japan", chinaLayer);
+
+  const layerGroup = new Group({
+    layers: [worldLayer, chinaLayer, japanLayer],
+  });
+  map.addLayer(layerGroup);
+}
+
+function CreateLayer(url: string) {
+  const layer = new Vector({
     source: new SourceVector({
-      url: "/src/geojson/all.json",
+      url,
       format: new GeoJSON(),
     }),
   });
-  map.addLayer(baseLayer);
 
-  const textStyle = function (feature: Feature) {
-    return new Style({
-      text: new Text({
-        text: feature.get("name"), // 假设GeoJSON属性中有名为 'name' 的属性来表示城市名称
-        font: "12px Arial",
-        fill: new Fill({ color: "black" }),
-        stroke: new Stroke({ color: "white", width: 2 }),
-      }),
-    });
-  };
+  layer.setStyle(CreateLayerStyle);
 
-  const defaultStyle = new Style({
-    stroke: new Stroke({
-      color: "#ddd",
-      width: 1,
-    }),
-  });
-
-  baseLayer.setStyle((feature: any) => {
-    return [textStyle(feature), defaultStyle];
-  });
+  return layer;
 }
