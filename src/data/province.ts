@@ -1,4 +1,4 @@
-export const PROVINCE_SCOPE: Record<string, [number, number, number, number]> = {
+export const ALL_EXTENT: Record<string, [number, number, number, number]> = {
   安徽: [114.878463, 29.395191, 119.645188, 34.65234],
   澳门: [113.528164, 22.109142, 113.598861, 22.217034],
   北京: [115.416827, 39.442078, 117.508251, 41.058964],
@@ -33,4 +33,5 @@ export const PROVINCE_SCOPE: Record<string, [number, number, number, number]> = 
   云南: [97.527278, 21.142312, 106.196958, 29.225286],
   浙江: [118.022574, 26.643625, 122.834203, 31.182556],
   重庆: [110.195637, 28.164706, 105.289838, 32.204171],
+  japan: [122.56, 20.25, 153.59, 45.31],
 };

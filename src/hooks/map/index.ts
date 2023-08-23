@@ -8,6 +8,7 @@ import {
 import { SetupMarkerLayer } from "./marker";
 import { MAP_DEFAULT_OPTIONS } from "./config";
 import { EPSG4326 } from "./config";
+import { SetupLayerStyle } from "./style";
 
 function CreateMap() {
   const { center, zoom, minZoom, maxZoom, extent } = MAP_DEFAULT_OPTIONS;
@@ -43,6 +44,8 @@ export function SetupMap() {
     SetupMarkerLayer(map.value);
 
     SetupEventListener(map.value);
+
+    SetupLayerStyle();
   }
 
   return { map, InitMap };

@@ -2,7 +2,7 @@ export const MAP_DEFAULT_OPTIONS = {
   center: [120.1552, 30.2741],
   zoom: 4,
   minZoom: 1,
-  maxZoom: 8,
+  maxZoom: 10,
   extent: [70, -11, 150, 60],
 };
 
