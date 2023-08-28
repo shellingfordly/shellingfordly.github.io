@@ -19,7 +19,7 @@
     "markdown-it-link-attributes": "^4.0.1",
     "shikiji": "^0.4.0",
     "typescript": "^5.1.6",
-    "unocss": "^0.55.1",
+    "unocss": "^0.55.3",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-icons": "^0.16.5",
     "unplugin-vue-components": "^0.25.1",
