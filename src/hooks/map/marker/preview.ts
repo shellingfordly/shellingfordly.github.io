@@ -20,17 +20,17 @@ function SetStyle(info: MarkerItem) {
   if (previewContainer == null) return;
 
   const img = previewContainer.querySelector("img");
-  if (img && info.preview) {
-    img.src = info.preview;
+  if (img) {
+    img.src = info.preview || "";
   }
 
   const title = previewContainer.querySelector("span.title");
-  if (title && info.title) {
-    title.textContent = info.title;
+  if (title) {
+    title.textContent = info.title || "";
   }
 
   const desc = previewContainer.querySelector("span.desc");
-  if (desc && info.desc) {
-    desc.textContent = info.desc;
+  if (desc) {
+    desc.textContent = info.desc || "";
   }
 }

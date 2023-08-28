@@ -11,7 +11,7 @@ const { y: scroll } = useWindowScroll();
 </script>
 
 <template>
-  <header class="header z-40 sm:absolute w-full top=0 left-0">
+  <header class="header flex z-40 w-full top=0 left-0">
     <button
       title="Scroll to top"
       class="fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition duration-300 z-100 print:hidden"
@@ -20,6 +20,8 @@ const { y: scroll } = useWindowScroll();
     >
       <div class="i-ri-arrow-up-line" />
     </button>
+
+    <logo />
 
     <nav class="nav">
       <div class="spacer" />

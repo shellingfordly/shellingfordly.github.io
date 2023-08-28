@@ -15,6 +15,7 @@ function CreateMap() {
   const map = new Map({
     target: "map",
     layers: [],
+    controls: [],
   });
   map.setView(
     new View({
