@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
-const isRoot = computed(() => route.path == "/");
+const isFull = computed(() => route.path == "/" || route.path == "/map");
 const imageModel = ref<HTMLImageElement>();
 
 useEventListener("click", async (e) => {
@@ -42,8 +42,8 @@ onKeyStroke("Escape", (e) => {
   <nav-bar />
   <main
     :class="`w-full of-x-hidden
-      ${isRoot ? 'h-full' : 'h-a'}
-      ${isRoot || 'px-7 py-10 md:flex md:  flex-justify-center'}`"
+      ${isFull ? 'h-full' : 'h-a'}
+      ${isFull || 'px-7 py-10 md:flex md:  flex-justify-center'}`"
   >
     <router-view />
   </main>
