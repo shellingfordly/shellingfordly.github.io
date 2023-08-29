@@ -1,22 +1,26 @@
 <script setup lang="ts">
+import { isDark } from "~/logics";
+
 const router = useRouter();
+
+const logSrc = computed(() =>
+  isDark.value ? "/icons/logo_black.png" : "/icons/logo.png"
+);
+
 function goHome() {
   router.push("/");
 }
 </script>
 
 <template>
-  <div class="logo">
-    <div class="i-carbon-home" @click="goHome"></div>
+  <div class="logo z-100 sm:w-200px w-150px" @click="goHome">
+    <img :src="logSrc" alt="" />
   </div>
 </template>
-<style scoped>
+<style lang="less" scoped>
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  line-height: 40px;
+  padding: 10px 0;
+  margin: 0 20px;
   cursor: pointer;
 }
 </style>

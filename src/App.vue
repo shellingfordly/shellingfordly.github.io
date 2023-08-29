@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
-const isFull = computed(() => route.path == "/" || route.path == "/map");
+const isMapPage = computed(() => route.path == "/map");
 const imageModel = ref<HTMLImageElement>();
 
 useEventListener("click", async (e) => {
@@ -42,8 +42,7 @@ onKeyStroke("Escape", (e) => {
   <nav-bar />
   <main
     :class="`w-full of-x-hidden
-      ${isFull ? 'h-full' : 'h-a'}
-      ${isFull || 'px-7 py-10 md:flex md:  flex-justify-center'}`"
+      ${isMapPage ? 'h-[var(--c-h)]' : 'h-a'}`"
   >
     <router-view />
   </main>

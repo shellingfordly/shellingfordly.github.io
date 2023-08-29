@@ -29,10 +29,12 @@
     "vite-plugin-md": "^0.22.5",
     "vite-plugin-pages": "^0.31.0",
     "vite-plugin-vue-markdown": "^0.23.8",
-    "vite-ssg": "^0.23.1"
+    "vite-ssg": "^0.23.1",
+    "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
     "@vueuse/core": "^10.3.0",
+    "animate.css": "^4.1.1",
     "floating-vue": "^2.0.0-beta.24",
     "ol": "^7.5.1",
     "vue": "^3.3.4",

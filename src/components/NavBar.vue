@@ -11,20 +11,19 @@ const { y: scroll } = useWindowScroll();
 </script>
 
 <template>
-  <header class="header flex z-40 w-full top=0 left-0">
-    <button
-      title="Scroll to top"
-      class="fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full hover-bg-hex-8883 transition duration-300 z-100 print:hidden"
+  <header class="header flex z-40 w-full top-0 left-0 relative h-70px">
+    <scroll-btn
+      name="i-ri-arrow-up-line"
+      class="fixed right-3 bottom-3"
       :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
       @click="toTop()"
-    >
-      <div class="i-ri-arrow-up-line" />
-    </button>
+    />
 
     <logo />
 
     <nav class="nav">
       <div class="spacer" />
+
       <div class="right" print:op0>
         <a
           href="https://github.com/shellingfordly"

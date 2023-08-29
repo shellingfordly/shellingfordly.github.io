@@ -13,6 +13,7 @@ import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { presetIcons, presetUno } from "unocss";
+import SVG from "vite-svg-loader";
 
 export default defineConfig({
   server: {
@@ -120,6 +121,11 @@ export default defineConfig({
       autoInstall: true,
       defaultClass: "inline",
       defaultStyle: "vertical-align: sub;",
+    }),
+
+    SVG({
+      svgo: false,
+      defaultImport: "url",
     }),
   ],
 });
