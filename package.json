@@ -17,7 +17,7 @@
     "fs-extra": "^11.1.1",
     "less": "^4.2.0",
     "markdown-it-link-attributes": "^4.0.1",
-    "shikiji": "^0.4.0",
+    "shikiji": "^0.6.3",
     "typescript": "^5.1.6",
     "unocss": "^0.55.1",
     "unplugin-auto-import": "^0.16.6",
