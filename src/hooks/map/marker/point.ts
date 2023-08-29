@@ -7,7 +7,7 @@ import {
   Icon,
   Point,
 } from "~/ol-imports";
-import { CreateMarkerData } from "~/utils";
+import { CreateMapMarkerData } from "~/utils";
 
 /**
  * @abstract 创建标点图层
@@ -17,7 +17,7 @@ export function CreateMarkerLayer() {
     source: new SourceVector(),
   });
 
-  const markerList = CreateMarkerData();
+  const markerList = CreateMapMarkerData();
   markerList.forEach((item) => {
     const pointFeature = CreatePointFeature(item);
     if (pointFeature) container.getSource()?.addFeature(pointFeature);

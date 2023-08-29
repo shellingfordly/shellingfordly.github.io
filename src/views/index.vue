@@ -8,7 +8,7 @@ function toBot() {
 }
 </script>
 <template>
-  <div class="relative w-full h-[90vh] bg-[url(/bg.jpg)] bg-no-repeat bg-cover">
+  <div class="relative w-full h-[90vh] bg-[url(/bg/bg.jpg)] bg-no-repeat bg-cover">
     <div class="w-full z-100 absolute left-0 bottom-0">
       <home-bottom />
       <div

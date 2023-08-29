@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isDark } from "~/logics";
+import { isDark } from "~/utils";
 
 const router = useRouter();
 
@@ -24,3 +24,4 @@ function goHome() {
   cursor: pointer;
 }
 </style>
+~/utils

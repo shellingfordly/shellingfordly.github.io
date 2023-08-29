@@ -1,6 +1,6 @@
 import { Style, Text, Fill, Stroke } from "~/ol-imports";
 import { LayerCacheMap, LayerIndex } from "./layer";
-import { isDark } from "~/logics";
+import { isDark } from "~/utils";
 
 export function CreateLayerStyle(feature: any) {
   const text = new Text({
