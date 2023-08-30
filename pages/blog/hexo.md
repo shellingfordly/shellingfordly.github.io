@@ -1,12 +1,15 @@
 ---
-title: 搭建个人静态博客
-categories: 
-- 工具
-- hexo
-tags: 
-- hexo
+title: Hexo搭建个人静态博客
+date: 2019-10-09
+categories:
+  - 工具
+  - hexo
+tags:
+  - hexo
+  - blog
 ---
 
+# Hexo搭建个人静态博客
 
 <span>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -15,23 +18,27 @@ tags:
 
 <!-- more -->
 
-
 ## 准备
+
 本站原本是部署在github上, [github源码](https://github.com/shellingfordly/hexo-blog), 由于访问较慢, 迁移到了码云上, [码云源码](https://gitee.com/shellingfordly/shellingfordly)
 
 ### node安装
+
 下载安装[node.js官网](https://nodejs.org/en/download/)
 
 ### github账号
+
 [github官网](https://github.com/)
 注册并新建一个名为username.github.io的仓库
 
 ### 码云账号
+
 [码云官网](https://gitee.com/)
 注册并新建一个名为username的仓库
 国内的github, 部署在这上面访问会快一些
 
 ## hexo
+
 [hexo官网](https://hexo.io/)
 hexo使用可参考我记录的[使用文档](/2019/09/29/hexo%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/)
 细节可参考[官方文档](https://hexo.io/zh-cn/docs/)
@@ -58,11 +65,13 @@ hexo s
 ```
 
 #### 安装主题
+
 ```
 git clone https://github.com/iissnan/hexo-theme-next   themes/next
 ```
 
 ### 部署
+
 ```js
 // 清除缓存
 hexo  clean
@@ -71,8 +80,8 @@ hexo  g -d
 // 可能需要登录github
 ```
 
-
 ## NexT
+
 > hexo主题
 
 [NexT主题安装](https://github.com/iissnan/hexo-theme-next)
@@ -82,14 +91,16 @@ NexT使用细节可参考[NexT使用文档](http://theme-next.iissnan.com/gettin
 ### 文本居中引用
 
 #### 使用方式
+
 ```
 {% cq %} 内容 {% endcq %}
 ```
+
 ##### 效果
-{% cq %}  内容
+
+{% cq %} 内容
 --- 作者
 {% endcq %}
-
 
 ### Bootstrap
 
@@ -101,11 +112,13 @@ NexT使用细节可参考[NexT使用文档](http://theme-next.iissnan.com/gettin
 ```
 
 ##### 效果
-{% cq %}  内容
+
+{% cq %} 内容
 --- 作者
 {% endcq %}
 
 ### 页面加载动画
+
 将**pace**设置为true即可显示加载动画, false不显示
 **pace_theme**设置类型
 
@@ -115,30 +128,34 @@ pace_theme: pace-theme-center-simple #我使用的
 ```
 
 ### 修改鼠标样式
-打开themes/next/source/css/_custom/custom.styl
+
+打开themes/next/source/css/\_custom/custom.styl
 在里面添加代码, icon图片就存在source/images中, 也可以使用外链
 必须事ico图片
 
 ```css
 * {
-  cursor: url("/images/mouse.ico"),auto!important
+  cursor: url("/images/mouse.ico"), auto !important;
 }
 :active {
-  cursor: url("/images/mouse.ico"),auto!important
+  cursor: url("/images/mouse.ico"), auto !important;
 }
 ```
 
 ### 关闭打赏字体闪动
 
-打开 next/source/css/_common/components/post/post-reward.styl 将函数wechat:hover和alipay:hover注释或者删掉即可
-
+打开 next/source/css/\_common/components/post/post-reward.styl 将函数wechat:hover和alipay:hover注释或者删掉即可
 
 ### 添加字数统计
+
 下载插件
+
 ```
 npm install hexo-wordcount --save
 ```
-在/themes/next/layout/_partials/footer.swig中添加代码
+
+在/themes/next/layout/\_partials/footer.swig中添加代码
+
 ```html
 <div class="theme-info">
   <div class="powered-by"></div>
@@ -146,30 +163,31 @@ npm install hexo-wordcount --save
 </div>
 ```
 
-
 ## 来必力
-> 评论系统  [来必力官网](https://www.livere.com/)
+
+> 评论系统 [来必力官网](https://www.livere.com/)
 
 细节可参考[字节流的博客](https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html)
 
-
 注册安装之后在管理页面--代码管理中查看你的data-uid, 然后在主题配置文件themes/next/\_config.yml中设置就可以了
-```
-livere_uid: 
-```
 
+```
+livere_uid:
+```
 
 ## Valine
-> 评论系统  [官方文档](https://valine.js.org/)
+
+> 评论系统 [官方文档](https://valine.js.org/)
 
 之前使用的是来必力, 需要登录评论, 考虑到有些朋友不喜欢登录, 换成了Valine, 不过就没有了点赞和踩, 举报, 查看自己评论的这些功能了, 头像也是固定的, 虽然可以使用Gravatar账号, 但更加麻烦了
-首先注册[LeanCloud](https://leancloud.cn/), 创建应用--设置--应用Key中找到APP ID和APP Key, 
+首先注册[LeanCloud](https://leancloud.cn/), 创建应用--设置--应用Key中找到APP ID和APP Key,
 开启valine并填入appid和appkey即可, 其他可默认, 详细操作可查看官方文档
+
 ```js
 valine:
   enable: true
-  appid: 
-  appkey: 
+  appid:
+  appkey:
   notify: false # 邮箱提醒
   verify: false # 验证码服务
   placeholder: 说点什么呢... # 占位提示符
@@ -179,17 +197,18 @@ valine:
 
 ```
 
-
 ## 不蒜子
+
 > 站点统计工具
 
 详情参数[不蒜子官网](http://ibruce.info/2015/04/04/busuanzi/)
 
 在主题配置文件themes/next/\_config.yml中设置**busuanzi_count**的配置项
+
 ```js
 busuanzi_count:
 	# 是否开启
-  enable: true 
+  enable: true
 	# 访客数
 	site_uv: true
 	site_uv_header:
@@ -204,12 +223,11 @@ busuanzi_count:
 	page_pv_footer:
 ```
 
-**注意** 由于不蒜子的脚本获取网址改变了, 所以如果直接下载了next主题并添加 busuanzi\_count 配置项之后可能还是统计不到数据, 需要修改 /themes/next/layout/_third-party/analytics/busuanzi-counter.swig 文件, 将其src改成 busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js 即可
+**注意** 由于不蒜子的脚本获取网址改变了, 所以如果直接下载了next主题并添加 busuanzi_count 配置项之后可能还是统计不到数据, 需要修改 /themes/next/layout/\_third-party/analytics/busuanzi-counter.swig 文件, 将其src改成 busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js 即可
 
 ```html
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script
+  async
+  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
 ```
-
-
-
-
