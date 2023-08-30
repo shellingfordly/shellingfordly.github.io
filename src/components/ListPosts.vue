@@ -2,14 +2,26 @@
 import moment from "moment";
 import { CreateArticleData } from "~/utils";
 
-const props = defineProps<{ options: any; type: ArticleType }>();
-const data = CreateArticleData(props.type);
+const route = useRoute();
+const props = defineProps<{ options: any; type: string }>();
+const type = computed(
+  () => route.query?.tag?.toString().toLowerCase() || props.type
+);
+const data = ref();
+
+watch(
+  type,
+  () => {
+    data.value = CreateArticleData(type.value);
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
   <div class="w-full">
     <div class="w-full posts-collapse">
-      <div v-for="item in data">
+      <template v-for="item in data">
         <div class="collection-title">
           <h1 class="year">{{ item.year }}</h1>
         </div>
@@ -24,7 +36,7 @@ const data = CreateArticleData(props.type);
           <span class="mr-5">{{ article.title }}</span>
           <span class="tag mr-1" v-for="tag in article.tags">{{ tag }}</span>
         </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>

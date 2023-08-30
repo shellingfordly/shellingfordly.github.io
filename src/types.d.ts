@@ -19,10 +19,7 @@ interface LayerMapItem {
   layer: Vector<any>;
 }
 
-type ArticleType = "blog" | "travel" | "project" | "daily";
-
-
 interface ArticleItem {
-  year: string
-  list: RouteMetaFrontmatter[]
+  year: string;
+  list: RouteMetaFrontmatter[];
 }
