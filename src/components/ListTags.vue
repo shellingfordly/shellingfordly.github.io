@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { PageTagList } from "~/utils";
+import { PageTagList, isDark } from "~/utils";
 
 const tags = computed(() =>
   [...PageTagList].sort((a, b) => a.length - b.length)
 );
 
 const random = () => Math.random() * 255;
-const color = () => `rgba(${random()},${random()},${random()}, 0.3)`;
+const colors = computed(() =>
+  tags.value.map((_) => `rgba(${random()},${random()},${random()}, 0.4)`)
+);
 
 const show = ref(false);
 </script>
@@ -20,27 +22,25 @@ const show = ref(false);
       @click="show = !show"
     ></div>
 
-    <Transition>
-      <div
-        v-show="show"
-        :class="`flex flex-wrap mt-5 tab_box ${show ? 'op100' : 'op0!'}`"
+    <div
+      :class="`lt-lg:display-none flex flex-wrap mt-5 tab_box 
+      ${show ? 'op100 display-flex!' : 'op0!'}`"
+    >
+      <span
+        class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
+        v-for="(tag, i) in tags"
+        :style="{ backgroundColor: colors[i] }"
+        @click="$router.push(`/blog?tag=${tag}`)"
       >
-        <span
-          class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
-          v-for="tag in tags"
-          :style="{ backgroundColor: color() }"
-          @click="$router.push(`/blog?tag=${tag}`)"
-        >
-          {{ tag }}
-        </span>
-      </div>
-    </Transition>
+        {{ tag }}
+      </span>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
 .tab_box {
-  transition: all 1s linear;
+  transition: all 0.3s ease-in;
 }
 
 .tag {
