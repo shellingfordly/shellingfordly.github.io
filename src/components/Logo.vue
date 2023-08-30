@@ -13,15 +13,10 @@ function goHome() {
 </script>
 
 <template>
-  <div class="logo z-100 sm:w-200px w-150px" @click="goHome">
+  <div
+    class="flex items-center ml-5 cursor-pointer z-100 sm:w-200px w-150px"
+    @click="goHome"
+  >
     <img :src="logSrc" alt="" />
   </div>
 </template>
-<style lang="less" scoped>
-.logo {
-  padding: 10px 0;
-  margin: 0 20px;
-  cursor: pointer;
-}
-</style>
-~/utils

@@ -5,27 +5,27 @@ export const HomeBgList = {
 
 export const HomeContentList = [
   {
-    name: "map",
+    title: "map",
     path: "/map",
     desc: "this is a desc",
-    img: "/map/xxx/xxx.png",
+    img: "/home/bg/bg.jpg",
   },
   {
-    name: "article",
+    title: "article",
     path: "/article",
     desc: "this is a desc",
-    img: "/article/xxx/xxx.png",
+    img: "/home/bg/bg.jpg",
   },
   {
-    name: "travel",
+    title: "travel",
     path: "/travel",
     desc: "this is a desc",
-    img: "/travel/xxx/xxx.png",
+    img: "/home/bg/bg.jpg",
   },
   {
-    name: "days",
+    title: "days",
     path: "/days",
     desc: "this is a desc",
-    img: "/days/xxx/xxx.png",
+    img: "/home/bg/bg.jpg",
   },
 ];

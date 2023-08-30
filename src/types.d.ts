@@ -2,18 +2,27 @@ type Any = any;
 
 interface RouteMetaFrontmatter {
   title: string;
-  city: string;
-  coords: number[];
-  date?: string;
-  desc?: string;
-  preview?: string;
-}
-
-interface MarkerItem extends RouteMetaFrontmatter {
+  tags: string[];
+  date: string;
   route: string;
 }
 
+interface MarkerItem extends RouteMetaFrontmatter {
+  coords: number[];
+  desc?: string;
+  city: string;
+  preview?: string;
+}
+
 interface LayerMapItem {
-  name: string
+  name: string;
   layer: Vector<any>;
+}
+
+type ArticleType = "blog" | "travel" | "project" | "daily";
+
+
+interface ArticleItem {
+  year: string
+  list: RouteMetaFrontmatter[]
 }

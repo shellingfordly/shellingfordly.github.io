@@ -3,6 +3,8 @@ const route = useRoute();
 const isMapPage = computed(() => route.path == "/map");
 const imageModel = ref<HTMLImageElement>();
 
+const isArticlePage = computed(() => !!(route.meta.frontmatter as any)?.name);
+
 useEventListener("click", async (e) => {
   const path = Array.from(e.composedPath());
   const first = path[0];
@@ -41,8 +43,9 @@ onKeyStroke("Escape", (e) => {
 <template>
   <nav-bar />
   <main
-    :class="`w-full of-x-hidden
-      ${isMapPage ? 'h-[var(--c-h)]' : 'h-a'}`"
+    :class="`w-full of-x-hidden pb-20
+      ${isMapPage ? 'h-[var(--h)]' : 'h-a'}
+      ${isArticlePage ? 'flex justify-center' : ''}`"
   >
     <router-view />
   </main>

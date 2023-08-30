@@ -1,8 +1,13 @@
 .prose {
   color: var(--fg);
-  max-width: 65ch;
+  padding: 0 30px;
+  margin: auto;
   font-size: 1rem;
   line-height: 1.75;
+
+  @media (min-width: 800px) {
+    max-width: 60vw;
+  }
 }
 .prose [class~="lead"] {
   color: #4b5563;
@@ -73,7 +78,7 @@
   left: 0.25em;
 }
 .prose hr {
-  border-color: rgba(125,125,125,0.3);
+  border-color: rgba(125, 125, 125, 0.3);
   margin-top: 3em;
   margin-bottom: 3em;
 }
@@ -82,8 +87,8 @@
   font-style: italic;
   color: inherit;
   border-left-width: 0.25rem;
-  border-color: rgba(125,125,125,0.3);
-  quotes: "\201C""\201D""\2018""\2019";
+  border-color: rgba(125, 125, 125, 0.3);
+  quotes: "\201C" "\201D" "\2018" "\2019";
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-left: 1em;
@@ -261,7 +266,10 @@
 .prose > ol > li > *:last-child {
   margin-bottom: 1.25em;
 }
-.prose ul ul, .prose ul ol, .prose ol ul, .prose ol ol {
+.prose ul ul,
+.prose ul ol,
+.prose ol ul,
+.prose ol ol {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
@@ -435,7 +443,10 @@
 .prose-sm > ol > li > *:last-child {
   margin-bottom: 1.1428571em;
 }
-.prose-sm ul ul, .prose-sm ul ol, .prose-sm ol ul, .prose-sm ol ol {
+.prose-sm ul ul,
+.prose-sm ul ol,
+.prose-sm ol ul,
+.prose-sm ol ol {
   margin-top: 0.5714286em;
   margin-bottom: 0.5714286em;
 }

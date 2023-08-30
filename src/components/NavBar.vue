@@ -25,6 +25,22 @@ const { y: scroll } = useWindowScroll();
       <div class="spacer" />
 
       <div class="right" print:op0>
+        <a href="/blog">
+          <span class="lt-md:hidden">Blog</span>
+          <div class="i-carbon-book md:hidden"></div>
+        </a>
+        <a href="/daily">
+          <span class="lt-md:hidden">Daily</span>
+          <div class="i-ic-round-accessibility-new md:hidden"></div>
+        </a>
+        <a href="/map">
+          <span class="lt-md:hidden">Travel</span>
+          <div class="i-carbon-map md:hidden"></div>
+        </a>
+        <a href="/projects">
+          <span class="lt-md:hidden">Projects</span>
+          <div class="i-ant-design-fund-projection-screen-outlined md:hidden"></div>
+        </a>
         <a
           href="https://github.com/shellingfordly"
           target="_blank"
@@ -81,4 +97,3 @@ const { y: scroll } = useWindowScroll();
   margin: auto;
 }
 </style>
-~/utils

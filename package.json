@@ -36,6 +36,7 @@
     "@vueuse/core": "^10.3.0",
     "animate.css": "^4.1.1",
     "floating-vue": "^2.0.0-beta.24",
+    "moment": "^2.29.4",
     "ol": "^7.5.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
