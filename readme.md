@@ -18,3 +18,4 @@ words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.or
 
 - [antfu.me](https://github.com/antfu/antfu.me)
 - [hexo-theme-next](https://github.com/iissnan/hexo-theme-next)
+- [hexo-theme-zhaoo](https://github.com/zhaoo/hexo-theme-zhaoo)
