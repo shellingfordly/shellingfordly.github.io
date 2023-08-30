@@ -21,17 +21,21 @@ export function CreateMapMarkerData(): MarkerItem[] {
   return markerList;
 }
 
+const FilterRoute = ["/", "/map", "/blog"];
+
 export function CreateArticleData(type: string): ArticleItem[] {
   let data: Record<string, RouteMetaFrontmatter[]> = {};
+  console.log(routes);
 
   for (const route of routes) {
     const info: RouteMetaFrontmatter = route?.meta?.frontmatter as any;
     if (!info || !Array.isArray(info?.tags)) continue;
+    if (FilterRoute.includes(route.path)) continue;
 
     // 缓存
     info?.tags.forEach((tag) => PageTagList.add(tag));
 
-    if (info.tags.includes(type)) {
+    if (info.tags.includes(type) || type == "blog") {
       const item = {
         title: info?.title || "",
         date: info?.date || "",
