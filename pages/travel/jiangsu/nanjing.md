@@ -4,8 +4,8 @@ date: 2017-05-28
 city: 江苏-南京
 coords: [118.7965, 32.0584]
 desc: 和老友的南京之旅，简单的风景反而更让人记忆深刻。
-preview: /img/jiangsu/nanjing/南京眼.jpg
-tags: [blog,travel]
+preview: /img/jiangsu/nanjing/nj2.jpg
+tags: [blog, travel]
 ---
 
 # 南京之旅
@@ -28,23 +28,23 @@ tags: [blog,travel]
 只是因为当时我们已经感觉到这骑下去没个尽头，感觉到没什么意思的时候
 突然看到这样的景象，瞬间感觉骑这么久没有白费，值了
 后来我们发现这上面就是南京步行街了
-![喷泉](/img/jiangsu/nanjing/喷泉.jpg)
-![喷泉1](/img/jiangsu/nanjing/喷泉1.jpg)
+<ImgComp src="/img/jiangsu/nanjing/nj4.jpg" />
+<ImgComp src="/img/jiangsu/nanjing/nj5.jpg" />
 好吧，这个B比我高也比我胖，拍背影比我好看...
-![dan2](/img/jiangsu/nanjing/dan2.jpg)
-![我2](/img/jiangsu/nanjing/我2.jpg)
+<ImgComp src="/img/jiangsu/nanjing/dan2.jpg" />
+<ImgComp src="/img/jiangsu/nanjing/me2.jpg" />
 
 ## 南京眼
 
 我们骑到哪的时候还很早，没什么人，挺漂亮的
-![dan1](/img/jiangsu/nanjing/dan1.jpg)
-![我1](/img/jiangsu/nanjing/我1.jpg)
+<ImgComp src="/img/jiangsu/nanjing/dan1.jpg" />
+<ImgComp src="/img/jiangsu/nanjing/me1.jpg" />
 晚上人就超级多了，大家都是来看灯光show的，挺漂亮的
-![南京眼](/img/jiangsu/nanjing/南京眼.jpg)
-![南京眼1](/img/jiangsu/nanjing/南京眼1.jpg)
+<ImgComp src="/img/jiangsu/nanjing/nj3.jpg" />
+<ImgComp src="/img/jiangsu/nanjing/nj2.jpg" />
 嗯......这张照片我真的不知道我想拍什么，我的黑爪子？
 那时的审美确实有点小问题，不过现在也没好到哪去
-![手](/img/jiangsu/nanjing/手.jpg)
+<ImgComp src="/img/jiangsu/nanjing/s.jpg" />
 
 ## 从你的的全世界路过
 
@@ -53,7 +53,7 @@ tags: [blog,travel]
 出来旅行，还吃平时在学校天天吃的那些多没意思，是吧！
 额...好像除了这一顿之外我们吃的也不过是黄焖鸡米饭之类的东西...
 额...不要在意这些细节，这不重要
-![从你的全世界路过](/img/jiangsu/nanjing/从你的全世界路过.jpg)
+<ImgComp src="/img/jiangsu/nanjing/c.jpg" />
 
 ## 南京图书馆
 
@@ -61,34 +61,34 @@ tags: [blog,travel]
 不过旅行嘛，去过就OK啦，我爸成天说他去过这去过哪，然而...
 “我坐车的时候就从哪过啊”.....好吧，你赢了
 我...好歹我站了几分钟
-![南京图书馆](/img/jiangsu/nanjing/南京图书馆.jpg)
+<ImgComp src="/img/jiangsu/nanjing/nj1.jpg" />
 
 ## 南京大学
 
 骑着共享单车走了个大概
-![南京大学](/img/jiangsu/nanjing/南京大学.jpg)
+<ImgComp src="/img/jiangsu/nanjing/nj.jpg" />
 
 ## 夫子庙
 
 没有好好看看，因为那天太热了，我们都不想走了，然后就走了
 额...我总感觉我的语言怪怪的，这难道就是工科生的特点之一吗
-![夫子庙](/img/jiangsu/nanjing/夫子庙.jpg)
+<ImgComp src="/img/jiangsu/nanjing/fzm.jpg" />
 
 ## 博物馆
 
 嗯...那时这种拍照方式应该是流行的吧...
 说实话我并不知道这个人是谁...
-![我4](/img/jiangsu/nanjing/我4.jpg)
-![dan3](/img/jiangsu/nanjing/dan3.jpg)
+<ImgComp src="/img/jiangsu/nanjing/me4.jpg" />
+<ImgComp src="/img/jiangsu/nanjing/dan3.jpg" />
 正义必胜，和平必胜，人民必胜。这一点我是坚信不疑
-![和平](/img/jiangsu/nanjing/和平.jpg)
+<ImgComp src="/img/jiangsu/nanjing/w.jpg" />
 额...我们还去了邮政局，当然不是真的
-![邮政局](/img/jiangsu/nanjing/邮政局.jpg)
+<ImgComp src="/img/jiangsu/nanjing/y.jpg" />
 好像是在博物馆里面，我记不清了
 虽然拍糊了，不过感觉在哈哈哈
-![我3](/img/jiangsu/nanjing/我3.jpg)
+<ImgComp src="/img/jiangsu/nanjing/me3.jpg" />
 嗯...他在拍火车站，假装赶车的亚子，该配合你演出的我...到位
-![火车站](/img/jiangsu/nanjing/火车站.jpg)
+<ImgComp src="/img/jiangsu/nanjing/h.jpg" />
 这个故事告诉我们，去博物馆真的应该好好看看资料文献，不然进去之后的感觉就是
 哇哦，这是古时候用的碗
 哇哦，这是古时候用的盆
@@ -99,7 +99,7 @@ tags: [blog,travel]
 ## 南京大屠杀遗址
 
 铭记历史
-![和平1](/img/jiangsu/nanjing/和平1.jpg)
+<ImgComp src="/img/jiangsu/nanjing/p1.jpg" />
 世界还是那个世界，只是兔子已不是当年的兔子
 
 ## 嗯...
