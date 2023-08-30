@@ -5,4 +5,5 @@ city: 湖南长沙
 coords: [112.96029, 28.16758]
 desc:
 preview: /img/hunan/cs/cs_preview.jpg
+tags: [blog,travel]
 ---

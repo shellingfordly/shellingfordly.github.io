@@ -5,6 +5,7 @@ date: 2016-06-13
 coords: [100.23673, 26.87076]
 desc: 时间过得好快，转眼就是七年
 preview: /img/yunnan/lj_preview.jpg
+tags: [blog, travel]
 ---
 
 # 丽江

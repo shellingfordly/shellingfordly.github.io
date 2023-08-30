@@ -5,4 +5,5 @@ city: 吉林长白山
 coords: [127.509126, 42.102361]
 desc:
 preview: /img/jilin/cbs_preview.jpg
+tags: [blog, travel]
 ---

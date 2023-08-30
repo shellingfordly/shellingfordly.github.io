@@ -5,4 +5,5 @@ city: 浙江安吉
 coords: [119.593767, 30.794753]
 desc: ceshi
 preview: /img/zhejiang/aj_preview.jpg
+tags: [blog, travel]
 ---
