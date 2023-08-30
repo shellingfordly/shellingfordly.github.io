@@ -1,14 +1,9 @@
 ---
 title: ES6新增语法
 date: 2019-10-03 23:17:26
-categories:
-  - 学习
-  - js
-  - es6
 tags:
   - js
   - es6
-  - blog
 ---
 
 # ES6新增语法

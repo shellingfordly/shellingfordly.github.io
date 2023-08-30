@@ -1,9 +1,6 @@
 ---
 title: hexo基础使用学习
 date: 2019-10-10
-categories:
-  - 学习
-  - hexo
 tags:
   - hexo
 ---

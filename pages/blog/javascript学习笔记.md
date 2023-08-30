@@ -1,9 +1,6 @@
 ---
 title: JavaScript学习笔记
 date: 2019-10-10
-categories:
-  - 学习
-  - js
 tags:
   - js
 ---

@@ -1,9 +1,6 @@
 ---
 title: Vue基础学习笔记
 date: 2019-10-14
-categories:
-  - 学习
-  - vue
 tags:
   - vue
 ---

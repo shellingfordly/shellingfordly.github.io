@@ -1,9 +1,6 @@
 ---
 title: HTML5的一些学习笔记
 date: 2019-10-04 23:00:03
-categories:
-  - 学习
-  - html
 tags:
   - html
 ---

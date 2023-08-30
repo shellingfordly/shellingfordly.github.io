@@ -1,12 +1,8 @@
 ---
 title: Hexo搭建个人静态博客
 date: 2019-10-09
-categories:
-  - 工具
-  - hexo
 tags:
   - hexo
-  - blog
 ---
 
 # Hexo搭建个人静态博客
