@@ -12,7 +12,7 @@ export const HomeContentList = [
   },
   {
     title: "article",
-    path: "/article",
+    path: "/blog",
     desc: "this is a desc",
     img: "/home/bg/bg.jpg",
   },

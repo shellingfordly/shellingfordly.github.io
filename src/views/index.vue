@@ -24,7 +24,11 @@ function toBot() {
   </div>
   <div class="h-2000 p-4 pt-10">
     <div class="sm:w-[90%] flex flex-wrap justify-between m-a">
-      <article-item v-for="item in HomeContentList" :info="item" />
+      <article-item
+        v-for="item in HomeContentList"
+        :info="item"
+        @click="$router.push(item.path)"
+      />
     </div>
   </div>
 </template>
