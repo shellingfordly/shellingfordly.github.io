@@ -28,6 +28,7 @@ export function toggleDark(event: MouseEvent) {
     isDark.value = !isDark.value;
     await nextTick();
   });
+
   transition.ready.then(() => {
     const clipPath = [
       `circle(0px at ${x}px ${y}px)`,

@@ -20,13 +20,13 @@ const show = ref(false);
     <div
       class="i-carbon-tag cursor-pointer opacity-60 hover:opacity-100 z-100"
       @click="show = !show"
-    ></div>
-
+    />
     <div
-      :class="`lt-lg:display-none flex flex-wrap mt-5 tab_box 
-      ${show ? 'op100 display-flex!' : 'op0!'}`"
+      :class="`flex flex-wrap mt-5 tab_box 
+      ${show ? 'op100' : 'op0!'}`"
     >
       <span
+        v-show="show"
         class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
         v-for="(tag, i) in tags"
         :style="{ backgroundColor: colors[i] }"
