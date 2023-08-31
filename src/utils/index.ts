@@ -1,5 +1,4 @@
 export * from "./route";
-export * from "./windows";
 
 export const isDark = useDark();
 

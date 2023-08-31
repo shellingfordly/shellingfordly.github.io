@@ -9,8 +9,6 @@ import NProgress from "nprogress";
 import { setupRouterScroller } from "vue-router-better-scroller";
 import autoRoutes from "pages-generated";
 
-console.log(autoRoutes);
-
 const routes = autoRoutes.map((i) => {
   return {
     ...i,
@@ -18,14 +16,9 @@ const routes = autoRoutes.map((i) => {
   };
 });
 
-const scrollBehavior = (to: any, from: any, savedPosition: any) => {
-  if (savedPosition) return savedPosition;
-  else return { top: 0 };
-};
-
 export const createApp = ViteSSG(
   App,
-  { routes, scrollBehavior },
+  { routes },
   ({ app, router, isClient }) => {
     if (isClient) {
       const html = document.querySelector("html")!;

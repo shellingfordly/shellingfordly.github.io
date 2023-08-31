@@ -1,4 +1,3 @@
-import { CheckBrowserEnvironment } from "~/utils";
 import { Map, View, fromLonLat, transformExtent } from "~/ol-imports";
 import {
   SetupBaseLayer,
@@ -32,8 +31,6 @@ function CreateMap() {
 
 export function SetupMap() {
   const map = ref<Map>();
-
-  CheckBrowserEnvironment();
 
   function InitMap() {
     map.value = CreateMap();

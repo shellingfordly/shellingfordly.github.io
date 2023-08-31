@@ -26,20 +26,20 @@ const { y: scroll } = useWindowScroll();
       <div class="spacer" />
 
       <div class="right" print:op0>
-        <a @click="$router.push('/blog')">
+        <RouterLink to="/blog">
           <span class="lt-md:hidden">Blog</span>
           <div class="i-carbon-book md:hidden"></div>
-        </a>
-        <a @click="$router.push('/travel')">
+        </RouterLink>
+        <RouterLink to="/travel">
           <span class="lt-md:hidden">Travel</span>
           <div class="i-carbon-map md:hidden"></div>
-        </a>
-        <a @click="$router.push('/projects')">
+        </RouterLink>
+        <RouterLink to="/projects">
           <span class="lt-md:hidden">Projects</span>
           <div
             class="i-ant-design-fund-projection-screen-outlined md:hidden"
           ></div>
-        </a>
+        </RouterLink>
 
         <a
           href="https://github.com/shellingfordly"

@@ -25,7 +25,6 @@ const FilterRoute = ["/", "/map", "/blog"];
 
 export function CreateArticleData(type: string): ArticleItem[] {
   let data: Record<string, RouteMetaFrontmatter[]> = {};
-  console.log(routes);
 
   for (const route of routes) {
     const info: RouteMetaFrontmatter = route?.meta?.frontmatter as any;
