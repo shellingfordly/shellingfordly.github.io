@@ -14,6 +14,9 @@ import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { presetIcons, presetUno } from "unocss";
 import SVG from "vite-svg-loader";
+import Inspect from "vite-plugin-inspect";
+import anchor from "markdown-it-anchor";
+import { slugify } from "./scripts/slugify";
 
 export default defineConfig({
   server: {
@@ -55,7 +58,16 @@ export default defineConfig({
     }),
 
     Markdown({
-      wrapperClasses: "prose m-auto slide-enter-content",
+      wrapperClasses: (id, code) => {
+        return code.includes("@layout-map")
+          ? "map_container"
+          : code.includes("@layout-full-width")
+          ? ""
+          : "prose m-auto slide-enter-content";
+      },
+      exportFrontmatter: false,
+      exposeFrontmatter: false,
+      exposeExcerpt: false,
       async markdownItSetup(md) {
         const shiki = await getHighlighter({
           themes: ["vitesse-dark", "vitesse-light"],
@@ -64,7 +76,7 @@ export default defineConfig({
 
         md.use((markdown) => {
           markdown.options.highlight = (code, lang) => {
-            const themed = shiki.codeToHtmlThemes(code, {
+            return shiki.codeToHtmlThemes(code, {
               lang,
               themes: {
                 light: "vitesse-light",
@@ -72,8 +84,15 @@ export default defineConfig({
               },
               cssVariablePrefix: "--s-",
             });
-            return `${themed}`;
           };
+        });
+
+        md.use(anchor, {
+          slugify,
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: "#",
+            renderAttrs: () => ({ "aria-hidden": "true" }),
+          }),
         });
 
         md.use(LinkAttributes, {
@@ -91,13 +110,11 @@ export default defineConfig({
       dirs: "pages",
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1));
-
         if (!path.includes("projects.md") && path.endsWith(".md")) {
           const md = fs.readFileSync(path, "utf-8");
           const { data } = matter(md);
           route.meta = Object.assign(route.meta || {}, { frontmatter: data });
         }
-
         return route;
       },
     }),
@@ -127,5 +144,7 @@ export default defineConfig({
       svgo: false,
       defaultImport: "url",
     }),
+
+    Inspect(),
   ],
 });

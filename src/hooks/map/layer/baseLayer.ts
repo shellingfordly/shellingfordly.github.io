@@ -3,9 +3,9 @@ import { CreateLayerStyle } from "../style";
 import { CreateAddLayerCache, LayerIndex } from ".";
 
 export function SetupBaseLayer(map: Map) {
-  const asiaLayer = CreateLayer("/src/geojson/asia.json");
-  const chinaLayer = CreateLayer("/src/geojson/china.json");
-  const japanLayer = CreateLayer("/src/geojson/japan.json");
+  const asiaLayer = CreateLayer("/geojson/asia.json");
+  const chinaLayer = CreateLayer("/geojson/china.json");
+  const japanLayer = CreateLayer("/geojson/japan.json");
 
   CreateAddLayerCache(LayerIndex.Zero, "asia", asiaLayer);
   CreateAddLayerCache(LayerIndex.First, "china", chinaLayer);

@@ -28,8 +28,8 @@ async function buildBlogRSS() {
   const options = {
     title: "Shellingfordly",
     description: "Shellingfordly' Blog",
-    id: "https://antfu.me/",
-    link: "https://antfu.me/",
+    id: "https://shellingfordly.vercel.app/",
+    link: "https://shellingfordly.vercel.app/",
     copyright: "CC BY-NC-SA 4.0 2021 © Shellingfordly",
   };
   const posts: any[] = (

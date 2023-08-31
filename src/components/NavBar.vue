@@ -30,7 +30,7 @@ const { y: scroll } = useWindowScroll();
           <span class="lt-md:hidden">Blog</span>
           <div class="i-carbon-book md:hidden"></div>
         </a>
-        <a @click="$router.push('/map')">
+        <a @click="$router.push('/travel')">
           <span class="lt-md:hidden">Travel</span>
           <div class="i-carbon-map md:hidden"></div>
         </a>

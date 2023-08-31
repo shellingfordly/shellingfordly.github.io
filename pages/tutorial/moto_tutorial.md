@@ -46,7 +46,7 @@ tags:
 
 你可以使用这个命令进入手机的fastboot mode，也可以音量键加关机键进入，都是可以的。
 
-```
+```bash
 adb reboot bootloader
 ```
 
@@ -54,7 +54,7 @@ adb reboot bootloader
 
 如果能输出机型就可以继续，不行的话就没法继续刷机，得重新检查一下usb驱动是否装好，或者手机是否解锁bl
 
-```
+```bash
 fastboot devices
 ```
 
@@ -66,9 +66,9 @@ fastboot devices
 
 在bootloader mode下刷入dtbo.img，vendor_boot.img，boot三个文件，这三个命令就一个个按顺序敲，然后等待手机显示成功就可以。
 
-```
+```bash
 fastboot flash dtbo dtbo.img
-// 其他目录
+# 其他目录
 fastboot flash dtbo ./xxx/dtbo.img
 fastboot flash vendor_boot vendor_boot.img
 fastboot flash boot boot.img
@@ -78,7 +78,7 @@ fastboot flash boot boot.img
 
 在`Recovery`模式下，选择`Apply Update`，`Apply from ADB`，然后敲命令刷入copy-partitions-20220613-signed.zip
 
-```
+```bash
 adb sideload copy-partitions-20220613-signed.zip
 ```
 
@@ -90,7 +90,7 @@ adb sideload copy-partitions-20220613-signed.zip
 
 刷入系统包，选择`Apply Update`，然后`Apply from ADB`，然后执行命令
 
-```
+```bash
 adb sideload 系统包.zip
 ```
 

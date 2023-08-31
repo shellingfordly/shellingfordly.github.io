@@ -1,4 +1,4 @@
-import { Overlay, Map, Select, Point } from "~/ol-imports";
+import { Map, Select, Point } from "~/ol-imports";
 import { CreateMarkerPreview } from "./preview";
 
 export function OnHoverMarker(map: Map, hoverInteraction: Select) {
@@ -26,20 +26,21 @@ export function OnHoverMarker(map: Map, hoverInteraction: Select) {
       map.getTargetElement().style.cursor = "pointer";
     } else {
       previewOverlay.setPosition(undefined);
-      
+
       // 鼠标指针
       map.getTargetElement().style.cursor = "default";
     }
   });
 }
 
-export function OnClickMarker(map: Map, hoverInteraction: Select) {
+export function OnClickMarker(_: Map, hoverInteraction: Select) {
+  const router = useRouter();
   hoverInteraction.on("select", function (event) {
     if (event.selected.length > 0) {
       const selectedFeature = event.selected[0];
       // 打开文章
       const info = selectedFeature.get("info");
-      if (info?.route) window.location.href = info?.route;
+      if (info?.route) router.push(info?.route);
     }
   });
 }

@@ -50,7 +50,7 @@ function toBot() {
 }
 
 @keyframes typing {
-  form {
+  from {
     width: 1ch;
   }
   to {

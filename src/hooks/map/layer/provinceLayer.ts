@@ -7,7 +7,7 @@ export function SetupProvinceLayer(map: Map) {
   for (const key in ALL_EXTENT) {
     const layer = new Vector({
       source: new SourceVector({
-        url: `/src/geojson/china/${key}.json`,
+        url: `/geojson/china/${key}.json`,
         format: new GeoJSON(),
       }),
       renderBuffer: 100,
