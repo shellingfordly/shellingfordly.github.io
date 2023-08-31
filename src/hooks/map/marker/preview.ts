@@ -1,3 +1,4 @@
+import moment from "moment";
 import { Overlay } from "~/ol-imports";
 
 export function CreateMarkerPreview() {
@@ -24,13 +25,18 @@ function SetStyle(info: MarkerItem) {
     img.src = info.preview || "";
   }
 
-  const title = previewContainer.querySelector("span.title");
+  const title = previewContainer.querySelector("div.title");
   if (title) {
     title.textContent = info.title || "";
   }
 
-  const desc = previewContainer.querySelector("span.desc");
+  const desc = previewContainer.querySelector("div.desc");
   if (desc) {
     desc.textContent = info.desc || "";
+  }
+
+  const date = previewContainer.querySelector("div.date");
+  if (date) {
+    date.textContent = moment(info.date).format("YY-MM-DD") || "";
   }
 }

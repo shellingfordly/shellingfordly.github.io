@@ -10,9 +10,10 @@ onMounted(InitMap);
   <div id="map" class="w-full h-full"></div>
   <div id="map_marker_preview">
     <img />
-    <div>
-      <span class="title" />
-      <span class="desc" />
+    <div class="info">
+      <div class="title" />
+      <div class="desc" />
+      <div class="date" />
     </div>
   </div>
 </template>
