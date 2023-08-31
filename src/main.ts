@@ -3,9 +3,38 @@ import "@unocss/reset/tailwind.css";
 import "./styles/index.less";
 import "ol/ol.css";
 import "uno.css";
-
 import { ViteSSG } from "vite-ssg";
 import App from "./App.vue";
-import routes from "pages-generated";
+import autoRoutes from "pages-generated";
+import NProgress from "nprogress";
 
-export const createApp = ViteSSG(App, { routes });
+
+const routes = autoRoutes.map((i) => {
+  return {
+    ...i,
+    alias: i.path.endsWith("/") ? `${i.path}index.html` : `${i.path}.html`,
+  };
+});
+
+const scrollBehavior = (to: any, from: any, savedPosition: any) => {
+  if (savedPosition) return savedPosition;
+  else return { top: 0 };
+};
+
+export const createApp = ViteSSG(
+  App,
+  { routes, scrollBehavior },
+  ({ app, router, isClient }) => {
+    if (isClient) {
+      router.beforeEach(() => {
+        NProgress.start();
+      });
+      router.afterEach((to) => {
+        if (to.path !== "/") {
+          document.body.scrollTo(0, 0);
+        }
+        NProgress.done();
+      });
+    }
+  }
+);
