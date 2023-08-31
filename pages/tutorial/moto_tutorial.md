@@ -20,11 +20,11 @@ tags:
 
 如果你是windows，那么下载[Windows zip](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)，可以不添加环境变量，直接解压之后进入文件夹，在路径栏出直接输入cmd即可打开命令行，你也可以直接打开cmd之后到这个文件夹下。
 
-![Alt text](/tutorial/202308/image.png)
+![Alt text](/images/tutorial/202308/image.png)
 
 在cmd中输入`adb --version`就可以看到版本号，确保adb可以使用就可以开始下一步了。
 
-![Alt text](/tutorial/202308/image-1.png)
+![Alt text](/images/tutorial/202308/image-1.png)
 
 2. 装moto官方的usb驱动
 
@@ -34,7 +34,7 @@ tags:
 
 装好之后你可以到设备管理器中看到便携设备下有你的moto机型，因为我已经刷过了pe，机型就变成了`XT2243-2`
 
-![Alt text](/tutorial/202308/image-2.png)
+![Alt text](/images/tutorial/202308/image-2.png)
 
 3. 解锁bl
 
@@ -58,7 +58,7 @@ adb reboot bootloader
 fastboot devices
 ```
 
-![Alt text](/tutorial/202308/image-4.png)
+![Alt text](/images/tutorial/202308/image-4.png)
 
 ### 刷新分区
 

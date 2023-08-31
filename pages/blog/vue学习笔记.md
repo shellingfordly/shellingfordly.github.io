@@ -341,7 +341,7 @@ let app = new Vue({
 - 此时vue实例中，data没有数据
 - 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用
 
-![img](/blog/old/1.jpg)
+![img](/images/blog/old/1.jpg)
 
 ### created
 
@@ -354,14 +354,14 @@ let app = new Vue({
   - watch/event 事件回调
 - 然而，挂载阶段还没开始，$el 属性目前不可见
 
-![img](/blog/old/2.jpg)
+![img](/images/blog/old/2.jpg)
 
 ### beforeMount
 
 - 此时根节点已经存在，但是数据还没有挂载到根节点
 - 在挂载开始之前被调用：相关的 render 函数首次被调用
 
-![img](/blog/old/4.jpg)
+![img](/images/blog/old/4.jpg)
 
 ### mounted
 
@@ -372,7 +372,7 @@ let app = new Vue({
   - 可以用 vm.$nextTick
 - 此时数据已经挂载到根节点上了
 
-![img](/blog/old/3.jpg)
+![img](/images/blog/old/3.jpg)
 
 ### beforeUpdata
 
@@ -380,7 +380,7 @@ let app = new Vue({
 - 这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器
 - 在数据改变之前触发
 
-![img](/blog/old/5.jpg)
+![img](/images/blog/old/5.jpg)
 
 ### updatea
 
@@ -388,7 +388,7 @@ let app = new Vue({
 - 当这个钩子被调用时，组件 DOM 已经更新
 - 在数据改变之后
 
-![img](/blog/old/6.jpg)
+![img](/images/blog/old/6.jpg)
 
 ### activated
 
@@ -619,7 +619,7 @@ new Vue({
 
 ### 子组件生命周期
 
-![img](/blog/old/7.jpg)
+![img](/images/blog/old/7.jpg)
 
 ## 数据传输
 

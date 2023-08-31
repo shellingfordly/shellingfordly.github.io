@@ -2750,7 +2750,7 @@ document.querySelectorAll("div:not(.ignore)"); //选择所有claa不为ignore的
 - HTMLCollection实例对象同NodeList实例对象，也是节点的集合，返回类数组对象。
 - HTMLDocument类中，有一些属性可以快捷访问节点。比如images、forms、links属性指向类数组\<img>、\<form>、\<a>元素集合，返回的都是HTMLCollection实例对象。
 
-![HTMLDocument](/blog/old/js.jpg)
+![HTMLDocument](/images/blog/old/js.jpg)
 
 - **注: HTMLDocument是类名，调用的是类的实例如document**
 

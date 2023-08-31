@@ -13,7 +13,7 @@ const urlList = [
 export const homeBgIndex = ref(0);
 
 export const homeBgUrl = computed(
-  () => `url(/home/bg/${urlList[homeBgIndex.value]})`
+  () => `url(/images/home/${urlList[homeBgIndex.value]})`
 );
 
 export function toggleBgIndex() {

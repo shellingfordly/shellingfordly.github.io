@@ -4,7 +4,7 @@ city: 福建-厦门
 date: 2022-12-27
 coords: [118.16, 24.44]
 desc: 想坐在海边看一万次日出日落...
-preview: /img/fujian/xiamen/preview.jpg
+preview: /images/travel/fujian/xiamen/preview.jpg
 tags: [blog, travel]
 ---
 
@@ -20,4 +20,4 @@ tags: [blog, travel]
 
 我的朋友去旁边的山上逛了，于是我一个人坐在海边休息了一会，就这样坐着，听听歌，感觉真的很棒。
 
-<VideoComp src="/img/fujian/xiamen/shatan.mp4" />
+<VideoComp src="/images/travel/fujian/xiamen/shatan.mp4" />
