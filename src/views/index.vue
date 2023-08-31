@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { homeBgUrl } from "~/hooks/useHomeBg";
-import { HomeContentList } from "~/utils/config";
 
 function toBot() {
   window.scrollTo({
@@ -19,7 +18,9 @@ function toBot() {
       class="relative top-35% h-16 hvr-wobble-horizontal hvr-underline-from-center"
       @click="$router.push('/blog')"
     >
-      <h1 class="title sm:font-size-8 font-size-6">人生本就是一场孤独的旅行_</h1>
+      <h1 class="title sm:font-size-8 font-size-6">
+        人生本就是一场孤独的旅行_
+      </h1>
     </div>
     <div class="w-full z-100 absolute left-0 bottom-0">
       <wave-icon />
@@ -30,15 +31,7 @@ function toBot() {
       </div>
     </div>
   </div>
-  <div class="h-500 p-4 pt-10">
-    <div class="sm:w-[90%] flex flex-wrap justify-between m-a">
-      <!-- <article-item
-        v-for="item in HomeContentList"
-        :info="item"
-        @click="$router.push(item.path)"
-      /> -->
-    </div>
-  </div>
+  <div class="h-500 p-4 pt-10"></div>
 </template>
 
 <style lang="less" scoped>

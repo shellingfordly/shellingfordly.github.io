@@ -1,20 +1,31 @@
 <script setup lang="ts">
-defineProps<{ info: { title: string; desc: string; img: string } }>();
+defineProps<{
+  info: ProjectInfoItem;
+}>();
 </script>
 
 <template>
-  <div class="article_item md:w-[48%] lg:w-[32%] pb-20 mb-8">
+  <div class="article_item md:w-[48%] lg:w-[32%] w-full pb-20 mb-8">
+    <a class="cursor-pointer" :href="info.path" target="_blank">
+      <img class="w-100% h-30vh" :src="info.img" />
+    </a>
     <div class="">
-      <img class="w-100%" :src="info.img" />
-    </div>
-    <div class="p-2">
-      <p class="">{{ info.title }}</p>
-      <p class="">{{ info.desc }}</p>
+      <p class="p-5 font-size-6 op90 hover:op100">
+        <a class="hvr-underline-reveal" :href="info.path" target="_blank">
+          {{ info.title }}
+        </a>
+      </p>
+      <p class="p-3 pt-0 op70">{{ info.desc }}</p>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
+.hvr-underline-reveal::before {
+  background: var(--c-bg-r);
+  opacity: 0.6;
+  height: 2px;
+}
 .article_item {
   position: relative;
   border-radius: 5px;

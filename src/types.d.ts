@@ -23,3 +23,11 @@ interface ArticleItem {
   year: string;
   list: RouteMetaFrontmatter[];
 }
+
+
+interface ProjectInfoItem {
+  title: string
+  path: string
+  desc: string
+  img: string
+}
