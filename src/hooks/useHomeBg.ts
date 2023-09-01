@@ -10,7 +10,7 @@ const urlList = [
   "bg_9.png",
 ];
 
-export const homeBgIndex = ref(0);
+export const homeBgIndex = ref(Math.floor(Math.random() * urlList.length));
 
 export const homeBgUrl = computed(
   () => `url(/images/home/${urlList[homeBgIndex.value]})`
