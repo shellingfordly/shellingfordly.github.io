@@ -84,45 +84,6 @@ hexo  g -d
 NexT使用细节可参考[NexT使用文档](http://theme-next.iissnan.com/getting-started.html)
 一些自定义细节修改可参考[Moorez的文章](https://segmentfault.com/a/1190000009544924#articleHeader10)
 
-### 文本居中引用
-
-#### 使用方式
-
-```
-{% cq %} 内容 {% endcq %}
-```
-
-##### 效果
-
-{% cq %} 内容
---- 作者
-{% endcq %}
-
-### Bootstrap
-
-#### 使用方式
-
-```js
-// default primary success info warning danger
-{% note success %} Content  {% endnote %}
-```
-
-##### 效果
-
-{% cq %} 内容
---- 作者
-{% endcq %}
-
-### 页面加载动画
-
-将**pace**设置为true即可显示加载动画, false不显示
-**pace_theme**设置类型
-
-```
-pace: true
-pace_theme: pace-theme-center-simple #我使用的
-```
-
 ### 修改鼠标样式
 
 打开themes/next/source/css/\_custom/custom.styl
