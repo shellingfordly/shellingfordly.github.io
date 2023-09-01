@@ -10,11 +10,12 @@ tags:
 
 [古塵大佬原教程链接](https://www.coolapk.com/feed/48426470?shareKey=NWQ3MGZiOTFhZDg3NjRmMDNjMDU~&shareUid=2618747&shareFrom=com.coolapk.market_13.3.3)
 
-由于moto原来的系统没法使用google服务，用安装器安装了还是没法登录，于是刷个机。之前逛酷安看到古塵大佬做的PixelExperience 13[tundra]moto S30pro版本，实现了系统内部OTA更新，非常的牛逼。上个月就想刷的吗，由于一些操作原因没刷上，这次重新再刷一次。
+由于moto原来的系统没法使用google服务，用安装器安装了还是没法登录，于是刷个机。之前逛酷安看到古塵大佬做的PixelExperience 13[tundra]moto S30pro版本，最近还实现了系统内部OTA更新，非常的牛逼。上个月就想刷的吗，由于一些操作原因没刷上，这次重新再刷一次。
 
-其实[dubai机型参考方法](https://wiki.lineageos.org/devices/dubai/install)里面已经很详细了，照着刷就可以，不过是英文的，其实我也是个刷机小白，介于前两天有人问我，我这里写一个非常非常新手向的教程。
+其实[dubai机型参考方法](https://wiki.lineageos.org/devices/dubai/install)里面已经很详细了，照着刷就可以，不过是英文的，其实我也是个刷机小白，介于前两天有人问我刷pe的教程，我这里写一个非常非常新手向的教程。我这里只针对windows，mac的自行看文档吧，出了安装程序都差不多的。
 
 ## 基本要求
+
 
 1. 确保你的电脑装了adbfastboot
 
@@ -37,6 +38,10 @@ tags:
 ![Alt text](/images/tutorial/202308/image-2.png)
 
 3. 解锁bl
+
+解bl锁我是在酷安里翻到一个老哥分享的别人做的程序，我忘记收藏帖子，翻了半天找不到了。
+
+值得注意的是moto的解锁需要解锁码，要去官方网站认证。
 
 完成这三步就可以开始刷机了
 

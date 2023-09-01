@@ -48,7 +48,6 @@ export default defineConfig({
         presetUno(),
       ],
     }),
-
     Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
@@ -62,7 +61,7 @@ export default defineConfig({
       dirs: "pages",
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1));
-        if (!path.includes("projects.md") && path.endsWith(".md")) {
+        if (path.endsWith(".md")) {
           const md = fs.readFileSync(path, "utf-8");
           const { data } = matter(md);
           route.meta = Object.assign(route.meta || {}, { frontmatter: data });
@@ -84,43 +83,43 @@ export default defineConfig({
       exposeExcerpt: false,
       async markdownItSetup(md) {
         const shiki = await getHighlighter({
-          themes: ['vitesse-dark', 'vitesse-light'],
+          themes: ["vitesse-dark", "vitesse-light"],
           langs: Object.keys(bundledLanguages) as any,
-        })
+        });
 
         md.use((markdown) => {
           markdown.options.highlight = (code, lang) => {
             return shiki.codeToHtml(code, {
               lang,
               themes: {
-                light: 'vitesse-light',
-                dark: 'vitesse-dark',
+                light: "vitesse-light",
+                dark: "vitesse-dark",
               },
-              cssVariablePrefix: '--s-',
-            })
-          }
-        })
-        
+              cssVariablePrefix: "--s-",
+            });
+          };
+        });
+
         md.use(anchor, {
           slugify,
           permalink: anchor.permalink.linkInsideHeader({
-            symbol: '#',
-            renderAttrs: () => ({ 'aria-hidden': 'true' }),
+            symbol: "#",
+            renderAttrs: () => ({ "aria-hidden": "true" }),
           }),
-        })
+        });
 
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
-            target: '_blank',
-            rel: 'noopener',
+            target: "_blank",
+            rel: "noopener",
           },
-        })
+        });
       },
     }),
 
     AutoImport({
-      imports: ["vue", "vue-router", "@vueuse/core"],
+      imports: ["vue","vue-router","@vueuse/core"],
     }),
 
     Components({

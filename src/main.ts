@@ -34,7 +34,7 @@ export const createApp = ViteSSG(
         behavior: "auto",
       });
 
-      router.beforeEach(() => {
+      router.beforeEach((to, form) => {
         NProgress.start();
       });
       router.afterEach(() => {
