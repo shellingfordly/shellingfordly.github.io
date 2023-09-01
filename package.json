@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite preview",
-    "build": "cross-env NODE_ENV=production vite-ssg build"
+    "build": "vite-ssg build"
   },
   "type": "module",
   "devDependencies": {
