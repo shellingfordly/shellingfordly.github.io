@@ -161,42 +161,6 @@ tags:
 
 - 注意，摘要可能会被 Front Matter 中的 excerpt 覆盖
 
-### Vimeo
-
-- 在文章中插入 Vimeo 视频。
-
-```
-{% vimeo video_id %}
-```
-
-### Link
-
-- 在文章中插入链接，并自动给外部链接添加 target="\_blank" 属性。
-
-```
-{% link text url [external] [title] %}
-```
-
-### 代码块
-
-- 在文章中插入代码
-
-```
-{% codeblock [title] [lang:language] [url] [link text] %}
-code snippet
-{% endcodeblock %}
-```
-
-- 普通的代码块
-
-```
-{% codeblock %}
-alert('Hello World!');
-{% endcodeblock %}
-```
-
----
-
 ## 资源文件夹
 
 ### 文章资源文件夹
@@ -207,14 +171,6 @@ alert('Hello World!');
 ```
 _config.yml
 post_asset_folder: true
-```
-
-### 相对路径引用的标签插件
-
-```
-{% asset_path slug %}
-{% asset_img slug [title] %}
-{% asset_link slug [title] %}
 ```
 
 ## 数据文件
@@ -228,12 +184,6 @@ Archives: /archives/
 ```
 
 - 在模板中使用这些资料
-
-```xml
-<% for (var link in site.data.menu) { %>
-  <a href="<%= site.data.menu[link] %>"> <%= link %> </a>
-<% } %>
-```
 
 - 渲染结果
 
