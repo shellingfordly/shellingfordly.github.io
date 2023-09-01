@@ -1,5 +1,7 @@
 
 import "./styles/index.less";
+import "uno.css";
+
 import { ViteSSG } from "vite-ssg";
 import App from "./App.vue";
 import NProgress from "nprogress";
