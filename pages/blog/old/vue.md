@@ -469,8 +469,6 @@ let app = new Vue({
 - v-leave-active 离开过渡的过程时间
 - v-leave-to 离开过渡的结束状态
 
-![来自vue官网](https://cn.vuejs.org/images/transition.png)
-
 ## 实例属性
 
 ### vm.$data
