@@ -100,4 +100,4 @@ console.log("Connection %d connection", conn.threadId);
 
 - 结果如图
 
-<img src="/articles/2023-03-22-15-43-06.png" style="width:300px;">
+![](/images/blog/nuxt3_join_mysql.png)
