@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const filterList = ["/", "blog", "/travel", "/projects"];
+const filterList = ["/", "/blog", "/travel", "/projects"];
 
 const isArticlePage = computed(() => !filterList.includes(route.path));
 const imageModel = ref<HTMLImageElement>();
@@ -44,12 +44,11 @@ onKeyStroke("Escape", (e) => {
 <template>
   <nav-bar />
   <main
-    :class="`w-full of-x-hidden ${
-      !isArticlePage ? 'h-[var(--h)]' : 'h-a pb-20'
-    }`"
+    :class="`w-full of-x-hidden ${!isArticlePage ? 'h-[var(--h)]' : 'h-a'}`"
   >
-    <back v-if="isArticlePage" />
+    <article-header v-if="isArticlePage" />
     <router-view />
+    <Footer />
   </main>
   <Transition name="fade">
     <div

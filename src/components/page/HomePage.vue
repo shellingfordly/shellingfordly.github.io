@@ -31,7 +31,9 @@ function toBot() {
       </div>
     </div>
   </div>
-  <div class="h-500 p-4 pt-10"></div>
+  <div class="h-500 p-4 pt-10">
+    ssss
+  </div>
 </template>
 
 <style lang="less" scoped>
