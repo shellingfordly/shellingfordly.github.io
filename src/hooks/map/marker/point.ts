@@ -41,7 +41,7 @@ export function CreatePointFeature(item: MarkerItem) {
   // 创建一个图标样式
   const iconStyle = new Style({
     image: new Icon({
-      src: "/icons/marker.svg",
+      src: "/images/icons/marker.svg",
       scale: 1,
       anchor: [0.5, 1], // 图标的锚点位置，[0.5, 1] 表示图标底部中心
     }),

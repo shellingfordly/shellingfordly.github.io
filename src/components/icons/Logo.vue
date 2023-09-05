@@ -4,7 +4,7 @@ import { isDark } from "~/utils";
 const router = useRouter();
 
 const logSrc = computed(() =>
-  isDark.value ? "/icons/logo_black.png" : "/icons/logo.png"
+  isDark.value ? "/images/icons/logo_black.png" : "/images/icons/logo.png"
 );
 
 function goHome() {
