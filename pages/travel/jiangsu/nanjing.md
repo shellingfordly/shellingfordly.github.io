@@ -5,7 +5,7 @@ city: 江苏-南京
 coords: [118.7965, 32.0584]
 desc: 和老友的南京之旅，简单的风景反而更让人记忆深刻。
 preview: /images/travel/jiangsu/nanjing/nj2.jpg
-tags: [blog, travel]
+tags: [travel]
 ---
 
 # 南京之旅

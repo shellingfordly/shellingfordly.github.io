@@ -5,5 +5,5 @@ date: 2022-12-27
 coords: [115.850536, 28.656025]
 desc: 不得不多江西的辣椒还挺辣的
 preview: /images/travel/jiangxi/nc_preview.jpg
-tags: [blog, travel]
+tags: [travel]
 ---

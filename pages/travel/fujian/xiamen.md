@@ -5,7 +5,7 @@ date: 2022-12-27
 coords: [118.16, 24.44]
 desc: 想坐在海边看一万次日出日落...
 preview: /images/travel/fujian/xiamen/preview.jpg
-tags: [blog, travel]
+tags: [travel]
 ---
 
 # 厦门之旅

@@ -5,5 +5,5 @@ city: 湖南张家界
 coords: [110.467227, 29.353152]
 desc:
 preview: /images/travel/hunan/zjj/zjj_preview.jpg
-tags: [blog, travel]
+tags: [travel]
 ---
