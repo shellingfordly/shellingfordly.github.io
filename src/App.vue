@@ -1,9 +1,5 @@
 <script setup lang="ts">
 const route = useRoute();
-
-const filterList = ["/", "/blog", "/travel", "/projects"];
-
-const isArticlePage = computed(() => !filterList.includes(route.path));
 const imageModel = ref<HTMLImageElement>();
 
 useEventListener("click", async (e) => {
@@ -43,12 +39,10 @@ onKeyStroke("Escape", (e) => {
 
 <template>
   <nav-bar />
-  <main
-    :class="`w-full of-x-hidden ${!isArticlePage ? 'h-[var(--h)]' : 'h-a'}`"
-  >
-    <article-header v-if="isArticlePage" />
+  <main class="w-full of-x-hidden">
+    <article-header />
     <router-view />
-    <Footer />
+    <Footer v-if="route.path != '/travel'" />
   </main>
   <Transition name="fade">
     <div

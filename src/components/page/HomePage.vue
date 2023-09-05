@@ -3,15 +3,14 @@ import { homeBgUrl } from "~/hooks/useHomeBg";
 
 function toBot() {
   window.scrollTo({
-    left: 0,
-    top: document.body.clientHeight,
+    top: window.innerHeight,
     behavior: "smooth",
   });
 }
 </script>
 <template>
   <div
-    :class="`relative w-full flex justify-center h-[calc(100vh-70px)] bg-fixed bg-no-repeat bg-cover`"
+    :class="`relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
     :style="{ backgroundImage: homeBgUrl }"
   >
     <div
