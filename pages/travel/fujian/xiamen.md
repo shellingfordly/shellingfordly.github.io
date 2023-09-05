@@ -20,4 +20,4 @@ tags: [blog, travel]
 
 我的朋友去旁边的山上逛了，于是我一个人坐在海边休息了一会，就这样坐着，听听歌，感觉真的很棒。
 
-<VideoComp src="/images/travel/fujian/xiamen/shatan.mp4" />
+<VideoItem src="/images/travel/fujian/xiamen/shatan.mp4" />

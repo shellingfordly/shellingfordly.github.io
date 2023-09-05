@@ -54,7 +54,7 @@ html.dark {
   .posts-collapse {
     --collapse-bg: #8884;
     --before-bg: #666;
-    --before-bg-hover: #777;
+    --before-bg-hover: #999;
     --header-border: #333;
     --tag-bg: #222;
   }
@@ -110,7 +110,7 @@ html.dark {
 
     .tag {
       color: var(--before-bg);
-      font-size: 0.5rem;
+      font-size: 12px;
       background-color: var(--tag-bg);
       padding: 2px 3px;
       border-radius: 2px;
@@ -123,6 +123,7 @@ html.dark {
 
     &:hover::before {
       background: var(--before-bg-hover);
+      scale: 1.2;
     }
 
     &::before {
@@ -136,10 +137,7 @@ html.dark {
       background: var(--before-bg);
       border-radius: 50%;
       border: 1px solid var(--c-bg);
-      transition-duration: 0.2s;
-      transition-timing-function: ease-in-out;
-      transition-delay: 0s;
-      transition-property: background;
+      transition: all 0.2s ease-in-out;
     }
   }
 }

@@ -30,16 +30,21 @@ function toBot() {
       </div>
     </div>
   </div>
-  <div class="h-500 p-4 pt-10">
-    ssss
-  </div>
+  <home-item />
 </template>
 
 <style lang="less" scoped>
 .hvr-underline-from-center:before {
   background-color: #eee;
 }
-
+@keyframes typing {
+  from {
+    width: 1ch;
+  }
+  to {
+    width: 21.5ch;
+  }
+}
 .title {
   width: 1ch;
   height: 4rem;
@@ -48,14 +53,5 @@ function toBot() {
   color: #eee;
   overflow: hidden;
   animation: 1.5s typing ease-in-out forwards;
-}
-
-@keyframes typing {
-  from {
-    width: 1ch;
-  }
-  to {
-    width: 21.5ch;
-  }
 }
 </style>
