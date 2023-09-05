@@ -3,16 +3,19 @@ import moment from "moment";
 import { CreateArticleData } from "~/utils";
 
 const route = useRoute();
-const props = defineProps<{ options: any; type: string }>();
+const props = defineProps<{ type?: string; tag?: string }>();
+const tag = computed(
+  () => route.query?.tag?.toString().toLowerCase() || props.tag
+);
 const type = computed(
-  () => route.query?.tag?.toString().toLowerCase() || props.type
+  () => route.query?.type?.toString().toLowerCase() || props.type
 );
 const data = ref();
 
 watch(
-  type,
+  [tag, type],
   () => {
-    data.value = CreateArticleData(type.value);
+    data.value = CreateArticleData({ tag: tag.value, type: type.value });
   },
   { immediate: true }
 );

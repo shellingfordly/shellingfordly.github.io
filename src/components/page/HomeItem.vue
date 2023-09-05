@@ -36,7 +36,7 @@ const workIcons = [
       </div>
       <div class="icon_box left">
         <div v-for="icon in workIcons">
-          <div :class="icon"></div>
+          <div :class="icon" class="hvr-pulse-grow"></div>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ const workIcons = [
   <div class="home-item">
     <div class="content bg-[var(--c-bg)]!">
       <div class="desc">
-        <p class="name">旅行</p>
+        <p class="name">Travel</p>
         <p class="subtitle">读万卷书，行万里路</p>
         <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/travel">
           查看更多

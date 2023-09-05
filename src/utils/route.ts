@@ -23,7 +23,13 @@ export function CreateMapMarkerData(): MarkerItem[] {
 
 const FilterRoute = ["/", "/map", "/blog"];
 
-export function CreateArticleData(type: string): ArticleItem[] {
+export function CreateArticleData({
+  tag,
+  type,
+}: {
+  tag?: string;
+  type?: string;
+}): ArticleItem[] {
   let data: Record<string, RouteMetaFrontmatter[]> = {};
 
   for (const route of routes) {
@@ -34,7 +40,10 @@ export function CreateArticleData(type: string): ArticleItem[] {
     // 缓存
     info?.tags.forEach((tag) => PageTagList.add(tag));
 
-    if (info.tags.includes(type) || type == "blog") {
+    if (
+      (tag && info.tags.includes(tag)) ||
+      (type && (route.path as string).includes(type))
+    ) {
       const item = {
         title: info?.title || "",
         date: info?.date || "",
