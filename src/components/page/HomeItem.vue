@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const homeBgUrlList = [
-  "/images/home/bg_1.png",
-  "/images/home/bg_2.png",
-  "/images/home/bg_3.png",
-  "/images/home/bg_4.png",
-  "/images/home/bg_5.png",
-  "/images/home/bg_6.png",
-  "/images/home/bg_7.png",
-  "/images/home/bg_8.png",
-  "/images/home/bg_9.png",
+  "/images/travel/hunan/cs/cs_preview.jpg",
+  "/images/travel/hunan/zjj/zjj_preview.jpg",
+  "/images/travel/jilin/cbs_preview.jpg",
+  "/images/travel/shanghai/1/city3.jpg",
+  "/images/travel/shandong/ts_preview.jpg",
+  "/images/travel/jiangxi/nc_preview.jpg",
+  "/images/travel/fujian/xiamen/preview.jpg",
+  "/images/travel/shanghai/1/city6.jpg",
+  "/images/travel/shanghai/1/me5.jpg",
 ];
 
 const workIcons = [
@@ -30,7 +30,10 @@ const workIcons = [
       <div class="desc">
         <p class="name">Work</p>
         <p class="subtitle">活到老，学到老</p>
-        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?type=blog">
+        <a
+          class="btn hvr-shutter-out-horizontal bg-#8884"
+          href="/blog?type=blog"
+        >
           查看更多
         </a>
       </div>
@@ -65,16 +68,15 @@ const workIcons = [
       <div class="desc">
         <p class="name">Read</p>
         <p class="subtitle">腹有诗书气自华</p>
-        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?type=read">
+        <a
+          class="btn hvr-shutter-out-horizontal bg-#8884"
+          href="/blog?type=read"
+        >
           查看更多
         </a>
       </div>
       <div class="left">
-        <img
-          class="w-full h-full"
-          src="/images/home/read_1.png"
-          alt=""
-        />
+        <img class="w-full h-480px" src="/images/home/read_1.png" alt="" />
       </div>
     </div>
   </div>
@@ -89,19 +91,18 @@ const workIcons = [
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    height: 160px;
     font-size: 30px;
   }
 }
 
 .home-item .img_box {
-  grid-template-columns: repeat(auto-fill, 50%);
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(auto-fill, 33%);
-  }
-
-  @media (min-width: 980px) {
-    grid-template-columns: repeat(auto-fill, 50%);
+  grid-template-columns: repeat(auto-fill, 33%);
+  img {
+    height: 120px;
+    @media (min-width: 980px) {
+      height: 160px;
+    }
   }
 }
 
@@ -138,7 +139,6 @@ const workIcons = [
     .left {
       display: grid;
       width: 80%;
-      height: 337.5px;
       margin: 60px auto;
       overflow: hidden;
     }
@@ -187,9 +187,8 @@ const workIcons = [
         position: absolute;
         top: 50%;
         right: -240px;
-        margin-top: -270px;
         width: 480px;
-        height: 540px;
+        margin-top: -240px;
       }
     }
   }
