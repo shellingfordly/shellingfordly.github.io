@@ -124,4 +124,4 @@ export function threeSumClosest(nums: number[], target: number): number {
 
 但是这个真的是个玄学东西，尤其在 leetcode 上。没有优化之前能在 `108ms` 通过，优化之后反而需要 184ms。只是说按道理来说是减少了查询的，是会更快的。
 
-![](2022-08-04-16-58-38.png)
+![](/images/leetcode/16_threeSumClosest.png)

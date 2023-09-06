@@ -121,4 +121,4 @@ export function reverse(x: number): number {
 
 第三种纯数字的处理只需要 reduce 相加结果（当然，直接写 for 也一样），速度最快；
 
-![](2022-07-28-16-35-02.png)
+![](/images/leetcode/7_reverse.png)

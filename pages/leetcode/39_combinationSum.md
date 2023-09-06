@@ -74,13 +74,13 @@ candidate 中的每个元素都 互不相同
 递归之后 =>
 ```
 
-<img src='2022-09-21-10-47-22.png' style="width: 400px" />
+![](/images/leetcode/39_combinationSum_1.png)
 
 - 优化
 
 将 candidates 排序，当 **target - candidates[i] < 0** 时，结束
 
-<img src='2022-09-21-10-48-34.png' style="width: 400px" />
+![](/images/leetcode/39_combinationSum_2.png)
 
 ```ts
 function combinationSum1(candidates: number[], target: number): number[][] {

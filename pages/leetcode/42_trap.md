@@ -11,7 +11,7 @@ tags:
 
 - 示例 1：
 
-![](2022-09-26-14-30-15.png)
+![](/images/leetcode/42_trap_1.png)
 
 ```
 输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
@@ -44,7 +44,7 @@ n == height.length
 
 但是左边或者右边都受到相互最大高度的限制，合并两个数组计算，i 处的接水量为 **Math.min(leftMax[i], rightMax[i]) - height[i]**，如下图：
 
-![](2022-09-26-14-41-15.png)
+![](/images/leetcode/42_trap_2.png)
 
 ```ts
 function trap(height: number[]): number {
@@ -75,7 +75,7 @@ function trap(height: number[]): number {
 
 继续取出栈顶元素计算，直到栈内没有元素，或者取出 top 时没有 left。
 
-![](2022-09-26-14-56-29.png)
+![](/images/leetcode/42_trap_3.png)
 
 ```ts
 function trap(height: number[]) {

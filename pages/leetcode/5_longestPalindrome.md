@@ -82,7 +82,7 @@ export function longestPalindrome(s: string): string {
 
 暴力求解的方式在字符串很长的时候就慢了一些，需要 17ms
 
-![](2022-07-27-16-57-48.png)
+![](/images/leetcode/5_longestPalindrome_1.png)
 
 - 优化
 
@@ -108,7 +108,7 @@ export function longestPalindrome(s: string): string {
 
 优化过后快了一点，17ms 变成了 10ms，感知不是很强烈
 
-![](2022-07-27-16-58-56.png)
+![](/images/leetcode/5_longestPalindrome_2.png)
 
 但是如果`isPalindrome`的操作比较复杂的话，就会明显一些
 
@@ -123,8 +123,8 @@ function isPalindrome(s: string): boolean {
 
 差距就出现了，增加了变量减少了判断，节省了 isPalindrome 花费的时间
 
-![](2022-07-27-16-52-18.png)
-![](2022-07-27-16-53-00.png)
+![](/images/leetcode/5_longestPalindrome_3.png)
+![](/images/leetcode/5_longestPalindrome_4.png)
 
 ---
 
@@ -164,7 +164,7 @@ export function longestPalindrome(s: string): string {
 
 使用中心扩散的方式就快了很多，即使是优化过后的暴力求解，也拉开了很大的差距
 
-![](2022-07-27-17-24-17.png)
+![](/images/leetcode/5_longestPalindrome_5.png)
 
 ---
 

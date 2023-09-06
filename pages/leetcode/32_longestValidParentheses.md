@@ -51,7 +51,7 @@ s[i] 为 '(' 或 ')'
 
 - 分析：
 
-![](./2022-09-15-13-41-06.png)
+![](/images/leetcode/32_longestValidParentheses.png)
 
 ```ts
 export function longestValidParentheses(s: string): number {

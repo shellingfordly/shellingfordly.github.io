@@ -125,11 +125,13 @@ function convert(s: string, numRows: number): string {
 
 使用了双 for 创建数组还是比较暴力了一点，leetcode 上跑完测试稍微有点慢, 不过本地测试时给了一个长度 300 多的字符串也就是 1ms，实际应该没有 leetcode 的测试结果这么慢，业务场景中应该是可以接受的速度。
 
-![](2022-07-28-14-49-13.png)
-![](2022-07-28-14-54-25.png)
+![](/images/leetcode/6_convert_1.png)
+![](/images/leetcode/6_convert_2.png)
 
 其实 return 遍历结果的时候也可以写的比较简单一点，直接使用 flat 扁平化数组再 join 拼接成字符串即可；代码一下简洁了很多，不过就是在 leetcode 上的运行速度差距实在有点大。
 
 不过本地测试也都只有几毫秒而已，应该问题也不大，这样写代码简洁很多，也比 reduce 更好懂些。
 
-## ![](2022-07-28-15-28-22.png)
+![](/images/leetcode/6_convert_3.png)
+
+
