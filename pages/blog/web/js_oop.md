@@ -1,7 +1,7 @@
 ---
 title: 面向对象编程七大原则
 date: 2023-03-07
-tag:
+tags:
   - js
   - oop
 ---

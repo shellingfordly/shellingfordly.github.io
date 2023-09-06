@@ -21,7 +21,7 @@ export function CreateMapMarkerData(): MarkerItem[] {
   return markerList;
 }
 
-const FilterRoute = ["/", "/map", "/blog"];
+const FilterRoute = ["/", "/travel", "/blog"];
 
 export function CreateArticleData({ tag, type }: Any): ArticleItem[] {
   let data: Record<string, RouteMetaFrontmatter[]> = {};
@@ -30,14 +30,13 @@ export function CreateArticleData({ tag, type }: Any): ArticleItem[] {
 
   for (const route of routes) {
     const info: RouteMetaFrontmatter = route?.meta?.frontmatter as Any;
+    if (!info || FilterRoute.includes(route.path)) continue;
 
-    if (!info || !Array.isArray(info?.tags)) continue;
-    if (FilterRoute.includes(route.path)) continue;
-
-    if (type && (route.path as string).includes(type)) {
+    if (type && route.path.startsWith("/" + type)) {
       // 缓存 tag
-      if (type) info?.tags.forEach((tag) => PageTagList.add(tag));
-      if (tag && !info.tags.includes(tag)) continue;
+      if (type) info?.tags?.forEach((tag) => PageTagList.add(tag));
+      // 有tag筛选tag
+      if (tag && info?.tags?.includes(tag)) continue;
 
       const item = {
         title: info?.title || "",

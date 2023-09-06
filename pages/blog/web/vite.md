@@ -1,7 +1,7 @@
 ---
 title: 新时代的打包工具vite
 date: 2023-03-07
-tag:
+tags:
   - vite
 ---
 

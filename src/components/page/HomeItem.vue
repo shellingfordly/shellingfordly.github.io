@@ -19,6 +19,9 @@ const workIcons = [
   "i-logos-react",
   "i-logos-nodejs",
   "i-vscode-icons:file-type-vue",
+  "i-vscode-icons:file-type-nuxt",
+  "i-tabler:brand-threejs",
+  "i-vscode-icons:file-type-unocss",
   "i-mdi:unity",
   "i-vscode-icons:file-type-csharp",
 ];
@@ -76,7 +79,11 @@ const workIcons = [
         </a>
       </div>
       <div class="left">
-        <img class="w-full h-480px" src="/images/home/read_1.png" alt="" />
+        <img
+          class="m-a lt-sm:h-a lt-lg:h-400px lg:w-400px"
+          src="/images/home/read_1.png"
+          alt=""
+        />
       </div>
     </div>
   </div>
@@ -84,15 +91,19 @@ const workIcons = [
 
 <style lang="less" scoped>
 .home-item .icon_box {
-  grid-template-columns: repeat(auto-fill, 33%);
+  grid-template-columns: repeat(auto-fill, 25%);
 
   > div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    height: 160px;
+    height: 80px;
     font-size: 30px;
+
+    @media (min-width: 1024px) {
+      height: 160px;
+    }
   }
 }
 
@@ -100,7 +111,7 @@ const workIcons = [
   grid-template-columns: repeat(auto-fill, 33%);
   img {
     height: 120px;
-    @media (min-width: 980px) {
+    @media (min-width: 1024px) {
       height: 160px;
     }
   }
@@ -115,7 +126,7 @@ const workIcons = [
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: var(--c-container);
+    background-color: var(--c-scrollbar);
 
     .desc {
       text-align: center;
@@ -139,7 +150,8 @@ const workIcons = [
     .left {
       display: grid;
       width: 80%;
-      margin: 60px auto;
+      margin: 60px auto 0;
+      padding: 0;
       overflow: hidden;
     }
 
@@ -158,9 +170,13 @@ const workIcons = [
           font-size: 16px;
         }
       }
+
+      .left {
+        padding: 0 80px;
+      }
     }
 
-    @media (min-width: 980px) {
+    @media (min-width: 1024px) {
       width: 75%;
       .desc {
         text-align: left;

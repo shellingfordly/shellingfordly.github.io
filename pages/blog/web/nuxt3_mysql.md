@@ -1,7 +1,7 @@
 ---
 title: 在nuxt3中连接mysql
-date: 2023-03-22
-tag:
+date: 2023-03-22 10:00:00
+tags:
   - nuxt
 ---
 

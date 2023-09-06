@@ -5,6 +5,8 @@ tags:
   - js
 ---
 
+# JavaScript 学习笔记
+
 <span>
 &nbsp;&nbsp;&nbsp;&nbsp;
 JavaScript 是属于 HTML 和 Web 的编程语言。
@@ -35,7 +37,7 @@ function fn() {}
 <font color='red'>注意：</font>
 
 > 变量不一定是函数，但是函数名可以叫做变量
-> 这里的fn可以叫 `函数fn` ，也可以叫 `变量fn`
+> 这里的 fn 可以叫 `函数fn` ，也可以叫 `变量fn`
 
 #### 匿名函数
 
@@ -147,11 +149,11 @@ fn(1, 1); // 返回结果为2
 
 > 注：
 >
-> - alert(fn()); alert某个函数时,弹窗显示的是函数的返回值，即return后的内容
+> - alert(fn()); alert 某个函数时,弹窗显示的是函数的返回值，即 return 后的内容
 > - 直接写 fn(); 是调用函数
-> - 函数return之后的内容不会执行
+> - 函数 return 之后的内容不会执行
 
-例1
+例 1
 
 ```js
 function fn() {
@@ -162,7 +164,7 @@ fn(); //此时弹窗显示 ok
 alert(fn()); //此时弹窗显示 ok，之后显示 undefined
 ```
 
-例2
+例 2
 
 ```js
 function fn() {
@@ -184,15 +186,15 @@ a();
 
 `作用范围，有效范围`
 
-- 全局变量 -- 直接在script标签下声明的变量
+- 全局变量 -- 直接在 script 标签下声明的变量
 
 - 局部变量 -- 所有的花括号都会形成单独的作用域
 
-> `注：`在ES5中，for and if 的 {} 是不存在作用域的，只有函数存在作用域
+> `注：`在 ES5 中，for and if 的 {} 是不存在作用域的，只有函数存在作用域
 
 #### 全局域
 
-全局变量：直接在script下声明的变量(即window的属性)
+全局变量：直接在 script 下声明的变量(即 window 的属性)
 
 #### 局部域
 
@@ -230,8 +232,8 @@ alert(a); //ok
 
 ### continue / break
 
-- continue跳出当前一层循环
-- break跳出整个循环
+- continue 跳出当前一层循环
+- break 跳出整个循环
 
 ## 元素
 
@@ -245,24 +247,24 @@ alert(a); //ok
 - xxx.add() 加类名
 - xxx.remove() 移除类名
 - xxx.toggle() 切换类名（有则删，无则加）
-- xxx.contains() 返回布尔值（有true，无false）
+- xxx.contains() 返回布尔值（有 true，无 false）
 
 #### getComputedStyle();
 
 - 获取元素样式
-- 不兼容IE8及以下浏览器
+- 不兼容 IE8 及以下浏览器
 - 获取：getComputedStyle().width
 
 #### obj.currentStyle;
 
-- IE8及以下兼容写法
+- IE8 及以下兼容写法
 - 获取：obj.currentStyle.width
 
 ### 代码解析
 
 #### 预解析
 
-> 先去找带 `var 等关键词` ，`变量声明`以及`函数声明`，然后将他们存在一个仓库中，会给每个变量都赋undefined，所以当在变量赋值前查看变量时都等于undefined
+> 先去找带 `var 等关键词` ，`变量声明`以及`函数声明`，然后将他们存在一个仓库中，会给每个变量都赋 undefined，所以当在变量赋值前查看变量时都等于 undefined
 
 ```js
 var a = undefined; // 变量提升
@@ -299,8 +301,8 @@ var num = 5;
 ### 闭包
 
 1. 当函数执行完毕后，就把解析那个所谓的仓库直接丢掉，`释放内存`
-2. 而如果`fn()函数`带有return的话，return的内容会被返回给fn()；return的内容（变量/函数）不会被丢掉，而是保存下来，而没有return的函数fn()中的内容会被丢掉
-3. 所以，当定义一个变量 f 去接收带有return的函数 fn() 时，执行变量函数 f() 时，会将return后面的函数内容执行
+2. 而如果`fn()函数`带有 return 的话，return 的内容会被返回给 fn()；return 的内容（变量/函数）不会被丢掉，而是保存下来，而没有 return 的函数 fn()中的内容会被丢掉
+3. 所以，当定义一个变量 f 去接收带有 return 的函数 fn() 时，执行变量函数 f() 时，会将 return 后面的函数内容执行
 
 ```js
 function fn() {
@@ -323,20 +325,20 @@ alert(f());
 */
 ```
 
-> `注意：` fn()执行完毕之后虽说将`解析的那个仓库`丢掉了，但是只是将`内存中执行的函数内容释放了`，函数fn依然存在的,后面依然可以调用；而 return 会使的 fn() 函数的内容/声明的变量保存下来，即return内部函数使用的外部函数变量会被保存下来，不会被js的垃圾回收机制给回收掉
+> `注意：` fn()执行完毕之后虽说将`解析的那个仓库`丢掉了，但是只是将`内存中执行的函数内容释放了`，函数 fn 依然存在的,后面依然可以调用；而 return 会使的 fn() 函数的内容/声明的变量保存下来，即 return 内部函数使用的外部函数变量会被保存下来，不会被 js 的垃圾回收机制给回收掉
 
 ### 定时器
 
 #### 回调函数
 
-函数a作为参数传入函数b，由函数b执行函数a，那么函数a就叫做回调函数。
+函数 a 作为参数传入函数 b，由函数 b 执行函数 a，那么函数 a 就叫做回调函数。
 
 #### setTimeout();
 
 - 只执行一次
 - 启动定时器
-  - 参数1：处理函数/回调函数
-  - 参数2：时间间隔
+  - 参数 1：处理函数/回调函数
+  - 参数 2：时间间隔
 
 ```js
 function fn(){}
@@ -371,14 +373,14 @@ var oDiv = document.getElementById("div");
 alert(oDiv.style.height); //获取到的是行内样式
 ```
 
-2. 函数 `getComputedStyle()` ，获取到的是div最终的样式（不管样式写在哪，获取div的最终呈现的样式）
+2. 函数 `getComputedStyle()` ，获取到的是 div 最终的样式（不管样式写在哪，获取 div 的最终呈现的样式）
 
 ```js
 alert(getComputedStyle(oDiv).height);
 ```
 
 3. 兼容 IE
-   IE8以下不认识getComputedStyle函数
+   IE8 以下不认识 getComputedStyle 函数
 
 ```js
 var h；
@@ -396,7 +398,7 @@ if( window.getComputedStyle ){
 
 ### 封装
 
-例：用函数封装兼容IE8的getComputedStyle函数
+例：用函数封装兼容 IE8 的 getComputedStyle 函数
 
 ```js
 // 获取某个对象（obj）的某个属性（attr）
@@ -423,19 +425,19 @@ attr
 
 ### 数据类型
 
-- number类型 -- 数字类型
-- string类型
+- number 类型 -- 数字类型
+- string 类型
   - 字符串只是数据，不是类型
   - 所有带引号包裹的都是字符串
-  - 字符串的类型为string类型
-- boolean类型 -- 布尔值`true/false`
+  - 字符串的类型为 string 类型
+- boolean 类型 -- 布尔值`true/false`
 - undefined -- 未定义，没有值，系统默认给的值
 - null -- 空，空的指针对象，表示没有对象，这里不该有值
 - object -- 对象
 
 #### 引用型数据类型
 
-- object 每var一个都会新建一个内存地址去存放这个object
+- object 每 var 一个都会新建一个内存地址去存放这个 object
 - 而其他的五种数据类型，属于基本数据类型，是直接比较值，只比较数据值的‘形’是否一样
 
 #### 基本数据类型
@@ -462,7 +464,7 @@ alert(new_str); // helloWorleOK
 
 - 通过指定字符查找位置
   - indexOf('val',num)
-    - 查询字符，val查询值，num开始下标
+    - 查询字符，val 查询值，num 开始下标
     - 找不到返回-1
   - lastIndexOf 从后面往前找
 
@@ -477,19 +479,19 @@ alert(str.indexOf("h")); // 0 -- 第0个
 alert(str.charAt(1)); // e
 ```
 
-- 指定索引返回字符串的ASCII码
+- 指定索引返回字符串的 ASCII 码
 
 ```js
 alert(str.charAt(1)); // 101 -- e的ASCII码
 ```
 
-- 指定字符的ASCII码返回字符
+- 指定字符的 ASCII 码返回字符
 
 ```js
 alert(String.fromCharCode(80)); // P -- P的ASCII码为80
 ```
 
-- 查询下标并返回其ASCII码
+- 查询下标并返回其 ASCII 码
 
 ```js
 alert(str.charCodeAt(1)); // 101 -- e的ASCII码
@@ -497,7 +499,7 @@ alert(str.charCodeAt(1)); // 101 -- e的ASCII码
 
 - 指定索引和长度返回字符串
   - substr('num','sum')
-  - num开始下标，sum长度
+  - num 开始下标，sum 长度
 
 ```js
 alert(str.substr(1, 2)); // el
@@ -506,8 +508,8 @@ alert(str.substr(1, 2)); // el
 #### 截取字符串
 
 - substring('num1','num2')
-  - num1开始位置，num2结束位置
-  - 不包含num2下标的字符，区间表示为 [num1，num2)
+  - num1 开始位置，num2 结束位置
+  - 不包含 num2 下标的字符，区间表示为 [num1，num2)
   - 会自动取从小到大的顺序，所以写反也没关系
   - substring('num1')：相当于 [num1，∞)
 
@@ -518,7 +520,7 @@ alert(str.substring(9, 1));
 ```
 
 - slice
-  - 正数同上，截取索引可以为负数，（-5，-1）截取倒数第5位~最后一位，不包含最后一位的字符
+  - 正数同上，截取索引可以为负数，（-5，-1）截取倒数第 5 位~最后一位，不包含最后一位的字符
   - 正数从 1 开始数，倒数第一个是 -1
 
 ```js
@@ -535,7 +537,7 @@ var new_str = str.LowerCase();
 alert(new_str); // helloworld
 ```
 
-- toUpperCase转大写
+- toUpperCase 转大写
 
 ```js
 var str = "helloWORLD";
@@ -579,7 +581,7 @@ alert(str.replace("ell", 123));
 
 split( val );
 
-以 `val` （val可以是字符串）将字符串分割，分别放入数组中
+以 `val` （val 可以是字符串）将字符串分割，分别放入数组中
 
 ```js
 console.log(str.split("o"));
@@ -604,7 +606,7 @@ var arr3 = new Array();
 
 #### 方法
 
-- indexOf('val') 查询值val,返回下标
+- indexOf('val') 查询值 val,返回下标
 - pop
 - shift
 - unshift
@@ -620,7 +622,7 @@ var arr3 = new Array();
 
 #### 类数组
 
-一个对象有规律数字的属性名（下标），并且有length属性，可以通过普通的for来遍历的对象
+一个对象有规律数字的属性名（下标），并且有 length 属性，可以通过普通的 for 来遍历的对象
 
 #### 冒泡排序
 
@@ -644,33 +646,33 @@ var json = '{"name":"刘谣"，"age":"20"}';
 
 #### 方法
 
-- JSON.stringify() 反序列化，将对象转换成json字符串格式
-- JSON.parse() 序列化，将json字符串转换成object对象，常用
+- JSON.stringify() 反序列化，将对象转换成 json 字符串格式
+- JSON.parse() 序列化，将 json 字符串转换成 object 对象，常用
 
 ### 转换
 
 #### Number()
 
-对一个字符串整体进行转换，非法的就转换成NaN
+对一个字符串整体进行转换，非法的就转换成 NaN
 
-出现NaN的情况：
+出现 NaN 的情况：
 
 - 进行了非法的数学运算 (如字符串,undefined,{},json)
 
-> 六种转换成false：
+> 六种转换成 false：
 >
 > - 0，"" 空字符串，undefined，null，false，NaN
-> - NaN === NaN，NaN == NaN 都是false，NaN自己都不等于自己(在es6中这个坑被填了)
+> - NaN === NaN，NaN == NaN 都是 false，NaN 自己都不等于自己(在 es6 中这个坑被填了)
 >
-> 转换成0：""空字符串，null,false,空数组[ ]
+> 转换成 0：""空字符串，null,false,空数组[ ]
 >
-> 转换成NaN：""空字符串,布尔值，空数组
+> 转换成 NaN：""空字符串,布尔值，空数组
 
 #### parseInt()
 
 从左到有右检查，遇到非数字就停止，转换出前面的数字，还有取整的功能
 
-### Math函数
+### Math 函数
 
 - Math.ceil() -- 向上取整
 
@@ -691,7 +693,7 @@ var json = '{"name":"刘谣"，"age":"20"}';
 #### 三目运算
 
 - 适合 `if/else` 类型
-- 表达式是否成立 ? 成立输出1 ： 不成立输出2 ;
+- 表达式是否成立 ? 成立输出 1 ： 不成立输出 2 ;
 
 ```js
 var a = 0 ;
@@ -699,7 +701,7 @@ a == 0 ? a = 1 : a = -1 ;
 等价于 a = a == 0 ? 1 : -1 ;
 ```
 
-#### switch语句
+#### switch 语句
 
 ```js
 switch(){
@@ -744,7 +746,7 @@ document.write("");
 
 > `注`
 >
-> 写在window.onload里面的代码会覆盖掉body里面的所有内容
+> 写在 window.onload 里面的代码会覆盖掉 body 里面的所有内容
 
 ### 数组
 
@@ -879,7 +881,7 @@ arr.sort(function (a, b) {
 
 ### ECMAscript5
 
-> 是javascript的执行标准
+> 是 javascript 的执行标准
 
 #### 参数
 
@@ -887,7 +889,7 @@ arr.sort(function (a, b) {
 - index ：当前项的下标
 - arr ：是数组本身
 
-1. forEach遍历数组
+1. forEach 遍历数组
 
 ```js
 forEach(function (value, index, arr) {});
@@ -895,7 +897,7 @@ forEach(function (value, index, arr) {});
 
 2. map 计算
 
-有返回值，返回值是一个数组，return是什么就是什么
+有返回值，返回值是一个数组，return 是什么就是什么
 
 ```js
 map(function (val) {
@@ -905,7 +907,7 @@ map(function (val) {
 
 3. filtre 过滤
 
-有返回值，返回值是一个数组，retuern为真（true）的value值会进入数组
+有返回值，返回值是一个数组，retuern 为真（true）的 value 值会进入数组
 
 ```js
 filter(function (value) {
@@ -915,7 +917,7 @@ filter(function (value) {
 
 4. every 有点判断的意思
 
-每一个为true，才返回true，否则为false
+每一个为 true，才返回 true，否则为 false
 
 ```js
 every(function (val) {
@@ -925,7 +927,7 @@ every(function (val) {
 
 5. some 也有判断的意思
 
-每一个为true，才返回true，否则为false
+每一个为 true，才返回 true，否则为 false
 
 ```js
 some(function (val) {
@@ -933,7 +935,7 @@ some(function (val) {
 });
 ```
 
-> `随机数：` Math.random() 随机一个0~1之间的数，不包括1
+> `随机数：` Math.random() 随机一个 0~1 之间的数，不包括 1
 
 ## 节点
 
@@ -946,7 +948,7 @@ some(function (val) {
 
 obj.childNodes 获取所有的子节点
 
-【子节点：IE8及以下都会忽略空格和换行】
+【子节点：IE8 及以下都会忽略空格和换行】
 
 #### obj.children 获取所有的子`元素`节点
 
@@ -968,7 +970,7 @@ obj.nodeType 获取节点的类型，返回其编号
 
 8、obj.lastChild 获取最后一个子节点
 
-9、obj.firstElementChild 获取第一个子元素节点，【不兼容IE8，一般不用】
+9、obj.firstElementChild 获取第一个子元素节点，【不兼容 IE8，一般不用】
 
 10、obj.lastElementChild 获取最后一个子元素节点，【同上】
 
@@ -984,7 +986,7 @@ obj.nodeType 获取节点的类型，返回其编号
 
 16、obj.offsetParent 返回定位了的父级元素，它相对于谁定位的，谁就是他的定位父级
 
-17、obj.childElementCount 获取子元素节点的个数【不兼容IE8及以下】
+17、obj.childElementCount 获取子元素节点的个数【不兼容 IE8 及以下】
 
 #### 常用方法:
 
@@ -1015,7 +1017,7 @@ obj.appendChild(div);
 #### 克隆节点
 
 节点.cloneNode(bool);
-参数默认为false；
+参数默认为 false；
 true 深度克隆，复制所有
 false 浅度克隆，不复制内容
 
@@ -1028,7 +1030,7 @@ obj.removeChild(节点) 通过父节点删除子节点
 替换子节点
 obj.replaceChild(子节点，被替换的节点)
 
-## css试图模式
+## css 试图模式
 
 ### client
 
@@ -1043,13 +1045,13 @@ clientTop 元素上边框厚度
 ### inner
 
 获取窗口的可视区域宽高（包括滚动条）
-【IE8以下不兼容】
+【IE8 以下不兼容】
 innerWidth
 innerHeight
 
 ### offset 与定位有关
 
-获取元素的实际大小，即content+padding+border，即写的是宽高是多少就是多少
+获取元素的实际大小，即 content+padding+border，即写的是宽高是多少就是多少
 offsetWidth
 offsetHeight
 
@@ -1059,25 +1061,25 @@ offsetTop 元素顶部到定位父级的顶部的距离
 
 ### scroll
 
-获取元素Content+padding的大小，当元素内容的东西超出的时候，会把超出的部分算进去；当超出时，下padding可能就没有了，这时算的就是上padding到内容底部的距离。
-【当元素有overflow：hidden时，得到的是上下padding+content+超出的部分】
+获取元素 Content+padding 的大小，当元素内容的东西超出的时候，会把超出的部分算进去；当超出时，下 padding 可能就没有了，这时算的就是上 padding 到内容底部的距离。
+【当元素有 overflow：hidden 时，得到的是上下 padding+content+超出的部分】
 scrollWidth
 scrollHeight
 
-获取X，Y轴方向被挡住的那部分大小
+获取 X，Y 轴方向被挡住的那部分大小
 scrollTop
 4、scrollLeft
 
 ### page
 
-pageY 到document的y轴方向的距离，包括没有显示的部分
+pageY 到 document 的 y 轴方向的距离，包括没有显示的部分
 
 ## 事件对象
 
-DOM零级事件，绑定on+"...."事件
-即obj.onclick，这种事件没有兼容性问题
+DOM 零级事件，绑定 on+"...."事件
+即 obj.onclick，这种事件没有兼容性问题
 只同一个对象绑定的相同事件只能有一个
-事件对象e
+事件对象 e
 
 ```js
 document.onclick = function (e) {
@@ -1087,12 +1089,12 @@ document.onclick = function (e) {
 ```
 
 监听事件
-DOM二级事件
+DOM 二级事件
 obj.addEventListener("事件类型"，事件函数(回调函数)，布尔值);
-兼容IE：obj.attachEvent("事件类型"，事件函数)；
-IE不支持捕获
+兼容 IE：obj.attachEvent("事件类型"，事件函数)；
+IE 不支持捕获
 布尔值：
-默认false：冒泡；
+默认 false：冒泡；
 true：捕获；（与冒泡相反，从最上面的事件向下调用）
 
 事件捕获：父级事件向下执行到子级事件；
@@ -1105,12 +1107,12 @@ obj.addEventListener("click", function () {
 ```
 
 事件冒泡
-子集将一直向上调用父级事件，直到document
+子集将一直向上调用父级事件，直到 document
 
 阻止事件冒泡
 e.stopPropagation();
-兼容IE：e.cancelBubble = true;
-true阻止，false不阻止
+兼容 IE：e.cancelBubble = true;
+true 阻止，false 不阻止
 
 ```js
 obj.onclick = function (e) {
@@ -1122,7 +1124,7 @@ obj.onclick = function (e) {
 
 4、解绑监听事件
 obj.removeEventListener("事件类型"，函数名);
-兼容IE
+兼容 IE
 obj.detachEvent("事件类型"，函数名);
 
 ### 事件代理
@@ -1131,14 +1133,14 @@ obj.detachEvent("事件类型"，函数名);
 e.target
 e.srcElement
 
-### DOM零级事件
+### DOM 零级事件
 
 obj.onclick = function (){}
-DOM二级事件
+DOM 二级事件
 obj.addEventListener("click",function(){});
 
-DOM零级事件即使不点击时，也开辟了内存把function存起来了，并将obj的onclick的属性指向这个function；
-而DOM二级事件则是，当触发这个事件时才会开辟内存读取这个function，没有触发时不会读取function
+DOM 零级事件即使不点击时，也开辟了内存把 function 存起来了，并将 obj 的 onclick 的属性指向这个 function；
+而 DOM 二级事件则是，当触发这个事件时才会开辟内存读取这个 function，没有触发时不会读取 function
 
 ### 阻止默认行为
 
@@ -1146,7 +1148,7 @@ DOM零级事件即使不点击时，也开辟了内存把function存起来了，
 
 检测鼠标右键单击
 阻止默认行为：e.preventDefault();
-IE8及以下：e.returnValue = false;
+IE8 及以下：e.returnValue = false;
 true 不阻止， false 阻止；
 
 ```js
@@ -1184,9 +1186,9 @@ document.oncontextmenu = function () {
 #### document.onmousewheel
 
 只监听鼠标滚轮的滚动事件，而直接拖动滚动条的滑块是不会被触发的；
-【火狐浏览器没有onmousewheel属性]
+【火狐浏览器没有 onmousewheel 属性]
 火狐浏览器写法：document.DOMmouseScroll
-【但是在火狐里面不能以DOM零级的方式绑定滚轮事件，所以要DOM二级事件写法】
+【但是在火狐里面不能以 DOM 零级的方式绑定滚轮事件，所以要 DOM 二级事件写法】
 
 判断滚轮方向：
 e.wheelDelta
@@ -1277,7 +1279,7 @@ onfocus 获得焦点
 obj.focus(); 给元素自动聚焦，必须是能获取到光标的元素
 
 obj.onchange
-当能获得焦点的元素内容被改变并且元素失去焦点之后会被触发，优先级比onblur高一点
+当能获得焦点的元素内容被改变并且元素失去焦点之后会被触发，优先级比 onblur 高一点
 
 obj.oninput
 当内容改变时马上触发
@@ -1301,7 +1303,7 @@ obj.onkeypress
 obj.onkeyup
 按键抬起时触发
 
-判断alt和ctrl有没有触发
+判断 alt 和 ctrl 有没有触发
 e.altKey
 e.ctrlKey
 
@@ -1309,7 +1311,7 @@ e.ctrlKey
 
 【正则匹配的是连续性的字符】
 
-match方法
+match 方法
 根据字符串查找相同的字符串，符合条件的字符串放到数组中并返回
 
 - 正则表达式可以直接写中文
@@ -1322,9 +1324,9 @@ var reg = new RegExp("学习"); //正则
 
 ### text(str) 正则的方法
 
-检测str中有没有符合正则规则匹配的字符串
-有符合条件的：返回true
-没有：返回false
+检测 str 中有没有符合正则规则匹配的字符串
+有符合条件的：返回 true
+没有：返回 false
 
 ### 元字符
 
@@ -1334,10 +1336,10 @@ var reg = new RegExp("学习"); //正则
 \D ：匹配非数字
 
 \s ：匹配空格
-\S ：非k空格
+\S ：非 k 空格
 
 \w ：数字、字母、下划线
-\W ：非字符，除了\w之外的所有字符
+\W ：非字符，除了\w 之外的所有字符
 
 \b ：独立部分/单词边界
 
@@ -1359,10 +1361,10 @@ var reg = /\bhappy\b/; //只会匹配为happy的完整的独立的单词
 
 > 量词的匹配模式：
 > 贪婪匹配：默认从最高次数匹配，知道底线次数；如果不满足底线次数，则跳过。
-> var reg = /\d{2,5}/;【从5次开始匹配】
+> var reg = /\d{2,5}/;【从 5 次开始匹配】
 
 > 懒惰匹配：从低次开始匹配，在贪婪模式后加“ ？”；
-> var reg = /\d{2,5}?/;【从2次开始匹配】
+> var reg = /\d{2,5}?/;【从 2 次开始匹配】
 
 ```js
 var reg = /\d{5}/; //匹配5个连续数字
@@ -1370,9 +1372,9 @@ var reg = /\d{1,9}/; //最少1个，最多9个
 var reg = /\d{1,}/; //最少1个，上不封顶
 ```
 
-- --> {0,} 0到正无穷，所有，不限个数
+- --> {0,} 0 到正无穷，所有，不限个数
 
-* --> {1,} 1到正无穷，最少要有一个
+* --> {1,} 1 到正无穷，最少要有一个
   ? --> {0,1} 要么没有，要么一个
 
 #### 修饰符/标识符
@@ -1409,10 +1411,9 @@ var reg2 = /(abc)+/g; //[abc,abc]
 ```
 
 [] ：字符集
-字段：返回两个字符Unicode码之间的所有码对应的字符
-[0-9][a-z][A,Z] 可以一起写[0-9a-zA,Z]
-[()//?+*{}-] 这些在字符串中都是无意义的，普通符号
-[059] 匹配0或者5或者9
+字段：返回两个字符 Unicode 码之间的所有码对应的字符
+[0-9][a-z][A,Z] 可以一起写[0-9a-zA,Z][()//?+*{}-] 这些在字符串中都是无意义的，普通符号
+[059] 匹配 0 或者 5 或者 9
 
 ```
 var str = "14376423987";
@@ -1426,16 +1427,16 @@ var reg = /[1-5]/g; //[1,4,3,4,2,3]
 ^ ：以什么开始的字符
 【在字符集中表示除了^跟着的字符以外的东西】
 
-$ ：以什么结束的字符
+\$ ：以什么结束的字符
 
 ## 存储/缓存数据
 
 ### cookie
 
-上限4kb，数据默认有时间限制，默认是一次会话的时间（打开一个窗口，关闭后就结束）
-过期时间可以设置：每次与后台交互请求的时候，都会自动发送cookie过去，如果遇上和cookie里的数据没有很大关系的请求时，发送cookie就是占用资源
+上限 4kb，数据默认有时间限制，默认是一次会话的时间（打开一个窗口，关闭后就结束）
+过期时间可以设置：每次与后台交互请求的时候，都会自动发送 cookie 过去，如果遇上和 cookie 里的数据没有很大关系的请求时，发送 cookie 就是占用资源
 
-> 大部分的cookie必须在服务器下存储，cookie是在document下的
+> 大部分的 cookie 必须在服务器下存储，cookie 是在 document 下的
 > 传输的必须是字符串，键值对
 
 ```js
@@ -1447,11 +1448,11 @@ document.cookie =
   new Date(new Data().getTime() + 24 * 60 * 60 * 1000).toUTCString();
 ```
 
-### localStorage和sessionStorage
+### localStorage 和 sessionStorage
 
 同：
 存储的数据没有上限
-在window下
+在 window 下
 
 异：
 localStorage：永久保存，除非认为清楚或者清楚浏览器缓存
@@ -1467,7 +1468,7 @@ localStorage.setItem("name", "刘谣");
 localStorage.setItem("age", "20");
 ```
 
-用json存储数据
+用 json 存储数据
 
 ```js
 localStorage.setItem(
@@ -1511,14 +1512,14 @@ asyncChronous javascript and XML
 > 在不刷新页面的前提下，更新当前这个页面或者局部的数据；
 > 实现与后台的数据交互，同时在页面进行更新
 
-ajax是一个`对象`，必须被new执行的对象
+ajax 是一个`对象`，必须被 new 执行的对象
 
 ```js
 //创建一个ajax对象
 var ajax = new XMLHttpRequest();
 ```
 
-open( get/post , 接口地址 , 是否异步/同步true(异步)/false(同步) );
+open( get/post , 接口地址 , 是否异步/同步 true(异步)/false(同步) );
 
 ```js
 ajax.open("get", "www.baidu.com/xxx", true);
@@ -1543,16 +1544,16 @@ ajax.pnreadystatechange = function(){
 
 ```
 
-与后台交互时当前的状态码ajax.readyState
-0 ：ajax已经创建，但是没有调用open方法
-1 ：open已经调用，没有send发法发送
+与后台交互时当前的状态码 ajax.readyState
+0 ：ajax 已经创建，但是没有调用 open 方法
+1 ：open 已经调用，没有 send 发法发送
 2 ：已经发送给后台，但是还没有得到数据
 3 ：正在接受数据
 4 ：数据全部接收完成
-【但是也存在有状态码为4的时候数据没有接收完成，这时可能是服务器出问题了】
+【但是也存在有状态码为 4 的时候数据没有接收完成，这时可能是服务器出问题了】
 
-服务器状态码/http状态码ajax.status
-大于200并且小于300，或者等于300表示服务器没有问题
+服务器状态码/http 状态码 ajax.status
+大于 200 并且小于 300，或者等于 300 表示服务器没有问题
 
 当用户的网络很差或者其他情况，后台处理时间很长；后台应该达到一定时间自动关闭这个请求，让用户不需要继续等待了，无法访问
 
@@ -1563,10 +1564,10 @@ setTimeout(function () {
 }, 1000);
 ```
 
-### get和post的区别
+### get 和 post 的区别
 
 同：都是使用键值对格式，传输数据都是没有上限的
-异：但是get一般只用来传输小数据，因为get的数据（传输）会直接显示在地址栏处，浏览器会对url地址栏的字符长度做限制
+异：但是 get 一般只用来传输小数据，因为 get 的数据（传输）会直接显示在地址栏处，浏览器会对 url 地址栏的字符长度做限制
 
 #### get
 
@@ -1576,24 +1577,24 @@ ajax.open("get","http:www.baidu.com/xxx?xxxxxx",true);
 
 #### post
 
-可以在network中看到数据
-数据前不带 “？” 问号，以字符串形式放在send里面，保密性和get差不多的，只是不像get一样直接在地址栏显示出来
+可以在 network 中看到数据
+数据前不带 “？” 问号，以字符串形式放在 send 里面，保密性和 get 差不多的，只是不像 get 一样直接在地址栏显示出来
 数据：xxxxxx
 ajax.open("get","http:www.baidu.com/xxx",true);
 ajax.send("xxxxxx");
-post必须设置请求头
+post 必须设置请求头
 ajax.setRequestHeader("Content-Type","xxxxx")
 
 ## jsonp
 
 是一种非正式的传输`协议`
-jsonp是利用了script的src属性的跨域漏洞，可以去其他不同的服务器拿数据
+jsonp 是利用了 script 的 src 属性的跨域漏洞，可以去其他不同的服务器拿数据
 
-> 比如：img的src，能够跨域访问别的网页的图片，其他的底层定义的src的属性的一些标签也可以实现跨域访问，但是只能显示它本身标签的内容形式
+> 比如：img 的 src，能够跨域访问别的网页的图片，其他的底层定义的 src 的属性的一些标签也可以实现跨域访问，但是只能显示它本身标签的内容形式
 
 ### callback
 
-回调函数，是jsonp里比传的参数
+回调函数，是 jsonp 里比传的参数
 
 ## 面向对象
 
@@ -1610,7 +1611,7 @@ jsonp是利用了script的src属性的跨域漏洞，可以去其他不同的服
 对象都有的属性：共性
 特有的属性：特性
 
-利用function创造一个工厂/流水线
+利用 function 创造一个工厂/流水线
 
 ```js
 function Person(name, age, sex) {
@@ -1625,7 +1626,7 @@ var p1 = Person("刘谣", 20, "男");
 
 ### new
 
-> 通过new关键字执行的函数，new后面的函数叫做构造函数
+> 通过 new 关键字执行的函数，new 后面的函数叫做构造函数
 
 > `new的特性`：
 
@@ -1637,7 +1638,7 @@ var a = "字符串1", //字面量
     c = new String(字符串"); //构造函数
 ```
 
-> new执行构造函数的过程：叫做构造函数的实例化/类的实例化；
+> new 执行构造函数的过程：叫做构造函数的实例化/类的实例化；
 > 构造函数执行结束以后返回的对象：叫做实例/实例化对象
 
 ```js
@@ -1649,12 +1650,12 @@ function Person(name, age, sex) {
 var p1 = new Person("刘谣", 20, "男");
 ```
 
-> 使用new会隐式创建一个对象并返回出来，并且构造函数中的this会指向new创建的那个对象
-> 就不需要var一个对象并return
+> 使用 new 会隐式创建一个对象并返回出来，并且构造函数中的 this 会指向 new 创建的那个对象
+> 就不需要 var 一个对象并 return
 
 > 构造函数一般的函数名一般第一个字母大写
 
-### 原型prototype
+### 原型 prototype
 
 > 就是一个仓库，并且仓库里的东西都是共享的，里面存储的每个对象都可以共享方法/属性
 > 本质上是一个对象
@@ -1684,19 +1685,19 @@ p1.say("我是" + this.name);
 "1".\_\_proto\_\_
 
 `__proto__`： 原型链，就是一个引用
-所有的对象都有的属性，除了null和undefined
+所有的对象都有的属性，除了 null 和 undefined
 
 > 原型链：一个对象的原型（\_\_proto**）指向它的构造函数那个仓库的原型对象（prototype）的原型（\_\_proto**）
 > 在找原型时，只会在构造函数的原型里面找，不会构造函数的私有属性里面找
 
-> 实例对象的`__proto__`指向生成这个实例对象的构造函数的原型对象，既是构造函数的prototype原型对象
+> 实例对象的`__proto__`指向生成这个实例对象的构造函数的原型对象，既是构造函数的 prototype 原型对象
 
 prototype ： 原型对象
 只有函数/方法才有的属性
 
 > 原型（prototype）是一个对象，这个对象的\_\_proto\_\_指向创建这个对象的构造函数的原型（prototype）
 
-constructor：每个原型都有constructor属性，指向当前原型的构造函数
+constructor：每个原型都有 constructor 属性，指向当前原型的构造函数
 
 > 【先创建构造函数，在创建实例化对象】
 
@@ -1704,7 +1705,7 @@ constructor：每个原型都有constructor属性，指向当前原型的构造�
 
 > 多种状态，根据参数的不同，做出不同的反馈
 
-## es6新增
+## es6 新增
 
 ### let const class import
 
@@ -1719,9 +1720,9 @@ es6 ：全局作用域、函数作用域、块作用域
 
 本质上是一种模式，只要等号两边的结构值相同，那么等号左边的变量就会被赋予对应的值。
 
-- 当右边的值比左边的变量少的时候，左边的变量会自动赋予undefined
-- 左右值不对应时，左边多余的变量会赋予undefined值，右边多余的时候多余的不管
-- 默认值：在左边给变量用=赋予默认值，默认值只有在变量匹配到undefined的时候才会生效，如果匹配到了值，则使用右边的值
+- 当右边的值比左边的变量少的时候，左边的变量会自动赋予 undefined
+- 左右值不对应时，左边多余的变量会赋予 undefined 值，右边多余的时候多余的不管
+- 默认值：在左边给变量用=赋予默认值，默认值只有在变量匹配到 undefined 的时候才会生效，如果匹配到了值，则使用右边的值
 
 #### 扩展运算符 “...”
 
@@ -1742,31 +1743,31 @@ let a = 1,
 
 ### includes()
 
-查找xxx字符串，返回布尔值true/false
+查找 xxx 字符串，返回布尔值 true/false
 
 ### starrsWith()
 
-判断是否以xxx字符开头，返回布尔值true/false
+判断是否以 xxx 字符开头，返回布尔值 true/false
 
 ### endsWith()
 
-判断是否以xxx字符结尾，返回布尔值true/false
+判断是否以 xxx 字符结尾，返回布尔值 true/false
 
 ### repeat(n)
 
-重复原字符串n次返回出一个新字符串，并且默认向下取整。
+重复原字符串 n 次返回出一个新字符串，并且默认向下取整。
 
-- -1到+1取0
-- false为0
-- true为1
-- NaN为0
-- 字符串会默认转化为数字，转化不了时为false，即为0
+- -1 到+1 取 0
+- false 为 0
+- true 为 1
+- NaN 为 0
+- 字符串会默认转化为数字，转化不了时为 false，即为 0
 
 ## padStart(n,str) padEnd(n,str)
 
-es8的方法
+es8 的方法
 "str"可以没有，默认补全空格
-n小于等于原字符串的长度时，返回原字符串
+n 小于等于原字符串的长度时，返回原字符串
 
 ### padStart()
 
@@ -1779,7 +1780,7 @@ var str = "abc".padStart(5, "defg");
 
 ### padEnd()
 
-往后补全，与padStart()同理
+往后补全，与 padStart()同理
 
 isFinite() 检测是否为一个有限数值
 Infinity 无穷大
@@ -1792,29 +1793,29 @@ Number.isFinite() 不会进行隐式类型转换
 
 有精度问题
 
-### Math函数
+### Math 函数
 
 #### Math.trunc()
 
-砍掉小数点，会隐式调用Number进行类型转换
+砍掉小数点，会隐式调用 Number 进行类型转换
 
 #### Math.sign()
 
-整数返回+1，负数返回-1，-0返回-0,0返回0
+整数返回+1，负数返回-1，-0 返回-0,0 返回 0
 
 #### Math.cbrt() 计算一个立方根
 
 #### Math.hypot() 勾股定理，求第三边
 
-es7新增指数运算符 **
+es7 新增指数运算符 **
 2**3 = 2*2*2 = 8
 
 ## 函数的扩展
 
-- 当()里面没有参数默认值的时候，默认声明变量的方式是var
-- 当参数有默认值的时候，为let声明
+- 当()里面没有参数默认值的时候，默认声明变量的方式是 var
+- 当参数有默认值的时候，为 let 声明
 
-arguments实际获取的是实参
+arguments 实际获取的是实参
 
 ### 临时作用域
 
@@ -1826,18 +1827,18 @@ arguments实际获取的是实参
 function fn(x = x) {}
 ```
 
-> var没有暂时性死区
+> var 没有暂时性死区
 
-### rest参数 ...参数名
+### rest 参数 ...参数名
 
 ### 箭头函数 () => {}
 
 箭头右边如果只有一个表达式或者一个变量的时候表示返回这个东西
 
 - 通常箭头函数用在回调函数上
-- 箭头函数，本质上是一个表达式，它没有this
-- this固定为父作用域的this
-- 不能使用arguments，要使用rest参数代替
+- 箭头函数，本质上是一个表达式，它没有 this
+- this 固定为父作用域的 this
+- 不能使用 arguments，要使用 rest 参数代替
 - 不可以把箭头函数当做构造函数
 
 ## 数组的扩展
@@ -1855,7 +1856,7 @@ function fn(x = x) {}
 ### Object.assgin() 合并对象
 
 Object.assgin(obj1, obj2, obj3)
-将obj2和obj3合并到obj1中，改变了obj1，obj2和obj3不变
+将 obj2 和 obj3 合并到 obj1 中，改变了 obj1，obj2 和 obj3 不变
 
 ### Object.keys() 键名
 
@@ -1871,60 +1872,60 @@ Object.assgin(obj1, obj2, obj3)
 
 ### obj instanceof Array
 
-### 判断是否有length/join/constructor === Array
+### 判断是否有 length/join/constructor === Array
 
-## jq操作
+## jq 操作
 
-### $().offset()
+### \$().offset()
 
-返回一个包含元素到文档顶部（包括未显示的top/left区域，包括margin值）的top/left值得对象
+返回一个包含元素到文档顶部（包括未显示的 top/left 区域，包括 margin 值）的 top/left 值得对象
 
-### 1.$().offset({top: num,left: num})
+### 1.\$().offset({top: num,left: num})
 
-当传值的时候，会强制将元素的top/left值变更达到元素距离文档上左的距离只有num值
+当传值的时候，会强制将元素的 top/left 值变更达到元素距离文档上左的距离只有 num 值
 
-### $().position()
+### \$().position()
 
-返回一个包含元素到定位父级的top/left值的对象
+返回一个包含元素到定位父级的 top/left 值的对象
 
-### $().srollTop()
+### \$().srollTop()
 
 返回当前元素滚动条的高度
 
-### 3.$().srollTop(num)
+### 3.\$().srollTop(num)
 
-当有传值的时候，触发一个事件时，回时元素立刻到达设置的nun滚动条的高度
+当有传值的时候，触发一个事件时，回时元素立刻到达设置的 nun 滚动条的高度
 
 ### 4、获取宽度
 
-#### <1> $().width()
+#### <1> \$().width()
 
-元素设置的width为多少返回的就是多少
+元素设置的 width 为多少返回的就是多少
 
-#### <2> $().innerWidth()
+#### <2> \$().innerWidth()
 
-返回元素的width+内部的距离(padding)
+返回元素的 width+内部的距离(padding)
 
-#### <3> $().outerWidth()
+#### <3> \$().outerWidth()
 
-返回元素的width+外部的距离(margin)
+返回元素的 width+外部的距离(margin)
 
 #### <4> 传值的时候
 
 - \$().width(num)
-  会强行改掉元素的宽度width
+  会强行改掉元素的宽度 width
 - \$().innerWidth(num)
-  会强行改成元素的宽度width使得width+padding的值等于num
+  会强行改成元素的宽度 width 使得 width+padding 的值等于 num
 - \$().outerWidth(num)
-  会强行改成元素的宽度width使得width+margin的值等于num
+  会强行改成元素的宽度 width 使得 width+margin 的值等于 num
 
-### $().map(function(index,val){})
+### \$().map(function(index,val){})
 
 - index：下标
-- val：dom元素节点
+- val：dom 元素节点
 - return：写什么返回什么
 
-### $().each(function(index,val){})
+### \$().each(function(index,val){})
 
 - index：同上
 - val：同上
@@ -1932,12 +1933,12 @@ Object.assgin(obj1, obj2, obj3)
 
 ## 获取地理位置
 
-使用navigator下面的geolocation()方法获取用户位置
+使用 navigator 下面的 geolocation()方法获取用户位置
 
 - 检测是否支持地理定位
-- 如果支持，则运行getCurrentPositio()方法。如果不支持，则向用户显示一段消息。
-- 如果getCurrentPosition()运行成功，则向参数showPosition中规定的函数返回一个coordinates对象
-- 如果运行失败，则向参数showError中规定的函数返回错误信息
+- 如果支持，则运行 getCurrentPositio()方法。如果不支持，则向用户显示一段消息。
+- 如果 getCurrentPosition()运行成功，则向参数 showPosition 中规定的函数返回一个 coordinates 对象
+- 如果运行失败，则向参数 showError 中规定的函数返回错误信息
   - Permission denied---用户不允许地理定位
   - Position unavailable - 无法获取当前位置
   - Timeout - 操作超时
@@ -1975,7 +1976,7 @@ function showError(error) {
 }
 ```
 
-## console的方法
+## console 的方法
 
 - console.log()
 
@@ -1983,15 +1984,15 @@ function showError(error) {
 
 - console.error() 以红色报错的形式输出
 
-- console.time("tag"); console.timeEnd("tag") 设定一个tag标记点，打印之间代码执行时间，误差很大
+- console.time("tag"); console.timeEnd("tag") 设定一个 tag 标记点，打印之间代码执行时间，误差很大
 
-- Console.assert() 判断第一个参数是否为真，false的话抛出异常并且在控制台输出相应信息。
+- Console.assert() 判断第一个参数是否为真，false 的话抛出异常并且在控制台输出相应信息。
 
 - Console.clear() 清空控制台。
 
 - Console.count() 以参数为标识记录调用的次数，调用时在控制台打印标识以及调用次数。
 
-- Console.debug() console.log方法的别称，使用方法可以参考Console.log()
+- Console.debug() console.log 方法的别称，使用方法可以参考 Console.log()
 
 - Console.dir() 打印一条以三角形符号开头的语句，可以点击三角展开查看对象的属性。
 
@@ -1999,21 +2000,21 @@ function showError(error) {
 
 - Console.error() 打印一条错误信息，使用方法可以参考 string substitution。
 
-- Console.\_exception() error方法的别称，使用方法参考Console.error()
+- Console.\_exception() error 方法的别称，使用方法参考 Console.error()
 
-- Console.group() 打印树状结构，配合groupCollapsed以及groupEnd方法;
+- Console.group() 打印树状结构，配合 groupCollapsed 以及 groupEnd 方法;
 
-- Console.groupCollapsed() 创建一个新的内联 group。使用方法和group相同，不同的是groupCollapsed打印出来的内容默认是折叠的。
+- Console.groupCollapsed() 创建一个新的内联 group。使用方法和 group 相同，不同的是 groupCollapsed 打印出来的内容默认是折叠的。
 
-- Console.groupEnd() 结束当前Tree
+- Console.groupEnd() 结束当前 Tree
 
-- Console.info() 打印以感叹号字符开始的信息，使用方法和log相同
+- Console.info() 打印以感叹号字符开始的信息，使用方法和 log 相同
 
-- Console.log() 打印字符串，使用方法比较类似C的printf格式输出，可参考 string substitution 。
+- Console.log() 打印字符串，使用方法比较类似 C 的 printf 格式输出，可参考 string substitution 。
 
-- Console.profile() 可以以第一个参数为标识，开始javascript执行过程的数据收集。和chrome控制台选项开Profiles比较类似，具体可参考chrome profiles
+- Console.profile() 可以以第一个参数为标识，开始 javascript 执行过程的数据收集。和 chrome 控制台选项开 Profiles 比较类似，具体可参考 chrome profiles
 
-- Console.profileEnd() 配合profile方法，作为数据收集的结束。
+- Console.profileEnd() 配合 profile 方法，作为数据收集的结束。
 
 - Console.table() 将数据打印成表格。Console.table [en-US]
 
@@ -2023,60 +2024,59 @@ function showError(error) {
 
 - Console.timeStamp() 添加一个标记到浏览器的 Timeline 或 Waterfall 工具.
 
-- Console.trace() 打印stack trace.
+- Console.trace() 打印 stack trace.
 
 - Console.warn() 打印一个警告信息，使用方法可以参考 string substitution。
 
 ## ajax
 
-### get接收
+### get 接收
 
 ```js
-const xhr = new XMLHttpRequest()
+const xhr = new XMLHttpRequest();
 // 发送
-xhr.open("GET",URL,true/false)
+xhr.open("GET", URL, true / false);
 // 监听
-xhr.send()
+xhr.send();
 
-xhr.onload/onreadystatechange = () => {
-    // 判断ajax本身的状态码
-    if(xhr.readyState === 4){
-        // 判断服务器状态码
-        if( 200 <= xhr.status && xhr.status < 300 || xhr.status === 304 ){
-            // 请求成功
+xhr.onload / onreadystatechange = () => {
+  // 判断ajax本身的状态码
+  if (xhr.readyState === 4) {
+    // 判断服务器状态码
+    if ((200 <= xhr.status && xhr.status < 300) || xhr.status === 304) {
+      // 请求成功
 
-            // 服务器返回的数据
-            xhr.responseText
-        }
+      // 服务器返回的数据
+      xhr.responseText;
     }
-}
+  }
+};
 ```
 
-### post发送
+### post 发送
 
 ```js
-const xhr = new XMLHttpRequest()
-xhr.open("POST",URL,true/false)
+const xhr = new XMLHttpRequest();
+xhr.open("POST", URL, true / false);
 // 请求头
-xhr.setRequestHeader("Content-Type","application/x-WWW-form-urlencoded")
-xhr.send("user=xxxx&pwd=xxxx")
+xhr.setRequestHeader("Content-Type", "application/x-WWW-form-urlencoded");
+xhr.send("user=xxxx&pwd=xxxx");
 
-xhr.onload/onreadystatechange = () => {
-    // 判断ajax本身的状态码
-    if(xhr.readyState === 4){
-        // 判断服务器状态码
-        if( 200 <= xhr.status && xhr.status < 300 || xhr.status === 304 ){
-            // 请求成功
+xhr.onload / onreadystatechange = () => {
+  // 判断ajax本身的状态码
+  if (xhr.readyState === 4) {
+    // 判断服务器状态码
+    if ((200 <= xhr.status && xhr.status < 300) || xhr.status === 304) {
+      // 请求成功
 
-            // 服务器返回的数据
-            xhr.responseText
-        }
+      // 服务器返回的数据
+      xhr.responseText;
     }
-}
-
+  }
+};
 ```
 
-### jq封装的方法
+### jq 封装的方法
 
 ```js
 $.ajax({
@@ -2102,17 +2102,17 @@ $.ajax({
 > cors、反向代理、jsonp
 
 - 实现跨域：
-  - 通过script的src：属性具备跨域请求资源的能力，JSONP形式
+  - 通过 script 的 src：属性具备跨域请求资源的能力，JSONP 形式
   - CORS 在后台程序里，设置可以让对应域进行访问
 
 ## jsonp
 
-> jsonp是json的一种使用模式
+> jsonp 是 json 的一种使用模式
 
 - 作用：跨域获取数据
 - callback：回调函数
 
-## 类库(工具api的集合)
+## 类库(工具 api 的集合)
 
 jQuery
 
@@ -2122,24 +2122,24 @@ vue react
 
 ### jQuery
 
-### $().each( (i, v, s) => {} )
+### \$().each( (i, v, s) => {} )
 
 - i 序号
 - v 值，一个个的对象
 - s 自己本身
 
-### $().length
+### \$().length
 
 长度
 
 ### \$("xxx", context)
 
-$("xxx").context指向给的context对象
+\$("xxx").context 指向给的 context 对象
 
 ### \$().get(index)
 
-- $()[index] 转原生对象
-- 转jq对象 $(原生对象)
+- \$()[index] 转原生对象
+- 转 jq 对象 \$(原生对象)
 
 ### \$().index()
 
@@ -2156,9 +2156,9 @@ $("xxx").context指向给的context对象
 </script>
 ```
 
-### $().data()
+### \$().data()
 
-> h5规定自定义标签属性前加上data
+> h5 规定自定义标签属性前加上 data
 
 ```html
 <div data-liuyao="liuyao">
@@ -2168,73 +2168,73 @@ $("xxx").context指向给的context对象
 </div>
 ```
 
-- removedata() 移除使用jq添加的属性【没什么卵用】
+- removedata() 移除使用 jq 添加的属性【没什么卵用】
 
-## jq选择器
+## jq 选择器
 
-### $("xxx:first")
+### \$("xxx:first")
 
 第一个
 
-### $("xxx:last")
+### \$("xxx:last")
 
 最后一个
 
-### $("xxx:not(XXX)")
+### \$("xxx:not(XXX)")
 
-不包括XXX
+不包括 XXX
 
-### $("xxx:even")
+### \$("xxx:even")
 
-### $("xxx:odd")
+### \$("xxx:odd")
 
-### $("xxx:eq(index)")
+### \$("xxx:eq(index)")
 
-选择下标为index的
+选择下标为 index 的
 
-### $("xxx:gt(index)")
+### \$("xxx:gt(index)")
 
-选择下标大于index的
+选择下标大于 index 的
 
-### $("xxx:lt(index)")
+### \$("xxx:lt(index)")
 
 匹配所有小于给定索引值的元素
 
-### $("xxx:contains(text)")
+### \$("xxx:contains(text)")
 
 匹配包含给定文本的元素
 
-### $("xxx:animated")
+### \$("xxx:animated")
 
 匹配所有正在执行动画效果的元素
 
-### $(":empty")
+### \$(":empty")
 
 匹配所有不包含子元素或者文本的空元素
 
 - 换行的选不到，空格换行属于字符
 
-### $("xxx:parent")
+### \$("xxx:parent")
 
 匹配含有子元素或者文本的元素
 
 - 没有子元素或者没有文本就取不到
 
-### $("xxx:has(XXX)")
+### \$("xxx:has(XXX)")
 
-匹配含有XXX的xxx元素
+匹配含有 XXX 的 xxx 元素
 
-### $("xxx:hidden")
+### \$("xxx:hidden")
 
-匹配所有不可见元素，或者type为hidden的元素
+匹配所有不可见元素，或者 type 为 hidden 的元素
 
-### $("xxx:visible")
+### \$("xxx:visible")
 
 匹配所有的可见元素
 
-### $("xxx[attribute]")
+### \$("xxx[attribute]")
 
-> 匹配包含给定属性的元素，attribute元素的属性
+> 匹配包含给定属性的元素，attribute 元素的属性
 
 - \$("xxx[id=div]")
 - \$("xxx[id!=thediv]")
@@ -2243,11 +2243,11 @@ $("xxx").context指向给的context对象
 - \$("xxx[id*='edi']")
 - \$("xxx[id][class='box'][name]")
 
-### $("xxx:checked")
+### \$("xxx:checked")
 
 匹配所有选中的被选中元素
 
-## jq属性api
+## jq 属性 api
 
 > 处理对象的核心思想：get first / set all
 
@@ -2268,14 +2268,14 @@ $(".box").prop("name", "aaa");
 ### attr
 
 - 主要用来操作自定义属性
-- 类似getAttribute和setAttribute操作
+- 类似 getAttribute 和 setAttribute 操作
 - 获取值为布尔值的属性返回布尔值
-- 而getAttribute和setAttribute在获取checked此类属性是返回checked的值，不一定返回布尔值
+- 而 getAttribute 和 setAttribute 在获取 checked 此类属性是返回 checked 的值，不一定返回布尔值
 
 ### prop
 
 - 主要用来操作合法属性
-- 类似obj.id操作
+- 类似 obj.id 操作
 
 ### removeAttr
 
@@ -2287,15 +2287,15 @@ $(".box").prop("name", "aaa");
 
 ### addClass()
 
-添加class类名
+添加 class 类名
 
 ### removerClass()
 
-删除class类名
+删除 class 类名
 
 ### hasClass()
 
-有没有某某class类名
+有没有某某 class 类名
 
 ### toggleClass()
 
@@ -2303,19 +2303,19 @@ $(".box").prop("name", "aaa");
 
 ### html()
 
-- 对应innerHTML
+- 对应 innerHTML
 - 没有参数为取值
 - 有参数为设置
 
 ### text()
 
-- 对应innerText
+- 对应 innerText
 - 没有参数为取值
 - 有参数为设置
 
 ### val()
 
-- 对应value
+- 对应 value
 - 没有参数为取值
 - 有参数为设置
 
@@ -2342,68 +2342,68 @@ $(".box").css({
 
 ### offset()
 
-没参数时返回一个包含元素到(视口)文档顶部(包括未显示的top/left区域，包括margin值)的top/left值得对象
+没参数时返回一个包含元素到(视口)文档顶部(包括未显示的 top/left 区域，包括 margin 值)的 top/left 值得对象
 
-### $().offset({top: num,left: num})
+### \$().offset({top: num,left: num})
 
-当传值的时候，会强制将元素的top/left值变更达到元素距离文档上方、左方的距离只有num值
+当传值的时候，会强制将元素的 top/left 值变更达到元素距离文档上方、左方的距离只有 num 值
 
-### $().position()
+### \$().position()
 
-返回一个包含元素到`定位父级`的top/left值的对象
+返回一个包含元素到`定位父级`的 top/left 值的对象
 
-### $().srollTop()
+### \$().srollTop()
 
 返回当前元素纵向滚动条的高度
 
-### $().srollTop(num)
+### \$().srollTop(num)
 
-当有传值的时候，触发一个事件时，元素纵向滚动条立刻到达设置的num的高度
+当有传值的时候，触发一个事件时，元素纵向滚动条立刻到达设置的 num 的高度
 
-### $().srollLeft()
+### \$().srollLeft()
 
 返回当前元素的高度
 
-### $().srollLeft(num)
+### \$().srollLeft(num)
 
-当有传值的时候，触发一个事件时，元素横向滚动条立刻到达设置的num的高度
+当有传值的时候，触发一个事件时，元素横向滚动条立刻到达设置的 num 的高度
 
-### $().height()
+### \$().height()
 
 - 无参数，获取高度
 - 有参数，设置高度
 
-### $().width()
+### \$().width()
 
 - 无参数，获取宽度
 - 有参数，设置宽度
 
-### $().innerHeight()
+### \$().innerHeight()
 
 - 无参数，获取内部区域高度(包括补白、不包括边框)
 - 对可见和隐藏元素均有效
 
-### $().innerWidth()
+### \$().innerWidth()
 
 - 无参数，获取内部区域宽度(包括补白、不包括边框)
 - 此方法对可见和隐藏元素均有效
 
-### $().outerHeight()
+### \$().outerHeight()
 
 - 无参数，获取外部高度(默认包括补白和边框)
 - 对可见和隐藏元素均有效
 
-### $().outerWidth()
+### \$().outerWidth()
 
 - 无参数，获取外部宽度(默认包括补白和边框)
 - 此方法对可见和隐藏元素均有效
 
-## jq文档处理
+## jq 文档处理
 
-### $("div").append("<p></p>")
+### \$("div").append("<p></p>")
 
-- 向每个匹配的(div)元素内部`追加`(后面)内容(p标签)
-- 这个操作与对指定的元素执行appendChild方法，将它们添加到文档中的情况类似
+- 向每个匹配的(div)元素内部`追加`(后面)内容(p 标签)
+- 这个操作与对指定的元素执行 appendChild 方法，将它们添加到文档中的情况类似
 
 ```js
 $("div").append((index, html) => {
@@ -2420,92 +2420,92 @@ $().append((...rest) => {
 });
 ```
 
-### $("div").prepend("<p></p>")
+### \$("div").prepend("<p></p>")
 
-- 向每个匹配的(div)元素内部的最前面添加内容(p标签)
+- 向每个匹配的(div)元素内部的最前面添加内容(p 标签)
 
-### $("p").appendTo("div")
+### \$("p").appendTo("div")
 
-- 会把原始的p移除
-- 把所有的p标签(包括内容)放入每一个div中
+- 会把原始的 p 移除
+- 把所有的 p 标签(包括内容)放入每一个 div 中
 
-### $("div").after("<p></p>")
+### \$("div").after("<p></p>")
 
-- 向每个匹配的(div)元素的后面添加内容(p标签)
+- 向每个匹配的(div)元素的后面添加内容(p 标签)
 
-### $("<p></p>").insertAfter("div")
+### \$("<p></p>").insertAfter("div")
 
-- 把(p标签)内容添加到匹配的(div)元素后面
-- 与after一样
+- 把(p 标签)内容添加到匹配的(div)元素后面
+- 与 after 一样
 
-### $("div").before("<p></p>")
+### \$("div").before("<p></p>")
 
-- 向每个匹配的(div)元素的前面添加内容(p标签)
-- 与after相反
+- 向每个匹配的(div)元素的前面添加内容(p 标签)
+- 与 after 相反
 
-### $("<p></p>").insertBefore("div")
+### \$("<p></p>").insertBefore("div")
 
-- 把(p标签)内容添加到匹配的(div)元素前面
-- 与before一样
-- 与insertAfter相反
+- 把(p 标签)内容添加到匹配的(div)元素前面
+- 与 before 一样
+- 与 insertAfter 相反
 
-### $("p").wrap("<div class="father"></div>")
+### \$("p").wrap("<div class="father"></div>")
 
-- 向匹配的(p)元素每一个都添加一个父级div
+- 向匹配的(p)元素每一个都添加一个父级 div
 - "认爹"
 
-### $("p").unwrap()
+### \$("p").unwrap()
 
 - 移除匹配的(p)元素的父级
 - "逝父"
 
-### $("p").wrapAll()
+### \$("p").wrapAll()
 
-- 向匹配的所有(p)元素添加同一个父级div
+- 向匹配的所有(p)元素添加同一个父级 div
 - "大家一起认一个爹"
 
-### $("div").wrapInner("<div class="father"></div>")
+### \$("div").wrapInner("<div class="father"></div>")
 
-- 将每一个匹配的div元素的子内容(包括文本节点)用一个新的div包裹起来
+- 将每一个匹配的 div 元素的子内容(包括文本节点)用一个新的 div 包裹起来
 - "儿子变孙子"
 
-### $("p").replaceWith("<b></b>")
+### \$("p").replaceWith("<b></b>")
 
-- 将所有匹配的p元素替换成指定的HTML或DOM元素(b标签)
+- 将所有匹配的 p 元素替换成指定的 HTML 或 DOM 元素(b 标签)
 
-### $("<b></b>").replaceAll("p")
+### \$("<b></b>").replaceAll("p")
 
-- 用匹配的元素(b标签)替换掉所有匹配到的元素(p标签)
+- 用匹配的元素(b 标签)替换掉所有匹配到的元素(p 标签)
 
-### $("div").empty()
+### \$("div").empty()
 
-- 把div内的所有元素(包括文本)`全部删除`
+- 把 div 内的所有元素(包括文本)`全部删除`
 
-### $("p").remove()
+### \$("p").remove()
 
-- 移除所有匹配的p标签
+- 移除所有匹配的 p 标签
 - "自杀，并且所有遗产都没有"
 
-### $("p").detach()
+### \$("p").detach()
 
 - 所有绑定的事件、附加的数据等都会保留下来
 - "自杀，保留遗产，为了复活"
 
-### $("div").clone(true/false)
+### \$("div").clone(true/false)
 
 - 不传参默认浅克隆，true(深克隆)/false(浅克隆)
   - 与原生不一样
-  - 所有找到的div都会被克隆
-- 与原生cloneNode(true/false)类似
-  - true完全复制(深克隆)
-  - false只复制标签外表，不包括内容(浅克隆)
-  - 原生克隆不会复制事件(例如click等事件，不管是一级还是二级)
-  - 被克隆对象在script中写所有事件和自定义属性都不会克隆
-  - 行内事件本质上是自执行的，为零级事件，与js内设置的绑定事件不一样；此时onclick相当于写了标签属性，所以写在行内时会克隆这个属性
+  - 所有找到的 div 都会被克隆
+- 与原生 cloneNode(true/false)类似
+  - true 完全复制(深克隆)
+  - false 只复制标签外表，不包括内容(浅克隆)
+  - 原生克隆不会复制事件(例如 click 等事件，不管是一级还是二级)
+  - 被克隆对象在 script 中写所有事件和自定义属性都不会克隆
+  - 行内事件本质上是自执行的，为零级事件，与 js 内设置的绑定事件不一样；此时 onclick 相当于写了标签属性，所以写在行内时会克隆这个属性
 
-### id的唯一性
+### id 的唯一性
 
-- id获取时，只会获取第一个，后面的不管
+- id 获取时，只会获取第一个，后面的不管
 - 但不报错
 
 ## es6
@@ -2513,8 +2513,8 @@ $().append((...rest) => {
 ### const 常量
 
 - 申明的变量不能进行二次等号赋值，再次赋值会操错；
-- 但引用性数据，例如[]数组,{}json对其添加内容不会报错;
-- 只是不能改变它的地址指向，它并不是只读的，数组和json添加内容时都没有改变它的地址指向
+- 但引用性数据，例如[]数组,{}json 对其添加内容不会报错;
+- 只是不能改变它的地址指向，它并不是只读的，数组和 json 添加内容时都没有改变它的地址指向
 
 ### 解构赋值
 
@@ -2586,15 +2586,15 @@ fn(arr);
 function fn(...a) {}
 ```
 
-## es6字符串扩展
+## es6 字符串扩展
 
 ### 查询(返回布尔值)
 
 #### str.includes(str1, num)
 
-- str内是否存在str1
-- 有返回true
-- 没有返回false
+- str 内是否存在 str1
+- 有返回 true
+- 没有返回 false
 - num：从什么位置开始
 
 ```js
@@ -2604,9 +2604,9 @@ str.includes("java"); //返回true，存在
 
 #### str.startWith(str1, num)
 
-- str是否以str1开始
-- 有返回true
-- 没有返回false
+- str 是否以 str1 开始
+- 有返回 true
+- 没有返回 false
 - num：从什么位置开始
 
 ```js
@@ -2616,9 +2616,9 @@ str.includes("java"); //返回true，存在
 
 #### str.endWith(str1, length)
 
-- str是否以str1结束
-- 有返回true
-- 没有返回false
+- str 是否以 str1 结束
+- 有返回 true
+- 没有返回 false
 - length：选择字符串长度```
 
 #### attributes
@@ -2630,10 +2630,10 @@ str.includes("java"); //返回true，存在
 
 #### document.createDocumentFragment()
 
-> dom标签片段仓库
+> dom 标签片段仓库
 
-- 虚拟的dom
-- 在需要连续添加dom节点时使用
+- 虚拟的 dom
+- 在需要连续添加 dom 节点时使用
 - 提高性能
 
 ## 回调地狱
@@ -2685,30 +2685,30 @@ new Promise((resolve, reject) => {
 
 - 最先成功的函数的返回的状态就是他的状态
 
-### async函数
+### async 函数
 
-es2017提出
+es2017 提出
 
 ## DOM(document object model)文档对象模型
 
-> 文档对象模型是表示和操作HTML、XML文档内容的基础API
-> 当网页被加载时，浏览器会根据DOM模型将文档解析成一系列节点，构成了一个树状结构。
+> 文档对象模型是表示和操作 HTML、XML 文档内容的基础 API
+> 当网页被加载时，浏览器会根据 DOM 模型将文档解析成一系列节点，构成了一个树状结构。
 
 ![image](https://7n.w3cschool.cn/attachments/image/20170619/t_document.png)
 
-> 图中每一个方框都是一个节点，表示一个node对象，所有的node构成了DOM Tree
+> 图中每一个方框都是一个节点，表示一个 node 对象，所有的 node 构成了 DOM Tree
 
-### 节点有7个类型
+### 节点有 7 个类型
 
 - **Document：整个文档树的顶层节点**
 - DocumentType：比如<!DOCTYPE html>
-- **Element：网页的各种HTML标签**
+- **Element：网页的各种 HTML 标签**
 - Attribute：网页元素的属性
 - Text：标签之间或标签包含的文本
 - Comment：注释
 - DocumentFragment：文档片段
 
-### 通过CSS选择器选取元素
+### 通过 CSS 选择器选取元素
 
 ```js
 document.querySelectorAll(".div"); //选择所有class为div的元素
@@ -2716,43 +2716,43 @@ document.querySelectorAll('[data-tip="title"]'); //选择所有data-tip为title�
 document.querySelectorAll("div:not(.ignore)"); //选择所有claa不为ignore的div元素
 ```
 
-- 不支持伪元素的选择器，比如：first-line和first-letter；也不支持伪类的选择器，比如：link和：visited。
+- 不支持伪元素的选择器，比如：first-line 和 first-letter；也不支持伪类的选择器，比如：link 和：visited。
 
 ## 文档结构的遍历
 
-> Document对象、它的Element对象和文档中表示文本的Text对象都是Node对象。
+> Document 对象、它的 Element 对象和文档中表示文本的 Text 对象都是 Node 对象。
 
-### Node属性：
+### Node 属性：
 
 - parentNode
 
-> 作为**元素树**遍历，只遍历Element对象，不包含Text和Comment对象
+> 作为**元素树**遍历，只遍历 Element 对象，不包含 Text 和 Comment 对象
 
-- children：返回NodeList对象，children列表只包含Element对象。（下同）
+- children：返回 NodeList 对象，children 列表只包含 Element 对象。（下同）
 - nextElementChild、lastElementChild
 - nextElementSibling、previousElementChild
-- childElementCount：返回子元素数量，同children.length
-- offsetParent：返回最靠近当前元素的父元素，且此父元素position不为static
+- childElementCount：返回子元素数量，同 children.length
+- offsetParent：返回最靠近当前元素的父元素，且此父元素 position 不为 static
 
-> 作为**节点树**遍历，因此会有Text和Comment对象。@不推荐🤮
+> 作为**节点树**遍历，因此会有 Text 和 Comment 对象。@不推荐 🤮
 
-- childNodes：返回只读类数组对象(NodeList对象)，包含Text和Comment。
-- firstChild、lastChild：分别返回第一个子节点、最后一个子节点，同样包含Text和Comment
-- nextSibling、previousSibling：分别返回下一个兄弟节点、前一个兄弟节点，包含Text和Comment
+- childNodes：返回只读类数组对象(NodeList 对象)，包含 Text 和 Comment。
+- firstChild、lastChild：分别返回第一个子节点、最后一个子节点，同样包含 Text 和 Comment
+- nextSibling、previousSibling：分别返回下一个兄弟节点、前一个兄弟节点，包含 Text 和 Comment
 - textContent：返回该节点和它所有后代节点的文本内容
 - nodeType：返回该节点类型代号-number
 - nodeName：返回该节点类型名称-string
-- nodeValue：返回Text和Comment的文本内容，其他类型的节点将返回null
+- nodeValue：返回 Text 和 Comment 的文本内容，其他类型的节点将返回 null
 
-### NodeList和HTMLCollection
+### NodeList 和 HTMLCollection
 
-- NodeList实例对象可能是动态集合也可能是静态集合。DOM Tree 每新增或删除一个节点，都可以反映在NodeList接口中。NodeList实例对象提供length属性和数字索引，但不能使用pop（）、push（）之类数组特有的方法。
-- HTMLCollection实例对象同NodeList实例对象，也是节点的集合，返回类数组对象。
-- HTMLDocument类中，有一些属性可以快捷访问节点。比如images、forms、links属性指向类数组\<img>、\<form>、\<a>元素集合，返回的都是HTMLCollection实例对象。
+- NodeList 实例对象可能是动态集合也可能是静态集合。DOM Tree 每新增或删除一个节点，都可以反映在 NodeList 接口中。NodeList 实例对象提供 length 属性和数字索引，但不能使用 pop（）、push（）之类数组特有的方法。
+- HTMLCollection 实例对象同 NodeList 实例对象，也是节点的集合，返回类数组对象。
+- HTMLDocument 类中，有一些属性可以快捷访问节点。比如 images、forms、links 属性指向类数组\<img>、\<form>、\<a>元素集合，返回的都是 HTMLCollection 实例对象。
 
 ![HTMLDocument](/images/blog/old/js.jpg)
 
-- **注: HTMLDocument是类名，调用的是类的实例如document**
+- **注: HTMLDocument 是类名，调用的是类的实例如 document**
 
 ```js
 document.forms.length; //返回document文档里<form>个数
@@ -2761,17 +2761,17 @@ document.head; //返回<html>
 document.documentElement; //返回<html>
 ```
 
-|          | HTMLDocument        | NodeList               |
-| -------- | ------------------- | ---------------------- |
-| 节点类型 | Element             | Element、Text、Comment |
-| 实例对象 | 只能是动态集合      | 可动态可静态           |
-| 索引方式 | 可数字还可class、id | 只能数字索引           |
+|          | HTMLDocument         | NodeList               |
+| -------- | -------------------- | ---------------------- |
+| 节点类型 | Element              | Element、Text、Comment |
+| 实例对象 | 只能是动态集合       | 可动态可静态           |
+| 索引方式 | 可数字还可 class、id | 只能数字索引           |
 
 ## 文档的内容
 
-- innerHTML：返回当前元素包含的Element+Text，可读可写
-- outerHTML:返回当前元素及当前元素包含的Element+Text，可读可写
-- textContext：返回当前元素中所有后代节点的所有纯文本，可读可写。若写的内容包含Element，如<.span>，文档节点不会改动，因为此时<.span>被当作纯文本处理而不是标签。
+- innerHTML：返回当前元素包含的 Element+Text，可读可写
+- outerHTML:返回当前元素及当前元素包含的 Element+Text，可读可写
+- textContext：返回当前元素中所有后代节点的所有纯文本，可读可写。若写的内容包含 Element，如<.span>，文档节点不会改动，因为此时<.span>被当作纯文本处理而不是标签。
 
 ```js
 <div id="div">
@@ -2787,28 +2787,28 @@ d.innerHTML = "<span>99</span>";
 ```
 
 - insertAdjacentHTML(beforebegin|afterbegin|beforeend|afterend,'tag')
-  - 此方法可将HTML标记符插入到指定元素的指定位置，第一个参数为插入的位置，第二个参数为要插入的标签名称
+  - 此方法可将 HTML 标记符插入到指定元素的指定位置，第一个参数为插入的位置，第二个参数为要插入的标签名称
 
 ![image](https://7n.w3cschool.cn/attachments/image/20170619/t_insertAdjacentHTML.png)
 
 - document.createElement('tag')：创建一个标签
 - document.createTextNode('these are some text ~')：创建文本节点
 - createAttribute('attribute','value'); 为一个标签创建属性
-- cloneNode('tag',true|false); 复制一个标签，第二个参数可选，默认false（不复制子标签）
+- cloneNode('tag',true|false); 复制一个标签，第二个参数可选，默认 false（不复制子标签）
 
-|        | appendChild(new)           | insertBefore(new,old) |
-| ------ | -------------------------- | --------------------- |
+|        | appendChild(new)           | insertBefore(new,old)   |
+| ------ | -------------------------- | ----------------------- |
 | 相同点 | 都是在子元素列表中插入元素 |
-| 不同点 | 在子元素列表的最后插入     | 在old元素前面插入new  |
+| 不同点 | 在子元素列表的最后插入     | 在 old 元素前面插入 new |
 
 **注：如果要插入的节点是已存在与文档中，那么将从原来的位置移除插到指定位置。**
 
 - parentNode.removeChild(childnode)：父元素调用此方法删除一个子元素
 - parentNode.replaceChild(newNode,oldNode)：父元素调用此方法，替换掉一个不需要的子元素。
 
-> DocumentFragment是一种特殊的Node，它作为其他节点的一个临时的容器。DocumentFragment是独立的，而不是任何其他文档的一部分。它的parentNode总是为null。但类似Element，它可以有任意多的子节点，也可以使用appendChild()等方法。
+> DocumentFragment 是一种特殊的 Node，它作为其他节点的一个临时的容器。DocumentFragment 是独立的，而不是任何其他文档的一部分。它的 parentNode 总是为 null。但类似 Element，它可以有任意多的子节点，也可以使用 appendChild()等方法。
 
-- DocumentFragment的特殊之处在于它使得一组节点被当做一个节点看待。
+- DocumentFragment 的特殊之处在于它使得一组节点被当做一个节点看待。
 
 ```js
 var frag = docment.createDocumentFragment();
@@ -2816,11 +2816,11 @@ var frag = docment.createDocumentFragment();
 
 ## 坐标、尺寸
 
-- getBoundingClienRect()：返回一个rectangle对象，此对象有width、height、left、right、top、bottom
-- 由于元素的默认position为static，是相对于viewport的（视口：实际显示DOM文档的部分——不包括浏览器的标签栏、搜索栏等），因此会随着页面滚动变化。实现位置固定的一种方法：left+window.scollX, top+window.scollY
+- getBoundingClienRect()：返回一个 rectangle 对象，此对象有 width、height、left、right、top、bottom
+- 由于元素的默认 position 为 static，是相对于 viewport 的（视口：实际显示 DOM 文档的部分——不包括浏览器的标签栏、搜索栏等），因此会随着页面滚动变化。实现位置固定的一种方法：left+window.scollX, top+window.scollY
 - elementFromPoint(X,Y)：返回在指定位置的一个元素
-- Element.scrollLeft属性表示网页元素的水平滚动条向右侧滚动的像素数
-- Element.scoollTop属性表示网页元素的垂直滚动条向下滚动的像素数
+- Element.scrollLeft 属性表示网页元素的水平滚动条向右侧滚动的像素数
+- Element.scoollTop 属性表示网页元素的垂直滚动条向下滚动的像素数
 
 ```js
 //查看整张网页的水平的和垂直的滚动距离
@@ -2829,44 +2829,44 @@ document.body.scrollTop;
 //这两个属性都可读可写
 ```
 
-> 还可以用scrollBy(X, Y )控制网页的滚动
-> 所有元素都有clientWidth、clientHeight属性，值为width+padding，不包含border、margin、滚动条
+> 还可以用 scrollBy(X, Y )控制网页的滚动
+> 所有元素都有 clientWidth、clientHeight 属性，值为 width+padding，不包含 border、margin、滚动条
 
 ```js
 //没有垂直滚动条时
 document.documentElement.clientHeight === window.innerHeight; // true
 ```
 
-> 对于<.i>、<.code>和<.span>这些内联元素，clientWidth和clientHeight总是0
+> 对于<.i>、<.code>和<.span>这些内联元素，clientWidth 和 clientHeight 总是 0
 
-- scollWidth、scollHeight属性，值也是width+padding，但包括溢出内容的width
+- scollWidth、scollHeight 属性，值也是 width+padding，但包括溢出内容的 width
 
-- offsetWidth为clientWidth+border
+- offsetWidth 为 clientWidth+border
 
-### Document属性
+### Document 属性
 
 - domain 当前文档的域名
 - lastModified 文档修改时间的字符串
-- location 与window对象的located属性引用同一个location对象
+- location 与 window 对象的 located 属性引用同一个 location 对象
 - referree 返回一个字符串，表示访问本文档的来源。如果无法获取来源或用户直接键入网址，则返回空字符串
-- title title节点之间的内容可读写
-- doctype document两个子节点的第一个子节点<!DOCTYPE html>
-- documentElement document两个子节点的第二个子节点<.html>
-- defaultview 返回window对象
+- title title 节点之间的内容可读写
+- doctype document 两个子节点的第一个子节点<!DOCTYPE html>
+- documentElement document 两个子节点的第二个子节点<.html>
+- defaultview 返回 window 对象
 - activeElement 返回文档中当前获得焦点的那个元素
 - characterset 返回渲染当前文档的字符集
-- readyState 返回当前文档状态1loading加载HTML2interactive加载外部资源3complete加载完成
+- readyState 返回当前文档状态 1loading 加载 HTML2interactive 加载外部资源 3complete 加载完成
 
-### Document方法
+### Document 方法
 
 - write() writerIn()
-  - 可为标签设置contenteditable属性为true使其可被编辑
+  - 可为标签设置 contenteditable 属性为 true 使其可被编辑
 
 ### execCommand（aCommandName, aShowDefaultUI, aValueArgument）
 
 - 功能：插入元素、改变样式
 
-### HTML属性
+### HTML 属性
 
 - getAttribute('attr') 返回属性值
 - seAttribute('attr', 'value') 为元素新增/修改属性
@@ -2875,8 +2875,8 @@ document.documentElement.clientHeight === window.innerHeight; // true
 
 ### 数据集（dataset）属性
 
-- 在HTML5文档中，任意以'data-'为前缀的小写属性都是合法的
-- Element有一个dataset属性，Element.dataset对应一个对象，这个对象的属性对应于'data-'后面的部分，如果有多个-则用驼峰命名。
+- 在 HTML5 文档中，任意以'data-'为前缀的小写属性都是合法的
+- Element 有一个 dataset 属性，Element.dataset 对应一个对象，这个对象的属性对应于'data-'后面的部分，如果有多个-则用驼峰命名。
 
 ```html
 <div id="top" data-tip="title"></div>
@@ -2887,7 +2887,7 @@ document.documentElement.clientHeight === window.innerHeight; // true
 </script>
 ```
 
-### attribute属性是只读类数组对象，索引方式有多种
+### attribute 属性是只读类数组对象，索引方式有多种
 
 ```js
 document.body.attributes[0]; //<body>元素的第一个属性
@@ -2903,7 +2903,7 @@ t.attributes[0].nodeValue; // "top"
 
 ## CSS
 
-- Element.style返回的值是一个CSSStyleDeclaration
+- Element.style 返回的值是一个 CSSStyleDeclaration
 
 ```js
 var t = document.getElementById("top");
@@ -2912,16 +2912,16 @@ t.style.color = "red";
 t.setAttribute("style", "background:red;");
 ```
 
-- style对象的cssText也可以用来读写或删除整个style属性。
+- style 对象的 cssText 也可以用来读写或删除整个 style 属性。
 
 ```js
 t.style.cssText = "background:red";
 ```
 
 - **写法注意**
-  - float在JS中是关键字，因此要写 style.cssFloat
-  - border-left-width要写 borderLeftWidth
-  - 三个方法的第一个参数，都是CSS属性名，且不用改写连词线。
+  - float 在 JS 中是关键字，因此要写 style.cssFloat
+  - border-left-width 要写 borderLeftWidth
+  - 三个方法的第一个参数，都是 CSS 属性名，且不用改写连词线。
 
 ```js
 t.style.setProperty("background-color", "red");
@@ -2931,7 +2931,7 @@ t.style.removeProperty("background-color");
 
 ### window.getComputedStyle()
 
-- 可以用来获取CSS伪对象伪元素的样式，第一个参数是元素，第二个参数通常为null或空字符串，但也可以是 :before :after :first-line first-letter
+- 可以用来获取 CSS 伪对象伪元素的样式，第一个参数是元素，第二个参数通常为 null 或空字符串，但也可以是 :before :after :first-line first-letter
 
 ```html
 <style>

@@ -5,6 +5,8 @@ tags:
   - vue
 ---
 
+# vue
+
 <span>
 &nbsp;&nbsp;&nbsp;&nbsp;
 Vue 是一套用于构建用户界面的渐进式框架。
@@ -17,9 +19,9 @@ Vue 的核心库只关注视图层，便于与第三方库或既有项目整合�
 
 <!-- more -->
 
-# 初始VUE
+# 初始 VUE
 
-- 在html中引入Vue
+- 在 html 中引入 Vue
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -84,7 +86,7 @@ Object.defineProperty(data, "a", {
 data.a = "设置新的a属性的值";
 ```
 
-### 模拟Vue双向数据绑定
+### 模拟 Vue 双向数据绑定
 
 ```html
 <input id='inp'/>
@@ -127,7 +129,7 @@ inp.addEventListener('input',function(){
 
 ### v-html
 
-- 自动解析字符串数据，以html形式呈现
+- 自动解析字符串数据，以 html 形式呈现
 
 ```html
 <div id="app">
@@ -145,7 +147,7 @@ inp.addEventListener('input',function(){
 
 ### v-show
 
-- 是否隐藏元素 -- 切换元素的 **display** CSS属性
+- 是否隐藏元素 -- 切换元素的 **display** CSS 属性
   - 为真显示，为假隐藏
 
 ```html
@@ -160,14 +162,14 @@ inp.addEventListener('input',function(){
 <h1 v-if="true">Hello!</h1>
 ```
 
-### v-if 和v-show
+### v-if 和 v-show
 
 - v-if 元素 存在 或者 不存在
 - v-show 元素存在 -- 显示 或者 隐藏
 
 ### v-else
 
-- 跟v-if 或 v-else-if 组合是使用
+- 跟 v-if 或 v-else-if 组合是使用
 - 前一兄弟元素必须有 v-if 或 v-else-if
 - 不可单独出现
 
@@ -178,7 +180,7 @@ inp.addEventListener('input',function(){
 
 ### v-else-if
 
-- 跟v-if 或 v-else-if 组合是使用
+- 跟 v-if 或 v-else-if 组合是使用
 - 前一兄弟元素必须有 v-if 或 v-else-if
 - 不可单独出现
 
@@ -198,7 +200,7 @@ inp.addEventListener('input',function(){
 <div v-for="item in items">{{ item.text }}</div>
 ```
 
-- items可以是数组、对象、字符串
+- items 可以是数组、对象、字符串
 
 ### v-on
 
@@ -210,13 +212,13 @@ inp.addEventListener('input',function(){
 ```
 
 - @click=fn 和 @click=fn() 的区别
-  - 前者默认传入 $event
-  - 后者必须手动传入 $event，才能在回调中使用事件对象
+  - 前者默认传入 \$event
+  - 后者必须手动传入 \$event，才能在回调中使用事件对象
 
 #### 事件修饰符
 
 - .stop 阻止冒泡
-- .capture 当某事件触发时，会先执行设置capture的事件
+- .capture 当某事件触发时，会先执行设置 capture 的事件
 - .self 只有当事件是从侦听器绑定的元素本身触发时才触发回调
 
 ```html
@@ -259,16 +261,16 @@ inp.addEventListener('input',function(){
 ```
 
 - .once 只触发一次回调(例如点击一次之后再点击不再触发)
-- .prevent 阻止默认行为(例如 阻止submit默认刷新页面，阻止a标签跳转页面)
+- .prevent 阻止默认行为(例如 阻止 submit 默认刷新页面，阻止 a 标签跳转页面)
 
 ### v-bind
 
 - 动态地绑定一个或多个特性
 - v-bind:class 可缩写为 :class
 - 绑定特性的值可以使用 数组 或者 对象
-  - 绑定的数据为对象时，red为类名，isRed判断是否绑定
-    - isRed为真，给div绑定类名red；反之不绑定
-  - 绑定的数据为数组时，将为div绑定数组中的 所有数据项 的类名
+  - 绑定的数据为对象时，red 为类名，isRed 判断是否绑定
+    - isRed 为真，给 div 绑定类名 red；反之不绑定
+  - 绑定的数据为数组时，将为 div 绑定数组中的 所有数据项 的类名
 
 ```html
 <div :class="{ red: isRed }"></div>
@@ -304,11 +306,11 @@ let app = new Vue({
 #### 修饰符
 
 - .lazy 取代 input 监听 change 事件
-  - 在input中输入时，不会立即响应到代码上，改变msg的值
-  - 而是等到input失去焦点时将所有数据全部付给msg
+  - 在 input 中输入时，不会立即响应到代码上，改变 msg 的值
+  - 而是等到 input 失去焦点时将所有数据全部付给 msg
 - .number 输入字符串转为有效的数字
 - .trim 输入首尾空格过滤
-  - 过滤input中输入的数据的前后空格
+  - 过滤 input 中输入的数据的前后空格
   - 中间空格不会被过滤(例如"i love you")
 
 ```html
@@ -342,21 +344,21 @@ let app = new Vue({
 
 ### beforeCreate
 
-- 此时vue实例中，data没有数据
+- 此时 vue 实例中，data 没有数据
 - 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用
 
 ![img](/images/blog/old/1.jpg)
 
 ### created
 
-- 此时的vue实例中，data已经有数据了，但是数据没有挂载到跟节点上
+- 此时的 vue 实例中，data 已经有数据了，但是数据没有挂载到跟节点上
 - 此时并没有根节点，所以节点以及数据还没有挂载到视图中
 - 在实例创建完成后被立即调用
 - 在这一步，实例已完成以下的配置：
   - 数据观测 (data observer)
   - 属性和方法的运算
   - watch/event 事件回调
-- 然而，挂载阶段还没开始，$el 属性目前不可见
+- 然而，挂载阶段还没开始，\$el 属性目前不可见
 
 ![img](/images/blog/old/2.jpg)
 
@@ -369,11 +371,11 @@ let app = new Vue({
 
 ### mounted
 
-- el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子
-- 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内
+- el 被新创建的 vm.\$el 替换，并挂载到实例上去之后调用该钩子
+- 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.\$el 也在文档内
 - **注意** mounted 不会承诺所有的子组件也都一起被挂载
   - 如果你希望等到整个视图都渲染完毕
-  - 可以用 vm.$nextTick
+  - 可以用 vm.\$nextTick
 - 此时数据已经挂载到根节点上了
 
 ![img](/images/blog/old/3.jpg)
@@ -397,28 +399,28 @@ let app = new Vue({
 ### activated
 
 - 当组件被缓存，不再重新渲染时，其他几个生命周期函数不再被触发
-- 此时activated和deactivated钩子能够被触发
+- 此时 activated 和 deactivated 钩子能够被触发
 - 当组件被展示的时候触发
 
 ### deactivated
 
 - 当组件被缓存，不再重新渲染时，其他几个生命周期函数不再被触发
-- 此时activated和deactivated钩子能够被触发
+- 此时 activated 和 deactivated 钩子能够被触发
 - 当组件没有被展示的时候触发
 
 ## 组件
 
 ### keep-alive
 
-- 存放在keep-alive里的组件，其余的六个生命周期函数不再被触发
-- 只能触发activated和deactivated钩子
-- 因此数据的更新以及其他操作需要在activated和deactivated中完成
-- 原来写在created中的处理需要写到activated中去
+- 存放在 keep-alive 里的组件，其余的六个生命周期函数不再被触发
+- 只能触发 activated 和 deactivated 钩子
+- 因此数据的更新以及其他操作需要在 activated 和 deactivated 中完成
+- 原来写在 created 中的处理需要写到 activated 中去
 
 ### transition
 
 - 为元素/组件添加过渡效果
-- name, 用于自动生成css过渡类名, 默认类名"v"
+- name, 用于自动生成 css 过渡类名, 默认类名"v"
 - 使用
 
 ```html
@@ -448,7 +450,7 @@ let app = new Vue({
 </style>
 ```
 
-- 使用all对所有属性都执行过渡动画
+- 使用 all 对所有属性都执行过渡动画
 
 ```
 <style>
@@ -471,7 +473,7 @@ let app = new Vue({
 
 ## 实例属性
 
-### vm.$data
+### vm.\$data
 
 - Vue 实例观察的数据对象
 - Vue 实例代理了对其 data 对象属性的访问
@@ -489,22 +491,22 @@ vm.$data.a = vm.a;
 vm.$data.b = vm.b;
 ```
 
-### vm.$el
+### vm.\$el
 
 - Vue 实例使用的根 DOM 元素
-- 根节点(例如上面的"#app"获取到的DOM元素)
+- 根节点(例如上面的"#app"获取到的 DOM 元素)
 
-### vm.$root
+### vm.\$root
 
 - 当前组件树的根 Vue 实例
 - 如果当前实例没有父实例，此实例将会是其自己
 
-### vm.$children
+### vm.\$children
 
 - 当前实例的直接子组件
-- 需要注意 $children 并不保证顺序，也不是响应式的
+- 需要注意 \$children 并不保证顺序，也不是响应式的
 
-### vm.$refs
+### vm.\$refs
 
 - 一个对象，持有注册过 ref 特性 的所有 DOM 元素和组件实例
 
@@ -512,20 +514,20 @@ vm.$data.b = vm.b;
 
 ## 实例方法 / 数据
 
-### vm.$set
+### vm.\$set
 
-- 使用vm.$set(对象，属性，值)
+- 使用 vm.\$set(对象，属性，值)
 - 全局 Vue.set 的别名
-- 可以为Vue实例vm绑定一个响应式的属性
+- 可以为 Vue 实例 vm 绑定一个响应式的属性
   - 如果是普通的属性添加不是响应式的
 
 ```js
 vm.$data.abc = 1;
 ```
 
-### vm.$mount
+### vm.\$mount
 
-- 手动地挂载一个未挂载el的实例
+- 手动地挂载一个未挂载 el 的实例
 
 ```js
 let vm = Vue({
@@ -538,13 +540,13 @@ let vm = Vue({
 }).$mount("app");
 ```
 
-### vm.$destroy()
+### vm.\$destroy()
 
 - 完全销毁一个实例
 - 清理它与其它实例的连接，解绑它的全部指令及事件监听器。
 - 触发 beforeDestroy 和 destroyed 的钩子
 
-### vm.$nextTick( [callback] )
+### vm.\$nextTick( [callback] )
 
 - 将回调延迟到下次 DOM 更新循环之后执行
 - 在修改数据之后立即使用它，然后等待 DOM 更新
@@ -553,16 +555,16 @@ let vm = Vue({
 
 ### key
 
-- 遍历组件时需要给组件绑定key值，不然报黄色警告
+- 遍历组件时需要给组件绑定 key 值，不然报黄色警告
 
 ### ref
 
 - 给元素或者子组件注册引用信息
-- 引用信息在父组件的$refs对象上
-- ref是作为渲染结果被创建的，在初始渲染时不能访问
-- $refs也不是响应式的，不能用来在模板中做数据绑定
+- 引用信息在父组件的\$refs 对象上
+- ref 是作为渲染结果被创建的，在初始渲染时不能访问
+- \$refs 也不是响应式的，不能用来在模板中做数据绑定
 - 可以用它来直接操作某个元素或子组件
-  - 例如使聚焦一个input框
+  - 例如使聚焦一个 input 框
 
 ```js
 this.$refs.usernameInput.focus();
@@ -572,7 +574,7 @@ this.$refs.usernameInput.focus();
 
 # 实际操作
 
-## 全局API
+## 全局 API
 
 ### directive()
 
@@ -660,11 +662,11 @@ new Vue({
 </script>
 ```
 
-#### emit发射事件
+#### emit 发射事件
 
 > 子组件向父组件传递数据
 
-- 子组件在触发某事件(如click)时，执行(sonFn)函数，向父组件发射某个(xxx)事件
+- 子组件在触发某事件(如 click)时，执行(sonFn)函数，向父组件发射某个(xxx)事件
 - 父组件在子组件(son)上绑定这个(xxx)事件；当子组件执行(sonFn)函数时，父组件执行(fatherFn)函数
 - 在(fatherFn)函数中默认参数为子组件传递的数据
 
@@ -712,8 +714,8 @@ new Vue({
 
 - 通过子组件的插槽来向父组件传递数据
 - 通过 **:** 向父组件传递一个对象
-  - 子组件在slot中设置属性；one为属性名，onemsg为属性值
-  - 父组件通过slot-scope属性定义接收数据的变量名
+  - 子组件在 slot 中设置属性；one 为属性名，onemsg 为属性值
+  - 父组件通过 slot-scope 属性定义接收数据的变量名
 
 ```html
 <div id="app">
@@ -797,15 +799,15 @@ new Vue({
 </script>
 ```
 
-#### vuex的全局仓库
+#### vuex 的全局仓库
 
 > 不止是兄弟之间，任何组件都可以拿到仓库中的数据
 
 ### 获取视图更新数据时
 
-> 在调用methods中的方法改变数据时，此时是无法从视图中获取到更新后的数据的；
-> 此时视图还没有更新数据，原因是因为vue的生命周期；若想要在methods这里要到数据，
-> 则应该使用nextTick函数，视图更新后才执行回调
+> 在调用 methods 中的方法改变数据时，此时是无法从视图中获取到更新后的数据的；
+> 此时视图还没有更新数据，原因是因为 vue 的生命周期；若想要在 methods 这里要到数据，
+> 则应该使用 nextTick 函数，视图更新后才执行回调
 
 ```html
 <div id="app">{{text}}</div>
@@ -827,9 +829,9 @@ new Vue({
 
 ### 数据计算
 
-- computed 存放着data中需要稍加处理的数据，组件中与data中的数据一样直接调用
-  - 不会因为视图更新而执行get函数
-  - 只能get，不能set；想要设置computed中的数据需要自动添加set函数
+- computed 存放着 data 中需要稍加处理的数据，组件中与 data 中的数据一样直接调用
+  - 不会因为视图更新而执行 get 函数
+  - 只能 get，不能 set；想要设置 computed 中的数据需要自动添加 set 函数
 - methods 存放方法，当然组件也可以调用函数对数据处理并返回；但这是没有必要的，因为在每次视图重新渲染时函数就会被再次调用，而数据并不需要没有都重新计算
 
 ### 按键修饰符
@@ -884,7 +886,7 @@ app.use("/xxx", (req, res) => {
 });
 ```
 
-### jsonp跨域
+### jsonp 跨域
 
 ```html
 // 通过script跨域
@@ -952,10 +954,10 @@ let vm = new Vue({
 
 ### 访问路由的过程
 
-1. 先设置routes路由和组件的映射表
-2. 实例化路由对象router并注入映射表
-3. 将router注入vue实例
-4. 在vue实例的根节点el中添加路由出口router-view
+1. 先设置 routes 路由和组件的映射表
+2. 实例化路由对象 router 并注入映射表
+3. 将 router 注入 vue 实例
+4. 在 vue 实例的根节点 el 中添加路由出口 router-view
 
 ### router-link
 
@@ -975,14 +977,14 @@ let vm = new Vue({
 
 #### 动态绑定 :to
 
-- path指定路由
+- path 指定路由
 
 ```html
 <router-link :to="{path:'/home'}" to="/home">home</router-link>
 ```
 
-- name指定路由
-  - 当path路由很长时，使用name可以减少标签中的代码
+- name 指定路由
+  - 当 path 路由很长时，使用 name 可以减少标签中的代码
 
 ```html
 <router-link :to="{name:'a22link'}" to="/home">home</router-link>
@@ -994,8 +996,8 @@ let vm = new Vue({
 ```
 
 - query 查询字符串
-  - 发送query值时，路由路径使用path指定/name指定都可以
-  - 但params不行，必须name指定
+  - 发送 query 值时，路由路径使用 path 指定/name 指定都可以
+  - 但 params 不行，必须 name 指定
 
 ```html
 <!-- 在vue实例中的可以通过this.$route获取到query的数据 -->
@@ -1018,7 +1020,7 @@ let vm = new Vue({
 #### params
 
 - 动态路由参数
-- 使用params使路由路径必须使用name指定
+- 使用 params 使路由路径必须使用 name 指定
 
 ```html
 <router-link :to="{name:'homelink',params:{id:1}}" to="/home">home</router-link>

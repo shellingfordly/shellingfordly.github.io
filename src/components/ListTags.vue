@@ -25,12 +25,7 @@ const tags = computed(() =>
 );
 
 const route = useRoute();
-
-const type = computed(() => {
-  const { type, tag } = route.query;
-  return (type || tag || "").toString();
-});
-
+const type = computed(() => route.query.type?.toString() || "");
 const notice = computed(
   () => (route.meta.frontmatter as Any)?.notice[type.value]
 );
@@ -80,9 +75,7 @@ const show = ref(false);
         class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
         v-for="(tag, i) in tags"
         :style="{ backgroundColor: colors[i] }"
-        @click="
-          $router.push(`${$route.path}?type=${$route.query?.type}&tag=${tag}`)
-        "
+        @click="$router.push(`/blog?type=${$route.query?.type}&tag=${tag}`)"
       >
         {{ tag }}
       </span>

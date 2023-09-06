@@ -17,7 +17,7 @@ tags:
 
 > Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中
 
-- 作用: 获取数据的http库
+- 作用: 获取数据的 http 库
 
 - 安装
 
@@ -25,19 +25,19 @@ tags:
 npm install axios
 ```
 
-- 使用cdn
+- 使用 cdn
 
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 ```
 
-- [axios使用文档](http://www.axios-js.com/zh-cn/docs/)
+- [axios 使用文档](http://www.axios-js.com/zh-cn/docs/)
 
 ---
 
 ## bootstrap
 
-> ui框架
+> ui 框架
 
 - 安装
 
@@ -63,13 +63,13 @@ npm install bootstrap@3
 ></script>
 ```
 
-- [bootstrap使用文档](https://v3.bootcss.com/css/)
+- [bootstrap 使用文档](https://v3.bootcss.com/css/)
 
 ---
 
 ## element-ui
 
-> ui框架
+> ui 框架
 
 - 安装
 
@@ -98,7 +98,7 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 ```
 
-- [element-ui使用文档](http://element-ui.cn/#/zh-CN/component/radio)
+- [element-ui 使用文档](http://element-ui.cn/#/zh-CN/component/radio)
 
 ---
 
@@ -106,7 +106,7 @@ Vue.use(ElementUI);
 
 > 轮播图插件等
 
-- github链接[vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
+- github 链接[vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
 - 安装
 
@@ -114,7 +114,7 @@ Vue.use(ElementUI);
 npm install vue-awesome-swiper --save
 ```
 
-- 引入项目, 在main.js中引入
+- 引入项目, 在 main.js 中引入
 
 ```js
 import Vue from "vue";
@@ -146,7 +146,7 @@ Vue.use(VueAwesomeSwiper);
 </script>
 ```
 
-- 更多功能阅读[swiperApi文档](https://www.swiper.com.cn/api/index.html)
+- 更多功能阅读[swiperApi 文档](https://www.swiper.com.cn/api/index.html)
 
 ---
 
@@ -176,19 +176,19 @@ import BScroll from "better-scroll";
 son.scroll = new BScroll("要滚动的节点");
 ```
 
-- 当元素被应用了BScroll滚动时, 就无法触发点击事件, 需要设置点击属性
+- 当元素被应用了 BScroll 滚动时, 就无法触发点击事件, 需要设置点击属性
 
 ```js
 son.scroll = new BScroll(this.$refs.wrapper, { click: true });
 ```
 
-- [better-scroll使用文档](http://ustbhuangyi.github.io/better-scroll/doc/)
+- [better-scroll 使用文档](http://ustbhuangyi.github.io/better-scroll/doc/)
 
 ---
 
 ## stylus
 
-> css预处理框架
+> css 预处理框架
 
 - 安装
 
@@ -231,28 +231,28 @@ loaction()
 
 #### cnpm i --save xxx
 
-- --save：安装的xxx包/模块上线的时候需要使用，简写-S
-- --save-dev：安装的xxx包仅开发时候使用，上线不需要，简写-D
+- --save：安装的 xxx 包/模块上线的时候需要使用，简写-S
+- --save-dev：安装的 xxx 包仅开发时候使用，上线不需要，简写-D
 
 #### webpack
 
 - webpack -d： 开发环境，不压缩代码
 - webpack -p： 默认，上线环境，压缩为一行代码
-- --watch： 监听文件实时改变，在webpack -d/webpack -p 后面加上--watch就能实时监听，不需要改变一次又需要webpack编译一次
+- --watch： 监听文件实时改变，在 webpack -d/webpack -p 后面加上--watch 就能实时监听，不需要改变一次又需要 webpack 编译一次
 
 ---
 
 ## git
 
-### git指令
+### git 指令
 
-- 在项目中安装git
+- 在项目中安装 git
 
 ```
 git init
 ```
 
-- 提交index.html文件
+- 提交 index.html 文件
 
 ```
 git add index.html
@@ -277,7 +277,7 @@ git config --global user.name "yourname"
 git commit -m "新增了一个XXX文件"
 ```
 
-- 推送到远程仓库之前，先关联本地和远程仓库，xxx建议使用ssh路径，http路径需要登录
+- 推送到远程仓库之前，先关联本地和远程仓库，xxx 建议使用 ssh 路径，http 路径需要登录
 
 ```
 git remote add origin xxx
@@ -295,19 +295,19 @@ git push origin master
 ssh-keygen -t rsa -C "you@example.com"
 ```
 
-- 打开id_rsa.pub
+- 打开 id_rsa.pub
 
-  - 回到github--->setting--->SSH--->new SSH key
-  - 将id_rsa.pub里的密钥复制到key中
+  - 回到 github--->setting--->SSH--->new SSH key
+  - 将 id_rsa.pub 里的密钥复制到 key 中
 
 - git pull origin master
 
-  - 当github中的仓库中被操作过时，先\$ git pull将仓库中的所有分子拉取下来
-  - $ git pull origin master将master分子pull下来
-  - 此操作的目的是为了将被修改过的远程仓库pull拉取到本地仓库来，让本地仓库完全等于远程仓库
-  - pull拉取时出现一个奇怪的界面时操作i--esc--:wq退出
+  - 当 github 中的仓库中被操作过时，先\$ git pull 将仓库中的所有分子拉取下来
+  - \$ git pull origin master 将 master 分子 pull 下来
+  - 此操作的目的是为了将被修改过的远程仓库 pull 拉取到本地仓库来，让本地仓库完全等于远程仓库
+  - pull 拉取时出现一个奇怪的界面时操作 i--esc--:wq 退出
 
-- pull结束后再push到github上去
+- pull 结束后再 push 到 github 上去
 
 - 将整各仓库的项目克隆下来
 
@@ -315,10 +315,10 @@ ssh-keygen -t rsa -C "you@example.com"
 git clone ssh路径
 ```
 
-- master是主分支
+- master 是主分支
   当一个项目在开发时，放在分支中
 
-- 创建xxx分支
+- 创建 xxx 分支
 
 ```
 git branch xxx
@@ -330,37 +330,37 @@ git branch xxx
 git branch
 ```
 
-- 切换到xxx分支
+- 切换到 xxx 分支
 
 ```
 git checkout xxx
 ```
 
-- 将xxx分支整合到master分支上
+- 将 xxx 分支整合到 master 分支上
 
 ```
 git merge xxx
 ```
 
-- 删除xxx分支
+- 删除 xxx 分支
 
 ```
 git branch -d xxx
 ```
 
-- 可以看到提交的commit信息
+- 可以看到提交的 commit 信息
 
 ```
 git log
 ```
 
-- 回退到commit的某一个版本
+- 回退到 commit 的某一个版本
 
 ```
 git reset --hard "commitID"
 ```
 
-- 上传到github仓库
+- 上传到 github 仓库
 
 ```
 git init
