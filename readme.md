@@ -1,11 +1,15 @@
 # My Blog
 
-my personal website
+[my personal website](https://shellingfordly.github.io)
+[my email](shellingfordly@qq.com)
 
 code is licensed under [MIT](https://github.com/shellingfordly/travel_map/blob/main/LICENSE),
 words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
+
 ## depends
+
+web frame depends
 
 - vue
 - ol
@@ -16,6 +20,9 @@ words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.or
 
 ## references
 
+ui design refer to the website below, if there is any infringement, please contact me and correct it immediately
+
 - [antfu.me](https://github.com/antfu/antfu.me)
 - [hexo-theme-next](https://github.com/iissnan/hexo-theme-next)
 - [hexo-theme-zhaoo](https://github.com/zhaoo/hexo-theme-zhaoo)
+- [Pauline Osmont](https://www.paulineosmont.com/)
