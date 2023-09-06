@@ -23,7 +23,7 @@ export default {
 
 配置了`vite.config.ts`后虽然已经可以使用 jsx，页面也正常渲染了，但是还是会提示无法使用 jsx，此时还需要在`tsconfig.ts`中配置`"jsx": "preserve"`属性，就可以愉快的使用 jsx 形式来写 vue 了。
 
-![vu3_jsx_1](/images/blog/vu3_jsx_1.png)
+![vue3_jsx_1](/images/blog/vue3_jsx_1.png)
 
 ```json
 // tsconfig.ts
@@ -80,7 +80,7 @@ export default defineComponent({
 
 如果直接使用 v-if 就会报错`无法读取未定义的属性`
 
-![vue3_jsx_1](/images/blog/vue3_jsx_1.png)
+![vue3_jsx_2](/images/blog/vue3_jsx_2.png)
 
 但是`v-show`是可以使用的，但`v-if`不行，不知道为什么，可能是直接 jsx 默认推荐使用`isShow && <div/>`或者三元的形式吧
 
