@@ -11,7 +11,6 @@ const type = computed(
   () => route.query?.type?.toString().toLowerCase() || props.type
 );
 const data = ref();
-
 watch(
   [tag, type],
   () => {

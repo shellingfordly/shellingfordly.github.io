@@ -26,7 +26,7 @@ const { y: scroll } = useWindowScroll();
       <div class="spacer" />
 
       <div class="right" print:op0>
-        <RouterLink to="/blog">
+        <RouterLink to="/blog?type=blog">
           <span class="lt-md:hidden">Blog</span>
           <div class="i-carbon-book md:hidden"></div>
         </RouterLink>

@@ -30,7 +30,7 @@ const workIcons = [
       <div class="desc">
         <p class="name">Work</p>
         <p class="subtitle">活到老，学到老</p>
-        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?tag=work">
+        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?type=blog">
           查看更多
         </a>
       </div>
@@ -65,7 +65,7 @@ const workIcons = [
       <div class="desc">
         <p class="name">Read</p>
         <p class="subtitle">腹有诗书气自华</p>
-        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?tag=read">
+        <a class="btn hvr-shutter-out-horizontal bg-#8884" href="/blog?type=read">
           查看更多
         </a>
       </div>

@@ -14,10 +14,25 @@ const typeList = [
     name: "Daily",
     path: "/blog?type=daily",
   },
+  {
+    name: "Read",
+    path: "/blog?type=read",
+  },
 ];
 
 const tags = computed(() =>
   [...PageTagList].sort((a, b) => a.length - b.length)
+);
+
+const route = useRoute();
+
+const type = computed(() => {
+  const { type, tag } = route.query;
+  return (type || tag || "").toString();
+});
+
+const notice = computed(
+  () => (route.meta.frontmatter as Any)?.notice[type.value]
 );
 
 const random = () => Math.random() * 255;
@@ -38,7 +53,7 @@ const show = ref(false);
       {{ item.name }}
     </div>
   </div>
-  <div></div>
+
   <div
     class="lg:absolute lg:w-20vw lg:p-5 lg:right-0 lg:top-10 overflow-hidden"
   >
@@ -55,8 +70,9 @@ const show = ref(false);
         {{ item.name }}
       </div>
     </div>
+
     <div
-      :class="`flex flex-wrap mt-5 tab_box 
+      :class="`flex flex-wrap tab_box 
       ${show ? 'op100' : 'op0!'}`"
     >
       <span
@@ -64,12 +80,18 @@ const show = ref(false);
         class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
         v-for="(tag, i) in tags"
         :style="{ backgroundColor: colors[i] }"
-        @click="$router.push(`/blog?tag=${tag}`)"
+        @click="
+          $router.push(`${$route.path}?type=${$route.query?.type}&tag=${tag}`)
+        "
       >
         {{ tag }}
       </span>
     </div>
   </div>
+  <blockquote class="m-0!">
+    <span v-if="notice">{{ notice }}</span>
+    <span v-else>博客迁移中，部分内存未完成...</span>
+  </blockquote>
 </template>
 
 <style lang="less" scoped>
