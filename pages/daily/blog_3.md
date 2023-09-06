@@ -15,6 +15,8 @@ tags:
 
 [blog 预览](https://shellingfordly.github.io)
 
+![blog3_1](/images/blog/blog3_1.png)
+
 设计方面参考了[antfu 大佬的 blog](https://antfu.me/)风格，antfu 的 blog 简约好看，是我喜欢的风格。
 
 主要也是用了他的框架，所以色调和风格很一致。
@@ -41,7 +43,7 @@ tags: ["js", "ts", "vue"]
 
 但是我发现 build 出来的页面使用 live-server 启动时刷新会丢失，我在[vite-plugin-pages issues247](https://github.com/hannoeru/vite-plugin-pages/issues/247)看到有人遇到和我同样的问题，但是我没有找到合适的解决方案。而且当我把 antfu 的博客项目 clone 下来打包之后发现有同样的问题，但是他的网站是 OK 的，我不知道他怎么处理的。
 
-![blog3_1](/images/blog/blog3_1.png)
+![blog3_2](/images/blog/blog3_2.png)
 
 最后我发现用 vite preview 运行 dist 出来的没有问题，于是我在[vite 静态部署站点](https://cn.vitejs.dev/guide/static-deploy.html#github-pages)中直接复制了`github-pages`构建代码，这样就 github pages 是好了，但是 Vercel 里面自动部署还是有问题。
 
