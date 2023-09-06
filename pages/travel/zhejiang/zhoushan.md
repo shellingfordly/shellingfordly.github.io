@@ -5,5 +5,6 @@ city: 浙江舟山
 coords: [122.383645, 29.915741]
 desc:
 preview: /images/travel/zhejiang/zs_preview.jpg
-tags: [travel]
+tags:
+  - 浙江
 ---

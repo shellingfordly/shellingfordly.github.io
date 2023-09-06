@@ -5,5 +5,6 @@ city: 浙江安吉
 coords: [119.593767, 30.794753]
 desc: 其实感觉没有那么刺激哈哈
 preview: /images/travel/zhejiang/aj_preview.jpg
-tags: [travel]
+tags:
+  - 浙江
 ---

@@ -5,5 +5,6 @@ city: 山东-泰安
 coords: [117.098321, 36.266182]
 desc:
 preview: /images/travel/shandong/ts_preview.jpg
-tags: [travel]
+tags: 
+  - 山东
 ---
