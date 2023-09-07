@@ -42,6 +42,11 @@ tags:
 - 小田原城
   - 小田原天守阁 ¥510 日元
   - 常盘金门武士博物馆 ¥200 日元
+- 新宿御苑園 ¥500 日元
+- 大室山 ￥ 1000 日元
+- 伊豆动物园
+  - 工作日 2700 日元
+  - 假日 2800 日元
 
 ## 开放时间
 
@@ -55,6 +60,11 @@ tags:
   - 仲见世街商店：9：30 左右到晚上。
 - 晴空塔 10：00~21：00（最后入场时间 20：00）
 - 小田原城 9：00-17：00（最后入场时间为 16：30）
+- 新宿御苑園
+  - 新宿御苑園區 9:00－18:00（17:30 最後入園）
+  - 大溫室 9:30－17:30（17:00 最後入館）
+- 大室山 9:00 ～ 16:00（山顶站最终乘车时间为 16:15）
+- 伊豆动物园 9:30-17:00
 
 ## 官网
 
@@ -67,3 +77,5 @@ tags:
 * [东京国立博物馆](https://www.tnm.jp/modules/r_free_page/index.php?id=113#ticket)
 * [晴空塔](https://www.tokyo-skytree.jp/)
 * [小田原城](https://odawaracastle.com/news/kaikanjokyo.html)
+* [大室山](https://omuroyama.com/index_cn/information_cn/)
+* [伊豆动物园](https://izushaboten.com/information/)
