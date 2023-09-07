@@ -7,6 +7,10 @@ const typeList = [
     path: "/blog?type=blog",
   },
   {
+    name: "Leetcode",
+    path: "/blog?type=leetcode",
+  },
+  {
     name: "Travel",
     path: "/blog?type=travel",
   },
@@ -40,43 +44,23 @@ const show = ref(false);
 
 <template>
   <div class="relative lg:pt-10 pt-5 pb-5 flex lt-lg:hidden">
-    <div
-      class="item mr-3"
-      v-for="item in typeList"
-      @click="$router.push(item.path)"
-    >
+    <div class="item mr-3" v-for="item in typeList" @click="$router.push(item.path)">
       {{ item.name }}
     </div>
   </div>
 
-  <div
-    class="lg:absolute lg:w-20vw lg:p-5 lg:right-0 lg:top-10 overflow-hidden"
-  >
+  <div class="lg:absolute lg:w-20vw lg:p-5 lg:right-0 lg:top-10 overflow-hidden">
     <div class="relative lg:pt-10 pt-5 pb-5 flex items-center">
-      <div
-        class="i-carbon-tag cursor-pointer mr-5 opacity-60 hover:opacity-100 z-100"
-        @click="show = !show"
-      />
-      <div
-        class="item mr-3 lg:hidden"
-        v-for="item in typeList"
-        @click="$router.push(item.path)"
-      >
+      <div class="i-carbon-tag cursor-pointer mr-5 opacity-60 hover:opacity-100 z-100" @click="show = !show" />
+      <div class="item mr-3 lg:hidden" v-for="item in typeList" @click="$router.push(item.path)">
         {{ item.name }}
       </div>
     </div>
 
-    <div
-      :class="`flex flex-wrap tab_box 
-      ${show ? 'op100' : 'op0!'}`"
-    >
-      <span
-        v-show="show"
-        class="tag mb-3 mr-3 opacity-60 hover:opacity-100"
-        v-for="(tag, i) in tags"
-        :style="{ backgroundColor: colors[i] }"
-        @click="$router.push(`/blog?type=${$route.query?.type}&tag=${tag}`)"
-      >
+    <div :class="`flex flex-wrap tab_box 
+      ${show ? 'op100' : 'op0!'}`">
+      <span v-show="show" class="tag mb-3 mr-3 opacity-60 hover:opacity-100" v-for="(tag, i) in tags"
+        :style="{ backgroundColor: colors[i] }" @click="$router.push(`/blog?type=${$route.query?.type}&tag=${tag}`)">
         {{ tag }}
       </span>
     </div>
