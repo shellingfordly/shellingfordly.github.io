@@ -1,9 +1,11 @@
 import { CreateMarkerLayer } from "./point";
-import { OnHoverMarker, OnClickMarker } from "./handleEvent";
+import { OnShowMarker, OnLinkArticle } from "./handleEvent";
 import { Condition } from "ol/events/condition";
 import { Select, pointerMove, click, Layer, Map } from "~/ol-imports";
+import { isMobile } from "~/utils/wap";
+import { CreateMarkerPreview } from "./preview";
 
-export function SetupMarkerLayer(map: Map) {
+export function SetupMarkerLayer(map: Map, addFunc: Function) {
   // 创建标点图层
   const containerLayer = CreateMarkerLayer();
   // 添加图层
@@ -11,8 +13,15 @@ export function SetupMarkerLayer(map: Map) {
   // 地图缩放时，刷新
   map.getView().on("change:resolution", containerLayer.changed);
 
+  const preview = CreateMarkerPreview();
+  map.addOverlay(preview.overlay!);
+
+  addFunc(() => {
+    preview.setOffset && preview.setOffset();
+  });
+
   // 绑定标点事件
-  BindMarkerEvent(map, containerLayer);
+  BindMarkerEvent(map, containerLayer, preview);
 }
 
 /**
@@ -20,18 +29,25 @@ export function SetupMarkerLayer(map: Map) {
  * @param map
  * @param containerLayer
  */
-function BindMarkerEvent(map: Map, containerLayer: Layer) {
-  // 创建鼠标悬停交互
-  const hoverInteraction = CreateEventInteraction(
-    map,
-    containerLayer,
-    pointerMove
-  );
-  OnHoverMarker(map, hoverInteraction);
-
-  // 点击事件
-  const clickInteraction = CreateEventInteraction(map, containerLayer, click);
-  OnClickMarker(map, clickInteraction);
+function BindMarkerEvent(map: Map, containerLayer: Layer, preview: any) {
+  // Mobile
+  if (isMobile()) {
+    const clickInteraction = CreateEventInteraction(map, containerLayer, click);
+    OnShowMarker(map, preview, clickInteraction);
+  }
+  // PC
+  else {
+    // 创建鼠标悬停交互
+    const hoverInteraction = CreateEventInteraction(
+      map,
+      containerLayer,
+      pointerMove
+    );
+    OnShowMarker(map, preview, hoverInteraction);
+    // 点击事件
+    const clickInteraction = CreateEventInteraction(map, containerLayer, click);
+    OnLinkArticle(map, clickInteraction);
+  }
 }
 
 /**

@@ -1,4 +1,4 @@
-
+import 'floating-vue/dist/style.css'
 import "./styles/index.less";
 import "uno.css";
 
@@ -7,6 +7,7 @@ import App from "./App.vue";
 import NProgress from "nprogress";
 import { setupRouterScroller } from "vue-router-better-scroller";
 import autoRoutes from "pages-generated";
+import { Dropdown } from "floating-vue";
 
 const routes = autoRoutes.map((i) => {
   return {
@@ -19,6 +20,8 @@ export const createApp = ViteSSG(
   App,
   { routes },
   ({ app, router, isClient }) => {
+    app.component("VDropdown", Dropdown);
+
     if (isClient) {
       const html = document.querySelector("html")!;
       setupRouterScroller(router, {

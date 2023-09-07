@@ -9,7 +9,9 @@ onMounted(InitMap);
 <template>
   <div id="map" class="w-full h-full"></div>
   <div id="map_marker_preview">
-    <img />
+    <div class="img_box">
+      <img />
+    </div>
     <div class="info">
       <div class="title" />
       <div class="desc" />

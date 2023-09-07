@@ -1,22 +1,27 @@
 import moment from "moment";
 import { Overlay } from "~/ol-imports";
+import { isMobile } from "~/utils/wap";
 
 export function CreateMarkerPreview() {
-  const previewContainer = document.getElementById("map_marker_preview");
-  if (previewContainer == null) return {};
+  const previewElement = document.getElementById("map_marker_preview");
+  if (previewElement == null) return {};
 
   // 创建预览 Overlay
-  const previewOverlay = new Overlay({
-    element: previewContainer,
-    positioning: "center-right", // 设置 DOM 元素在预览图层中的定位方式
-    offset: [20, -65], // 偏移量，根据需要调整
+  const overlay = new Overlay({
+    element: previewElement,
+    positioning: "center-center", // 设置 DOM 元素在预览图层中的定位方式
     stopEvent: false, // 允许事件传递给地图
   });
 
-  return { previewOverlay, SetStyle };
+  const setOffset = () =>
+    overlay.setOffset(isMobile() ? [-100, -270] : [20, -75]);
+
+  setOffset();
+
+  return { overlay, setStyle, setOffset };
 }
 
-function SetStyle(info: MarkerItem) {
+function setStyle(info: MarkerItem) {
   const previewContainer = document.getElementById("map_marker_preview");
   if (previewContainer == null) return;
 
