@@ -30,7 +30,7 @@ export function CreateArticleData({ tag, type }: Any): ArticleItem[] {
 
   for (const route of routes) {
     const info: RouteMetaFrontmatter = route?.meta?.frontmatter as Any;
-    if (!info || FilterRoute.includes(route.path)) continue;
+    if (!info || !info.title || FilterRoute.includes(route.path)) continue;
 
     if (type && route.path.startsWith("/" + type)) {
       // 缓存 tag
