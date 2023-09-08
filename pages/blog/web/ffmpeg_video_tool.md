@@ -21,7 +21,7 @@ tags:
 - [项目地址](https://github.com/shellingfordly/my-tools)
 - 效果展示
 
-![output (1).gif](/images/blog/ffmpeg_video_tool.webp)
+![](/images/blog/ffmpeg_video_tool.webp)
 
 这个gif展示图就是这个项目生成的，看着很卡是因为为了缩小上传的大小，我只给了3帧，所以看着十分卡。
 

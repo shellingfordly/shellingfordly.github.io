@@ -43,10 +43,11 @@ tags:
   - 小田原天守阁 ¥510 日元
   - 常盘金门武士博物馆 ¥200 日元
 - 新宿御苑園 ¥500 日元
-- 大室山 ￥ 1000 日元
+- 大室山 ¥1000 日元
 - 伊豆动物园
-  - 工作日 2700 日元
-  - 假日 2800 日元
+  - 工作日 ¥2700 日元
+  - 假日 ¥2800 日元
+- 金阁寺 ¥500 日元
 
 ## 开放时间
 
@@ -65,6 +66,7 @@ tags:
   - 大溫室 9:30－17:30（17:00 最後入館）
 - 大室山 9:00 ～ 16:00（山顶站最终乘车时间为 16:15）
 - 伊豆动物园 9:30-17:00
+- 金阁寺 9:00〜17:00
 
 ## 官网
 
@@ -79,3 +81,4 @@ tags:
 * [小田原城](https://odawaracastle.com/news/kaikanjokyo.html)
 * [大室山](https://omuroyama.com/index_cn/information_cn/)
 * [伊豆动物园](https://izushaboten.com/information/)
+* [金阁寺](https://www.shokoku-ji.jp/zh/kinkakuji/)
