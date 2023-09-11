@@ -7,9 +7,9 @@ export function setupWindowEventListener() {
     });
   }
 
-  function addFunc(func: Function) {
+  function watchWindowChange(func: Function) {
     FunctionMap.push(func);
   }
 
-  return { addFunc, listen };
+  return { watchWindowChange, listen };
 }

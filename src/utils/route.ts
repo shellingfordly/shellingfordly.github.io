@@ -18,7 +18,9 @@ export function CreateMapMarkerData(): MarkerItem[] {
       });
     }
   });
-  return markerList;
+  return markerList.sort(
+    (a, b) => moment(a.date).valueOf() - moment(b.date).valueOf()
+  );
 }
 
 const FilterRoute = ["/", "/travel", "/blog"];

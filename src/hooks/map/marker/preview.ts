@@ -1,47 +1,78 @@
 import moment from "moment";
-import { Overlay } from "~/ol-imports";
+import { Coordinate } from "ol/coordinate";
+import { Overlay, containsCoordinate } from "~/ol-imports";
 import { isMobile } from "~/utils/wap";
 
-export function CreateMarkerPreview() {
-  const previewElement = document.getElementById("map_marker_preview");
-  if (previewElement == null) return {};
+export class MarkerPreview {
+  overlay: Overlay;
+  information?: MarkerItem;
+  readonly BaseOffset = 70;
 
-  // 创建预览 Overlay
-  const overlay = new Overlay({
-    element: previewElement,
-    positioning: "center-center", // 设置 DOM 元素在预览图层中的定位方式
-    stopEvent: false, // 允许事件传递给地图
-  });
+  events: Function[] = [];
 
-  const setOffset = () =>
-    overlay.setOffset(isMobile() ? [-100, -270] : [20, -75]);
+  constructor(element: HTMLElement) {
+    this.overlay = new Overlay({
+      element,
+      positioning: "center-center", // 设置 DOM 元素在预览图层中的定位方式
+      offset: isMobile() ? [-100, -270] : [20, -75],
+      stopEvent: false, // 允许事件传递给地图
+    });
+  }
 
-  setOffset();
+  resetPreview() {
+    this.overlay.setOffset(isMobile() ? [-100, -270] : [20, -75]);
+  }
 
-  return { overlay, setStyle, setOffset };
+  setPreviewInfo(info?: MarkerItem) {
+    this.information = info;
+  }
+
+  setPosition(position?: Coordinate) {
+    this.overlay.setPosition(position);
+  }
+
+  getCoordinates() {
+    const element = this.overlay.getElement();
+    if (element) {
+      const { x, y, width, height } = element.getBoundingClientRect();
+      return [x, y - this.BaseOffset, x + width, y + height - this.BaseOffset];
+    } else {
+      return [];
+    }
+  }
+
+  contains(extent: Coordinate) {
+    return containsCoordinate(this.getCoordinates(), extent);
+  }
+
+  addEvent(cb: Function) {
+    this.events.push(cb);
+  }
+
+  runEvent() {
+    this.events.forEach((cb) => cb(this.information));
+  }
+
+  setStyle(info?: MarkerItem) {
+    if (!info) return;
+    const previewContainer = document.getElementById("map_marker_preview");
+    if (previewContainer == null) return;
+    const img = previewContainer.querySelector("img");
+    if (img) img.src = info.preview || "";
+    const title = previewContainer.querySelector("div.title");
+    if (title) title.textContent = info.title || "";
+    const desc = previewContainer.querySelector("div.desc");
+    if (desc) desc.textContent = info.desc || "";
+    const date = previewContainer.querySelector("div.date");
+    if (date) date.textContent = moment(info.date).format("YY-MM-DD") || "";
+  }
 }
 
-function setStyle(info: MarkerItem) {
-  const previewContainer = document.getElementById("map_marker_preview");
-  if (previewContainer == null) return;
+export function CreateMarkerPreview(): MarkerPreview {
+  const element = document.getElementById("map_marker_preview");
+  if (element == null) return {} as MarkerPreview;
 
-  const img = previewContainer.querySelector("img");
-  if (img) {
-    img.src = info.preview || "";
-  }
+  const preview = new MarkerPreview(element);
 
-  const title = previewContainer.querySelector("div.title");
-  if (title) {
-    title.textContent = info.title || "";
-  }
-
-  const desc = previewContainer.querySelector("div.desc");
-  if (desc) {
-    desc.textContent = info.desc || "";
-  }
-
-  const date = previewContainer.querySelector("div.date");
-  if (date) {
-    date.textContent = moment(info.date).format("YY-MM-DD") || "";
-  }
+  return preview;
 }

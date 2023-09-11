@@ -48,6 +48,8 @@ tags:
   - 工作日 ¥2700 日元
   - 假日 ¥2800 日元
 - 金阁寺 ¥500 日元
+- 石廊崎
+  - 石崎岬观光船 ¥1600 日元
 
 ## 开放时间
 
@@ -67,6 +69,8 @@ tags:
 - 大室山 9:00 ～ 16:00（山顶站最终乘车时间为 16:15）
 - 伊豆动物园 9:30-17:00
 - 金阁寺 9:00〜17:00
+- 石廊崎
+  - 石崎岬观光船 9：30~15：30（每 30 分钟一班，旺季有特殊航班）
 
 ## 官网
 
@@ -82,3 +86,4 @@ tags:
 * [大室山](https://omuroyama.com/index_cn/information_cn/)
 * [伊豆动物园](https://izushaboten.com/information/)
 * [金阁寺](https://www.shokoku-ji.jp/zh/kinkakuji/)
+* [石崎岬观光船](http://www.izu-kamori.jp/izu-cruise/)

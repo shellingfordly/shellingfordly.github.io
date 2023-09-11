@@ -42,8 +42,9 @@ export function CreatePointFeature(item: MarkerItem) {
   const iconStyle = new Style({
     image: new Icon({
       src: "/images/icons/marker.svg",
+      color: "red",
       scale: 1,
-      anchor: [0.5, 1], // 图标的锚点位置，[0.5, 1] 表示图标底部中心
+      anchor: [0.15, 0.9], // 图标的锚点位置，[0.5, 1] 表示图标底部中心
     }),
   });
   pointFeature.setStyle(iconStyle);

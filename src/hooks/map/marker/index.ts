@@ -1,74 +1,75 @@
 import { CreateMarkerLayer } from "./point";
-import { OnShowMarker, OnLinkArticle } from "./handleEvent";
-import { Condition } from "ol/events/condition";
-import { Select, pointerMove, click, Layer, Map } from "~/ol-imports";
+import { Interaction } from "./interaction";
+import { pointerMove, click, Layer, Map } from "~/ol-imports";
 import { isMobile } from "~/utils/wap";
-import { CreateMarkerPreview } from "./preview";
+import { CreateMarkerPreview, MarkerPreview } from "./preview";
 
-export function SetupMarkerLayer(map: Map, addFunc: Function) {
+export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
   // 创建标点图层
   const containerLayer = CreateMarkerLayer();
-  // 添加图层
   map.addLayer(containerLayer);
-  // 地图缩放时，刷新
   map.getView().on("change:resolution", containerLayer.changed);
 
+  // 创建标点预览图层
   const preview = CreateMarkerPreview();
-  map.addOverlay(preview.overlay!);
+  map.addOverlay(preview.overlay);
 
-  addFunc(() => {
-    preview.setOffset && preview.setOffset();
+  watchWindowChange(() => {
+    preview.resetPreview && preview.resetPreview();
+    BindMarkerEvents(map, containerLayer, preview);
   });
 
   // 绑定标点事件
-  BindMarkerEvent(map, containerLayer, preview);
+  BindMarkerEvents(map, containerLayer, preview);
+
+  return {
+    markerPreview: preview,
+  };
 }
 
 /**
  * @abstract 绑定标点事件
- * @param map
- * @param containerLayer
  */
-function BindMarkerEvent(map: Map, containerLayer: Layer, preview: any) {
-  // Mobile
+function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
+  const interaction = new Interaction(layer, isMobile() ? click : pointerMove);
+
+  interaction.mount(map);
+
+  interaction.on(({ hit, info, coords }) => {
+    if (!isMobile()) {
+      map.getTargetElement().style.cursor = hit ? "pointer" : "default";
+    }
+    
+    // 设置预览
+    preview.setPreviewInfo(info);
+    preview.setStyle(info);
+    preview.setPosition(coords);
+    preview.runEvent();
+  });
+
   if (isMobile()) {
-    const clickInteraction = CreateEventInteraction(map, containerLayer, click);
-    OnShowMarker(map, preview, clickInteraction);
-  }
-  // PC
-  else {
-    // 创建鼠标悬停交互
-    const hoverInteraction = CreateEventInteraction(
-      map,
-      containerLayer,
-      pointerMove
-    );
-    OnShowMarker(map, preview, hoverInteraction);
-    // 点击事件
-    const clickInteraction = CreateEventInteraction(map, containerLayer, click);
-    OnLinkArticle(map, clickInteraction);
+    BindMarkerShowMobileEvent(map, preview);
+  } else {
+    const router = useRouter();
+
+    const interaction = new Interaction(layer, click);
+    interaction.mount(map);
+
+    interaction.on(({ info }) => {
+      if (info?.route) router.push(info?.route);
+    });
   }
 }
 
-/**
- * @abstract 在指定图层创建鼠标交互
- * @param map 地图
- * @param containerLayer 交互图层
- * @param condition 鼠标事件
- * @returns Select
- */
-function CreateEventInteraction(
-  map: Map,
-  containerLayer: Layer,
-  condition: Condition
-) {
-  const interaction = new Select({
-    layers: [containerLayer], // 指定可以触发交互的图层
-    condition, // 鼠标触发条件
-    style: null, // 禁用默认样式
+function BindMarkerShowMobileEvent(map: Map, preview: MarkerPreview) {
+  const router = useRouter();
+
+  map.on("click", function (event) {
+    if (preview.contains(event.pixel)) {
+      const route = preview.information?.route;
+      route && router.push(route);
+    } else {
+      preview.setPosition();
+    }
   });
-
-  map.addInteraction(interaction);
-
-  return interaction;
 }
