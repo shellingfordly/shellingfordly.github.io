@@ -1,33 +1,21 @@
-<script setup lang="ts">
-const props = defineProps<{
-  col: number; // 列
-}>();
+<script lang="ts" setup>
+const props = defineProps<{ srcList: string[] }>();
 
-const homeBgUrlList = [
-  "/images/home/bg_1.png",
-  "/images/home/bg_2.png",
-  "/images/home/bg_3.png",
-  "/images/home/bg_4.png",
-  "/images/home/bg_5.png",
-  "/images/home/bg_6.png",
-  "/images/home/bg_7.png",
-  "/images/home/bg_8.png",
-];
-
-const containerStyle = computed(() => ({
-  "grid-template-columns": `repeat(auto-fill, ${100 / props.col}%)`,
-}));
+const left = computed(() => props.srcList.slice(0, props.srcList.length / 2));
+const right = computed(() => props.srcList.slice(props.srcList.length / 2));
 </script>
 
 <template>
-  <div class="container" :style="containerStyle">
-    <img class="w-full h-full" v-for="url in homeBgUrlList" :src="url" alt="" />
+  <div class="w-full pt-5 flex bg-[var(--c-container)] border-rd-5 text-center">
+    <div class="w-50%">
+      <div v-for="src in left">
+        <img class="max-w-full m-a mb-5! mt-0!" :src="src" />
+      </div>
+    </div>
+    <div class="w-50%">
+      <div v-for="src in right">
+        <img class="max-w-full m-a mb-5! mt-0!" :src="src" />
+      </div>
+    </div>
   </div>
 </template>
-
-<style lang="less" scoped>
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 33.33%);
-}
-</style>
