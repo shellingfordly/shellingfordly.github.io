@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const homeBgUrlList = [
   "/images/travel/hunan/cs/cs_preview.jpg",
-  "/images/travel/hunan/zjj/zjj_preview.jpg",
+  "/images/travel/hunan/zjj/d2.jpg",
   "/images/travel/jilin/cbs_preview.jpg",
-  "/images/travel/shanghai/1/city3.jpg",
-  "/images/travel/shandong/ts_preview.jpg",
   "/images/travel/jiangxi/nc_preview.jpg",
+  "/images/travel/shandong/ts_preview.jpg",
   "/images/travel/fujian/xiamen/preview.jpg",
-  "/images/travel/shanghai/1/city6.jpg",
+  "/images/travel/fujian/xiamen/h_2.jpg",
+  "/images/travel/shanghai/1/city3.jpg",
   "/images/travel/shanghai/1/me5.jpg",
 ];
 
