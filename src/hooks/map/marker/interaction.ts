@@ -6,6 +6,7 @@ export interface InteractionEvent {
   hit: boolean;
   info?: MarkerItem;
   coords?: Coordinate;
+  other?: Any;
 }
 
 export class Interaction {

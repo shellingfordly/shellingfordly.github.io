@@ -2,18 +2,19 @@ import moment from "moment";
 import { Coordinate } from "ol/coordinate";
 import { Overlay, containsCoordinate } from "~/ol-imports";
 import { isMobile } from "~/utils/wap";
+import { InteractionEvent } from "./interaction";
 
 export class MarkerPreview {
   overlay: Overlay;
   information?: MarkerItem;
   readonly BaseOffset = 70;
 
-  events: Function[] = [];
+  events: Set<Function> = new Set();
 
   constructor(element: HTMLElement) {
     this.overlay = new Overlay({
       element,
-      positioning: "center-center", // 设置 DOM 元素在预览图层中的定位方式
+      positioning: "center-center",
       offset: isMobile() ? [-100, -270] : [20, -75],
       stopEvent: false, // 允许事件传递给地图
     });
@@ -46,11 +47,17 @@ export class MarkerPreview {
   }
 
   addEvent(cb: Function) {
-    this.events.push(cb);
+    this.events.add(cb);
   }
 
-  runEvent() {
-    this.events.forEach((cb) => cb(this.information));
+  removeEvent(cb: Function) {
+    if (this.events.has(cb)) {
+      this.events.delete(cb);
+    }
+  }
+
+  runEvent(event: InteractionEvent) {
+    this.events.forEach((cb) => cb(event));
   }
 
   setStyle(info?: MarkerItem) {

@@ -6,12 +6,12 @@ export function interpolatePoints(
   numPoints: number
 ) {
   const mid1 = [
-    start[0] + 0.5 * (end[0] - start[0]),
-    start[1] + 0.5 * (end[1] - start[1]),
+    start[0] + 0.5 * (end[0] - start[0]) + Math.random() * (end[0] - start[0]),
+    start[1] + 0.5 * (end[1] - start[1]) + Math.random() * (end[0] - start[0]),
   ];
   const mid2 = [
-    start[0] + 0.5 * (end[0] - start[0]),
-    start[1] + 0.5 * (end[1] - start[1]),
+    start[0] + 0.5 * (end[0] - start[0]) + Math.random() * (end[0] - start[0]),
+    start[1] + 0.5 * (end[1] - start[1]) + Math.random() * (end[0] - start[0]),
   ];
   const interpolatedPoints = calculateBezierCurvePoints(
     start,

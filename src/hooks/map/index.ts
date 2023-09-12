@@ -10,6 +10,7 @@ import { EPSG4326 } from "./config";
 import { SetupLayerStyle } from "./style";
 import { setupWindowEventListener } from "~/utils/window";
 import { SetupLineLayer } from "./animate";
+import { SetupControl } from "./control";
 
 function CreateMap() {
   const { center, zoom, minZoom, maxZoom, extent } = MAP_DEFAULT_OPTIONS;
@@ -35,24 +36,25 @@ export function SetupMap() {
   const map = ref<Map>();
 
   const { listen, watchWindowChange } = setupWindowEventListener();
+  const { control } = SetupControl();
 
   function InitMap() {
     map.value = CreateMap();
 
+    // layer
     SetupBaseLayer(map.value);
-
     SetupProvinceLayer(map.value);
 
-    const { markerPreview } = SetupMarkerLayer(map.value, watchWindowChange);
+    // marker
+    const { preview } = SetupMarkerLayer(map.value, watchWindowChange);
+    SetupLineLayer(map.value, preview);
 
-    SetupLineLayer(map.value, markerPreview);
-
+    // map
     SetupEventListener(map.value);
-
     SetupLayerStyle();
 
     listen();
   }
 
-  return { map, InitMap };
+  return { map, InitMap, control };
 }

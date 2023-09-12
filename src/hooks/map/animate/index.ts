@@ -1,64 +1,40 @@
-import {
-  LineString,
-  SourceVector,
-  Vector,
-  Feature,
-  Map,
-  Style,
-  Stroke,
-} from "~/ol-imports";
-import { interpolatePoints } from "./points";
-import { CreateMapMarkerData } from "~/utils";
-import type { Coordinate } from "ol/coordinate";
-import { START_POINT } from "../config";
+import { SourceVector, Vector, Feature, Map } from "~/ol-imports";
 import { MarkerPreview } from "../marker/preview";
+import { InteractionEvent } from "../marker/interaction";
+import { PlayIconAnimate } from "./animate";
+import { CreateLineFeatures } from "./line";
+import { lineOpen } from "../control";
 
 export function SetupLineLayer(map: Map, preview: MarkerPreview) {
-  const linesCoords = CreateLinesCoords();
-  const vectorLayer = CreateLineLayer(linesCoords, preview);
+  const features = CreateLineFeatures();
 
-  map.addLayer(vectorLayer);
-}
+  const source = new SourceVector();
+  const layer = new Vector({ source });
+  map.addLayer(layer);
 
-function CreateLinesCoords() {
-  const markers = CreateMapMarkerData();
+  const eventFunc = (event: InteractionEvent) => {
+    addEvent(event, preview, source, features);
+  };
 
-  return markers
-    .filter((m) => !!m.coords)
-    .map((marker) => interpolatePoints(START_POINT, marker.coords, 100));
-}
-
-function CreateLineLayer(linesCoords: Coordinate[][], preview: MarkerPreview) {
-  const features: Feature[] = [];
-
-  linesCoords.forEach((coords) => {
-    const feature = new Feature({
-      geometry: new LineString(coords),
-    });
-
-    feature.setStyle(
-      new Style({
-        stroke: new Stroke({
-          color: CreateRandomColor(),
-          width: 4,
-          lineDash: [5, 10],
-        }),
-      })
-    );
-
-    features.push(feature);
+  watch(lineOpen, (open) => {
+    if (open) preview.addEvent(eventFunc);
+    else preview.removeEvent(eventFunc);
   });
-
-  preview.addEvent(() => {});
-
-  const vectorSource = new SourceVector({ features });
-  const vectorLayer = new Vector({ source: vectorSource });
-
-  return vectorLayer;
 }
 
-function CreateRandomColor() {
-  // 创建随机颜色
-  const random = () => Math.floor(Math.random() * 100) + 150;
-  return `rgb(${random()},${random()},${random()})`;
+function addEvent(
+  event: InteractionEvent,
+  preview: MarkerPreview,
+  source: SourceVector,
+  features: Record<string, Feature>
+) {
+  let feature = features?.[preview?.information?.route as string];
+  if (!feature) return;
+
+  if (event.hit) {
+    PlayIconAnimate(event, source, feature);
+    feature && source.addFeature(feature);
+  } else {
+    feature && source.removeFeature(feature);
+  }
 }

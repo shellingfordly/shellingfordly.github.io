@@ -23,7 +23,7 @@ export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
   BindMarkerEvents(map, containerLayer, preview);
 
   return {
-    markerPreview: preview,
+    preview,
   };
 }
 
@@ -35,16 +35,17 @@ function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
 
   interaction.mount(map);
 
-  interaction.on(({ hit, info, coords }) => {
+  interaction.on((event) => {
+    const { hit, info, coords } = event;
     if (!isMobile()) {
       map.getTargetElement().style.cursor = hit ? "pointer" : "default";
     }
-    
+
     // 设置预览
-    preview.setPreviewInfo(info);
+    info && preview.setPreviewInfo(info);
     preview.setStyle(info);
     preview.setPosition(coords);
-    preview.runEvent();
+    preview.runEvent(event);
   });
 
   if (isMobile()) {

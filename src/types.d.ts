@@ -8,7 +8,6 @@ interface RouteMetaFrontmatter {
 }
 
 interface MarkerItem extends RouteMetaFrontmatter {
-  startCoords?: number[];
   coords: number[];
   desc?: string;
   city: string;
