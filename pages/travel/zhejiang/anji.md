@@ -8,3 +8,7 @@ preview: /images/travel/zhejiang/aj_preview.jpg
 tags:
   - 浙江
 ---
+
+人生第一次跳伞，没有想象中那么恐怖。
+
+<VideoItem src="/images/travel/zhejiang/aj.mp4" />
