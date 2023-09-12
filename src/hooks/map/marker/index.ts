@@ -3,6 +3,7 @@ import { Interaction } from "./interaction";
 import { pointerMove, click, Layer, Map } from "~/ol-imports";
 import { isMobile } from "~/utils/wap";
 import { CreateMarkerPreview, MarkerPreview } from "./preview";
+import { infoOpen } from "../control";
 
 export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
   // 创建标点图层
@@ -32,19 +33,20 @@ export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
  */
 function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
   const interaction = new Interaction(layer, isMobile() ? click : pointerMove);
-
   interaction.mount(map);
 
+  //
   interaction.on((event) => {
     const { hit, info, coords } = event;
     if (!isMobile()) {
       map.getTargetElement().style.cursor = hit ? "pointer" : "default";
     }
-
     // 设置预览
     info && preview.setPreviewInfo(info);
-    preview.setStyle(info);
-    preview.setPosition(coords);
+    if (infoOpen.value) {
+      preview.setStyle(info);
+      preview.setPosition(coords);
+    }
     preview.runEvent(event);
   });
 
@@ -53,9 +55,9 @@ function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
   } else {
     const router = useRouter();
 
+    // pc
     const interaction = new Interaction(layer, click);
     interaction.mount(map);
-
     interaction.on(({ info }) => {
       if (info?.route) router.push(info?.route);
     });

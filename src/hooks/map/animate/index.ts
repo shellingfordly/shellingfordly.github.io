@@ -16,10 +16,14 @@ export function SetupLineLayer(map: Map, preview: MarkerPreview) {
     addEvent(event, preview, source, features);
   };
 
-  watch(lineOpen, (open) => {
-    if (open) preview.addEvent(eventFunc);
-    else preview.removeEvent(eventFunc);
-  });
+  watch(
+    lineOpen,
+    (open) => {
+      if (open) preview.addEvent(eventFunc);
+      else preview.removeEvent(eventFunc);
+    },
+    { immediate: true }
+  );
 }
 
 function addEvent(
