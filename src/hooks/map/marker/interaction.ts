@@ -28,6 +28,7 @@ export class Interaction {
     this.interaction.on("select", (event) => {
       const item: InteractionEvent = {
         hit: event.selected.length > 0,
+        info: {} as MarkerItem,
       };
 
       if (item.hit) {

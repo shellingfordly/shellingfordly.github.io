@@ -28,7 +28,7 @@ export function PlayIconAnimate(
   const degrees = countDegrees(START_POINT, extent);
 
   // 创建 icon
-  let feature = new Feature({ geometry: new Point([]) });
+  const feature = new Feature({ geometry: new Point([]) });
   const style = new Style({
     image: new Icon({
       src: "/images/icons/plane.svg",

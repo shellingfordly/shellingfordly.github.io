@@ -8,6 +8,7 @@ import {
   Point,
 } from "~/ol-imports";
 import { CreateMapMarkerData } from "~/utils";
+import { START_POINT } from "../config";
 
 /**
  * @abstract 创建标点图层
@@ -22,6 +23,9 @@ export function CreateMarkerLayer() {
     const pointFeature = CreatePointFeature(item);
     if (pointFeature) container.getSource()?.addFeature(pointFeature);
   });
+
+  const location = CreateLocationFeature();
+  container.getSource()?.addFeature(location);
 
   return container;
 }
@@ -50,4 +54,21 @@ export function CreatePointFeature(item: MarkerItem) {
   pointFeature.setStyle(iconStyle);
 
   return pointFeature;
+}
+
+function CreateLocationFeature() {
+  const feature = new Feature({
+    geometry: new Point(fromLonLat(START_POINT)),
+  });
+
+  const iconStyle = new Style({
+    image: new Icon({
+      src: "/images/icons/location.svg",
+      scale: 1,
+      anchor: [0.5, 1],
+    }),
+  });
+  feature.setStyle(iconStyle);
+
+  return feature;
 }

@@ -42,11 +42,12 @@ function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
       map.getTargetElement().style.cursor = hit ? "pointer" : "default";
     }
     // 设置预览
-    info && preview.setPreviewInfo(info);
-    if (infoOpen.value) {
-      preview.setStyle(info);
-      preview.setPosition(coords);
-    }
+    preview.setPreviewInfo(info);
+    // 样式
+    if (infoOpen.value) preview.setStyle(info);
+    // 设置位置
+    if (!(hit && !info)) preview.setPosition(coords);
+
     preview.runEvent(event);
   });
 

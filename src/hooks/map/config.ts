@@ -9,4 +9,4 @@ export const MAP_DEFAULT_OPTIONS = {
 export const EPSG3857 = "EPSG:3857";
 export const EPSG4326 = "EPSG:4326";
 
-export const START_POINT = [120.21324, 30.290525];
+export const START_POINT = [120.212998, 30.291331];

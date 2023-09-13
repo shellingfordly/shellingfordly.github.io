@@ -6,7 +6,7 @@ import { InteractionEvent } from "./interaction";
 
 export class MarkerPreview {
   overlay: Overlay;
-  information?: MarkerItem;
+  information?: MarkerItem | null;
   readonly BaseOffset = 70;
 
   events: Set<Function> = new Set();
@@ -29,6 +29,7 @@ export class MarkerPreview {
   }
 
   setPosition(position?: Coordinate) {
+    console.log(this.information);
     this.overlay.setPosition(position);
   }
 
