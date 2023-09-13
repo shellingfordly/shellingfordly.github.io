@@ -12,8 +12,6 @@ tags:
 
 [博客 github 地址](https://github.com/shellingfordly/shellingfordly.github.io)
 
-[博客预览地址](https://shellingfordly.github.io)
-
 [旅行地图预览地址](https://shellingfordly.github.io/travel)
 
 ## 安装
@@ -78,7 +76,7 @@ map.addLayer(layerGroup);
 - LayerCacheMap 省份图层
 - currentExtent 当前视图范围
 - isCityInView 判断省份是否在当前视图中
-- layer.setVisible 设置吐图层显示隐藏
+- layer.setVisible 设置图层显示隐藏
 
 ```ts
 map.getView().on("change", function (event) {
