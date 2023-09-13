@@ -17,6 +17,8 @@ tags:
 
 有时候想要输出一下当前的时间
 
+![](/images/blog/get_now_time.png)
+
 ```js
 const showNowTimeCommand = vscode.commands.registerCommand(
   "vscode_extension.showNowTime",
