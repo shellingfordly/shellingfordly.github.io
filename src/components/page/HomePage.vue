@@ -9,28 +9,30 @@ function toBot() {
 }
 </script>
 <template>
-  <div
-    :class="`bg_box relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
-    v-lazy:background-image="{ src: homeBgUrl, error: '', loading: '' }"
-  >
+  <client-only>
     <div
-      class="relative top-35% h-16 hvr-wobble-horizontal hvr-underline-from-center"
-      @click="$router.push('/blog')"
+      :class="`bg_box relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
+      v-lazy:background-image="{ src: homeBgUrl, error: '', loading: '' }"
     >
-      <h1 class="title sm:font-size-8 font-size-6">
-        人生本就是一场孤独的旅行_
-      </h1>
-    </div>
-    <div class="w-full z-100 absolute left-0 bottom-0">
-      <wave-icon />
       <div
-        class="w-full h-[10vh] bg-[var(--c-bg)] flex items-center justify-center"
+        class="relative top-35% h-16 hvr-wobble-horizontal hvr-underline-from-center"
+        @click="$router.push('/blog')"
       >
-        <scroll-btn name="i-carbon-arrow-down" @click="toBot()" />
+        <h1 class="title sm:font-size-8 font-size-6">
+          人生本就是一场孤独的旅行_
+        </h1>
+      </div>
+      <div class="w-full z-100 absolute left-0 bottom-0">
+        <wave-icon />
+        <div
+          class="w-full h-[10vh] bg-[var(--c-bg)] flex items-center justify-center"
+        >
+          <scroll-btn name="i-carbon-arrow-down" @click="toBot()" />
+        </div>
       </div>
     </div>
-  </div>
-  <home-item />
+    <home-item />
+  </client-only>
 </template>
 
 <style lang="less" scoped>

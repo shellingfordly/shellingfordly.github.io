@@ -6,5 +6,7 @@ const props = defineProps<{ dark: string; light: string }>();
 const url = computed(() => (isDark.value ? props.dark : props.light));
 </script>
 <template>
-  <img class="ma" v-lazy="url" />
+  <client-only>
+    <img class="ma" v-lazy="url" />
+  </client-only>
 </template>
