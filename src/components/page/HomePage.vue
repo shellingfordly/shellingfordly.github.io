@@ -10,8 +10,8 @@ function toBot() {
 </script>
 <template>
   <div
-    :class="`relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
-    :style="{ backgroundImage: homeBgUrl }"
+    :class="`bg_box relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
+    v-lazy:background-image="{ src: homeBgUrl, error: '', loading: '' }"
   >
     <div
       class="relative top-35% h-16 hvr-wobble-horizontal hvr-underline-from-center"
@@ -34,6 +34,11 @@ function toBot() {
 </template>
 
 <style lang="less" scoped>
+.bg_box[lazy="loading"],
+.bg_box[lazy="error"] {
+  background-size: 0;
+}
+
 .hvr-underline-from-center:before {
   background-color: #eee;
 }

@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <div class="article_item md:w-[48%] lg:w-[32%] w-full pb-20 mb-8">
     <a class="cursor-pointer" :href="info.path" target="_blank">
-      <img class="w-100% h-30vh" :src="info.img" />
+      <img class="w-100% h-30vh" v-lazy="info.img" />
     </a>
     <div class="">
       <p class="p-5 font-size-6 op90 hover:op100">

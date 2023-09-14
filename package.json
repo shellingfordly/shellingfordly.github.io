@@ -49,6 +49,7 @@
     "nprogress": "^0.2.0",
     "ol": "^7.5.1",
     "vue": "^3.3.4",
+    "vue-lazyload": "^3.0.0",
     "vue-router": "^4.2.4",
     "vue-router-better-scroller": "^0.0.0"
   }

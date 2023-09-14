@@ -60,7 +60,7 @@ const workIcons = [
         <img
           class="w-full h-full"
           v-for="url in homeBgUrlList"
-          :src="url"
+          v-lazy="url"
           alt=""
         />
       </div>
@@ -81,7 +81,7 @@ const workIcons = [
       <div class="left">
         <img
           class="m-a lt-sm:h-a lt-lg:h-400px lg:w-400px"
-          src="/images/home/read_1.png"
+          v-lazy="'/images/home/read_1.png'"
           alt=""
         />
       </div>

@@ -62,16 +62,23 @@ export class MarkerPreview {
 
   setStyle(info?: MarkerItem) {
     if (!info) return;
+
+    const { preview = "", title = "", date = "", desc = "" } = info;
     const previewContainer = document.getElementById("map_marker_preview");
     if (previewContainer == null) return;
+
     const img = previewContainer.querySelector("img");
-    if (img) img.src = info.preview || "";
-    const title = previewContainer.querySelector("div.title");
-    if (title) title.textContent = info.title || "";
-    const desc = previewContainer.querySelector("div.desc");
-    if (desc) desc.textContent = info.desc || "";
-    const date = previewContainer.querySelector("div.date");
-    if (date) date.textContent = moment(info.date).format("YY-MM-DD") || "";
+    img && img.setAttribute("src", preview);
+
+    const titleDom = previewContainer.querySelector("div.title");
+    titleDom && titleDom.setAttribute("textContent", title);
+
+    const descDom = previewContainer.querySelector("div.desc");
+    descDom && descDom.setAttribute("textContent", desc);
+
+    const dateDom = previewContainer.querySelector("div.date");
+    dateDom &&
+      dateDom.setAttribute("textContent", moment(date).format("YY-MM-DD"));
   }
 }
 

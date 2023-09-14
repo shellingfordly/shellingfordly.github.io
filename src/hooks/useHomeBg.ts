@@ -14,9 +14,7 @@ export const homeBgIndex = ref(
   Math.floor(Math.random() * homeBgUrlList.length)
 );
 
-export const homeBgUrl = computed(
-  () => `url(${homeBgUrlList[homeBgIndex.value]})`
-);
+export const homeBgUrl = computed(() => homeBgUrlList[homeBgIndex.value]);
 
 export function toggleBgIndex() {
   homeBgIndex.value = Math.floor(Math.random() * homeBgUrlList.length);
