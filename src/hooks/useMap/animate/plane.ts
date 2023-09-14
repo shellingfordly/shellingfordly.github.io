@@ -73,7 +73,6 @@ function PlayAnimate(
       }
 
       // 转向
-
       if (lastCoords) {
         const degrees = toRadians(
           45 + 360 - countDegrees(lastCoords, coordsList[index])

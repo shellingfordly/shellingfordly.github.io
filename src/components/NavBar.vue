@@ -25,16 +25,22 @@ const { y: scroll } = useWindowScroll();
     <nav class="nav">
       <div class="spacer" />
 
-      <div class="right" print:op0>
-        <RouterLink to="/blog?type=blog">
+      <div class="right print:op0">
+        <RouterLink
+          to="/blog?type=blog"
+          :class="$route.name == 'blog' && 'op100!'"
+        >
           <span class="lt-md:hidden">Blog</span>
           <div class="i-carbon-book md:hidden"></div>
         </RouterLink>
-        <RouterLink to="/travel">
+        <RouterLink to="/travel" :class="$route.name == 'travel' && 'op100!'">
           <span class="lt-md:hidden">Travel</span>
           <div class="i-carbon-map md:hidden"></div>
         </RouterLink>
-        <RouterLink to="/projects">
+        <RouterLink
+          to="/projects"
+          :class="$route.name == 'projects' && 'op100!'"
+        >
           <span class="lt-md:hidden">Projects</span>
           <div
             class="i-ant-design-fund-projection-screen-outlined md:hidden"
