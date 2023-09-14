@@ -27,10 +27,10 @@ tags:
 4. 景点
 
 - 大阪海洋馆 ¥2700 日元
-- 东京铁塔
+- 东京铁塔（网上购买）
   - Main Deck ¥1200 日元
   - Top Deck Tour ¥2800 日元
-- 东京国立博物馆 ¥1000 日元
+- 东京国立博物馆 ¥1000 日元（线下购买）
 - 上野动物园 ¥600 日元
 - 晴空塔
   - 天望甲板
@@ -87,3 +87,7 @@ tags:
 * [伊豆动物园](https://izushaboten.com/information/)
 * [金阁寺](https://www.shokoku-ji.jp/zh/kinkakuji/)
 * [石崎岬观光船](http://www.izu-kamori.jp/izu-cruise/)
+
+## 路线
+
+### 东京

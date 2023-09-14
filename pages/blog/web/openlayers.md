@@ -380,11 +380,29 @@ animate();
 
 可以看到飞机的初始方向是对的，但飞行起来就不对了，因为我还没有做哈哈哈哈，需要在动画里每一帧根据坐标去计算飞机的角度，之后再更新吧。
 
+### 飞机转向（更新）
+
+其实也很简单，就是记录一下上一次的位置信息，计算一下偏移角度调用 **setRotation** 在动画的每一帧设置一下就可以了
+
+```ts
+if (lastCoords) {
+  const degrees = toRadians(
+    45 + 360 - countDegrees(lastCoords, coordsList[index])
+  );
+  (feature.getStyle() as Style)?.getImage()?.setRotation(degrees);
+}
+lastCoords = coordsList[index];
+```
+
+- 效果
+
+<img-theme dark="/images/blog/ol_plane_rotation_bark.gif" light="/images/blog/ol_plane_rotation.gif" />
+
 ## 总结
 
 如果感兴趣的话可以关注我的[github](https://github.com/shellingfordly)
 
-对我的博客项目感兴趣可以关注[my blog github](https://github.com/shellingfordly/shellingfordly.github.io)，我会不定期地持续地更新。
+对我的博客项目感兴趣可以关注[my blog github](https://github.com/shellingfordly/shellingfordly.github.io)，我会不定期地持续地更新，欢迎大佬添加友链。
 
 这里是[旅行地图预览地址](https://shellingfordly.github.io/travel)，由于挂在 github 上会有点卡，时不时还会因为 github actions 构建失败而 404<i class="i-twemoji-face-with-tears-of-joy"/>，所以可能有时候进不去，我正在想解决对策，vercel 打包出来会有[页面刷新 404 的问题](https://shellingfordly.github.io/blog/other/vite-plugin-pages)，貌似是因为**vite-plugin-pages**打包出来的路由问题，而且我发现[antfu.me](https://github.com/antfu/antfu.me)的打包本地直接 **live-server** 运行也会有这个问题，暂时没解决。
 

@@ -1,21 +1,9 @@
 <script setup lang="ts">
-import { SetupMap } from "~/hooks/map";
+import { SetupMap } from "~/hooks/useMap";
 
 const { InitMap, control } = SetupMap();
 
 onMounted(InitMap);
-
-const controlList = [
-  {
-    title: "详细介绍",
-    icon: "i-material-symbols:page-info-outline-rounded",
-    active: false,
-  },
-  {
-    title: "路线预览",
-    icon: "i-gis:route",
-  },
-];
 </script>
 
 <template>
@@ -44,8 +32,3 @@ const controlList = [
     </div>
   </div>
 </template>
-<style>
-div {
-  border-radius: 1;
-}
-</style>

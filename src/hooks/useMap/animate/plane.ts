@@ -10,12 +10,12 @@ import {
 } from "~/ol-imports";
 import { EPSG3857, EPSG4326, START_POINT } from "../config";
 import { InteractionEvent } from "../marker/interaction";
-import { countDegrees } from "~/hooks/map/animate/handle";
+import { countDegrees } from "~/hooks/useMap/animate/handle";
 
 export const Duration = 2500;
 const AnimateStatusMap = new WeakMap();
 
-export function PlayIconAnimate(
+export function AddPlaneFeature(
   event: InteractionEvent,
   source: SourceVector,
   lineFeature: Feature
@@ -44,19 +44,21 @@ export function PlayIconAnimate(
   // 开启动画
   const line = lineFeature?.getGeometry();
   if (line instanceof LineString) {
-    animateLine(feature, line.getCoordinates(), () => {
+    PlayAnimate(feature, line.getCoordinates(), () => {
       source.removeFeature(feature);
       AnimateStatusMap.set(key, false);
     });
   }
 }
 
-function animateLine(
+function PlayAnimate(
   feature: Feature,
   coordsList: number[][],
   callback: Function
 ) {
   let startTime = new Date().getTime();
+
+  let lastCoords: number[];
 
   function animate() {
     const currentTime = new Date().getTime();
@@ -69,6 +71,19 @@ function animateLine(
       if (geometry instanceof Point) {
         geometry?.setCoordinates(coordsList[index]);
       }
+
+      // 转向
+
+      if (lastCoords) {
+        const degrees = toRadians(
+          45 + 360 - countDegrees(lastCoords, coordsList[index])
+        );
+        const image = (feature.getStyle() as Style)?.getImage();
+        console.log(coordsList[index]);
+        if (image) image.setRotation(degrees);
+      }
+
+      lastCoords = coordsList[index];
 
       requestAnimationFrame(animate);
     } else {

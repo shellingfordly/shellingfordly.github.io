@@ -29,7 +29,6 @@ export class MarkerPreview {
   }
 
   setPosition(position?: Coordinate) {
-    console.log(this.information);
     this.overlay.setPosition(position);
   }
 

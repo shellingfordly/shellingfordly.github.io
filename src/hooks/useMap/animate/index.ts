@@ -1,7 +1,7 @@
 import { SourceVector, Vector, Feature, Map } from "~/ol-imports";
 import { MarkerPreview } from "../marker/preview";
 import { InteractionEvent } from "../marker/interaction";
-import { PlayIconAnimate } from "./animate";
+import { AddPlaneFeature } from "./plane";
 import { CreateLineFeatures } from "./line";
 import { lineOpen } from "../control";
 
@@ -26,19 +26,24 @@ export function SetupLineLayer(map: Map, preview: MarkerPreview) {
   );
 }
 
+let lastLineFeature: Feature;
+
 function addEvent(
   event: InteractionEvent,
   preview: MarkerPreview,
   source: SourceVector,
   features: Record<string, Feature>
 ) {
-  let feature = features?.[preview?.information?.route as string];
-  if (!feature) return;
+  const key = preview?.information?.route;
+  if (!key) {
+    lastLineFeature && source.removeFeature(lastLineFeature);
+    return;
+  }
+  let feature = features[key];
+  lastLineFeature = feature;
 
   if (event.hit) {
-    PlayIconAnimate(event, source, feature);
+    AddPlaneFeature(event, source, feature);
     feature && source.addFeature(feature);
-  } else {
-    feature && source.removeFeature(feature);
   }
 }

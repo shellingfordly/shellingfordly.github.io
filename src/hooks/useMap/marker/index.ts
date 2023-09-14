@@ -35,7 +35,6 @@ function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
   const interaction = new Interaction(layer, isMobile() ? click : pointerMove);
   interaction.mount(map);
 
-  //
   interaction.on((event) => {
     const { hit, info, coords } = event;
     if (!isMobile()) {
@@ -46,7 +45,7 @@ function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
     // 样式
     if (infoOpen.value) preview.setStyle(info);
     // 设置位置
-    if (!(hit && !info)) preview.setPosition(coords);
+    if (!(hit && !info) && infoOpen.value) preview.setPosition(coords);
 
     preview.runEvent(event);
   });
