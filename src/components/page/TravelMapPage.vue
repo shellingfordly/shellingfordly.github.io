@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { SetupMap } from "~/hooks/useMap";
+import { infoOpen, lineOpen } from "~/hooks/useMap/control";
 
-const { InitMap, control } = SetupMap();
+const { InitMap } = SetupMap();
 
 onMounted(InitMap);
 </script>
@@ -13,11 +14,19 @@ onMounted(InitMap);
     >
       <div
         class="p-2 b-1 mt-1 cursor-pointer font-size-12px hover:bg-[var(--c-container)] hover:op-100!"
-        :class="item.active ? 'op-100! bg-[var(--c-container)]' : 'op-80'"
-        v-for="item in control"
-        @click="item.active = !item.active"
+        :class="infoOpen ? 'op-100! bg-[var(--c-container)]' : 'op-80'"
+        @click="infoOpen = !infoOpen"
+        title="查看信息"
       >
-        <div :class="item.icon"></div>
+        <div class="i-material-symbols:page-info-outline-rounded"></div>
+      </div>
+      <div
+        class="p-2 b-1 mt-1 cursor-pointer font-size-12px hover:bg-[var(--c-container)] hover:op-100!"
+        :class="lineOpen ? 'op-100! bg-[var(--c-container)]' : 'op-80'"
+        @click="lineOpen = !lineOpen"
+        title="查看路线"
+      >
+        <div class="i-gis:route"></div>
       </div>
     </div>
   </div>

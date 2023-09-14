@@ -71,14 +71,13 @@ export class MarkerPreview {
     img && img.setAttribute("src", preview);
 
     const titleDom = previewContainer.querySelector("div.title");
-    titleDom && titleDom.setAttribute("textContent", title);
+    titleDom && (titleDom.textContent = title);
 
     const descDom = previewContainer.querySelector("div.desc");
-    descDom && descDom.setAttribute("textContent", desc);
+    descDom && (descDom.textContent = desc);
 
     const dateDom = previewContainer.querySelector("div.date");
-    dateDom &&
-      dateDom.setAttribute("textContent", moment(date).format("YY-MM-DD"));
+    dateDom && (dateDom.textContent = moment(date).format("YY-MM-DD"));
   }
 }
 
