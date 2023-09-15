@@ -2,15 +2,14 @@
 title: vite-plugin-pages打包刷新页面丢失问题
 date: 2023-09-01 17:14:00
 tags:
-  - issues
-  - WIP
+  - bug
 ---
 
-# 文件自动路由插件vite-plugin-pages打包路由丢失问题
+# 文件自动路由插件 vite-plugin-pages 打包路由丢失问题
 
-> 未解决
+> 已修复，并不是 **vite-plugin-pages** 的问题，查看[vercel 构建项目刷新页面 404 问题](/blog/other/vercel-build-err)
 
-vite-plugin-pages配置
+vite-plugin-pages 配置
 
 ```ts
 Pages({
@@ -25,10 +24,10 @@ Pages({
     }
     return route;
   },
-})
+});
 ```
 
-使用vite-plugin-pages插件根据文件自动生成路由，文件目录如下
+使用 vite-plugin-pages 插件根据文件自动生成路由，文件目录如下
 
 ```
 pages
@@ -39,7 +38,7 @@ pages
 
 ![](/images/blog/vite-plugin-pages_2.png)
 
-使用`vite-ssg build`打包出来之后，会生成blog.html, project.html
+使用`vite-ssg build`打包出来之后，会生成 blog.html, project.html
 
 ![](/images/blog/vite-plugin-pages_1.png)
 
