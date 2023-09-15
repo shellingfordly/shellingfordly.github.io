@@ -4,4 +4,4 @@ title: travel
 
 <!-- @layout-map -->
 
-<TravelMapPage />
+<travel-map />

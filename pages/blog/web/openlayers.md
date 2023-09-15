@@ -120,7 +120,7 @@ map.getView().on("change", function (event) {
 
 - 效果
 
-<img-theme dark="/images/blog/ol_zoom_dark.gif" light="/images/blog/ol_zoom.gif" />
+<img-item dark="/images/blog/ol_zoom_dark.gif" light="/images/blog/ol_zoom.gif" />
 
 ## 实现主题切换
 
@@ -149,7 +149,7 @@ watch(isDark, () => {
 
 - 效果
 
-![change theme](/images/blog/ol_change_theme.gif)
+<img-item src="/images/blog/ol_change_theme.gif"/>
 
 ## 添加标点
 
@@ -193,7 +193,7 @@ pointFeature.setStyle(iconStyle);
 
 - 效果
 
-<img-theme dark="/images/blog/ol_marker_dark.png" light="/images/blog/ol_marker.png" />
+<img-item dark="/images/blog/ol_marker_dark.png" light="/images/blog/ol_marker.png" />
 
 ## 为标点添加事件
 
@@ -280,7 +280,7 @@ interaction.on("select", (event) => {
 
 - 效果
 
-<img-theme dark="/images/blog/ol_marker_preview_dark.gif" light="/images/blog/ol_marker_preview.gif" />
+<img-item dark="/images/blog/ol_marker_preview_dark.gif" light="/images/blog/ol_marker_preview.gif" />
 
 ## 航行路线
 
@@ -374,7 +374,7 @@ animate();
 
 - 效果
 
-<img-theme dark="/images/blog/ol_plane_dark.gif" light="/images/blog/ol_plane.gif" />
+<img-item dark="/images/blog/ol_plane_dark.gif" light="/images/blog/ol_plane.gif" />
 
 左上角是信息预览和路线预览的开关。
 
@@ -396,7 +396,7 @@ lastCoords = coordsList[index];
 
 - 效果
 
-<img-theme dark="/images/blog/ol_plane_rotation_bark.gif" light="/images/blog/ol_plane_rotation.gif" />
+<img-item dark="/images/blog/ol_plane_rotation_bark.gif" light="/images/blog/ol_plane_rotation.gif" />
 
 ## 总结
 
