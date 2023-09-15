@@ -1,4 +1,3 @@
-import "floating-vue/dist/style.css";
 import "./styles/index.less";
 import "uno.css";
 
