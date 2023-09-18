@@ -12,7 +12,7 @@ tags:
 
 [博客 github 地址](https://github.com/shellingfordly/shellingfordly.github.io)
 
-[旅行地图预览地址](https://shellingfordly.github.io/travel)
+[旅行地图预览地址](https://shellingfordly.vercel.app/travel)
 
 ## 安装
 
@@ -404,6 +404,6 @@ lastCoords = coordsList[index];
 
 对我的博客项目感兴趣可以关注[my blog github](https://github.com/shellingfordly/shellingfordly.github.io)，我会不定期地持续地更新，欢迎大佬添加友链。
 
-这里是[旅行地图预览地址](https://shellingfordly.github.io/travel)，由于挂在 github 上会有点卡，时不时还会因为 github actions 构建失败而 404<i class="i-twemoji-face-with-tears-of-joy"/>，所以可能有时候进不去，我正在想解决对策，vercel 打包出来会有[页面刷新 404 的问题](https://shellingfordly.github.io/blog/other/vite-plugin-pages)，貌似是因为**vite-plugin-pages**打包出来的路由问题，而且我发现[antfu.me](https://github.com/antfu/antfu.me)的打包本地直接 **live-server** 运行也会有这个问题，暂时没解决。
+这里是[旅行地图预览地址](https://shellingfordly.vercel.app/travel)，由于 github actions 经常会因为错误提交而构建失败，之前 vercel 构建出来页面刷新会 404。现在已经解决了[vercel 刷新 404 的问题](/blog/other/vercel-build-err)，于是重新部署到 vercel 上。
 
 所有的展示图片来自录屏再通过[my tools](https://github.com/shellingfordly/my-tools)转换为 gif。
