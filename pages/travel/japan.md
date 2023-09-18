@@ -90,4 +90,26 @@ tags:
 
 ## 路线
 
-### 东京
+![地铁路线图](japan_.png)
+
+### 10.1
+
+9:11 AM Kayabachō Sta.（酒店） - Otemachi Sta（东京站附近地铁站）
+
+9:27 AM Tokyo Station（东京站） - Odawara Station （小田原战）
+
+11:01 AM Odawara Station（小田原战） - Itō Station（伊东）
+
+## 注意事项
+
+### JR pass
+
+- 注意特大行李位置必须预约
+
+搭乘东海道、山阳、九州新干线（东京~新大阪~博多~鹿儿岛中央），将 3 边合计超过 160 公分的行李携上车内的情况下，必须事先预订「特大行李放置处附带席」。
+
+![](japan_1.png)
+
+- [预定坐席教程](https://ksk.tw/blog/post/355788490)
+- [预定坐席官方教程](https://global.jr-central.co.jp/zh-TW/tickets/buy/)
+- [预定坐席官网](https://www.japanrailpass-reservation.net/)
