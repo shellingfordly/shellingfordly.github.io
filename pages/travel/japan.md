@@ -88,9 +88,19 @@ tags:
 * [金阁寺](https://www.shokoku-ji.jp/zh/kinkakuji/)
 * [石崎岬观光船](http://www.izu-kamori.jp/izu-cruise/)
 
+### 酒店
+
+- [热川](https://www.atagawa-prince.co.jp/information/yakkan.html)
+
+info@atagawa-prince.co.jp
+
+- [下田](https://www.itoenhotel.com/hanamisaki/contact/thanks#contact_form)
+
+customer_opinion_center@criax.co.jp
+
 ## 路线
 
-![地铁路线图](japan_.png)
+![地铁路线图](/images/travel/japan/tokyo_subway.png)
 
 ### 10.1
 
@@ -104,11 +114,11 @@ tags:
 
 ### JR pass
 
-- 注意特大行李位置必须预约
+- 全国版 JR PASS 就无法利用伊豆急行线
 
-搭乘东海道、山阳、九州新干线（东京~新大阪~博多~鹿儿岛中央），将 3 边合计超过 160 公分的行李携上车内的情况下，必须事先预订「特大行李放置处附带席」。
+- 注意特大行李(超过 160 公分)位置必须预约
 
-![](japan_1.png)
+![大行李](/images/travel/japan/baggage.png)
 
 - [预定坐席教程](https://ksk.tw/blog/post/355788490)
 - [预定坐席官方教程](https://global.jr-central.co.jp/zh-TW/tickets/buy/)
