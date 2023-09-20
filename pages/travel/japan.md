@@ -140,34 +140,55 @@ tags:
 
 ## 路线
 
+- jr pass
+
+说实话这两张图看了等于没看
+
+![Nationwide JR Route Map](/images/travel/japan/jr_pass_1.png)
+
+![Shinkansen bullet train railway map](/images/travel/japan/jr_pass_2.png)
+
+- 东京地铁线路图
+
+这个更是重量级，根本分不清
+
 ![地铁路线图](/images/travel/japan/tokyo_subway.png)
+
+- 伊豆黑船电车
+
+![伊豆黑船电车](/images/travel/japan/kurofune_train.png)
+
+- 伊豆急行线 下行
+
+![伊豆急行线 下行](/images/travel/japan/downhill_train.png)
 
 ### 东京-伊豆
 
-- Kayabachō Sta.（酒店）- Otemachi Sta（东京站附近地铁站）
-- Tokyo Station（东京站）- Odawara Station （小田原站）
-  - 乘坐 Kodama 新干线
-- Odawara Station（小田原站）- Itō Station（伊东）
-  - Odoriko 舞女号
+> 如果 12 点 24 到热海可以做到黑船电车，Odoriko 就是 舞女线/踊り子，本质上 舞女/黑船/金目/蓝宝石 都是一条线上的车
 
-> 12 点 24 到热海可以做到黑船电车
+- [8:09 AM] Kayabachō Sta.(茅场町) - [8:12 AM] Otemachi Sta.(大手町) --- Kodama
+- [8:27 AM] Tokyo Station(东京站) - [9:00 AM] Odawara Station(小田原站) --- Kodama
 
-- Itō Station（伊东）- Izu-Atagawa Station (伊豆热川)
-  - Odoriko 舞女号
-- Izu-Atagawa Station (伊豆热川) - Izukyū-Shimoda（伊豆急下田）
-  - Odoriko 舞女号
+> 小田原下去可以直接坐舞女线到热川，需要注意的是 jrpass 全国版得补从伊东开始的票
+
+- [11:31 AM] Odawara Station(小田原) - [12:54 AM] Izu-Atagawa Station(伊豆热川) --- Odoriko
+
+> 下一班小田原的舞女线要到 1 点，只能坐 Kodama 到热海再转舞女，很呆
+
+- [12:02 PM] Odawara Station(小田原) - [12:10 PM] Atami Station(热海) --- Kodama
+- [12:19 PM] Atami Station(热海) - [1:05 PM] Izu-Atagawa Station(伊豆热川) --- Odoriko
 
 ### 下田-大阪
 
-- [10:16 AM] Izukyū-Shimoda - [11:58 AM] Atami Station(热海) (黑船号)
-- [12:43 PM] Atami Station(热海) - [1:18 PM] Shizuoka Station(静冈) (Kodama)
-- [2:07 PM] Shizuoka Station - [3:57 PM]Shin-Osaka Station(大阪) (Kodama)
-- [4:15 PM] Shin-Osaka Station - [4:26 PM] Hommachi Station (Midosuji Line)
-- [4:33 PM] Hommachi Station - [4:44 PM] Osakako Station(水族馆) (Chuo Line)
+- [10:16 AM] Izukyū-Shimoda(伊豆急下田) - [11:58 AM] Atami Station(热海) --- 黑船号
+- [12:43 PM] Atami Station(热海) - [1:18 PM] Shizuoka Station(静冈) --- Kodama
+- [2:07 PM] Shizuoka Station(静冈) - [3:57 PM]Shin-Osaka Station(大阪) --- Kodama
+- [4:15 PM] Shin-Osaka Station - [4:26 PM] Hommachi Station --- Midosuji Line
+- [4:33 PM] Hommachi Station - [4:44 PM] Osakako Station(水族馆) --- Chuo Line
 
 ### 大阪-京都
 
-不用特别担心，10 点还有车
+不用特别担心，10:30 还有车
 
 - Namba Station - Umeda Station
 - Osaka Station - Kyoto Station
@@ -190,20 +211,7 @@ tags:
 
 2. Major JR Trains
 
-- Shirayuki
-- Nikko
-- Kinugawa, Spacia Kinugawa
-- Odoriko, Saphir Odoriko
-- Odoriko
-- FUJI EXCURSION
-- Mt.Fuji
-- Nanki
-- Rapid “Mie”
-- Hashidate, Tango Relay
-- Kounotori
-- Super Hakuto
-- Super Inaba
-- Shimanto, Ashizuri
+Shirayuki; Nikko; Kinugawa, Spacia Kinugawa; Odoriko, Saphir Odoriko; Odoriko; FUJI EXCURSION; Mt.Fuji; Nanki; Rapid “Mie”; Hashidate, Tango Relay; Kounotori; Super Hakuto; Super Inaba; Shimanto, Ashizuri
 
 3. 注意
 
