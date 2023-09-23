@@ -43,7 +43,6 @@
   "dependencies": {
     "@vueuse/core": "^10.3.0",
     "animate.css": "^4.1.1",
-    "floating-vue": "^2.0.0-beta.24",
     "hover.css": "^2.3.2",
     "moment": "^2.29.4",
     "nprogress": "^0.2.0",

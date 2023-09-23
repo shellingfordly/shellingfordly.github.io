@@ -1,11 +1,10 @@
 # My Blog
 
-[my personal website](https://shellingfordly.github.io)
-[my email](shellingfordly@qq.com)
+- [my personal website](https://shellingfordly.github.io)
+- [my email](shellingfordly@qq.com)
 
 code is licensed under [MIT](https://github.com/shellingfordly/travel_map/blob/main/LICENSE),
 words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-
 
 ## depends
 
@@ -17,6 +16,10 @@ web frame depends
 - iconify
 - vite
 - vueuse
+- nprogress
+- vue-lazyload
+- hover.css
+- animate.css
 
 ## references
 

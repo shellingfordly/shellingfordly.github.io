@@ -1,24 +1,28 @@
 <script setup lang="ts">
 defineProps<{
-  info: ProjectInfoItem;
+  list: ProjectInfoItem[];
 }>();
 </script>
 
 <template>
-  <div class="article_item md:w-[48%] lg:w-[32%] w-full pb-20 mb-8">
-    <a class="cursor-pointer" :href="info.path" target="_blank">
-      <client-only>
-        <img class="w-100% h-30vh" v-lazy="info.img" />
-      </client-only>
-    </a>
-    <div class="">
-      <p class="p-5 font-size-6 op90 hover:op100">
-        <a class="hvr-underline-reveal" :href="info.path" target="_blank">
-          {{ info.title }}
+  <div class="sm:w-[90%] p-5 pt-10 flex flex-wrap justify-between m-a">
+    <template v-for="info in list" :info="item">
+      <div class="article_item md:w-[48%] lg:w-[32%] w-full pb-20 mb-8">
+        <a class="cursor-pointer" :href="info.path" target="_blank">
+          <client-only>
+            <img class="w-100% h-30vh" v-lazy="info.img" />
+          </client-only>
         </a>
-      </p>
-      <p class="p-3 pt-0 op70">{{ info.desc }}</p>
-    </div>
+        <div class="">
+          <p class="p-5 font-size-6 op90 hover:op100">
+            <a class="hvr-underline-reveal" :href="info.path" target="_blank">
+              {{ info.title }}
+            </a>
+          </p>
+          <p class="p-3 pt-0 op70">{{ info.desc }}</p>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 

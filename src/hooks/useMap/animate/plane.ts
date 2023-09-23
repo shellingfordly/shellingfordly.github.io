@@ -74,12 +74,12 @@ function PlayAnimate(
 
       // 转向
       if (lastCoords) {
-        const degrees = toRadians(
-          45 + 360 - countDegrees(lastCoords, coordsList[index])
-        );
-        const image = (feature.getStyle() as Style)?.getImage();
-        console.log(coordsList[index]);
-        if (image) image.setRotation(degrees);
+        const degrees = countDegrees(lastCoords, coordsList[index]);
+        if (degrees > 0) {
+          const radian = toRadians(45 + 360 - degrees);
+          const image = (feature.getStyle() as Style)?.getImage();
+          if (image) image.setRotation(radian);
+        }
       }
 
       lastCoords = coordsList[index];
