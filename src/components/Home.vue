@@ -96,6 +96,10 @@ function toBot() {
 .hvr-underline-from-center:before {
   background-color: #eee;
 }
+.hvr-shutter-out-horizontal::before {
+  background-color: #8884;
+}
+
 @keyframes typing {
   from {
     width: 1ch;
