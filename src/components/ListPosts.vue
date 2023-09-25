@@ -21,7 +21,7 @@ watch(
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full min-h-55vh">
     <div class="w-full posts-collapse">
       <template v-for="item in data">
         <div class="collection-title">

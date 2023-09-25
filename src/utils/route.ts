@@ -38,7 +38,7 @@ export function CreateArticleData({ tag, type }: Any): ArticleItem[] {
       // 缓存 tag
       if (type) info?.tags?.forEach((tag) => PageTagList.add(tag));
       // 有tag筛选tag
-      if (tag && info?.tags?.includes(tag)) continue;
+      if (tag && !info?.tags?.includes(tag)) continue;
 
       const item = {
         title: info?.title || "",

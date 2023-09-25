@@ -162,39 +162,66 @@ tags:
 
 ![伊豆急行线 下行](/images/travel/japan/downhill_train.png)
 
+### 查询
+
+- [新干线查询](https://tabi-o-ji.com/)
+
 ### 东京-伊豆
 
 > 如果 12 点 24 到热海可以做到黑船电车，Odoriko 就是 舞女线/踊り子，本质上 舞女/黑船/金目/蓝宝石 都是一条线上的车
 
-- [8:09 AM] Kayabachō Sta.(茅场町) - [8:12 AM] Otemachi Sta.(大手町) --- Kodama
-- [8:27 AM] Tokyo Station(东京站) - [9:00 AM] Odawara Station(小田原站) --- Kodama
+- [8:09 AM] Kayabachō Sta.(茅场町) >> [8:12 AM] Otemachi Sta.(大手町) --- Kodama
+- [8:27 AM] Tokyo Station(东京站) >> [9:00 AM] Odawara Station(小田原站) --- Kodama
 
 > 小田原下去可以直接坐舞女线到热川，需要注意的是 jrpass 全国版得补从伊东开始的票
 
-- [11:31 AM] Odawara Station(小田原) - [12:54 AM] Izu-Atagawa Station(伊豆热川) --- Odoriko
+- [11:31 AM] Odawara Station(小田原) >> [12:54 AM] Izu-Atagawa Station(伊豆热川) --- Odoriko
 
 > 下一班小田原的舞女线要到 1 点，只能坐 Kodama 到热海再转舞女，很呆
 
-- [12:02 PM] Odawara Station(小田原) - [12:10 PM] Atami Station(热海) --- Kodama
-- [12:19 PM] Atami Station(热海) - [1:05 PM] Izu-Atagawa Station(伊豆热川) --- Odoriko
+- [12:02 PM] Odawara Station(小田原) >> [12:10 PM] Atami Station(热海) --- Kodama
+- [12:19 PM] Atami Station(热海) >> [1:05 PM] Izu-Atagawa Station(伊豆热川) --- Odoriko
 
 ### 下田-大阪
 
-- [10:16 AM] Izukyū-Shimoda(伊豆急下田) - [11:58 AM] Atami Station(热海) --- 黑船号
-- [12:43 PM] Atami Station(热海) - [1:18 PM] Shizuoka Station(静冈) --- Kodama
-- [2:07 PM] Shizuoka Station(静冈) - [3:57 PM]Shin-Osaka Station(大阪) --- Kodama
-- [4:15 PM] Shin-Osaka Station - [4:26 PM] Hommachi Station --- Midosuji Line
-- [4:33 PM] Hommachi Station - [4:44 PM] Osakako Station(水族馆) --- Chuo Line
+- [10:16 AM] Izukyū-Shimoda(伊豆急下田) >> [11:58 AM] Atami Station(热海) --- 黑船号
+- [12:43 PM] Atami Station(热海) >> [1:18 PM] Shizuoka Station(静冈) --- Kodama
+- [2:07 PM] Shizuoka Station(静冈) >> [3:57 PM]Shin-Osaka Station(大阪) --- Kodama
+- [4:15 PM] Shin-Osaka Station >> [4:26 PM] Hommachi Station --- Midosuji Line
+- [4:33 PM] Hommachi Station >> [4:44 PM] Osakako Station(水族馆) --- Chuo Line
 
 ### 大阪-京都
 
-不用特别担心，10:30 还有车
+1. 水族馆到心斋桥
 
-- Namba Station - Umeda Station
-- Osaka Station - Kyoto Station
-- Kyoto Station - Gojō Station
+- Osakako Station >> Hommachi Station >> Shinsaibashi Station(心斋桥)
+
+2. 去京都
+
+不用特别担心，10 最后一班 Kodama，从心斋桥附近到新大阪坐到京都的 jr 即可
+
+- Namba Station >> Shin-Osaka Station --- Midosuji Line
+- Shin-Osaka Station >> Kyoto Station --- Kodama
 
 ## 注意事项
+
+### 大阪 1 day pass
+
+1. 地铁
+
+- Midosuji Line
+- Tanimachi Line
+- Yotsubashi Line
+- Chuo Line
+- Sennichimae
+- LineSakaisuji Line
+- Nagahori Tsurumi-ryokuchi Line
+- Imazatosuji Line
+- New Tram
+
+2. 巴士
+
+- Imazato Liner
 
 ### JR pass
 

@@ -20,7 +20,6 @@ useEventListener("click", async (e) => {
   )
     return;
 
-  // Do not open image when they are moving. Mainly for mobile to avoid conflict with hovering behavior.
   const pos = first.getBoundingClientRect();
   await new Promise((resolve) => setTimeout(resolve, 50));
   const newPos = first.getBoundingClientRect();

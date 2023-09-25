@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center p-2 pt-20 op50">
+  <div class="text-center p-2 pt-15 pb-10 op50">
     <p class="font-size-12px">
       <a
         class="underline"
