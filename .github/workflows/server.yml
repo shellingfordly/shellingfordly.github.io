@@ -44,7 +44,7 @@ jobs:
           DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
           ARGS: "-e -c -r --delete"
           SERVER_PORT: '22'
-          FOLDER: "./"
+          FOLDER: "./dist"
           SERVER_IP: ${{ secrets.SERVER_HOST }}
           USERNAME: ${{ secrets.USER_NAME }}
           SERVER_DESTINATION: ${{ secrets.TARGET }}
