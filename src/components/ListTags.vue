@@ -80,7 +80,8 @@ const show = ref(false);
     </div>
 
     <div
-      :class="`flex flex-wrap tab_box 
+      v-show="show"
+      :class="`flex flex-wrap tab_box
       ${show ? 'op100' : 'op0!'}`"
     >
       <span
@@ -102,7 +103,7 @@ const show = ref(false);
 
 <style lang="less" scoped>
 .item {
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   opacity: 0.8;
 
