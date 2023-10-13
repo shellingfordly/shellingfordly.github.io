@@ -17,6 +17,8 @@ tags:
 - USERNAME：服务器登录名
 - SERVER_DESTINATION：部署到目标文件夹
 
+
+
 ```bash
 name: note build
 # 触发workflow的条件
@@ -47,7 +49,6 @@ jobs:
       # node
       - name: use Node.js 16
         uses: actions/setup-node@v1
-        with:
           node-version: 16
 
       # npm install
