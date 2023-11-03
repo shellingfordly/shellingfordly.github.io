@@ -20,6 +20,7 @@ tags:
 好的，开干！
 
 [github 源码 vsce-simple-tools](https://github.com/shellingfordly/vsce-simple-tools)
+[插件下载](https://marketplace.visualstudio.com/items?itemName=shellingfordly.simple-tools)
 
 ## 过程
 
