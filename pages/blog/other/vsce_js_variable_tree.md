@@ -1,33 +1,31 @@
 ---
-title: 利用chatgpt开发一个js变量树展示插件
-date: 2023-9-13 15:05:05
+title: 利用chatgpt开发一个vscode插件
+date: 2023-11-3 13:42:21
 tags:
   - vscode
 ---
 
-# 利用 chatgpt 开发一个 js 变量树展示插件
+# 利用 chatgpt 开发一个 vscode 插件
 
-有个 chatgpt 之后，写代码真的变得很方便，很多自己不熟悉的代码，直接问 chatgpt 就能得到相对准备的答案，虽然有时候可能不会 100%准确，但只需要少量需改便可以实现想要的效果。chatgpt 可以有效的帮助我们去开发一个不太熟悉的应用。
+有了 chatgpt 之后，写代码真的变得很方便，很多自己不熟悉的代码，直接问 chatgpt 就能得到相对准备的答案，虽然有时候可能不会 100%准确，但只需要少量需改便可以实现想要的效果。chatgpt 可以有效的帮助我们去开发一个不太熟悉的应用。
 
-前几天逛掘金的时候看到一个[FnMap（函数地图），程序员提效神器](https://juejin.cn/post/7259923130733690941)
+前几天逛掘金的时候看到一个[FnMap（函数地图），程序员提效神器](https://juejin.cn/post/7259923130733690941)，主要功能就是展示 vue 文件的 script，template，style 结构树，如下图，还是挺好用的。
 
-![fn_map](/images/blog/other/fn_map.png)
+<img-list :src-list="['/images/blog/other/fn_map.png','/images/blog/other/fn_map1.png']" />
 
-主要功能就是展示 vue 文件的 script，template，style 结构树，如下图，还是挺好用的。
-
-![fn_map](/images/blog/other/fn_map1.png)
-
-于是想自己模仿一个自用。有实力可以支持一下作者，原作者做了更好的兼容。因为每个人的代码格式可能会有些不同，我这里实现的只适用于我自己的，并且功能也没有这个优秀。
+于是想自己模仿一个自用。有实力可以支持一下作者，原作者做了更好的兼容。因为每个人的代码格式可能会有些不同，我这里只是简单的实现了一下基础功能，并且没有去兼容不同的情况，只适用于我自己的代码结构，功能没有原作者优秀。
 
 我之前是没有写过 vscode 插件的，所以直接去问 chatgpt，真的很方便，即使你完全不知道 vscode 插件提供的 api 也没有关系。
 
-好的，开干！[github 源码 vsce-simple-tools](https://github.com/shellingfordly/vsce-simple-tools)
+好的，开干！
+
+[github 源码 vsce-simple-tools](https://github.com/shellingfordly/vsce-simple-tools)
 
 ## 过程
 
 首先，直接问 chatgpt：“怎么制作一个 vscode 插件”，跟着回答我们先创建一个 vscode 插件项目。
 
-![make vscode extension](/images/blog/other/chatgpt1.png)
+<img-item src="/images/blog/other/chatgpt1.png" />
 
 然后，问 chatgpt：“vscode 插件怎么创建一个侧边工具栏”，下面是 chatgpt 给我们的代码，
 
@@ -65,15 +63,15 @@ exports.activate = activate;
 
 这里因为我们会得到一个错误 “No view is registered with id: myTree”，因为没有在 **package.json** 中配置 **contributes.views**，没关系，直接问。
 
-![no view](/images/blog/other/chatgpt2.png)
+<img-item src="/images/blog/other/chatgpt2.png" />
 
 于是我们在资源管理器下得到了这样一个树结构，很好，很顺利！
 
-![my tree view](/images/blog/other/tree1.png)
+<img-item src="/images/blog/other/tree1.png" />
 
 没有技巧，直接大白话说出我们的需求：“我想要获取当前文件的方法名设置为 TreeItem”
 
-![get function name](/images/blog/other/chatgpt3.png)
+<img-item src="/images/blog/other/chatgpt3.png" />
 
 贴出 chatgpt 给的代码，这里已经实现了将 **函数名** 显示到 **treeItems** 中，需要注意并没有实现 **findMethodNamesInDocument**，也就是解析 **document** 获取方法名这部分代码没有给。没有关系，我们接着问，坚决不写一行代码。
 
@@ -136,7 +134,7 @@ function findMethodNames(document) {
 
 很好，已经可以获取到方法名，当然，chatgpt 这里的解析十分的简单，面对稍微复杂一点的情况就完全不行了。但是没关系，解析 document 这件事可以我们后面自己在进行修改。咱先把功能问完，再改逻辑。
 
-![my tree view - function name](/images/blog/other/tree2.png)
+<img-item src="/images/blog/other/tree2.png" />
 
 简单直接：我想要点击方法名跳转到对应的行数。
 
@@ -435,7 +433,7 @@ class MyTreeDataProvider {
 
 最终达到效果，就是本项目文件的属性树。当然，这样的判断并不严谨，兼容性并不强，只能用于学习或者自己修改使用。对于一些特殊的格式就会出问题。
 
-![my tree view all](/images/blog/other/tree3.png)
+<img-item src="/images/blog/other/tree3.png" />
 
 如果感兴趣的话可以关注本项目[vsce-simple-tools](https://github.com/shellingfordly/vsce-simple-tools)。
 
