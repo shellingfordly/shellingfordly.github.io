@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { homeBgUrl } from "~/hooks/useHomeBg";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay } from "swiper/modules";
+import { homeBgUrlList } from "~/hooks/useHomeBg";
+import "swiper/css";
 
 type ContentType = "icon" | "img-list" | "img";
 
@@ -32,12 +35,21 @@ function toBot() {
 </script>
 <template>
   <client-only>
-    <div
-      :class="`bg_box relative w-full flex justify-center h-[var(--v-height)] bg-fixed bg-no-repeat bg-cover`"
-      v-lazy:background-image="{ src: homeBgUrl, error: '', loading: '' }"
-    >
+    <div class="relative w-full flex justify-center h-[var(--v-height)]">
+      <swiper
+        :autoplay="{}"
+        :modules="[Autoplay]"
+        style="width: 100%; height: 100%;"
+      >
+        <swiper-slide
+          class="bg_box w-full h-full bg-fixed bg-no-repeat bg-cover"
+          v-for="url in homeBgUrlList"
+          v-lazy:background-image="{ src: url, error: '', loading: '' }"
+        >
+        </swiper-slide>
+      </swiper>
       <div
-        class="relative top-35% h-16 hvr-wobble-horizontal hvr-underline-from-center"
+        class="absolute top-35% h-16 z-100 cursor-pointer hvr-wobble-horizontal hvr-underline-from-center"
         @click="$router.push('/blog')"
       >
         <h1 class="title sm:font-size-8 font-size-6">

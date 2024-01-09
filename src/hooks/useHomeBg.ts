@@ -1,4 +1,4 @@
-export const homeBgUrlList = [
+export const homeBgUrlList = reactive([
   "/images/home/bg_1.png",
   "/images/home/bg_2.png",
   "/images/home/bg_3.png",
@@ -8,7 +8,7 @@ export const homeBgUrlList = [
   "/images/home/bg_7.png",
   "/images/home/bg_8.png",
   "/images/home/bg_9.png",
-];
+]);
 
 export const homeBgIndex = ref(
   Math.floor(Math.random() * homeBgUrlList.length)
