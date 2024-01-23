@@ -84,3 +84,29 @@ const modelValue = defineModel({
   <input v-model="modelValue" />
 </template>
 ```
+
+### v-bind 同名简写
+
+```vue
+<img :id="id" :src="src" :alt="alt" />
+// 简写
+<img :id :src :alt />
+```
+
+### 错误代码
+
+vue 在生产构建中删除了长错误消息，取而代之的是简短的错误代码。
+
+官方错误代码参考：[Production Error Code Reference](https://vuejs.org/error-reference/)
+
+### 全局 JSX 命名空间
+
+从 3.4 开始，Vue 不再默认注册全局命名空间
+
+<!-- TODO translate -->
+
+If you are using TSX, there are two options:
+
+1. Explicitly set jsxImportSource to in before upgrading to 3.4. You can also opt-in per file by adding a comment at the top of the file.`'vue'` `tsconfig.json` `/_ @jsxImportSource vue _/`
+
+2. If you have code that depends on the presence of the global namespace, e.g. usage of types like etc., you can retain the exact pre-3.4 global behavior by explicitly referencing , which registers the global namespace.`JSX` `JSX.Element` `vue/jsx` `JSX`
