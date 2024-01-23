@@ -97,6 +97,9 @@ devDependencies:
   markdown-it-table-of-contents:
     specifier: ^0.6.0
     version: 0.6.0
+  oxlint:
+    specifier: 0.2.3-alpha.0
+    version: 0.2.3-alpha.0
   shikiji:
     specifier: ^0.5.0
     version: 0.5.1
@@ -504,6 +507,70 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
     dev: true
+
+  /@oxlint/darwin-arm64@0.2.3-alpha.0:
+    resolution: {integrity: sha512-MIk6R+Gf/XbmiC8nOklFXFoaVy1+Gw8MezJxQtenYItGIlEO6clGiAXcMGw1C7BAi0dHeQL/knZY4LXX+jTT7g==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/darwin-x64@0.2.3-alpha.0:
+    resolution: {integrity: sha512-9TNFVIsK5QciYklK+bYiLZDjoy1gJ8/nGdFHB3g951bv6TBxnf3G2uXVGCbaZsyLC1+K/1qLRAUazhbFdwPm/Q==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/linux-arm64-gnu@0.2.3-alpha.0:
+    resolution: {integrity: sha512-13jKnODm+0r1K+f/ZIy7I7ohVYiYKeBwOAZYDW5Zjz85PH8ZKFUty0jnD1gg/9+Rg/po29M8tYvKYTAjzzmt7g==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/linux-arm64-musl@0.2.3-alpha.0:
+    resolution: {integrity: sha512-eJwBnwZYn46H/1qtKNIt/0SLrwSjylRHeQ2sMf8v/tiGU62RQc1cA8v5xIih8VSFRuJPDiUtdoWqSamua9xB3Q==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/linux-x64-gnu@0.2.3-alpha.0:
+    resolution: {integrity: sha512-JvTy8gwXSuh6sFKPTk51k6GPuT/ArhMjK0F2oohzbLhhLeTc8zDjk5Fhe+NyJ3vbqjXgIXUUdms+jcCKL7wpmQ==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/linux-x64-musl@0.2.3-alpha.0:
+    resolution: {integrity: sha512-3q51t6WX+/GyPMYFaNIHxdZiBFFtURQfF3EgZPk8UFxBQ5CnEuz1Ar2iQLIaHNHQ9f4q8NcDROee0SF+Ft+fIg==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/win32-arm64@0.2.3-alpha.0:
+    resolution: {integrity: sha512-2MwHfr7YdoyqXHTpzdy3U9Go0g6CmQP7u2zYvoyADyfXmdtv5nGR0A7fngSa31iwY0BHSrbtPzWmbZyVqiPBwA==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@oxlint/win32-x64@0.2.3-alpha.0:
+    resolution: {integrity: sha512-2WbNrSlUO+I+583FS3TXIiKhPBJzpHHpQB/EYuqf6fsPp4rTUf2cIkZ49sNgy0jdCftn8ZICoDcRhO1JGMpTLg==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /@petamoriken/float16@3.8.4:
     resolution: {integrity: sha512-kB+NJ5Br56ZhElKsf0pM7/PQfrDdDVMRz8f0JM6eVOGE+L89z9hwcst9QvWBBnazzuqGTGtPsJNZoQ1JdNiGSQ==}
@@ -2373,6 +2440,21 @@ packages:
       define-lazy-prop: 3.0.0
       is-inside-container: 1.0.0
       is-wsl: 2.2.0
+    dev: true
+
+  /oxlint@0.2.3-alpha.0:
+    resolution: {integrity: sha512-xsdMxgpChCUCUJ55hM0dkdRylRTEa7qWFcwlBtGrds4kYUSUS0eUgW0cLbCsmoR7iOjbWXJN6q9w6a6R0G5zJg==}
+    engines: {node: '>=14.*'}
+    hasBin: true
+    optionalDependencies:
+      '@oxlint/darwin-arm64': 0.2.3-alpha.0
+      '@oxlint/darwin-x64': 0.2.3-alpha.0
+      '@oxlint/linux-arm64-gnu': 0.2.3-alpha.0
+      '@oxlint/linux-arm64-musl': 0.2.3-alpha.0
+      '@oxlint/linux-x64-gnu': 0.2.3-alpha.0
+      '@oxlint/linux-x64-musl': 0.2.3-alpha.0
+      '@oxlint/win32-arm64': 0.2.3-alpha.0
+      '@oxlint/win32-x64': 0.2.3-alpha.0
     dev: true
 
   /p-limit@3.1.0:

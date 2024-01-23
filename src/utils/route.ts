@@ -57,7 +57,7 @@ export function CreateArticleData({ tag, type }: Any): ArticleItem[] {
     }
   }
 
-  return !!data
+  return data
     ? Object.keys(data)
         .sort((a, b) => Number(b) - Number(a))
         .map((key) => ({

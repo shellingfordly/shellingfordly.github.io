@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite preview",
-    "build": "vite-ssg build"
+    "build": "vite-ssg build",
+    "oxlint": "oxlint"
   },
   "type": "module",
   "devDependencies": {
@@ -27,6 +28,7 @@
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-table-of-contents": "^0.6.0",
+    "oxlint": "0.2.3-alpha.0",
     "shikiji": "^0.5.0",
     "typescript": "^5.1.6",
     "unocss": "^0.55.1",
