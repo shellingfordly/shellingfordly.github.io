@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { toggleBgIndex } from "~/hooks/useHomeBg";
 import { toggleDark } from "~/utils";
 
 function toTop() {
@@ -53,13 +52,6 @@ const { y: scroll } = useWindowScroll();
           title="GitHub"
         >
           <div class="i-uil-github-alt" />
-        </a>
-        <a
-          class="select-none"
-          title="Toggle Background Scheme"
-          @click="toggleBgIndex"
-        >
-          <div class="i-material-symbols-reset-image-rounded"></div>
         </a>
         <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
           <div class="i-carbon-sun dark:i-carbon-moon" />

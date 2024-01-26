@@ -9,13 +9,3 @@ export const homeBgUrlList = reactive([
   "/images/home/bg_8.png",
   "/images/home/bg_9.png",
 ]);
-
-export const homeBgIndex = ref(
-  Math.floor(Math.random() * homeBgUrlList.length)
-);
-
-export const homeBgUrl = computed(() => homeBgUrlList[homeBgIndex.value]);
-
-export function toggleBgIndex() {
-  homeBgIndex.value = Math.floor(Math.random() * homeBgUrlList.length);
-}
