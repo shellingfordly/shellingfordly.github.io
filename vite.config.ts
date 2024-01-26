@@ -11,7 +11,6 @@ import Markdown from "unplugin-vue-markdown/vite";
 import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
-import { presetIcons, presetUno } from "unocss";
 import SVG from "vite-svg-loader";
 import Inspect from "vite-plugin-inspect";
 import anchor from "markdown-it-anchor";
@@ -19,6 +18,7 @@ import { slugify } from "./scripts/slugify";
 import MarkdownItShikiji from "markdown-it-shikiji";
 import { rendererRich, transformerTwoSlash } from "shikiji-twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
+import { transformerDirectives } from "unocss";
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";
@@ -34,25 +34,7 @@ export default defineConfig({
     alias: [{ find: "~/", replacement: `${resolve(__dirname, "src")}/` }],
   },
   plugins: [
-    UnoCSS({
-      shortcuts: [
-        {
-          "bg-base": "bg-white dark:bg-black",
-          "border-base": "border-[#8884]",
-        },
-      ],
-      presets: [
-        presetIcons({
-          extraProperties: {
-            display: "inline-block",
-            height: "1.2em",
-            width: "1.2em",
-            "vertical-align": "text-bottom",
-          },
-        }),
-        presetUno(),
-      ],
-    }),
+    UnoCSS(),
     Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
