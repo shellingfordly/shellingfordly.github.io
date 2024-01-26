@@ -91,9 +91,15 @@ devDependencies:
   markdown-it-anchor:
     specifier: ^8.6.7
     version: 8.6.7(@types/markdown-it@13.0.7)(markdown-it@13.0.2)
+  markdown-it-github-alerts:
+    specifier: ^0.3.0
+    version: 0.3.0(markdown-it@13.0.2)
   markdown-it-link-attributes:
     specifier: ^4.0.1
     version: 4.0.1
+  markdown-it-shikiji:
+    specifier: ^0.9.15
+    version: 0.9.19
   markdown-it-table-of-contents:
     specifier: ^0.6.0
     version: 0.6.0
@@ -101,8 +107,11 @@ devDependencies:
     specifier: 0.2.3-alpha.0
     version: 0.2.3-alpha.0
   shikiji:
-    specifier: ^0.5.0
-    version: 0.5.1
+    specifier: ^0.9.15
+    version: 0.9.19
+  shikiji-twoslash:
+    specifier: ^0.9.15
+    version: 0.9.19(typescript@5.3.3)
   typescript:
     specifier: ^5.1.6
     version: 5.3.3
@@ -630,6 +639,13 @@ packages:
     resolution: {integrity: sha512-yg6E+u0/+Zjva+buc3EIb+29XEg4wltq7cSmd4Uc2EE/1nUVmxyzpX6gUXD0V8jIrG0r7YeOGVIbYRkxeooCtw==}
     dev: true
 
+  /@types/lz-string@1.5.0:
+    resolution: {integrity: sha512-s84fKOrzqqNCAPljhVyC5TjAo6BH4jKHw9NRNFNiRUY5QSgZCmVm5XILlWbisiKl+0OcS7eWihmKGS5akc2iQw==}
+    deprecated: This is a stub types definition. lz-string provides its own type definitions, so you do not need this installed.
+    dependencies:
+      lz-string: 1.5.0
+    dev: true
+
   /@types/markdown-it-link-attributes@3.0.4:
     resolution: {integrity: sha512-Ky3wTFQurAF0wSfsYi+1J2yDvpZRtNBsd8CV0rwOSIgNmNX8q87FN9c9PBp+NljoQqWhJPy8eLrkQNcG86nbUQ==}
     dependencies:
@@ -663,6 +679,28 @@ packages:
 
   /@types/web-bluetooth@0.0.20:
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
+
+  /@typescript/twoslash@3.2.4(typescript@5.3.3):
+    resolution: {integrity: sha512-/TCIOuPQaKltzUUT1qJo6mplYwjbAxkaSFvkeZD3FeFt3Ovt+HJi8xisu8rcLyDRmM3VJ0+jAx+AAICwn4Zlhw==}
+    peerDependencies:
+      typescript: '*'
+    dependencies:
+      '@types/lz-string': 1.5.0
+      '@typescript/vfs': 1.5.0
+      debug: 4.3.4
+      lz-string: 1.5.0
+      typescript: 5.3.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@typescript/vfs@1.5.0:
+    resolution: {integrity: sha512-AJS307bPgbsZZ9ggCT3wwpg3VbTKMFNHfaY/uF0ahSkYYrPF2dSSKDNIDIQAHm9qJqbLvCsSJH7yN4Vs/CsMMg==}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@unhead/dom@1.8.9:
     resolution: {integrity: sha512-qY4CUVNKEM7lEAcTz5t71QYca+NXgUY5RwhSzB6sBBzZxQTiFOeTVKC6uWXU0N+3jBUdP/zdD3iN1JIjziDlng==}
@@ -2144,6 +2182,12 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
+  /linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+    dependencies:
+      uc.micro: 2.0.0
+    dev: true
+
   /local-pkg@0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
     engines: {node: '>=14'}
@@ -2166,6 +2210,11 @@ packages:
 
   /lower-case@1.1.4:
     resolution: {integrity: sha512-2Fgx1Ycm599x+WGpIYwJOvsjmXFzTSc34IwDWALRA/8AopUKAVPwfJ+h5+f85BCp0PWmmJcWzEpxOpoXycMpdA==}
+    dev: true
+
+  /lz-string@1.5.0:
+    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
+    hasBin: true
     dev: true
 
   /magic-string@0.30.5:
@@ -2198,8 +2247,23 @@ packages:
       markdown-it: 13.0.2
     dev: true
 
+  /markdown-it-github-alerts@0.3.0(markdown-it@13.0.2):
+    resolution: {integrity: sha512-qyIuDyfdrVGHhY+E/44yMyNA3ZnayaT/KKT2VgkIz1nmrgiuPkdgPUh4YBZwgJ9VKEGJvGd82Ndrc4oGftrJWg==}
+    peerDependencies:
+      markdown-it: ^14.0.0
+    dependencies:
+      markdown-it: 13.0.2
+    dev: true
+
   /markdown-it-link-attributes@4.0.1:
     resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
+    dev: true
+
+  /markdown-it-shikiji@0.9.19:
+    resolution: {integrity: sha512-AjGg991Tge1VbQb4whEvJ0Xa8Dopjowd0Mxy0ntzkCAuRwjNUhriGqu0AZEjM8Caab5+324VD8eEkPD7ihUIMA==}
+    dependencies:
+      markdown-it: 14.0.0
+      shikiji: 0.9.19
     dev: true
 
   /markdown-it-table-of-contents@0.6.0:
@@ -2218,6 +2282,18 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
+  /markdown-it@14.0.0:
+    resolution: {integrity: sha512-seFjF0FIcPt4P9U39Bq1JYblX0KZCjDLFFQPHpL5AzHpqPEKtosxmdq/LTVZnjfH7tjt9BxStm+wXcDBNuYmzw==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.0.0
+    dev: true
+
   /mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
     dev: true
@@ -2228,6 +2304,10 @@ packages:
 
   /mdurl@1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+    dev: true
+
+  /mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
     dev: true
 
   /merge-stream@2.0.0:
@@ -2587,6 +2667,11 @@ packages:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
     dev: true
 
+  /punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
+    dev: true
+
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -2765,8 +2850,24 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shikiji@0.5.1:
-    resolution: {integrity: sha512-zH3HCKcLIcoqkaJ3v7T9XWEQi/ZOxqNrov4+B0G/zbNPheliBJy1kpJQ5zQtejCXptitc5i7I5yI00wkUen30A==}
+  /shikiji-core@0.9.19:
+    resolution: {integrity: sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==}
+    dev: true
+
+  /shikiji-twoslash@0.9.19(typescript@5.3.3):
+    resolution: {integrity: sha512-wwF5GWEZuIFWjGioqPygcnnQmEduK5bdV9L2AzjmEVJD7Xt1Zg/K8bN7StxPBR/1xmbJ9RnHYeFvqCxySpXEsw==}
+    dependencies:
+      '@typescript/twoslash': 3.2.4(typescript@5.3.3)
+      shikiji-core: 0.9.19
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /shikiji@0.9.19:
+    resolution: {integrity: sha512-Kw2NHWktdcdypCj1GkKpXH4o6Vxz8B8TykPlPuLHOGSV8VkhoCLcFOH4k19K4LXAQYRQmxg+0X/eM+m2sLhAkg==}
+    dependencies:
+      shikiji-core: 0.9.19
     dev: true
 
   /side-channel@1.0.4:
@@ -2942,6 +3043,10 @@ packages:
 
   /uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
+    dev: true
+
+  /uc.micro@2.0.0:
+    resolution: {integrity: sha512-DffL94LsNOccVn4hyfRe5rdKa273swqeA5DJpMOeFmEn1wCDc7nAbbB0gXlgBCL7TNzeTv6G7XVWzan7iJtfig==}
     dev: true
 
   /ufo@1.3.2:

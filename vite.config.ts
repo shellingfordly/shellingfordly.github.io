@@ -6,7 +6,6 @@ import Pages from "vite-plugin-pages";
 import Components from "unplugin-vue-components/vite";
 import Vue from "@vitejs/plugin-vue";
 import AutoImport from "unplugin-auto-import/vite";
-import { bundledLanguages, getHighlighter } from "shikiji";
 import LinkAttributes from "markdown-it-link-attributes";
 import Markdown from "unplugin-vue-markdown/vite";
 import UnoCSS from "unocss/vite";
@@ -17,6 +16,12 @@ import SVG from "vite-svg-loader";
 import Inspect from "vite-plugin-inspect";
 import anchor from "markdown-it-anchor";
 import { slugify } from "./scripts/slugify";
+import MarkdownItShikiji from "markdown-it-shikiji";
+import { rendererRich, transformerTwoSlash } from "shikiji-twoslash";
+import GitHubAlerts from "markdown-it-github-alerts";
+
+// @ts-expect-error missing types
+import TOC from "markdown-it-table-of-contents";
 
 export default defineConfig({
   server: {
@@ -82,23 +87,22 @@ export default defineConfig({
       exposeFrontmatter: false,
       exposeExcerpt: false,
       async markdownItSetup(md) {
-        const shiki = await getHighlighter({
-          themes: ["vitesse-dark", "vitesse-light"],
-          langs: Object.keys(bundledLanguages) as any,
-        });
-
-        md.use((markdown) => {
-          markdown.options.highlight = (code, lang) => {
-            return shiki.codeToHtml(code, {
-              lang,
-              themes: {
-                light: "vitesse-light",
-                dark: "vitesse-dark",
-              },
-              cssVariablePrefix: "--s-",
-            });
-          };
-        });
+        md.use(
+          await MarkdownItShikiji({
+            themes: {
+              dark: "vitesse-dark",
+              light: "vitesse-light",
+            },
+            defaultColor: false,
+            cssVariablePrefix: "--s-",
+            transformers: [
+              transformerTwoSlash({
+                explicitTrigger: true,
+                renderer: rendererRich(),
+              }),
+            ],
+          })
+        );
 
         md.use(anchor, {
           slugify,
@@ -115,11 +119,20 @@ export default defineConfig({
             rel: "noopener",
           },
         });
+
+        md.use(TOC, {
+          includeLevel: [1, 2, 3, 4],
+          slugify,
+          containerHeaderHtml:
+            '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
+        });
+
+        md.use(GitHubAlerts);
       },
     }),
 
     AutoImport({
-      imports: ["vue","vue-router","@vueuse/core"],
+      imports: ["vue", "vue-router", "@vueuse/core"],
     }),
 
     Components({

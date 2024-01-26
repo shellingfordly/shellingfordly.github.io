@@ -1,7 +1,6 @@
 # My Blog
 
-- [my personal website(github)](https://shellingfordly.github.io)
-- [my personal website(vercel)](https://shellingfordly.vercel.app)
+- [my personal website](https://shellingfordly.top)
 - [my email](shellingfordly@qq.com)
 
 code is licensed under [MIT](https://github.com/shellingfordly/travel_map/blob/main/LICENSE),
