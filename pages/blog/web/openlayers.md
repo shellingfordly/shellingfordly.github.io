@@ -6,7 +6,9 @@ tags:
   - vue
 ---
 
-# 在 vue3 中使用 openlayers 制作旅行地图
+[[toc]]
+
+## 在 vue3 中使用 openlayers 制作旅行地图
 
 由于上半年经常跑出去，突然想做一个旅行地图的博客，想起之前接触过 openlayers 的项目，也懒得去调查别的库了，直接用 openlayers 开干。
 
