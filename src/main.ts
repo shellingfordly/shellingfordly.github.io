@@ -1,7 +1,7 @@
 import "markdown-it-github-alerts/styles/github-colors-light.css";
 import "markdown-it-github-alerts/styles/github-colors-dark-class.css";
 import "markdown-it-github-alerts/styles/github-base.css";
-import 'shikiji-twoslash/style-rich.css'
+import "@shikijs/twoslash/style-rich.css";
 import "./styles/index.less";
 import "uno.css";
 
