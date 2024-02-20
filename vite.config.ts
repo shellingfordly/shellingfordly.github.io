@@ -15,8 +15,8 @@ import SVG from "vite-svg-loader";
 import Inspect from "vite-plugin-inspect";
 import anchor from "markdown-it-anchor";
 import { slugify } from "./scripts/slugify";
-import MarkdownItShikiji from "markdown-it-shikiji";
-import { rendererRich, transformerTwoSlash } from "shikiji-twoslash";
+import MarkdownItShiki from "@shikijs/markdown-it";
+import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
 
 // @ts-expect-error missing types
@@ -69,7 +69,7 @@ export default defineConfig({
       exposeExcerpt: false,
       async markdownItSetup(md) {
         md.use(
-          await MarkdownItShikiji({
+          await MarkdownItShiki({
             themes: {
               dark: "vitesse-dark",
               light: "vitesse-light",
@@ -77,7 +77,7 @@ export default defineConfig({
             defaultColor: false,
             cssVariablePrefix: "--s-",
             transformers: [
-              transformerTwoSlash({
+              transformerTwoslash({
                 explicitTrigger: true,
                 renderer: rendererRich(),
               }),
