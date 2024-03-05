@@ -5,15 +5,17 @@ tags:
   - iconify
 ---
 
-# iconify
+# 现代管理 Icon 的一些方式
 
-# Web Component
+## iconify
+
+### Web Component
 
 [Iconify Icon Web Component](https://iconify.design/docs/iconify-icon/)
 
 Iconify Icon 是一个渲染图标的 Web 组件
 
-## Usage
+### Usage
 
 ```html
 <iconify-icon icon="mdi:home"></iconify-icon>
@@ -30,7 +32,7 @@ Web 组件可以在没有任何 UI 框架的情况下在 HTML 中使用。
 - React and Next
 - Solid
 
-#### 布局偏移
+### 布局偏移
 
 为了避免布局偏移，请将其添加到您的 CSS 中：
 
@@ -42,7 +44,7 @@ iconify-icon {
 }
 ```
 
-## Registering the web component
+### Registering the web component
 
 如果您使用打包器构建项目，您可以通过安装 iconify-icon 作为依赖项并将其导入到您的项目中来包含脚本：
 
