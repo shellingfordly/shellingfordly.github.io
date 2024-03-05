@@ -87,6 +87,14 @@ npm run tauri dev
 
 服务端使用 rust 写的，其实我几乎不懂 rust，这个项目的 rust 代码都是 chatgpt 帮我写的
 
+## TodoList
+
+- 读取本地文件系统
+- 新建文件/问价
+- 更新 git 操作类似到工具栏，类似 vscode
+- 搜索文件内容
+- 通过文件名搜索文件
+
 ## 写在最后
 
 这是就是一个学习向的 Tauri Demo， 完全是我的第一个 Tauri 应用。
