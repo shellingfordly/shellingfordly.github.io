@@ -55,24 +55,6 @@ npm run tauri dev
 
 <img-item src="/images/blog/other/tauri/git_clone.png" />
 
-### git commit
-
-使用 `github token` 提交，需要在 user 中设置
-
-<img-item src="/images/blog/other/tauri/git_commit.png" />
-
-### git pull and push
-
-<img-item src="/images/blog/other/tauri/git.png" />
-
-### 设置 git config 的 username 和 email
-
-- 设置 username
-- 设置 email
-- 设置 gitHub token
-
-<img-item src="/images/blog/other/tauri/git_user.png" />
-
 ### 查看项目
 
 <img-item src="/images/blog/other/tauri/view_project.png" />
@@ -83,17 +65,49 @@ npm run tauri dev
 
 <img-item src="/images/blog/other/tauri/editor_file.png" />
 
+### git add and commit
+
+使用 `github token` 提交，需要在 user 中设置
+
+<img-item src="/images/blog/other/tauri/git_commit.png" />
+
+### git pull and push
+
+<img-item src="/images/blog/other/tauri/git_pull.png" />
+
+### discard changes
+
+- discard file changes
+
+<img-item src="/images/blog/other/tauri/discard_changes.png" />
+
+- discard all changes
+
+<img-item src="/images/blog/other/tauri/discard_all_changes.png" />
+
+### 获取提交日志
+
+<img-item src="/images/blog/other/tauri/git_log.png" />
+
+### 设置 git config 的 username 和 email
+
+- 设置 username
+- 设置 email
+- 设置 gitHub token
+
+<img-item src="/images/blog/other/tauri/git_user.png" />
+
 ## 服务端
 
 服务端使用 rust 写的，其实我几乎不懂 rust，这个项目的 rust 代码都是 chatgpt 帮我写的
 
 ## TodoList
 
-- 读取本地文件系统
-- 新建文件/问价
-- 更新 git 操作类似到工具栏，类似 vscode
-- 搜索文件内容
-- 通过文件名搜索文件
+- [ ] 读取本地文件系统
+- [ ] 新建文件/问价
+- [x] 更新 git 操作类似到工具栏，类似 vscode
+- [ ] 搜索文件内容
+- [ ] 通过文件名搜索文件
 
 ## 写在最后
 
