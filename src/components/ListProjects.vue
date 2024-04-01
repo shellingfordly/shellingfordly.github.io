@@ -5,12 +5,14 @@ defineProps<{
 </script>
 
 <template>
-  <div class="sm:w-[90%] p-5 pt-10 flex flex-wrap justify-between m-a">
+  <div
+    class="p5 xl:p10 grid gap-6 grid-cols-3 lt-lg:grid-cols-2 lt-sm:grid-cols-1"
+  >
     <template v-for="info in list" :info="item">
-      <div class="article_item md:w-[48%] lg:w-[32%] w-full pb-20 mb-8">
+      <div class="article_item w-full">
         <a class="cursor-pointer" :href="info.path" target="_blank">
           <client-only>
-            <img class="w-100% h-30vh" v-lazy="info.img" />
+            <img class="w-full h-30vh" v-lazy="info.img" />
           </client-only>
         </a>
         <div class="">

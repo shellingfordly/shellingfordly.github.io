@@ -17,6 +17,10 @@ projects:
     path: "https://github.com/shellingfordly/terminal"
     desc: "一个命令行形式的文章展示项目..."
     img: "/images/projects/terminal.png"
+  - title: "Micro Vscode"
+    path: "https://github.com/shellingfordly/micro-vscode"
+    desc: "一个轻量级代码编辑和提交工具，集成了基础的vscode编辑器功能和Git功能."
+    img: "/images/projects/micro_vscode.png"
 ---
 
 <!-- @layout-full-width -->
