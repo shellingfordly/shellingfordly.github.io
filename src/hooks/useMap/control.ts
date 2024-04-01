@@ -1,3 +1,3 @@
-export const lineOpen = ref(false);
+export const lineOpen = ref(true);
 
-export const infoOpen = ref(false);
+export const infoOpen = ref(true);
