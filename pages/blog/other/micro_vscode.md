@@ -103,14 +103,69 @@ npm run tauri dev
 
 ## TodoList
 
+1. 未实现
+
 - [ ] 读取本地文件系统
-- [ ] 新建文件/问价
-- [x] 更新 git 操作类似到工具栏，类似 vscode
+- [ ] 新建文件/文件夹
 - [ ] 搜索文件内容
 - [ ] 通过文件名搜索文件
+
+2. 已实现
+
+- [x] 实现 git 的基本操作，类似 vscode 的 git 工具
+  - git config 设置 user/email 和 github token
+  - git add 添加文件
+  - git commit 提交
+  - git pull 拉取更新
+  - git push 推送更新，使用 github token 提交
+  - discard changes 撤销(单/所有)文件修改
+  - git log 查看所有 commit
+  - git show commit 查看提交的具体修改内容
+- [x] 文件夹目录结构
+  - 显示目录树
+    - 文件/文件夹图标
+    - 使用 vscode-icons 图标(未全部移植)
+    - 实现打开/关闭文件夹
+  - 显示文件切换 Tab
+    - 是否编辑图标提示
+    - 关闭文件
+- [x] 文件编辑器
+  - 使用 monaco editor，具有 vscode 的基本功能
+  - 文件编辑、保存(保存全部)功能
+  - 暂时只支持 html/js/json/ts/vue 的代码高亮
+
+## 更新功能
+
+### git add/commit/pull/push
+
+更新 **git add/commit/pull/push** 到 git 工具栏内部，添加 **changes** 文件 list 和 **Staged Changes**文件 list，可以撤销 **add** 文件和撤销修改。
+
+<img-item src="/images/blog/other/tauri/git_pull_new.png" />
+
+### discard changes
+
+更新 git 功能到工具栏，列举发生改变的文件，展示更改状态，打开改变文件和放弃修改。
+
+<img-item src="/images/blog/other/tauri/discard_changes_new.png" />
+
+撤销所有文件更改
+
+<img-item src="/images/blog/other/tauri/discard_all_changes_new.png" />
+
+### git log
+
+获取 git 提交日志
+
+<img-item src="/images/blog/other/tauri/git_log_new.png" />
+
+### git show commit
+
+点击日志查看修改文件，与 git 命令行查看内容一致，vscode 的文件修改对比有点复杂，暂时未实现。
+
+<img-item src="/images/blog/other/tauri/git_diff_new.png" />
 
 ## 写在最后
 
 这是就是一个学习向的 Tauri Demo， 完全是我的第一个 Tauri 应用。
 
-感兴趣的话可以关注项目地址[micro-vscode](https://github.com/shellingfordly/micro-vscode)。
+感兴趣的话可以关注项目地址[micro-vscode](https://github.com/shellingfordly/micro-vscode)，持续不定期更新功能。
