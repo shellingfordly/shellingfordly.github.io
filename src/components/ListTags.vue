@@ -54,9 +54,9 @@ const show = ref(false);
 </script>
 
 <template>
-  <div class="relative lg:pt-10 pt-5 pb-5 flex lt-lg:hidden">
+  <div class="relative flex pt-5 pb-5 lg:pt-10 lt-lg:hidden">
     <div
-      class="item mr-3"
+      class="mr-3 item"
       v-for="item in typeList"
       @click="$router.push(item.path)"
     >
@@ -65,13 +65,13 @@ const show = ref(false);
   </div>
 
   <div class="lg:absolute lg:z-2 lg:w-20vw lg:p-5 lg:right-0 lg:top-0">
-    <div class="relative lg:pt-10 pt-5 pb-5 flex items-center">
+    <div class="relative flex items-center pt-5 pb-5 lg:pt-10">
       <div
-        class="i-carbon-tag cursor-pointer mr-5 opacity-60 hover:opacity-100 z-100"
+        class="mr-5 cursor-pointer i-carbon-tag opacity-60 hover:opacity-100 z-100"
         @click="show = !show"
       />
       <div
-        class="item mr-3 lg:hidden"
+        class="mr-3 item lg:hidden"
         v-for="item in typeList"
         @click="$router.push(item.path)"
       >
@@ -97,7 +97,7 @@ const show = ref(false);
   </div>
   <blockquote class="m-0!">
     <span v-if="notice">{{ notice }}</span>
-    <span v-else>博客迁移中，部分内存未完成...</span>
+    <span v-else>博客不定期更新中...</span>
   </blockquote>
 </template>
 
