@@ -15,12 +15,15 @@ import SVG from "vite-svg-loader";
 import Inspect from "vite-plugin-inspect";
 import anchor from "markdown-it-anchor";
 import { slugify } from "./scripts/slugify";
-import MarkdownItShiki from "@shikijs/markdown-it";
+// import MarkdownItShiki, {  type MarkdownItShikiSetupOptions, } from "@shikijs/markdown-it";
+import MarkdownItShiki from "./plugins/shiki";
+// import { bundledLanguages, getHighlighter, type ShikiTransformer } from 'shiki'
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";
+import { parsePlayground } from "./plugins/playground";
 
 export default defineConfig({
   server: {
@@ -41,7 +44,6 @@ export default defineConfig({
         defineModel: true,
       },
     }),
-
     Pages({
       extensions: ["vue", "md"],
       dirs: "pages",
@@ -55,9 +57,8 @@ export default defineConfig({
         return route;
       },
     }),
-
     Markdown({
-      wrapperClasses: (id, code) => {
+      wrapperClasses: (_, code) => {
         return code.includes("@layout-map")
           ? "map_container"
           : code.includes("@layout-full-width")
@@ -67,6 +68,25 @@ export default defineConfig({
       exportFrontmatter: false,
       exposeFrontmatter: false,
       exposeExcerpt: false,
+      transforms: {
+        before(code) {
+          let text = code.match(/```\w+ @playground((?:\n|.)*?)```/)?.[1];
+          if (text) {
+            if (text.startsWith("\n")) text = text.slice(1, code.length);
+
+            code.replace(/<script((?:\n|.)*?)<\/script>/, (_, _id, content) => {
+              console.log("content: ", content);
+
+              return `<script ${content}</script>`;
+            });
+          }
+
+          return code;
+        },
+        after(code) {
+          return code;
+        },
+      },
       async markdownItSetup(md) {
         md.use(
           await MarkdownItShiki({

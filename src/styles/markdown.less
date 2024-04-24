@@ -215,3 +215,23 @@ h6:focus .header-anchor {
 .code-wrap .line {
   white-space: break-spaces;
 }
+
+.dark .prose .playground  .content {
+  background-color: #0e0e0e;
+}
+
+.prose .playground {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 0.5em;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .content {
+    background-color: #fafafa;
+    border-radius: 8px;
+    margin: 0.5em 0;
+    padding: 15px;
+    height: auto;
+  }
+}

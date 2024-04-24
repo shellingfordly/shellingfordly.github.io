@@ -11,6 +11,24 @@ tags:
 
 比如下面的例子，外面的 css 优先级高于 `@layer` 内部的 css，即使它写在下面。
 
+```css @playground
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+@layer {
+  .container {
+    background-color: blue;
+  }
+}
+```
+
+```html playground_html
+<div class="container"></div>
+```
+
 ```css
 .container {
   width: 200px;
