@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { isDark } from "~/utils";
 
-const props = defineProps<{ src: string; dark: string; light: string }>();
+const props = defineProps<{ src?: string; dark?: string; light?: string }>();
 
 const url = computed(
   () => props.src || (isDark.value ? props.dark : props.light)
