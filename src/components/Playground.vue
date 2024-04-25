@@ -1,35 +1,20 @@
 <script setup lang="ts">
-const props = defineProps<{ code: string; html?: string }>();
-
-const domRef = ref<HTMLDivElement>();
-
-const style = computed(() => props.code);
-
-const insertStylesheet = () => {
-  let style = document.getElementById("ho79thw");
-  if (!style) {
-    style = document.createElement("style");
-    style.id = "playground_test";
-    document.head.appendChild(style);
-    style.innerHTML = props.code;
-  }
-};
-
-watch(
-  () => props.code,
-  (code) => {
-    console.log("code", code);
-
-    if (code) insertStylesheet();
-  },
-  { immediate: true, deep: true }
-);
-
-onMounted(() => {});
+const show = ref(false);
 </script>
 
 <template>
-  <div class="content p10">
-    <slot />
+  <div>
+    <div inline-block cursor-pointer @click="show = !show" title="查看演示">
+      <div i-material-symbols-light:preview />
+      <span text-sm select-none>Preview</span>
+    </div>
+    <div class="grid gap-2" :class="[show ? 'grid-cols-2' : 'grid-cols-1']">
+      <div>
+        <slot />
+      </div>
+      <div v-show="show" class="my2 p5 rounded bg-[#fafafa] dark:bg-[#0e0e0e]">
+        <slot name="html" />
+      </div>
+    </div>
   </div>
 </template>
