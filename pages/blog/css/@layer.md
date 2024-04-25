@@ -173,9 +173,11 @@ tags:
 
 ## 浏览器兼容性
 
-<script setup>
-  import dark from './layer_dark.png'
-  import light from './layer_light.png'
-</script>
-
-<ImgItem :dark="dark" :light="light" />
+|     | 💻      | @layer | 📱                  | @layer  |
+| --- | ------- | ------ | ------------------- | ------- |
+|     | Chrome  | ☑️ 99  | Chrome Android      | ☑️ 99   |
+|     | Edge    | ☑️ 99  | Firefox for Android | ☑️ 97   |
+|     | Firefox | ☑️ 97  | Opera for Android   | ☑️ 68   |
+|     | Opera   | ☑️ 85  | Safari on IOS       | ☑️ 15.4 |
+|     | Safari  | ☑️ 15  | Samsung Internet    | ☑️ 18   |
+|     |         |        | WebView Android     | ☑️ 99   |
