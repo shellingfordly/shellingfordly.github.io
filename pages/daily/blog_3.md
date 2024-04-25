@@ -15,7 +15,7 @@ tags:
 
 [blog 预览](https://shellingfordly.github.io)
 
-![blog3_1](/images/blog/blog3_1.png)
+![blog3_1](./images/blog3_1.png)
 
 设计方面参考了[antfu 大佬的 blog](https://antfu.me/)风格，antfu 的 blog 简约好看，是我喜欢的风格。
 
@@ -43,11 +43,11 @@ tags: ["js", "ts", "vue"]
 
 但是我发现 build 出来的页面使用 live-server 启动时刷新会丢失，我在[vite-plugin-pages issues247](https://github.com/hannoeru/vite-plugin-pages/issues/247)看到有人遇到和我同样的问题，但是我没有找到合适的解决方案。而且当我把 antfu 的博客项目 clone 下来打包之后发现有同样的问题，但是他的网站是 OK 的，我不知道他怎么处理的。
 
-![blog3_2](/images/blog/blog3_2.png)
+![blog3_2](./images/blog3_2.png)
 
 最后我发现用 vite preview 运行 dist 出来的没有问题，于是我在[vite 静态部署站点](https://cn.vitejs.dev/guide/static-deploy.html#github-pages)中直接复制了`github-pages`构建代码，这样就 github pages 是好了，但是 Vercel 里面自动部署还是有问题。
 
-2. [unplugin-vue-markdown](https://github.com/unplugin/unplugin-vue-markdown)
+1. [unplugin-vue-markdown](https://github.com/unplugin/unplugin-vue-markdown)
 
 这是一个可以将 Markdown 编译成 Vue 组件的 vite 插件，可以解析 md 预设的参与，以及直接使用 vue 组件。和 vite-plugin-pages 搭配实现安心的写 md。
 
