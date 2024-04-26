@@ -1,5 +1,11 @@
 <script setup lang="ts">
+const props = defineProps<{ showDefault: boolean }>();
+
 const show = ref(false);
+
+watchEffect(() => {
+  if (props.showDefault) show.value = true;
+});
 </script>
 
 <template>
