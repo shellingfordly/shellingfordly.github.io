@@ -33,20 +33,6 @@ tags:
 </template>
 </playground>
 
-```css
-.container {
-  width: 200px;
-  height: 200px;
-  background-color: red;
-}
-
-@layer {
-  .container {
-    background-color: blue;
-  }
-}
-```
-
 ## @layer 规则的语法
 
 ```css
@@ -62,6 +48,8 @@ tags:
 
 多个层的优先级是一样的，谁在后面谁的优先级高。
 
+<playground>
+
 ```css
 @layer container1 {
   .container {
@@ -76,6 +64,12 @@ tags:
 }
 ```
 
+<template #html>
+
+  <div class="container bg-green w-50px h-50px"></div>
+</template>
+</playground>
+
 可以指定优先级，此时 `container1` 内的 css 优先级更高，背景设置为 `blue`
 
 ```css
@@ -83,6 +77,8 @@ tags:
 ```
 
 也可以这样设置，将 `container2` 前置，此时 `container1` 的优先级比 `container2` 高
+
+<playground>
 
 ```css
 @layer container2;
@@ -99,6 +95,12 @@ tags:
   }
 }
 ```
+
+<template #html>
+
+  <div class="container bg-blue w-50px h-50px"></div>
+</template>
+</playground>
 
 ## 外链 css
 
@@ -145,6 +147,8 @@ tags:
 
 此处为 `parent2 > child2 > parent1 > child1`
 
+<playground>
+
 ```css
 @layer parent1 {
   .container {
@@ -170,6 +174,12 @@ tags:
   }
 }
 ```
+
+<template #html>
+
+  <div class="container bg-yellow w-50px h-50px"></div>
+</template>
+</playground>
 
 ## 浏览器兼容性
 
