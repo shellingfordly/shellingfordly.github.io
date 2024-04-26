@@ -21,7 +21,6 @@ import GitHubAlerts from "markdown-it-github-alerts";
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";
-import { parsePlayground } from "./plugins/playground";
 
 export default defineConfig({
   server: {
