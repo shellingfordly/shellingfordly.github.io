@@ -9,7 +9,7 @@ tags:
 
 我用 vercel 构建我的博客项目时，发现只有第一次打开页面时是正常的，当页面刷新后会出现 404 找不到页面的情况，
 
-![404](/images/blog/vercel-build-err_1.png)
+![404](./vercel-build-err_1.png)
 
 直到我看到了这篇文章[How to solve Vercel and Netlify "Page Not Found" after page refresh [SOLVED]](https://dev.to/devvsakib/how-to-solve-vercel-and-netlify-page-not-found-after-page-refresh-solved-2ol7)
 

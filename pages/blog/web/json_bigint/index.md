@@ -34,8 +34,8 @@ TypeError: BigNumber is not a constructor
 
 - 正常对象，有\_\_proto\_\_
 
-![json_bigint_1](/images/blog/json_bigint_1.png)
+![json_bigint_1](./json_bigint_1.png)
 
 - json-bigint 处理的对象，没有\_\_proto\_\_
 
-![json_bigint_2](/images/blog/json_bigint_2.png)
+![json_bigint_2](./json_bigint_2.png)

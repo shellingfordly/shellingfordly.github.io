@@ -15,7 +15,7 @@ tags:
 
 ## reactive 思维导图
 
-![image.png](/images/blog/vue3_reactive.webp)
+![image.png](./vue3_reactive.webp)
 
 ## createReactiveObject
 

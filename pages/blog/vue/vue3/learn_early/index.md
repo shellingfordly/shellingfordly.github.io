@@ -5,7 +5,7 @@ tags:
   - vue
 ---
 
-# Vue3新特性学习记录
+# Vue3 新特性学习记录
 
 ## 新特性
 
@@ -585,14 +585,14 @@ const { ctx } = getCurrentInstance();
   - ctx 只是为了便于在开发模式下通过控制台检查
   - 在 prod 模式是一个空对象
 
-![](/images/blog/vue3_note_1.png)
+![](./ctx.png)
 图片来源[掘金 春去春又来](https://juejin.cn/post/6899432348266283022)
 
 ### proxy
 
 > 在开发环境以及生产环境下都能放到组件上下文对象（推荐）
 
-包含属性$attrs,$data,$el,$emit,$forceUpdate,$nextTick,$options,$parent,$props,$refs,$root,$slots,$watch
+包含属性$attrs,$data,$el,$emit,$forceUpdate,$nextTick,$options,$parent,$props,$refs,$root,$slots,\$watch
 
 ```js
 const { proxy } = getCurrentInstance();

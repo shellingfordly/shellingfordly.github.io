@@ -8,6 +8,20 @@ tags:
 
 [[toc]]
 
+<script setup>
+import ol_change_theme from "./images/ol_change_theme.gif";
+import ol_marker_dark from "./images/ol_marker_dark.png";
+import ol_marker_preview_dark from "./images/ol_marker_preview_dark.gif";
+import ol_marker_preview from "./images/ol_marker_preview.gif";
+import ol_marker from "./images/ol_marker.png";
+import ol_plane_dark from "./images/ol_plane_dark.gif";
+import ol_plane_rotation_bark from "./images/ol_plane_rotation_bark.gif";
+import ol_plane_rotation from "./images/ol_plane_rotation.gif";
+import ol_plane from "./images/ol_plane.gif";
+import ol_zoom_dark from "./images/ol_zoom_dark.gif";
+import ol_zoom from "./images/ol_zoom.gif";
+</script>
+
 ## 在 vue3 中使用 openlayers 制作旅行地图
 
 由于上半年经常跑出去，突然想做一个旅行地图的博客，想起之前接触过 openlayers 的项目，也懒得去调查别的库了，直接用 openlayers 开干。
@@ -122,7 +136,7 @@ map.getView().on("change", function (event) {
 
 - 效果
 
-<img-item dark="/images/blog/ol/ol_zoom_dark.gif" light="/images/blog/ol/ol_zoom.gif" />
+<img-item :dark="ol_zoom_dark" :light="ol_zoom" />
 
 ## 实现主题切换
 
@@ -151,7 +165,7 @@ watch(isDark, () => {
 
 - 效果
 
-<img-item src="/images/blog/ol/ol_change_theme.gif"/>
+<img-item :src="ol_change_theme"/>
 
 ## 添加标点
 
@@ -195,7 +209,7 @@ pointFeature.setStyle(iconStyle);
 
 - 效果
 
-<img-item dark="/images/blog/ol/ol_marker_dark.png" light="/images/blog/ol/ol_marker.png" />
+<img-item :dark="ol_marker_dark" :light="ol_marker" />
 
 ## 为标点添加事件
 
@@ -282,7 +296,7 @@ interaction.on("select", (event) => {
 
 - 效果
 
-<img-item dark="/images/blog/ol/ol_marker_preview_dark.gif" light="/images/blog/ol/ol_marker_preview.gif" />
+<img-item :dark="ol_marker_preview_dark" :light="ol_marker_preview" />
 
 ## 航行路线
 
@@ -376,7 +390,7 @@ animate();
 
 - 效果
 
-<img-item dark="/images/blog/ol/ol_plane_dark.gif" light="/images/blog/ol/ol_plane.gif" />
+<img-item :dark="ol_plane_dark" :light="ol_plane" />
 
 左上角是信息预览和路线预览的开关。
 
@@ -398,7 +412,7 @@ lastCoords = coordsList[index];
 
 - 效果
 
-<img-item dark="/images/blog/ol/ol_plane_rotation_bark.gif" light="/images/blog/ol/ol_plane_rotation.gif" />
+<img-item :dark="ol_plane_rotation_bark" :light="ol_plane_rotation" />
 
 ## 总结
 

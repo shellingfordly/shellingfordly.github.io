@@ -161,7 +161,7 @@ $CollisionShape2D.disabled = true
 
 在 RigidBody2D 的 Collision 取消 Mask，将确保敌人节点不会相互碰撞
 
-<img-item src="/images/blog/godot_RigidBody2D_Collision.png" />
+![](./godot_RigidBody2D_Collision.png)
 
 2. 选择动画
 
