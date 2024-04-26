@@ -92,9 +92,9 @@ const show = ref(false);
 
 我想有两种方式，一是在 `transforms.before` 里拿到 css 解析为 `unocss` 的 class 注入 `div.container`；二是直接将 css 放在 style 标签里注入 html。
 
-注入 html 的方式我尝试了一下，确实可行，但感觉不是太好，会影响全局样式；其实好像也能解决，给 css 和 preview 的 class 添加一个 id 应该就好了，尝试了一下实在太麻烦了，最后还是放弃了。
+可能写在 markdownItSetup 里会更好，因为这个属性是专门用来设置插件的，不过我在尝试的时候是直接在 transforms.before 里拿到 md 文件的全部内容进行解析注入的，确实是可行的。但感觉不是太好，会影响全局样式；其实好像也能解决，给 class 添加一个特殊的 id 应该就好了，尝试了一下太麻烦了，最后还是放弃了。
 
-解析为 `unocss` 的 class 我还没有尝试。
+解析为 unocss 的 class 我没有尝试（也是我不知道 unocss 有没有提供 native-css 转 unocss 的接口），感觉上这样应该更好一点，肯定不会影响全局样式了，最终都会被 unocss 解析。
 
 ```ts
 import Markdown from "unplugin-vue-markdown/vite";
@@ -117,7 +117,7 @@ export default defineConfig({
 });
 ```
 
-当然，我这里只是 css 的演示，如果想做 js 的演示呢，注入 js 吗，想了想，我现在的环境不就可以直接在 md 文件里写 js 吗？哈哈哈哈，那这就不用做了。如下：
+当然，我这里只是 css 的演示，如果想做 js 的演示呢，要注入 js 吗，想了想，我现在的环境不就可以直接在 md 文件里写 js 吗，哈哈哈哈。直接把 md 文件当 vue 组件写就行了，把 code 传给默认插槽，演示代码传给 preview 插槽。如下：
 
 <script setup>
 import {ref} from "vue"
