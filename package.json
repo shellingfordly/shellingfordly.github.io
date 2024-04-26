@@ -10,6 +10,7 @@
   "type": "module",
   "devDependencies": {
     "@iconify/json": "^2.2.184",
+    "@shikijs/core": "^1.3.0",
     "@shikijs/markdown-it": "^1.1.5",
     "@shikijs/twoslash": "^1.1.5",
     "@types/diacritics": "^1.3.3",
@@ -34,6 +35,7 @@
     "markdown-it-table-of-contents": "^0.6.0",
     "oxlint": "0.2.3-alpha.0",
     "shiki": "^1.1.5",
+    "transform-to-unocss-core": "^0.0.29",
     "typescript": "^5.3.3",
     "unocss": "^0.58.5",
     "unplugin-auto-import": "^0.17.5",
