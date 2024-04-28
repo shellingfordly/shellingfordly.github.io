@@ -1,78 +1,164 @@
-import type { ShikiTransformer } from "@shikijs/core";
-import { toUnocss } from "transform-to-unocss-core";
+import type {
+  ShikiTransformer,
+  ShikiTransformerContextMeta,
+} from "@shikijs/core";
+import { transformUnocss, type NodeItem } from "./transformUnocss";
+import type { ElementContent, Element, Text } from "hast";
+
+const cssType = ["less", "sass", "css", "styl"];
 
 export function transformerToUnocss(): ShikiTransformer {
-  const map = new WeakMap();
+  const map = new WeakMap<
+    ShikiTransformerContextMeta,
+    ReturnType<typeof transformUnocss>
+  >();
 
   return {
     preprocess(code) {
-      const tags = code
-        .split("\n")
-        .map((line, i) => {
-          const match = line.match(/(\w+:\s?\w+;)/g);
-          if (match) {
-            const node = {
-              name: "",
-              line: i,
-              text: toUnocss(match[0]),
-            };
-            return node;
-          }
-        })
-        .filter(Boolean);
-
-      map.set(this.meta, tags);
-      // 生成 unocss 展示nodes
+      const unocss = transformUnocss(code, this.options.lang);
+      map.set(this.meta, unocss);
     },
-    code(codeEl) {
-      const tags = map.get(this.meta);
-      console.log(tags);
-
-      const insertAfterLine = (line: number, nodes: any[]) => {
-        if (!nodes.length) return;
-        let index: number;
-        if (line >= this.lines.length) {
-          index = codeEl.children.length;
-        } else {
-          const lineEl = this.lines[line];
-          index = codeEl.children.indexOf(lineEl);
-          if (index === -1) {
-            return;
+    pre(pre) {
+      const uno = map.get(this.meta);
+      if (!uno) return;
+      this.addClassToHast(pre, "twoslash lsp");
+    },
+    tokens(tokens) {
+      const lang = this.options.lang;
+      if (cssType.includes(lang)) {
+        return tokens.map((token) => {
+          if (token[0]) {
+            let token_copy = { ...token[0] };
+            if (token_copy.content.startsWith(" ")) {
+              const match = token_copy.content.match(/^\s+/g);
+              if (match && match[0]) {
+                token[0].content = token_copy.content.slice(match[0].length);
+                token_copy.content = match[0];
+              }
+              return [token_copy, ...token];
+            }
           }
-        }
+          return token;
+        });
+      } else if (lang === "html") {
+        // const styleText = line.match(/style="([^"]+)"/);
 
-        // If there is a newline after this line, remove it because we have the error element take place.
-        const nodeAfter = codeEl.children[index + 1];
+        return tokens.map((token) => {
+          let index: number = -1;
+          let tokens_copy: any[] = [];
+          token.forEach((item, i) => {
+            const match = item.content.match(/(\w+:\s?\w+;)+/g);
+            if (match) {
+              index = i;
+              match.forEach((content) => {
+                tokens_copy.push({ ...item, content });
+                if (index < token.length - 1)
+                  tokens_copy.push({ ...item, content: " " });
+              });
+            }
+          });
+          if (index > 0) token.splice(index, 1, ...tokens_copy);
 
-        console.log("nodeAfter:", nodeAfter);
-        if (nodeAfter && nodeAfter.type === "text" && nodeAfter.value === "\n")
-          codeEl.children.splice(index + 1, 1);
-        codeEl.children.splice(index + 1, 0, ...nodes);
-      };
-
-      // 把nodes挂到对应的lineEl
-
-      for (const node of tags) {
-        insertAfterLine(node.line, lineCustomTag.call(this, node));
+          return token;
+        });
       }
     },
+    line(node, line) {
+      const unocss = map.get(this.meta);
+      if (!unocss) return;
+
+      const items = unocss.nodes.filter((n) => n.line === line);
+
+      for (const item of items) {
+        let startIndex = -1;
+
+        const mergeSpans = node.children.filter((child, i) => {
+          const isMerge =
+            child.type === "element" &&
+            (child?.properties?.class as string)?.includes(
+              `merge_span_${item.start}_${item.end}`
+            );
+
+          if (isMerge && startIndex === -1) startIndex = i;
+
+          return isMerge;
+        });
+
+        if (mergeSpans.length > 0) {
+          const mergeNode: ElementContent = {
+            type: "element",
+            tagName: "span",
+            properties: { class: "twoslash-hover" },
+            children: [...mergeSpans],
+          };
+
+          mergeNode.children.push(...lineCustomTag(item));
+          node.children.splice(startIndex, mergeSpans.length, mergeNode);
+        }
+      }
+    },
+    span(node, line, col, lineEl) {
+      const unocss = map.get(this.meta);
+      if (!unocss) return;
+
+      const items = unocss.nodes.filter((n) => n.line === line);
+      items.forEach((item) => {
+        if (item && item.start <= col && col <= item.end) {
+          if (node.type === "element" && node.children) {
+            const child = node.children[0];
+            if (child.type === "text" && child.value !== " ") {
+              if (item.nativeValue === child.value) {
+                node.properties.class = "twoslash-hover";
+                node.children.push(...lineCustomTag(item!));
+              } else {
+                node.properties.class = `merge_span_${item.start}_${item.end}`;
+              }
+            }
+          }
+        }
+      });
+    },
+    code(codeEl) {},
   };
 }
 
-export function lineCustomTag(tag: any) {
+export function lineCustomTag(tag: NodeItem): ElementContent[] {
   return [
     {
       type: "element",
-      tagName: "div",
+      tagName: "span",
       properties: {
-        class: [`twoslash-tag-line twoslash-tag-${tag.name}-line`]
-          .filter(Boolean)
-          .join(" "),
+        class: "twoslash-popup-container",
       },
       children: [
         {
-          type: "text",
-          value: tag.text || "",
+          type: "element",
+          tagName: "code",
+          properties: { class: "twoslash-popup-code" },
+          children: [
+            {
+              type: "element",
+              tagName: "span",
+              properties: { class: "line" },
+              children: [
+                {
+                  type: "text",
+                  value: "toUnocss",
+                },
+              ],
+            },
+            {
+              type: "element",
+              tagName: "span",
+              properties: { class: "line" },
+              children: [
+                {
+                  type: "text",
+                  value: "class: " + (tag.text || ""),
+                },
+              ],
+            },
+          ],
         },
       ],
     },
