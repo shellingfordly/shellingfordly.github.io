@@ -18,7 +18,7 @@ import { slugify } from "./scripts/slugify";
 import MarkdownItShiki from "@shikijs/markdown-it";
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
-import { transformerToUnocss } from "./plugins/transformerToUnocss";
+import { transformerToUnocss } from "./plugins/shikiUnocssTransformer";
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";

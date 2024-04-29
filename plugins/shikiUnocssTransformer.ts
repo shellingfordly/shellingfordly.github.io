@@ -1,3 +1,4 @@
+import * as _shikijs_core_dist_chunk_tokens_mjs from "@shikijs/core/dist/chunk-tokens.mjs";
 import type {
   ShikiTransformer,
   ShikiTransformerContextMeta,
@@ -5,13 +6,14 @@ import type {
 } from "@shikijs/core";
 import type { ElementContent } from "hast";
 import { toUnocss } from "transform-to-unocss-core";
+import { createGenerator } from "@unocss/core";
+import { presetUno, presetAttributify, parseVariantGroup } from "unocss";
+
 export interface NodeItem {
   line: number;
   start: number;
   end: number;
   text: string;
-  nodeStart: number;
-  nodeEnd: number;
   nativeValue: string;
 }
 
@@ -34,16 +36,13 @@ export function transformerToUnocss(): ShikiTransformer {
 
           while ((match = regex.exec(lineText)) !== null) {
             if (match) {
-              const item = {
+              items.push({
                 line: index + 1,
                 start: match.index,
                 end: match.index + match[1].length,
                 text: toUnocss(match[1]),
                 nativeValue: match[1],
-                nodeStart: 0,
-                nodeEnd: 0,
-              };
-              items.push(item);
+              });
             }
           }
 
@@ -180,7 +179,7 @@ export function lineStyleToUnocss(tag: NodeItem): ElementContent[] {
               children: [
                 {
                   type: "text",
-                  value: "toUnocss",
+                  value: "To Unocss:",
                 },
               ],
             },
@@ -200,4 +199,38 @@ export function lineStyleToUnocss(tag: NodeItem): ElementContent[] {
       ],
     },
   ];
+}
+
+export function transformUnocss(code: string): Promise<string> {
+  return new Promise((resolve) => {
+    createGenerator(
+      {},
+      {
+        presets: [presetUno(), presetAttributify() as any],
+      }
+    )
+      .generate(code || "")
+      .then((res: any) => {
+        const css = res.getLayers();
+        const reg = new RegExp(
+          `${escapeRegExp(code)}([:\\>][\\w\\-\\(\\)]+)?{(.*)}`
+        );
+        const match = css.match(reg);
+        if (!match) return resolve("");
+        const result = match[0]
+          .replace(
+            match[2],
+            (match[2] as string).replace(/[:,]/g, (v) => `${v} `)
+          )
+          .replace("{", " {\n  ")
+          .replace(/;/g, ";\n  ")
+          .replace("  }", "}");
+
+        resolve(result);
+      });
+  });
+}
+
+function escapeRegExp(str: string) {
+  return str.replace(/[.*+?^${}()|[\]\\%:\!\&\>]/g, "\\\\\\$&");
 }
