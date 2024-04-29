@@ -1,21 +1,56 @@
 import type {
   ShikiTransformer,
   ShikiTransformerContextMeta,
+  ThemedToken,
 } from "@shikijs/core";
-import { transformUnocss, type NodeItem } from "./transformUnocss";
-import type { ElementContent, Element, Text } from "hast";
+import type { ElementContent } from "hast";
+import { toUnocss } from "transform-to-unocss-core";
+export interface NodeItem {
+  line: number;
+  start: number;
+  end: number;
+  text: string;
+  nodeStart: number;
+  nodeEnd: number;
+  nativeValue: string;
+}
 
-const cssType = ["less", "sass", "css", "styl"];
+const cssLangs = ["less", "scss", "css"];
+const htmlLangs = ["html", "vue"];
 
 export function transformerToUnocss(): ShikiTransformer {
-  const map = new WeakMap<
-    ShikiTransformerContextMeta,
-    ReturnType<typeof transformUnocss>
-  >();
+  const map = new WeakMap<ShikiTransformerContextMeta, { nodes: NodeItem[] }>();
 
   return {
     preprocess(code) {
-      const unocss = transformUnocss(code, this.options.lang);
+      const unocss: { nodes: NodeItem[] } = { nodes: [] };
+
+      unocss.nodes = code
+        .split("\n")
+        .flatMap((lineText, index) => {
+          const regex = new RegExp(/(\w+:\s?\w+);?/g);
+          let match;
+          let items: NodeItem[] = [];
+
+          while ((match = regex.exec(lineText)) !== null) {
+            if (match) {
+              const item = {
+                line: index + 1,
+                start: match.index,
+                end: match.index + match[1].length,
+                text: toUnocss(match[1]),
+                nativeValue: match[1],
+                nodeStart: 0,
+                nodeEnd: 0,
+              };
+              items.push(item);
+            }
+          }
+
+          return items;
+        })
+        .filter(Boolean) as NodeItem[];
+
       map.set(this.meta, unocss);
     },
     pre(pre) {
@@ -25,25 +60,28 @@ export function transformerToUnocss(): ShikiTransformer {
     },
     tokens(tokens) {
       const lang = this.options.lang;
-      if (cssType.includes(lang)) {
-        return tokens.map((token) => {
-          if (token[0]) {
-            let token_copy = { ...token[0] };
-            if (token_copy.content.startsWith(" ")) {
-              const match = token_copy.content.match(/^\s+/g);
-              if (match && match[0]) {
-                token[0].content = token_copy.content.slice(match[0].length);
-                token_copy.content = match[0];
-              }
-              return [token_copy, ...token];
+
+      const extractPreSpace = (token: ThemedToken[]) => {
+        return token.flatMap((item) => {
+          if (/^\s+\w/.test(item.content)) {
+            let preSpaceItem = { ...item };
+            const match = preSpaceItem.content.match(/^\s+/g);
+            if (match && match[0]) {
+              item.content = preSpaceItem.content.slice(match[0].length);
+              preSpaceItem.content = match[0];
+              return [preSpaceItem, item];
             }
           }
-          return token;
+          return item;
         });
-      } else if (lang === "html") {
-        // const styleText = line.match(/style="([^"]+)"/);
+      };
 
+      if (cssLangs.includes(lang)) {
+        return tokens.map(extractPreSpace);
+      } else if (htmlLangs.includes(lang)) {
         return tokens.map((token) => {
+          token = extractPreSpace(token);
+
           let index: number = -1;
           let tokens_copy: any[] = [];
           token.forEach((item, i) => {
@@ -92,24 +130,24 @@ export function transformerToUnocss(): ShikiTransformer {
             children: [...mergeSpans],
           };
 
-          mergeNode.children.push(...lineCustomTag(item));
+          mergeNode.children.push(...lineStyleToUnocss(item));
           node.children.splice(startIndex, mergeSpans.length, mergeNode);
         }
       }
     },
-    span(node, line, col, lineEl) {
+    span(node, line, col) {
       const unocss = map.get(this.meta);
       if (!unocss) return;
 
       const items = unocss.nodes.filter((n) => n.line === line);
       items.forEach((item) => {
-        if (item && item.start <= col && col <= item.end) {
+        if (item && item.start <= col && col < item.end) {
           if (node.type === "element" && node.children) {
             const child = node.children[0];
-            if (child.type === "text" && child.value !== " ") {
+            if (child.type === "text") {
               if (item.nativeValue === child.value) {
                 node.properties.class = "twoslash-hover";
-                node.children.push(...lineCustomTag(item!));
+                node.children.push(...lineStyleToUnocss(item!));
               } else {
                 node.properties.class = `merge_span_${item.start}_${item.end}`;
               }
@@ -118,11 +156,10 @@ export function transformerToUnocss(): ShikiTransformer {
         }
       });
     },
-    code(codeEl) {},
   };
 }
 
-export function lineCustomTag(tag: NodeItem): ElementContent[] {
+export function lineStyleToUnocss(tag: NodeItem): ElementContent[] {
   return [
     {
       type: "element",
