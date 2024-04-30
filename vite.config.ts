@@ -18,7 +18,7 @@ import { slugify } from "./scripts/slugify";
 import MarkdownItShiki from "@shikijs/markdown-it";
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
-import { transformerToUnocss } from "./plugins/shikiUnocssTransformer";
+import { transformerToUnocss } from "shiki-unocss-transformer";
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";
@@ -60,8 +60,8 @@ export default defineConfig({
         return code.includes("@layout-map")
           ? "map_container"
           : code.includes("@layout-full-width")
-          ? ""
-          : "prose m-auto slide-enter-content";
+            ? ""
+            : "prose m-auto slide-enter-content";
       },
       exportFrontmatter: false,
       exposeFrontmatter: false,
@@ -80,7 +80,9 @@ export default defineConfig({
                 explicitTrigger: true,
                 renderer: rendererRich(),
               }),
-              transformerToUnocss() as any,
+              transformerToUnocss({
+                explicitTrigger: true,
+              }) as any,
             ],
           })
         );
