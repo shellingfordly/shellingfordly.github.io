@@ -19,7 +19,6 @@
     "@types/markdown-it": "^13.0.7",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/nprogress": "^0.2.3",
-    "@unocss/core": "^0.59.4",
     "@unocss/reset": "^0.58.9",
     "@vitejs/plugin-vue": "^4.6.2",
     "cross-env": "^7.0.3",

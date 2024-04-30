@@ -72,9 +72,6 @@ importers:
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
-      '@unocss/core':
-        specifier: ^0.59.4
-        version: 0.59.4
       '@unocss/reset':
         specifier: ^0.58.9
         version: 0.58.9
@@ -769,9 +766,6 @@ packages:
 
   '@unocss/core@0.58.9':
     resolution: {integrity: sha512-wYpPIPPsOIbIoMIDuH8ihehJk5pAZmyFKXIYO/Kro98GEOFhz6lJoLsy6/PZuitlgp2/TSlubUuWGjHWvp5osw==}
-
-  '@unocss/core@0.59.4':
-    resolution: {integrity: sha512-bBZ1sgcAtezQVZ1BST9IS3jqcsTLyqKNjiIf7FTnX3DHpfpYuMDFzSOtmkZDzBleOLO/CtcRWjT0HwTSQAmV0A==}
 
   '@unocss/extractor-arbitrary-variants@0.58.9':
     resolution: {integrity: sha512-M/BvPdbEEMdhcFQh/z2Bf9gylO1Ky/ZnpIvKWS1YJPLt4KA7UWXSUf+ZNTFxX+X58Is5qAb5hNh/XBQmL3gbXg==}
@@ -2961,8 +2955,6 @@ snapshots:
       unconfig: 0.3.13
 
   '@unocss/core@0.58.9': {}
-
-  '@unocss/core@0.59.4': {}
 
   '@unocss/extractor-arbitrary-variants@0.58.9':
     dependencies:
