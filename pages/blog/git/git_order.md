@@ -109,6 +109,12 @@ git merge xxx
 git branch -d xxx
 ```
 
+- 删除远程分支 xxx
+
+```
+git push origin --delete xxx
+```
+
 - 可以看到提交的 commit 信息
 
 ```
