@@ -1,4 +1,51 @@
+---
+title: ESP32 Arduino 教程
+---
+
 # 嵌入式开发
+
+[b站学习视频](https://www.bilibili.com/video/BV1RM4y1a7J5?p=1&vd_source=f1eabc4ac349d74afd6e752859c8b738)
+
+## 介绍
+
+开发版介绍
+
+![alt text](./images/image-0.png)
+
+开发版引脚图
+
+![alt text](./images/image-1.png)
+
+## 常用API
+
+### 常规
+
+- setup
+- loop
+- delay 暂停
+- millis 测量自程序启动以来经过的时间
+
+### 串行通信
+
+- Serial.begin
+
+初始化主板和计算机之间的串行通信，可以指定波特率（通信速度）
+
+- Serial.print 将数据打印到串行端口
+- Serial.read 读取传入的串行数据
+
+### GPIO/引脚管理
+
+- pinMode 将数字引脚配置为输入或输出
+- digitalRead 读取数字引脚的状态
+- digitalWrite 将高电平或低电平状态写入数字引脚
+- analogRead
+
+读取模拟引脚的电压，并返回介于 0-1023（10 位分辨率）之间的值。用于读取模拟元件。
+
+- analogWrite
+
+写入介于 0-255（8 位分辨率）之间的值。用于调光灯光或设置电机速度。也称为PWM或脉宽调制。
 
 ## GPIO 引脚
 
@@ -6,7 +53,7 @@ GPIO 引脚，负责输入/输出电压，开发板上 D 开头的引脚都是�
 
 ## LED
 
-![alt text](./images/image-0.png)
+![alt text](./images/image-2.png)
 
 长脚为阳极，短脚为阴级
 
@@ -18,7 +65,7 @@ GPIO 引脚，负责输入/输出电压，开发板上 D 开头的引脚都是�
 
 ## 数码管
 
-![alt text](./images/image-1.png)
+![alt text](./images/image-3.png)
 
 ### 共阴数码管
 
@@ -67,7 +114,7 @@ void loop() {
 
 ## 4 位数码管
 
-![alt text](./images/image-2.png)
+![alt text](./images/image-4.png)
 
 ### 4 位同时显示某一个数字
 

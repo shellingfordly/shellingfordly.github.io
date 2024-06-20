@@ -12,12 +12,10 @@ tags:
 
 需要添加几个参数
 
-- DEPLOY_KEY：SSH 私钥
+- DEPLOY_KEY：SSH 私钥，id_rsa的内容
 - SERVER_IP：服务器的host名
 - USERNAME：服务器登录名
 - SERVER_DESTINATION：部署到目标文件夹
-
-
 
 ```bash
 name: note build
