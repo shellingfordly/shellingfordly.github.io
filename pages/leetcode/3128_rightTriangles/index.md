@@ -29,7 +29,7 @@ tags:
 
 示例 2：
 
-![alt text](image-2.png)
+![alt text](./image-2.png)
 
 > 输入：grid = [[1,0,0,0],[0,1,0,1],[1,0,0,0]]
 >
@@ -41,7 +41,7 @@ tags:
 
 示例 3：
 
-![alt text](image-3.png)
+![alt text](./image-3.png)
 
 > 输入：grid = [[1,0,1],[1,0,0],[1,0,0]]
 >

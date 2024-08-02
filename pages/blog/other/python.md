@@ -29,7 +29,7 @@ vim venv/pip.conf
 
 添加一下内容，表示允许 pip 在受管理的 Python 环境中安装或修改包，即使这可能会影响系统范围内的包管理
 
-```conf
+```
 [global]
 break-system-packages = true
 ```
