@@ -51,7 +51,7 @@ tags:
 >
 > 有两个直角三角形。
 
-## 方法一: 暴力解法
+## 方法一
 
 ### 思路
 
@@ -98,4 +98,101 @@ export function numberOfRightTriangles(grid: number[][]): number {
   }
   return count;
 }
+```
+
+## 方法二：枚举
+
+[官方解答](https://leetcode.cn/problems/right-triangles/solutions/2861202/zhi-jiao-san-jiao-xing-by-leetcode-solut-zbz2/?envType=daily-question&envId=2024-08-02)
+
+### 思路
+
+直接枚举三个点判断是否为直角三角形的方法未免过于低效，我们可以固定一个点，然后来统计其他两个点的合法方法数。
+
+考虑枚举两条直角边的交点，然后将「该点所在行的其他点」与「该点所在列的其他点」一一匹配，即可得到所有以该点为直角边交点的所有方案。
+设 row 为交点所在行 1 的个数，col 为交点所在列 1 的个数，那么它的贡献是 (row−1)×(col−1)，将所有交点的贡献加起来就是答案。
+
+### 代码
+
+```ts
+function numberOfRightTriangles(grid: number[][]): number {
+  const n = grid.length;
+  const m = grid[0].length;
+  const col = new Array(m).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      col[j] += grid[i][j];
+    }
+  }
+
+  let res = 0;
+  for (let i = 0; i < n; i++) {
+    let row = grid[i].reduce((a, b) => a + b, 0);
+    for (let j = 0; j < m; j++) {
+      if (grid[i][j] === 1) {
+        res += (row - 1) * (col[j] - 1);
+      }
+    }
+  }
+
+  return res;
+}
+```
+
+### 分析
+
+解答稍微有一点不清晰，简单的说，把每行每列存在 1 的个数都记录下来。遍历二维数组，当在具体的 1 位置时，它所在的行和列存在的 1 的数量减一相乘就是此处可以组成的直角三角形数量。
+
+```ts
+export function numberOfRightTriangles(grid: number[][]): number {
+  const n = grid.length;
+  const m = grid[0].length;
+  const row = new Array(n).fill(0);
+  const col = new Array(m).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      row[i] += grid[i][j];
+      col[j] += grid[i][j];
+    }
+  }
+
+  let res = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (grid[i][j] === 1) {
+        res += (row[i] - 1) * (col[j] - 1);
+      }
+    }
+  }
+
+  return res;
+}
+```
+
+修改一下官方代码，将 row 单独记录一下更方便理解。
+
+row为每行有多少个1，col为每列有多少个1，遍历数组：
+
+当 grid[i][j] 为1时，减去本身自己的基数， (row[i] - 1) * (col[j] - 1) 就是此处的能组成三角形的个数
+
+```ts
+grid = [
+  [0,1,0],
+  [0,1,1],
+  [0,1,0]
+]
+
+row = [1,2,1]
+col = [0,3,1]
+
+grid[0][1] == 1
+row[0] == 1
+col[1] == 3
+count =1-1 * 3-1 =0
+
+grid[1][1] == 1
+row[1] == 2
+col[1] == 3
+count =2-1 * 3-1 =2
 ```
