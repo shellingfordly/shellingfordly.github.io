@@ -1,5 +1,9 @@
 ---
 title: ESP32 Arduino 教程
+date: 2024-6-17 13:29:00
+tag:
+  - ESP32
+  - Arduino
 ---
 
 # 嵌入式开发
