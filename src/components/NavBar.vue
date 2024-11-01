@@ -12,12 +12,8 @@ const { y: scroll } = useWindowScroll();
 
 <template>
   <header class="header flex z-40 w-full top-0 left-0 relative h-[70px]">
-    <scroll-btn
-      name="i-ri-arrow-up-line"
-      class="fixed right-3 bottom-3"
-      :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
-      @click="toTop()"
-    />
+    <scroll-btn name="i-ri-arrow-up-line" class="fixed right-3 bottom-3"
+      :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'" @click="toTop()" />
 
     <logo />
 
@@ -25,10 +21,7 @@ const { y: scroll } = useWindowScroll();
       <div class="spacer" />
 
       <div class="right print:op0">
-        <RouterLink
-          to="/blog?type=blog"
-          :class="$route.name == 'blog' && 'op100!'"
-        >
+        <RouterLink to="/blog?type=blog" :class="$route.name == 'blog' && 'op100!'">
           <span class="lt-md:hidden">Blog</span>
           <div class="i-carbon-book md:hidden"></div>
         </RouterLink>
@@ -36,22 +29,16 @@ const { y: scroll } = useWindowScroll();
           <span class="lt-md:hidden">Travel</span>
           <div class="i-carbon-map md:hidden"></div>
         </RouterLink>
-        <RouterLink
-          to="/projects"
-          :class="$route.name == 'projects' && 'op100!'"
-        >
+        <RouterLink to="/projects" :class="$route.name == 'projects' && 'op100!'">
           <span class="lt-md:hidden">Projects</span>
-          <div
-            class="i-ant-design-fund-projection-screen-outlined md:hidden"
-          ></div>
+          <div class="i-ant-design-fund-projection-screen-outlined md:hidden"></div>
         </RouterLink>
 
-        <a
-          href="https://github.com/shellingfordly"
-          target="_blank"
-          title="GitHub"
-        >
+        <a href="https://github.com/shellingfordly" target="_blank" title="GitHub">
           <div class="i-uil-github-alt" />
+        </a>
+        <a href="/feed.xm" target="_blank" title="RSS">
+          <div class="i-la-rss-square" />
         </a>
         <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
           <div class="i-carbon-sun dark:i-carbon-moon" />
@@ -70,7 +57,7 @@ const { y: scroll } = useWindowScroll();
   box-sizing: border-box;
 }
 
-.nav > * {
+.nav>* {
   margin: auto;
 }
 
@@ -98,7 +85,7 @@ const { y: scroll } = useWindowScroll();
   grid-auto-flow: column;
 }
 
-.nav .right > * {
+.nav .right>* {
   margin: auto;
 }
 </style>
