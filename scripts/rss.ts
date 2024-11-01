@@ -23,7 +23,7 @@ async function run() {
 }
 
 async function buildBlogRSS() {
-  const files = await fg('pages/blog/*.md')
+  const files = await fg('pages/blog/**/*.md')
 
   const options = {
     title: 'Shellingfordly',
@@ -41,16 +41,31 @@ async function buildBlogRSS() {
   }
   const posts: any[] = (
     await Promise.all(
-      files.filter(i => !i.includes('index'))
+      files.flat().filter(i => !i.includes('index'))
         .map(async (i) => {
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
-          if (data.lang !== 'en')
+          // 检查数据
+          if (!data.title || !data.date || !data.tags) {
+            console.log('Error data for:', i)
             return
+          }
+
+          // 检查内容
+          if (!content.trim()) {
+            console.log('Empty content for:', i)
+            return
+          }
 
           const html = markdown.render(content)
             .replace('src="/', `src="${DOMAIN}/`)
+
+          // 检查html
+          if (!html) {
+            console.log('Failed to render HTML for:', i)
+            return
+          }
 
           if (data.image?.startsWith('/'))
             data.image = DOMAIN + data.image
@@ -77,7 +92,6 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   const feed = new Feed(options)
 
   items.forEach(item => feed.addItem(item))
-  // items.forEach(i=> console.log(i.title, i.date))
 
   await fs.ensureDir(dirname(`./dist/${name}`))
   await fs.writeFile(`./dist/${name}.xml`, feed.rss2(), 'utf-8')
