@@ -37,7 +37,7 @@ const { y: scroll } = useWindowScroll();
         <a href="https://github.com/shellingfordly" target="_blank" title="GitHub">
           <div class="i-uil-github-alt" />
         </a>
-        <a href="/feed.xm" target="_blank" title="RSS">
+        <a href="/feed.xml" target="_blank" title="RSS">
           <div class="i-la-rss-square" />
         </a>
         <a class="select-none" title="Toggle Color Scheme" @click="toggleDark">
