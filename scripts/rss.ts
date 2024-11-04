@@ -41,8 +41,9 @@ async function buildBlogRSS() {
   }
   const posts: any[] = (
     await Promise.all(
-      files.flat().filter(i => !i.includes('index'))
+      files.flat().filter(i => !i.endsWith('/blog/index.md'))
         .map(async (i) => {
+          console.log(i)
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 

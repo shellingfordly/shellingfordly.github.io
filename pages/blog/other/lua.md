@@ -1,7 +1,7 @@
 ---
 title: lua基础语法
 date: 2024-5-30 10:16:53
-tag:
+tags:
   - lua
 ---
 
