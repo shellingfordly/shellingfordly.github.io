@@ -2,8 +2,8 @@
 title: 使用github actions自动同步服务器
 date: 2023-9-28 17:50:26
 tags:
-  - github actions
-  - 自动部署
+  - github
+  - deploy
 ---
 
 # 使用 github actions 自动同步服务器
