@@ -27,75 +27,63 @@ const className = (type: ContentType) => {
 };
 
 function toBot() {
-  window.scrollTo({
-    top: window.innerHeight,
-    behavior: "smooth",
-  });
+
+  const dom = document.getElementById("home-content")
+  if (dom)
+    dom.scrollIntoView({ behavior: 'smooth'})
 }
 </script>
 <template>
   <client-only>
-    <div class="relative w-full flex justify-center h-[var(--v-height)]">
-      <swiper
-        :autoplay="{}"
-        :modules="[Autoplay]"
-        style="width: 100%; height: 100%;"
-      >
-        <swiper-slide
-          class="bg_box w-full h-full bg-fixed bg-no-repeat bg-cover"
-          v-for="url in homeBgUrlList"
-          v-lazy:background-image="{ src: url, error: '', loading: '' }"
-        >
+    <div class="fixed top-0 left-0 w-full h-[100vh] box-border flex justify-center">
+      <swiper :autoplay="{}" :modules="[Autoplay]" style="width: 100%; height: 100%;">
+        <swiper-slide class="bg_box w-full h-full bg-fixed bg-no-repeat bg-cover" v-for="url in homeBgUrlList"
+          v-lazy:background-image="{ src: url, error: '', loading: '' }">
         </swiper-slide>
       </swiper>
-      <div
-        class="absolute top-35% h-16 z-100 cursor-pointer hvr-wobble-horizontal hvr-underline-from-center"
-        @click="$router.push('/blog')"
-      >
+      <div class="absolute top-[35%] h-16 z-100 cursor-pointer hvr-wobble-horizontal hvr-underline-from-center"
+        @click="$router.push('/blog')">
         <h1 class="title sm:font-size-8 font-size-6">
           人生本就是一场孤独的旅行_
         </h1>
       </div>
+    </div>
+    <div class="relative h-[var(--v-height)] w-full">
       <div class="w-full z-100 absolute left-0 bottom-0">
         <wave-icon />
-        <div
-          class="w-full h-[10vh] bg-[var(--c-bg)] flex items-center justify-center"
-        >
+        <div class="w-full h-[10vh] bg-[var(--c-bg)] flex items-center justify-center">
           <scroll-btn name="i-carbon-arrow-down" @click="toBot()" />
         </div>
       </div>
     </div>
 
     <!-- * content -->
-    <div class="home-item" v-for="(item, i) in content">
-      <div class="content" :class="i % 2 != 0 && 'bg-[var(--c-bg)]!'">
-        <div class="desc">
-          <p class="name">{{ item.title }}</p>
-          <p class="subtitle">{{ item.subtitle }}</p>
-          <a
-            class="btn hvr-shutter-out-horizontal bg-#8884"
-            href="/blog?type=blog"
-          >
-            查看更多
-          </a>
-        </div>
-        <div class="left" :class="className(item.type)">
-          <div v-if="item.type == 'icon'" v-for="icon in item.list">
-            <div :class="icon" class="hvr-pulse-grow"></div>
+    <div id="home-content">
+      <div class="home-item" v-for="(item, i) in content">
+        <div class="content" :class="i % 2 != 0 && 'bg-[var(--c-scrollbar)]!'">
+          <div class="desc">
+            <p class="name">{{ item.title }}</p>
+            <p class="subtitle">{{ item.subtitle }}</p>
+            <a class="btn hvr-shutter-out-horizontal bg-[#8884]" href="/blog?type=blog">
+              查看更多
+            </a>
           </div>
+          <div class="left" :class="className(item.type)">
+            <div v-if="item.type == 'icon'" v-for="icon in item.list">
+              <div :class="icon" class="hvr-pulse-grow"></div>
+            </div>
 
-          <template v-if="item.type == 'img-list'">
-            <img class="w-full h-full" v-for="url in item.list" v-lazy="url" />
-          </template>
-          <template v-if="item.type == 'img'">
-            <img
-              class="m-a lt-sm:h-a lt-lg:h-400px lg:w-400px"
-              v-lazy="item.list[0]"
-            />
-          </template>
+            <template v-if="item.type == 'img-list'">
+              <img class="w-full h-full" v-for="url in item.list" v-lazy="url" />
+            </template>
+            <template v-if="item.type == 'img'">
+              <img class="m-a lt-sm:h-a lt-lg:h-[400px] lg:w-[400px]" v-lazy="item.list[0]" />
+            </template>
+          </div>
         </div>
       </div>
     </div>
+
   </client-only>
 </template>
 
@@ -108,6 +96,7 @@ function toBot() {
 .hvr-underline-from-center:before {
   background-color: #eee;
 }
+
 .hvr-shutter-out-horizontal::before {
   background-color: #8884;
 }
@@ -116,10 +105,12 @@ function toBot() {
   from {
     width: 1ch;
   }
+
   to {
     width: 21.5ch;
   }
 }
+
 .title {
   width: 1ch;
   height: 4rem;
@@ -132,43 +123,51 @@ function toBot() {
 
 // home item
 
-.home-item .icon_box {
-  grid-template-columns: repeat(auto-fill, 25%);
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    height: 80px;
-    font-size: 30px;
-
-    @media (min-width: 1024px) {
-      height: 160px;
-    }
-  }
-}
-
-.home-item .img_box {
-  grid-template-columns: repeat(auto-fill, 33%);
-  img {
-    height: 120px;
-    @media (min-width: 1024px) {
-      height: 160px;
-    }
-  }
-}
-
 .home-item {
-  width: 100%;
-  height: 100vh;
+  position: relative;
+  width: 100vw;
+  height: auto;
   overflow: hidden;
+  background-color: var(--c-bg);
+
+  @media (min-width: 640px) {
+    height: 100vh;
+  }
+
+  .icon_box {
+    grid-template-columns: repeat(auto-fill, 25%);
+
+    >div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      height: 80px;
+      font-size: 30px;
+
+      @media (min-width: 1024px) {
+        height: 160px;
+      }
+    }
+  }
+
+  .img_box {
+    grid-template-columns: repeat(auto-fill, 33%);
+
+    img {
+      height: 120px;
+
+      @media (min-width: 1024px) {
+        height: 160px;
+      }
+    }
+  }
 
   .content {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: var(--c-scrollbar);
+    background-color: var(--c-bg);
 
     .desc {
       text-align: center;
@@ -189,10 +188,11 @@ function toBot() {
         padding: 5px 20px;
       }
     }
+
     .left {
       display: grid;
       width: 80%;
-      margin: 60px auto 0;
+      margin: 60px auto;
       padding: 0;
       overflow: hidden;
     }
@@ -220,6 +220,7 @@ function toBot() {
 
     @media (min-width: 1024px) {
       width: 75%;
+
       .desc {
         text-align: left;
 

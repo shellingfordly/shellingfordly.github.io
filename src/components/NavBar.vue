@@ -11,7 +11,7 @@ const { y: scroll } = useWindowScroll();
 </script>
 
 <template>
-  <header class="header flex z-40 w-full top-0 left-0 relative h-[70px]">
+  <header class="fixed bg-[var(--c-bg)]  flex z-2000 w-full top-0 left-0  h-[70px]">
     <scroll-btn name="i-ri-arrow-up-line" class="fixed right-3 bottom-3"
       :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'" @click="toTop()" />
 

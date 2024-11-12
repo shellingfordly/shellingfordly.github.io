@@ -38,7 +38,7 @@ onKeyStroke("Escape", (e) => {
 
 <template>
   <nav-bar />
-  <main class="w-full relative of-x-hidden">
+  <main class="pt-[70px] w-full relative of-x-hidden">
     <Header />
     <router-view />
     <Footer v-if="route.path != '/travel'" />
