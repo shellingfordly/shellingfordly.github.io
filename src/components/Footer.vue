@@ -6,11 +6,15 @@
       </a>
       2021-PRESENT © <a href="https://github.com/shellingfordly" target="_blank">shellingfordly</a>
     </p>
-    <div class="font-size-[12px] op50">
-      <div class="i-carbon-user mr-1"></div>
-      <span id="busuanzi_value_site_uv" class="mr-3">0</span>
-      <div class="i-carbon-view mr-1"></div>
-      <span id="busuanzi_value_site_pv">0</span>
+    <div class="font-size-[12px] op50 space-x-3">
+      <span id="busuanzi_container_site_uv">
+        <span class="i-carbon-user mr-1" />
+        <span id="busuanzi_value_site_uv">0</span>
+      </span>
+      <span id="busuanzi_container_site_pv">
+        <span class="i-carbon-view mr-1" />
+        <span id="busuanzi_value_site_pv">0</span>
+      </span>
     </div>
   </div>
 </template>
