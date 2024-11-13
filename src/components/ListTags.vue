@@ -64,7 +64,7 @@ const show = ref(false);
     </div>
   </div>
 
-  <div class="lg:absolute lg:z-2 lg:w-20vw lg:p-5 lg:right-0 lg:top-0">
+  <div class="lg:absolute lg:z-2 lg:w-[20vw] lg:p-5 lg:right-0 lg:top-15">
     <div class="relative flex items-center pt-5 pb-5 lg:pt-10">
       <div
         class="mr-5 cursor-pointer i-carbon-tag opacity-60 hover:opacity-100 z-100"
@@ -95,7 +95,7 @@ const show = ref(false);
       </span>
     </div>
   </div>
-  <blockquote class="m-0!">
+  <blockquote class="m-[0]!">
     <span v-if="notice">{{ notice }}</span>
     <span v-else>博客不定期更新中...</span>
   </blockquote>
