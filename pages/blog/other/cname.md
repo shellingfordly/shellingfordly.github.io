@@ -107,3 +107,35 @@ echo "example.com" > CNAME
 - 如果出现 404 错误，请检查 DNS 记录是否正确配置
 - 确保 CNAME 文件中只包含域名，不要包含 http:// 或 https:// 前缀
 - 如果使用了 CDN，可能需要额外的配置步骤
+
+## 使用子域名
+
+1. **在新项目中创建 CNAME 文件**：
+
+```bash
+# 在项目根目录创建 CNAME 文件
+echo "blog.shellingfordly.top" > CNAME
+```
+
+2. **在 DNS 设置中添加子域名记录**：
+
+在你的域名服务商（比如阿里云、Cloudflare 等）添加以下 DNS 记录：
+
+```
+类型: CNAME
+主机记录: blog  (子域名前缀)
+记录值: <你的用户名>.github.io
+TTL: 600
+```
+
+3. **在 GitHub 仓库设置中确认**：
+
+- 进入仓库的 Settings -> Pages
+- 确保 Custom domain 设置为 blog.shellingfordly.top
+- 等待 DNS 检查通过（可能需要几分钟到几小时）
+
+注意事项：
+
+- 每个 GitHub 仓库可以使用不同的子域名
+- 主域名和子域名可以同时使用
+- DNS 生效需要一定时间，请耐心等待
