@@ -16,6 +16,12 @@ interface Point {
 interface Particle extends Point {
   xa: number;
   ya: number;
+  size: number;
+  alpha: number;
+  speed: number;
+  color: string;    // 添加颜色属性
+  twinkle: number;  // 闪烁速度
+  glow: number;     // 光晕大小
 }
 
 let animationFrameId: number | null = null;
@@ -30,9 +36,9 @@ export function useMouseEffect() {
   let mousePosition: Point = { x: null, y: null, max: 20000 };
   const config: CanvasConfig = {
     zIndex: -1,
-    opacity: 0.4,
+    opacity: 0.2,
     color: isDark.value ? '255,255,255' : '0,0,0',
-    count: 99
+    count: 100
   };
 
   function createCanvas() {
@@ -54,58 +60,102 @@ export function useMouseEffect() {
     canvas.height = height;
   }
 
-
   function initParticles() {
     particles = [];
     for (let i = 0; i < config.count; i++) {
+      const size = Math.random() * 2 + 0.5; // 0.5-2.5px
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        xa: 2 * Math.random() - 1,
-        ya: 2 * Math.random() - 1,
+        xa: (Math.random() - 0.5) * 0.5,
+        ya: (Math.random() - 0.5) * 0.5,
+        size,
+        alpha: Math.random() * 0.5 + 0.5,
+        speed: Math.random() * 0.5 + 0.2,
+        color: isDark.value ? '255,255,255' : '0,0,0',
+        twinkle: Math.random() * 0.01,
+        glow: size * (Math.random() * 2 + 2),
         max: 6000
       });
     }
   }
 
   function drawParticles() {
-    if (!isActive) return;
-    if (!context) return;
+    if (!isActive || !context) return;
 
-    context.clearRect(0, 0, width, height);
+    // 创建渐变背景
+    context.fillStyle = isDark.value ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)';
+    context.fillRect(0, 0, width, height);
 
-    const allParticles = [...particles, mousePosition];
+    particles.forEach((p) => {
+      // 更新位置
+      p.x! += p.xa * p.speed;
+      p.y! += p.ya * p.speed;
 
-    particles.forEach((p, idx) => {
-      p.x! += p.xa;
-      p.y! += p.ya;
-      p.xa *= p.x! > width || p.x! < 0 ? -1 : 1;
-      p.ya *= p.y! > height || p.y! < 0 ? -1 : 1;
+      // 边界处理 - 让粒子在边界处缓慢消失并在对面重生
+      if (p.x! > width + 100) {
+        p.x = -50;
+        p.xa = Math.abs(p.xa);
+      } else if (p.x! < -100) {
+        p.x = width + 50;
+        p.xa = -Math.abs(p.xa);
+      }
+      if (p.y! > height + 100) {
+        p.y = -50;
+        p.ya = Math.abs(p.ya);
+      } else if (p.y! < -100) {
+        p.y = height + 50;
+        p.ya = -Math.abs(p.ya);
+      }
 
-      context?.fillRect(p.x! - 0.5, p.y! - 0.5, 1, 1);
+      // 闪烁效果
+      p.alpha = 0.5 + Math.sin(Date.now() * p.twinkle) * 0.3;
 
-      for (let i = idx + 1; i < allParticles.length; i++) {
-        const p2 = allParticles[i];
-        if (p2.x === null || p2.y === null) continue;
+      // 绘制光晕
+      const gradient = context!.createRadialGradient(
+        p.x!, p.y!, 0,
+        p.x!, p.y!, p.glow
+      );
+      gradient.addColorStop(0, `rgba(${p.color},${p.alpha * 0.3})`);
+      gradient.addColorStop(1, `rgba(${p.color},0)`);
 
-        const dx = p.x! - p2.x;
-        const dy = p.y! - p2.y;
-        const dist = dx * dx + dy * dy;
+      context!.beginPath();
+      context!.fillStyle = gradient;
+      context!.arc(p.x!, p.y!, p.glow, 0, Math.PI * 2);
+      context!.fill();
 
-        if (dist < p2.max) {
-          if (p2 === mousePosition && dist >= p2.max / 2) {
-            p.x! -= 0.03 * dx;
-            p.y! -= 0.03 * dy;
+      // 绘制星星核心
+      context!.beginPath();
+      context!.fillStyle = `rgba(${p.color},${p.alpha})`;
+      context!.arc(p.x!, p.y!, p.size, 0, Math.PI * 2);
+      context!.fill();
+
+      // 鼠标交互
+      if (mousePosition.x !== null && mousePosition.y !== null) {
+        const dx = p.x! - mousePosition.x;
+        const dy = p.y! - mousePosition.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 150) { // 增加影响范围
+          const angle = Math.atan2(dy, dx);
+          const force = (150 - dist) / 150;
+
+          // 添加轻微的吸引效果
+          const attraction = Math.sin(Date.now() * 0.001) * 0.5 + 0.5;
+          const forceX = Math.cos(angle) * force * (attraction ? 1 : -1);
+          const forceY = Math.sin(angle) * force * (attraction ? 1 : -1);
+
+          p.xa += forceX * 0.2;
+          p.ya += forceY * 0.2;
+
+          // 限制最大速度
+          const maxSpeed = 2;
+          const currentSpeed = Math.sqrt(p.xa * p.xa + p.ya * p.ya);
+          if (currentSpeed > maxSpeed) {
+            const scale = maxSpeed / currentSpeed;
+            p.xa *= scale;
+            p.ya *= scale;
           }
-
-          const ratio = (p2.max - dist) / p2.max;
-          if (!context) return;
-          context.beginPath();
-          context.lineWidth = ratio / 2;
-          context.strokeStyle = `rgba(${isDark.value ? '255,255,255' : '0,0,0'},${ratio + 0.2})`;
-          context.moveTo(p.x!, p.y!);
-          context.lineTo(p2.x, p2.y);
-          context.stroke();
         }
       }
     });
