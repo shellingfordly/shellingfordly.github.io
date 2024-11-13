@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useMouseEffect } from "~/hooks/useMouseEffect";
 const route = useRoute();
 const imageModel = ref<HTMLImageElement>();
+
+useMouseEffect();
 
 useEventListener("click", async (e) => {
   const path = Array.from(e.composedPath());
@@ -44,17 +47,10 @@ onKeyStroke("Escape", (e) => {
     <Footer v-if="route.path != '/travel'" />
   </main>
   <Transition name="fade">
-    <div
-      v-if="imageModel"
-      class="fixed top-0 left-0 right-0 bottom-0 z-500 backdrop-blur-7"
-      @click="imageModel = undefined"
-    >
+    <div v-if="imageModel" class="fixed top-0 left-0 right-0 bottom-0 z-500 backdrop-blur-7"
+      @click="imageModel = undefined">
       <div class="absolute top-0 left-0 right-0 bottom-0 bg-black:30 z--1" />
-      <img
-        :src="imageModel.src"
-        :alt="imageModel.alt"
-        class="w-full h-full object-contain"
-      />
+      <img :src="imageModel.src" :alt="imageModel.alt" class="w-full h-full object-contain" />
     </div>
   </Transition>
 </template>
