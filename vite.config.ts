@@ -84,10 +84,10 @@ export default defineConfig({
                 explicitTrigger: true,
               }) as any,
             ],
-          })
+          }) as any
         );
 
-        md.use(anchor, {
+        md.use(anchor as any, {
           slugify,
           permalink: anchor.permalink.linkInsideHeader({
             symbol: "#",
@@ -95,7 +95,7 @@ export default defineConfig({
           }),
         });
 
-        md.use(LinkAttributes, {
+        md.use(LinkAttributes as any, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
             target: "_blank",
@@ -110,7 +110,7 @@ export default defineConfig({
             '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
         });
 
-        md.use(GitHubAlerts);
+        md.use(GitHubAlerts as any);
       },
     }),
 
