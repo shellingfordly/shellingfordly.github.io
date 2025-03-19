@@ -26,6 +26,9 @@ import TOC from "markdown-it-table-of-contents";
 export default defineConfig({
   server: {
     port: 4000,
+    warmup: {
+      clientFiles: ["pages/**/*.md"],
+    }
   },
   build: {
     sourcemap: true,

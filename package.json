@@ -46,7 +46,7 @@
     "unplugin-icons": "^0.18.5",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-markdown": "^0.26.2",
-    "vite": "^5.4.10",
+    "vite": "^5.1.6",
     "vite-plugin-inspect": "^0.8.7",
     "vite-plugin-pages": "^0.32.3",
     "vite-ssg": "^0.23.8",
@@ -60,7 +60,7 @@
     "nprogress": "^0.2.0",
     "ol": "^7.5.2",
     "swiper": "^11.1.14",
-    "vue": "^3.5.12",
+    "vue": "^3.4.21",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.4.5",
     "vue-router-better-scroller": "^0.0.0"

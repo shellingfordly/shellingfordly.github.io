@@ -30,7 +30,7 @@ importers:
         specifier: ^11.1.14
         version: 11.1.14
       vue:
-        specifier: ^3.5.12
+        specifier: ^3.4.21
         version: 3.5.12(typescript@5.6.3)
       vue-lazyload:
         specifier: ^3.0.0
@@ -151,7 +151,7 @@ importers:
         specifier: ^0.26.2
         version: 0.26.2(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.6)(less@4.2.0)(terser@5.36.0))(webpack-sources@3.2.3)
       vite:
-        specifier: ^5.4.10
+        specifier: ^5.1.6
         version: 5.4.10(@types/node@22.8.6)(less@4.2.0)(terser@5.36.0)
       vite-plugin-inspect:
         specifier: ^0.8.7
