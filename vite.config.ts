@@ -19,6 +19,7 @@ import MarkdownItShiki from "@shikijs/markdown-it";
 import { rendererRich, transformerTwoslash } from "@shikijs/twoslash";
 import GitHubAlerts from "markdown-it-github-alerts";
 import { transformerToUnocss } from "shiki-unocss-transformer";
+import { SpanRed } from "./scripts/span-red"
 
 // @ts-expect-error missing types
 import TOC from "markdown-it-table-of-contents";
@@ -112,6 +113,8 @@ export default defineConfig({
           containerHeaderHtml:
             '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
         });
+
+		md.use(SpanRed as any);
 
         md.use(GitHubAlerts as any);
       },
