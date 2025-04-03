@@ -1441,3 +1441,9 @@ namespace Coffee.UIExtensions
    - "UIParticle"：保持视觉一致性，不更改 Transform 的 localScale，而是通过内部参数调整
 
 如果您希望保持 Transform 的 scale 值为 1，但仍然希望粒子效果正确显示，建议将 Auto Scaling Mode 改为 "UIParticle" 或 "None"（根据您的具体需求）。
+
+## UI Loop List View
+
+在ScrollView物体中，使用LoopList去生成滚动的子物体时，如果无法生成出item_1/2/3之类名称的子物体，并且ScrollView的内部还包含默认名称的子物体时，说明在UI Loop List View组件中的模版列表没有添加此物体。
+
+![ui_loop_list_view](./imgs/ui_loop_list_view.png)
